@@ -37,10 +37,10 @@ def merge(array, p, q, r):
 
 def merge_sort(array, p, r):
     if p < r:
-        mid = (p + r)//2
+        mid = (p + r) // 2
         print mid
         merge_sort(array, p, mid)
-        merge_sort(array, mid+1, r)
+        merge_sort(array, mid + 1, r)
         merge(array, p, mid, r)
 
     return array
