@@ -5,10 +5,8 @@ from copy import copy
 
 
 def merge(array, p, q, r):
-    #print array, p, q, r
     left_half = copy(array[p:q+1])
     right_half = copy(array[q+1:r+1])
-    #print "merging ", l,  " ", r
 
     i = 0
     j = 0
