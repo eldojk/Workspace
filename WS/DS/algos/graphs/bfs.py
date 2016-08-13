@@ -16,6 +16,7 @@ def do_bfs(graph, source):
     source.distance = 0
     source.predecessor = None
     q.put(source)
+    q.set_visited()
 
     while not q.empty():
         node = q.get()
@@ -25,5 +26,4 @@ def do_bfs(graph, source):
                 neighbour.predecessor = node
                 neighbour.distance = node.distance + 1
                 q.put(neighbour)
-
-        node.set_visited()
+                neighbour.set_visited()
