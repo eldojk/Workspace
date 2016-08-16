@@ -1,38 +1,34 @@
 """
 Given root of binary search tree and K as input, find K-th largest element in BST.
 """
-
-# TODO: This won't work when array has duplicates, eg: [1, 2, 2, 3, 3, 3], the second largest
-# TODO: element is '2' but this method will return '3'
-
-from DS.algos.graphs.bst import BST
-
-counter = 0
-pos = 0
-val = None
+from operator import lt
 
 
-def inorder_custom(root):
-    if root:
-        inorder_custom(root.left)
+class KthLargestElement(object):
+    def __init__(self, bst):
+        self.bst = bst
+        self.prev = self.bst.root
+        self.n = 1
+        self.k = None
+        self.kth_largest_node = None
 
-        global counter, pos, val
-        counter += 1
-        if counter == pos:
-            val = root.key
+    def custom_reverse_inorder(self, node):
+        if node:
+            self.custom_reverse_inorder(node.right)
 
-        inorder_custom(root.right)
+            if lt(node, self.prev):
+                self.n += 1
 
+            self.prev = node
 
-def nth_largest_element(array, n):
-    bst = BST()
-    for num in array:
-        bst.add(num)
+            if self.n == self.k:
+                self.kth_largest_node = node
 
-    global pos, val
+            self.custom_reverse_inorder(node.left)
 
-    # position of the nth smallest element in the sorted array
-    pos = len(array) - n + 1
+    def get_kth_largest_node(self, k):
+        self.__init__(self.bst)
+        self.k = k
+        self.custom_reverse_inorder(self.bst.root)
 
-    inorder_custom(bst.root)
-    return val
+        return self.kth_largest_node
