@@ -21,9 +21,9 @@ class GraphBuilder(object):
     """
     Build a graph using this
     """
-    def __init__(self, num_vertices):
+    def __init__(self, num_vertices, graph_node=Node):
         self.is_built = False
-        self.vertices = [Node(i) for i in range(num_vertices)]
+        self.vertices = [graph_node(i) for i in range(num_vertices)]
         self._graph = {v: [] for v in self.vertices}
 
     def connect(self, a, b):
@@ -36,7 +36,9 @@ class GraphBuilder(object):
         """
         if a != b:
             node_a = self.vertices[a]
-            self._graph[node_a] = self._graph[node_a] + [self.vertices[b]]
+            node_b = self.vertices[b]
+            self._graph[node_a] = self._graph[node_a] + [node_b]
+            self._graph[node_b] = self._graph[node_b] + [node_a]
             self.is_built = False
 
     def build(self):
@@ -52,6 +54,9 @@ class GraphBuilder(object):
 
         self.is_built = True
         return self._graph
+
+    def get_nodes_with_ids(self, ids):
+        return [node for node in self._graph.keys() if node.id in ids]
 
     def print_graph(self):
         """
