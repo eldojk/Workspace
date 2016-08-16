@@ -4,7 +4,7 @@ from DS.algos.graphs.connected_components import EnhancedNode, ConnectedComponen
 from DS.algos.graphs.graphs import GraphBuilder
 
 
-class BipartiteTestCase(TestCase):
+class ConnectedComponentsTestCase(TestCase):
     def setUp(self):
         self.graph_builder = GraphBuilder(13, graph_node=EnhancedNode)
         self.graph_builder.connect(0, 1)
