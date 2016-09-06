@@ -41,6 +41,20 @@ class GraphBuilder(object):
             self._graph[node_b] = self._graph[node_b] + [node_a]
             self.is_built = False
 
+    def directional_connect(self, a, b):
+        """
+        adds a->b connection
+
+        :param a:
+        :param b:
+        :return:
+        """
+        if a != b:
+            node_a = self.vertices[a]
+            node_b = self.vertices[b]
+            self._graph[node_a] = self._graph[node_a] + [node_b]
+            self.is_built = False
+
     def build(self):
         """
         Clean and build graph
