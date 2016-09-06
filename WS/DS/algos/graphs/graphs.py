@@ -16,6 +16,9 @@ class Node(object):
     def set_visited(self):
         self.is_visited = True
 
+    def __repr__(self):
+        return str(self.id)
+
 
 class GraphBuilder(object):
     """

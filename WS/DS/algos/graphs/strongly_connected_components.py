@@ -13,7 +13,7 @@ class EnhancedNode(Node):
 class StrongComponents(object):
     def __init__(self, graph):
         self.graph = graph
-        self.transpose = {}
+        self.transpose = {key: [] for key in self.graph.keys()}
         self.stack = []
         self.cc_num = 0
         self.pre_process_for_cc()
@@ -22,8 +22,7 @@ class StrongComponents(object):
         for vertex in self.graph:
             adj_vertices = self.graph[vertex]
             for adj_v in adj_vertices:
-                self.transpose[adj_v] = [vertex] if self.transpose.get(adj_v) is None else \
-                    self.transpose[adj_v].append(vertex)
+                self.transpose[adj_v].append(vertex)
 
     def _dfs_initial_visit(self, vertex):
         if not vertex.is_visited:
