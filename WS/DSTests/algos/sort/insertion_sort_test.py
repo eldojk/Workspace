@@ -9,9 +9,6 @@ class InsertionSortTestCase(TestCase):
         self.sorted_array = [1, 3, 4, 7, 9, 11]
         self.list_to_sort = [3, 2, 1, 5, 77, 54, 6, 9, 3, 2, 0, 8, 7]
 
-    def tearDown(self):
-        pass
-
     def test_insert_should_insert_correctly_normal(self):
         expected_output = self.sorted_array + [5]
         expected_output.sort()
