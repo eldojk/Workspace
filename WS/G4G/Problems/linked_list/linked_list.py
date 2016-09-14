@@ -6,6 +6,9 @@ class Node(object):
     def set_next(self, node):
         self.nxt = node
 
+    def __repr__(self):
+        return str(self.data)
+
 
 def create_linked_list(array):
     ll = [Node(data) for data in array]
