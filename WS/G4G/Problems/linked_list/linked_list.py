@@ -10,8 +10,8 @@ class Node(object):
         return str(self.data)
 
 
-def create_linked_list(array):
-    ll = [Node(data) for data in array]
+def create_linked_list(array, node=Node):
+    ll = [node(data) for data in array]
 
     for i in range(len(array) - 1):
         ll[i].nxt = ll[i + 1]

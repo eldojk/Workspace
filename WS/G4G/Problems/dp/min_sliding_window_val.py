@@ -19,14 +19,12 @@ from copy import copy
 def find_min_sliding_window(array, sw_size):
     sw_sizes = [[None for i in array] for j in range(sw_size)]
     sw_sizes[0] = copy(array)
-    print sw_sizes
 
     for i in range(1, sw_size):
         for j in range(i, len(array)):
-            print i, j
             sw_sizes[i][j] = min(sw_sizes[i - 1][j - 1], array[j])
 
     return sw_sizes[sw_size - 1]
 
 
-#print find_min_sliding_window([10, 20, 30, 50, 10, 70, 30, 50, 80, 20, 10], 3)
+print find_min_sliding_window([10, 20, 30, 50, 10, 70, 30, 50, 80, 20, 10], 3)
