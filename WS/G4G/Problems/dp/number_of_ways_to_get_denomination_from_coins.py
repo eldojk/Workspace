@@ -9,7 +9,7 @@ if amount=0 then just return empty set to make the change, so 1 way to make the 
 if no coins given, 0 ways to change the amount.
 
 Rest of the cases:
-For every coin we have an option to include it in solu­tion or exclude it.
+For every coin we have an option to include it in solution or exclude it.
 check if the coin value is less than or equal to the amount needed, if yes then we will find ways by including that coin
 and excluding that coin.
 Include the coin: reduce the amount by coin value and use the sub problem solution (amount-v[i]).
