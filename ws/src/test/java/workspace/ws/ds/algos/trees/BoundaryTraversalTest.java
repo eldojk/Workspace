@@ -1,5 +1,6 @@
-package workspace.ws.ds.trees;
+package workspace.ws.ds.algos.trees;
 
+import workspace.ws.ds.algos.trees.BoundaryTraversal;
 import workspace.ws.ds.data.BinaryTreeNode;
 import junit.framework.TestCase;
 
@@ -20,8 +21,8 @@ public class BoundaryTraversalTest extends TestCase{
 		traverser = new BoundaryTraversal(treeRoot);
 	}
 	
-	public void testTraversal() {
-		String result = traverser.printTraversal();
+	public void testBoundaryTraversal() {
+		String result = traverser.getTraversal();
 		String expectedOutput = "20 8 4 10 14 25 22 ";
 		assertTrue(result.equals(expectedOutput));
 	}

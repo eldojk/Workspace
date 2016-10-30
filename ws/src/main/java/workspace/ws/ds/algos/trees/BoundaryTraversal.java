@@ -1,4 +1,4 @@
-package workspace.ws.ds.trees;
+package workspace.ws.ds.algos.trees;
 
 import workspace.ws.ds.data.BinaryTreeNode;
 
@@ -53,7 +53,7 @@ public class BoundaryTraversal {
 			appendString(root.data);
 	}
 
-	public String printTraversal() {
+	public String getTraversal() {
 		printRoot(this.root);
 		printTopDownLeft(this.root);
 		printLeaves(this.root);
