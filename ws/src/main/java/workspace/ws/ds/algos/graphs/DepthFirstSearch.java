@@ -6,14 +6,14 @@ import java.util.Set;
 import workspace.ws.ds.data.Graph;
 
 public class DepthFirstSearch {
-	private Graph graph;
-	private Set<Integer> visited;
+	protected Graph graph;
+	protected Set<Integer> visited;
 
 	private boolean isVisited(int vertex) {
 		return visited.contains(vertex);
 	}
 
-	private void visit(int vertex) {
+	protected void visit(int vertex) {
 		visited.add(vertex);
 	}
 

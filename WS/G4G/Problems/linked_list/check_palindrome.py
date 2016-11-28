@@ -4,6 +4,7 @@ Stack, push elements to stack till mid, after that pop each element and compare 
 using first and slow runners : ref CITC 197)
 todo
 """
+from  G4G.Problems.linked_list.linked_list import create_linked_list
 
 
 def is_palindrome(node):
@@ -35,5 +36,15 @@ def is_palindrome(node):
     return True
 
 
-# l = create_linked_list([1, 2, 2, 2])
-# print is_palindrome(l)
+def is_palindrome_2(node, complementary_node):
+    isPal = True
+    if node.nxt:
+        isPal, complementary_node = is_palindrome_2(node.nxt, complementary_node)
+
+    if isPal and node.data == complementary_node.data:
+        return True, complementary_node.nxt
+
+    return False, complementary_node.nxt
+
+l = create_linked_list([1, 2, 2, 3, 4, 4, 2, 2, 1])
+print is_palindrome_2(l, l)

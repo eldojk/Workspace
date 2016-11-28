@@ -11,8 +11,8 @@ import java.util.Set;
  *
  */
 public class Graph {
-	private Set<Integer> vertices;
-	private HashMap<Integer, Set<Integer>> adjacencyList;
+	protected Set<Integer> vertices;
+	protected HashMap<Integer, Set<Integer>> adjacencyList;
 
 	public Graph() {
 		this.vertices = new HashSet<Integer>();
