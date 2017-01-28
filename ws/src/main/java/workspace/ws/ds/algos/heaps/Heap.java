@@ -4,6 +4,7 @@ package workspace.ws.ds.algos.heaps;
  * Implementation of a binary Heap
  * 
  * @author eldo.joseph
+ * TODO fix this
  *
  */
 public class Heap {
@@ -38,7 +39,7 @@ public class Heap {
 	 * @return
 	 */
 	private int getParent(int index) {
-		return (int) Math.floor(index);
+		return (int) Math.floor(index / 2);
 	}
 
 	/**
@@ -116,7 +117,6 @@ public class Heap {
 		++count;
 		heap[count] = element;
 		int index = count;
-
 		while (index > 1) {
 			int parent = getParent(index);
 
@@ -149,7 +149,7 @@ public class Heap {
 		while (index <= count) {
 			int child = getChild(index);
 
-			if (child != 0) {
+			if ((child != 0) && (!isHeapSatisfied(heap[index], heap[child]))) {
 				swap(index, child);
 				index = child;
 				continue;
