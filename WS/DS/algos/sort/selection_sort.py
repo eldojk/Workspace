@@ -1,5 +1,7 @@
 """
 No best/worst case. O(n2) is always taken regardless of how elements are arranged in the array
+
+Takes each element, finds the minimum element to its right less than the element and swap it.
 """
 
 
@@ -11,16 +13,15 @@ def find_min_index(array, start_index):
     :param start_index:
     :return:
     """
-    sliced_array = array[start_index:]
-    min_element = sliced_array[0]
-    min_index = 0
+    end_index = len(array) - 1
+    minimum = start_index
+    while start_index <= end_index:
+        if array[start_index] < array[minimum]:
+            minimum = start_index
 
-    for i in range(len(sliced_array)):
-        if sliced_array[i] < min_element:
-            min_element = sliced_array[i]
-            min_index = i
+        start_index += 1
 
-    return min_index + start_index
+    return minimum
 
 
 def swap(array, first_index, second_index):
@@ -47,5 +48,6 @@ def selection_sort(list_to_sort):
     for index in range(len(list_to_sort)):
         min_index = find_min_index(list_to_sort, index)
         swap(list_to_sort, index, min_index)
+        print list_to_sort
 
     return list_to_sort
