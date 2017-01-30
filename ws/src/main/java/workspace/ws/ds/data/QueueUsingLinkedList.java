@@ -17,7 +17,7 @@ public class QueueUsingLinkedList {
 	public String pop() {
 		if (head == null) {
 			throw new NullPointerException("No more elements");
-		}
+		} 
 
 		String elementToPop = head.data;
 

@@ -1,4 +1,4 @@
-package workspace.ws;
+package workspace.ws.ds.algos.data;
 
 public class Test {
 

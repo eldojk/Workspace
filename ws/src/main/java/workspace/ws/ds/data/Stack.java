@@ -25,4 +25,12 @@ public class Stack {
 	public boolean isEmpty() {
 		return elements.size() == 0;
 	}
+	
+	public Object peek() {
+		if (elements.size() < 1) {
+			throw new NullPointerException("No more elements");
+		}
+		
+		return elements.get(elements.size() - 1);
+	}
 }
