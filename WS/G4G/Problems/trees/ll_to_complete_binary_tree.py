@@ -13,10 +13,11 @@ def get_node(array, index):
     return Node(array[index])
 
 
-def create_binary_tree(array, index):
-    root = get_node(array, index)
+def create_binary_tree(array):
+    root = get_node(array, 0)
     q = Queue()
     q.put(root)
+    index = 0
     index += 1
 
     while not q.empty():
@@ -36,7 +37,7 @@ def create_binary_tree(array, index):
 
     return root
 
-# r = create_binary_tree([1, 2, 3, 4, 5, 6, 7], 0)
+# r = create_binary_tree([1, 2, 3, 4, 5, 6, 7])
 # print r
 # print r.left
 # print r.right
