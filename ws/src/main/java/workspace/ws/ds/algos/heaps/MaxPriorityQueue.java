@@ -1,15 +1,15 @@
 package workspace.ws.ds.algos.heaps;
 
 public class MaxPriorityQueue<Key extends Comparable<Key>> {
-	private Key[] pq;
-	private int N;
+	protected Key[] pq;
+	protected int N;
 
 	@SuppressWarnings("unchecked")
 	public MaxPriorityQueue(int capacity) {
 		pq = (Key[]) new Comparable[capacity + 1];
 	}
 
-	private boolean less(int i, int j) {
+	protected boolean less(int i, int j) {
 		if ((j >= pq.length) || (pq[j] == null)) {
 			return false;
 		}
@@ -18,7 +18,7 @@ public class MaxPriorityQueue<Key extends Comparable<Key>> {
 		return pq[i].compareTo(pq[j]) < 0;
 	}
 
-	private void exchange(int i, int j) {
+	protected void exchange(int i, int j) {
 		Key temp = pq[i];
 		pq[i] = pq[j];
 		pq[j] = temp;
@@ -62,7 +62,7 @@ public class MaxPriorityQueue<Key extends Comparable<Key>> {
 		swim(N);
 	}
 
-	public Key deleteMax() {
+	public Key deleteTop() {
 		Key max = pq[1];
 		exchange(1, N);
 		N--;

@@ -5,6 +5,7 @@ hint: pair smallest with largest and so on
 """
 from copy import copy
 
+
 def rearrange(array):
     array.sort()
     rev_array = copy(array)
