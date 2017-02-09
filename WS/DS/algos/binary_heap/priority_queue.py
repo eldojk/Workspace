@@ -4,7 +4,7 @@ MIN_PQ =1
 
 class PriorityQueue(object):
     def __init__(self, size, type):
-        self.array = [None for i in range(size)]
+        self.array = [None for i in range(size + 1)]
         self.N = 0
         self.type = type
 
@@ -41,6 +41,12 @@ class PriorityQueue(object):
 
     def is_empty(self):
         self.N == 0
+
+    def get_size(self):
+        return self.N
+
+    def get_top(self):
+        return self.array[1]
 
     def insert(self, item):
         self.N += 1

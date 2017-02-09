@@ -55,6 +55,10 @@ public class MaxPriorityQueue<Key extends Comparable<Key>> {
 	public boolean isEmpty() {
 		return N == 0;
 	}
+	
+	public int getSize() {
+		return N;
+	}
 
 	public void insert(Key key) {
 		N++;
