@@ -4,7 +4,7 @@ http://www.geeksforgeeks.org/construct-tree-from-given-inorder-and-preorder-trav
 Inorder sequence: D B E A F C
 Preorder sequence: A B D E C F
 """
-from vertical_sum import Node
+from G4G.Problems.bst.vertical_sum import Node
 
 
 def search(root_val, inorder, start, end):
