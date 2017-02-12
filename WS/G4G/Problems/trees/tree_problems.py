@@ -114,6 +114,7 @@ def convert_to_mirror(root):
     convert_to_mirror(root.left)
     convert_to_mirror(root.right)
 
+
 t = get_std_tree()
 convert_to_mirror(t)
 print t, t.left, t.right, t.right.left, t.right.right
