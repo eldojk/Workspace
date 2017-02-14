@@ -13,10 +13,18 @@ import java.util.Set;
 public class Graph {
 	protected Set<Integer> vertices;
 	protected HashMap<Integer, Set<Integer>> adjacencyList;
+	protected int V;
+	protected int E;
 
 	public Graph() {
 		this.vertices = new HashSet<Integer>();
 		this.adjacencyList = new HashMap<Integer, Set<Integer>>();
+	}
+
+	public Graph(int v) {
+		this.vertices = new HashSet<Integer>();
+		this.adjacencyList = new HashMap<Integer, Set<Integer>>();
+		initializeVertices(v);
 	}
 
 	/**
@@ -29,6 +37,8 @@ public class Graph {
 			vertices.add(i);
 			adjacencyList.put(i, new HashSet<Integer>());
 		}
+
+		V = numVertices;
 	}
 
 	/**
@@ -38,6 +48,15 @@ public class Graph {
 	 */
 	public Set<Integer> getVertices() {
 		return vertices;
+	}
+
+	/**
+	 * Get number of vertices
+	 * 
+	 * @return
+	 */
+	public int V() {
+		return V;
 	}
 
 	/**

@@ -7,8 +7,7 @@ public class BreadthFirstSearchTest extends TestCase {
 	private Graph graph;
 
 	protected void setUp() {
-		graph = new Graph();
-		graph.initializeVertices(8);
+		graph = new Graph(8);
 		graph.addEdge(0, 1);
 		graph.addEdge(0, 7);
 		graph.addEdge(0, 2);
@@ -27,7 +26,7 @@ public class BreadthFirstSearchTest extends TestCase {
 
 		bfsUtil.breadthFirstSearch(0);
 
-		assertEquals(graph.getVertices().size(), bfsUtil.getVisitedVertices()
-				.size());
+		assertEquals(graph.getVertices().size(),
+				bfsUtil.getVisitedVertices().length);
 	}
 }

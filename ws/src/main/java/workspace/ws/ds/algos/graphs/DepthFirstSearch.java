@@ -1,37 +1,62 @@
 package workspace.ws.ds.algos.graphs;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import workspace.ws.ds.data.Graph;
+import workspace.ws.ds.data.Stack;
 
 public class DepthFirstSearch {
 	protected Graph graph;
-	protected Set<Integer> visited;
+	protected boolean[] visited;
+	private int[] edgeTo;
+	private int source;
 
 	private boolean isVisited(int vertex) {
-		return visited.contains(vertex);
+		return visited[vertex];
 	}
 
 	protected void visit(int vertex) {
-		visited.add(vertex);
+		visited[vertex] = true;
 	}
 
 	public DepthFirstSearch(Graph graph) {
 		this.graph = graph;
-		this.visited = new HashSet<Integer>();
+		this.visited = new boolean[graph.V()];
+		this.edgeTo = new int[graph.V()];
+
+		for (int i = 0; i < graph.V(); i++)
+			edgeTo[i] = -1;
 	}
 
 	public void depthFirstSearch(int source) {
 		for (int nieghbour : graph.adj(source)) {
 			if (!isVisited(nieghbour)) {
 				visit(nieghbour);
+				edgeTo[nieghbour] = source;
 				depthFirstSearch(nieghbour);
 			}
 		}
+
+		this.source = source;
 	}
 
-	public Set<Integer> getVisitedVertices() {
+	public boolean[] getVisitedVertices() {
 		return visited;
+	}
+
+	public boolean hasPathTo(int vertex) {
+		return visited[vertex];
+	}
+
+	public Stack getPathTo(int vertex) {
+		if (!hasPathTo(vertex)) {
+			return null;
+		}
+
+		Stack s = new Stack();
+		for (int v = vertex; v != source; v = edgeTo[v]) {
+			s.push(v);
+		}
+		s.push(source);
+
+		return s;
 	}
 }
