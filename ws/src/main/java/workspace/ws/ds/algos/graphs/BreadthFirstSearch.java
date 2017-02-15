@@ -27,11 +27,10 @@ public class BreadthFirstSearch {
 
 		while (!queue.isEmpty()) {
 			int vertex = (Integer) queue.pop();
+			visit(vertex);
 
-			if (!isVisited(vertex)) {
-				visit(vertex);
-
-				for (int nieghbour : graph.adj(vertex)) {
+			for (int nieghbour : graph.adj(vertex)) {
+				if (!isVisited(nieghbour)) {
 					queue.push(nieghbour);
 				}
 			}

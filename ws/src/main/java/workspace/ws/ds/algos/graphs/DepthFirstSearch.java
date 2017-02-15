@@ -3,6 +3,12 @@ package workspace.ws.ds.algos.graphs;
 import workspace.ws.ds.data.Graph;
 import workspace.ws.ds.data.Stack;
 
+/**
+ * This algorithm works correctly for digraphs as well
+ * without any modification
+ * 
+ * @author eldo.joseph
+ */
 public class DepthFirstSearch {
 	protected Graph graph;
 	protected boolean[] visited;
