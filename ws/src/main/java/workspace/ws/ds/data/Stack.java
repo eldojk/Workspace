@@ -9,6 +9,12 @@ public class Stack {
 	public Stack() {
 		elements = new ArrayList<Object>();
 	}
+	
+	public void printStack() {
+		for (Object element : elements) {
+			System.out.println(element);
+		}
+	}
 
 	public void push(Object object) {
 		elements.add(object);
