@@ -16,7 +16,6 @@ public class SortedStackTest extends TestCase{
 
 		@Override
 		public int compareTo(A o) {
-			System.out.println(data + " " + o.data);
 			if (this.data > o.data) {
 				return 1;
 			} else if (this.data < o.data) {

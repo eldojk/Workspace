@@ -17,6 +17,8 @@ Output: The given BST is converted to following Binary Tree
           20     13
 """
 
+from sys import maxint
+
 sm = 0
 
 
@@ -41,3 +43,29 @@ r.right = Node(13)
 print get_inorder_array(r, [])
 root = convert(r)
 print get_inorder_array(root, [])
+
+
+def is_dead_end(root, mini, maxi):
+    if abs(maxi - mini) == 1:
+        return True
+
+    if root is None:
+        return False
+
+    left_end = is_dead_end(root.left, mini, root.data)
+    right_end = is_dead_end(root.right, root.data, maxi)
+
+    if left_end and right_end:
+        print root.data
+
+    return left_end and right_end
+
+
+r = Node(8)
+r.left = Node(5)
+r.right = Node(9)
+r.left.left = Node(2)
+r.left.right = Node(7)
+r.left.left.left = Node(1)
+
+is_dead_end(r, 0, maxint)
