@@ -44,6 +44,10 @@ print get_inorder_array(r, [])
 root = convert(r)
 print get_inorder_array(root, [])
 
+"""
+http://www.geeksforgeeks.org/check-whether-bst-contains-dead-end-not/
+"""
+
 
 def is_dead_end(root, mini, maxi):
     if abs(maxi - mini) == 1:
