@@ -4,7 +4,6 @@ http://www.geeksforgeeks.org/find-pairs-with-given-sum-such-that-pair-elements-l
 ^ check the sol
 """
 
-
 def find_sum_pair(array1, array2, sum_to_find):
     i = 0
     j = len(array2) - 1
@@ -19,3 +18,7 @@ def find_sum_pair(array1, array2, sum_to_find):
 
 
 print find_sum_pair([1, 4, 6, 7, 9], [2, 3, 4, 5, 8], 7)
+
+
+
+

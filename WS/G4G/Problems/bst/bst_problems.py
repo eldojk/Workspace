@@ -73,3 +73,79 @@ r.left.right = Node(7)
 r.left.left.left = Node(1)
 
 is_dead_end(r, 0, maxint)
+
+"""
+http://www.geeksforgeeks.org/check-if-given-sorted-sub-sequence-exists-in-binary-search-tree/
+"""
+
+current_index = 0
+
+
+def check_subsequence(root, array):
+    global current_index
+    if root.left:
+        check_subsequence(root.left, array)
+
+    if current_index < len(array) and root.data == array[current_index]:
+        current_index += 1
+
+    if root.right:
+        check_subsequence(root.right, array)
+
+
+root = Node(8)
+root.left = Node(3)
+root.right = Node(10)
+root.left.left = Node(1)
+root.left.right = Node(6)
+root.right.right = Node(14)
+root.left.right.left = Node(4)
+root.left.right.right = Node(7)
+root.right.right.left = Node(13)
+
+array = [4, 6, 8, 14]
+check_subsequence(root, array)
+print current_index == len(array)
+
+current_index = False
+array = [1, 2, 3, 8]
+check_subsequence(root, array)
+print current_index == len(array)
+
+
+"""
+http://www.geeksforgeeks.org/in-place-convert-bst-into-a-min-heap/
+
+Check sol. -> this one cobnverts bst to sorted ll
+"""
+
+
+def convert_to_sorted_linked_list(root, head):
+    if root is None:
+        return head
+
+    head = convert_to_sorted_linked_list(root.right, head)
+
+    root.right = head
+
+    if head is not None:
+        head.left = None
+
+    head = root
+
+    head = convert_to_sorted_linked_list(root.left, head)
+
+    return head
+
+
+root = Node(5)
+root.left = Node(3)
+root.right = Node(7)
+root.left.left = Node(1)
+root.left.right = Node(4)
+root.right.right = Node(8)
+
+h = convert_to_sorted_linked_list(root, None)
+while h is not None:
+    print h,
+    h = h.right
