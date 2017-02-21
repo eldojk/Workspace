@@ -5,13 +5,14 @@ import java.util.List;
 
 public class EdgeWeightedGraph {
 	private int V;
-	private List<Edge>[] adj;
+	private List<List<Edge>> adj;
 	private List<Edge> edges;
 
-	@SuppressWarnings("unchecked")
 	public EdgeWeightedGraph(int vertices) {
 		this.V = vertices;
-		adj = (List<Edge>[]) new ArrayList[vertices];
+		adj = new ArrayList<List<Edge>>();
+		for (int i = 0; i < vertices; i++)
+			adj.add(new ArrayList<Edge>());
 		edges = new ArrayList<Edge>();
 	}
 
@@ -19,8 +20,8 @@ public class EdgeWeightedGraph {
 		int v = edge.either();
 		int w = edge.other(v);
 
-		adj[v].add(edge);
-		adj[w].add(edge);
+		adj.get(v).add(edge);
+		adj.get(w).add(edge);
 		
 		edges.add(edge);
 	}
@@ -38,6 +39,6 @@ public class EdgeWeightedGraph {
 	}
 
 	public List<Edge> adj(int vertex) {
-		return adj[vertex];
+		return adj.get(vertex);
 	}
 }
