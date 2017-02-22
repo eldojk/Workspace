@@ -1,2 +1,2 @@
 # WS
-Practise problems
+Practice problems
