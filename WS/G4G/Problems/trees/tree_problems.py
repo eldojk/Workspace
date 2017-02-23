@@ -1,4 +1,5 @@
 from DS.algos.graphs.binary_tree import Node
+from G4G.Problems.stacks.stack import Stack
 
 
 def get_std_tree():
@@ -118,3 +119,27 @@ def convert_to_mirror(root):
 t = get_std_tree()
 convert_to_mirror(t)
 print t, t.left, t.right, t.right.left, t.right.right
+
+
+def iterative_in_order(root):
+    current = root
+    s = Stack()
+    done = False
+
+    while not done:
+        if current is not None:
+            s.push(current)
+            current = current.left
+
+        else:
+            if not s.is_empty():
+                current = s.pop()
+                print current,
+
+                current = current.right
+            else:
+                done = True
+
+
+t = get_std_tree()
+iterative_in_order(t)
