@@ -12,26 +12,29 @@ def double_node(node):
     l_node = Node(node.data)
     l_node.left = lft
     node.left = l_node
+    return node
 
 
 def double_tree(root):
-    if root:
-        left = root.left
-        double_node(root)
+    if root is None:
+        return None
 
-        double_tree(left)
-        double_tree(root.right)
+    root.left = double_tree(root.left)
+    root.right = double_tree(root.right)
+
+    return double_node(root)
 
 
-# root = Node(1)
-# root.left = Node(2)
-# root.right = Node(3)
-#
-# double_tree(root)
-#
-# print root
-# print root.left
-# print root.right
-# print root.right.left
-# print root.left.left
-# print root.left.left.left
+if __name__ == '__main__':
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+
+    double_tree(root)
+
+    print root
+    print root.left
+    print root.right
+    print root.right.left
+    print root.left.left
+    print root.left.left.left

@@ -4,6 +4,7 @@ of all levels.
 
 http://www.geeksforgeeks.org/maximum-width-of-a-binary-tree/
 """
+from G4G.Problems.bst.vertical_sum import Node
 
 
 def populate_element_sizes(root, elements_at_levels, level):
@@ -21,13 +22,14 @@ def max_width(root):
     return max(elements_at_levels)
 
 
-# root = Node(1)
-# root.left = Node(2)
-# root.right = Node(3)
-# root.left.left = Node(4)
-# root.left.right = Node(5)
-# root.right.right = Node(8)
-# root.right.right.left = Node(6)
-# root.right.right.right = Node(7)
-#
-# print max_width(root)
+if __name__ == '__main__':
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
+    root.right.right = Node(8)
+    root.right.right.left = Node(6)
+    root.right.right.right = Node(7)
+
+    print max_width(root)

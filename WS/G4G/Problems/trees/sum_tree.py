@@ -19,6 +19,7 @@ should be changed to
 
 http://www.geeksforgeeks.org/convert-a-given-tree-to-sum-tree/
 """
+from G4G.Problems.bst.vertical_sum import Node
 
 
 def get_sum_tree(root):
@@ -45,13 +46,45 @@ def calculate_sum(root):
     return sum_of_children + value
 
 
-# root = Node(10)
-# root.left = Node(-2)
-# root.right = Node(6)
-# root.left.left = Node(8)
-# root.left.right = Node(-4)
-# root.right.left = Node(7)
-# root.right.right = Node(5)
-#
-# r = get_sum_tree(root)
-# print r
+def is_leaf(node):
+    return node.left is None and node.right is None
+
+
+if __name__ == '__main__':
+    root = Node(10)
+    root.left = Node(-2)
+    root.right = Node(6)
+    root.left.left = Node(8)
+    root.left.right = Node(-4)
+    root.right.left = Node(7)
+    root.right.right = Node(5)
+
+    r = get_sum_tree(root)
+    print r
+
+
+def is_sum_tree(root):
+    if root is None:
+        return True, 0
+
+    is_left_st, left_sum = is_sum_tree(root.left)
+    is_right_st, right_sum = is_sum_tree(root.right)
+
+    if is_leaf(root):
+        return True, root.data
+
+    is_sum_tr = (is_left_st and is_right_st and left_sum + right_sum == root.data)
+    return is_sum_tr, left_sum + right_sum + root.data
+
+
+if __name__ == '__main__':
+    root = Node(26)
+    root.left = Node(10)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(6)
+    root.right.right = Node(3)
+
+    print is_sum_tree(root)
+
+

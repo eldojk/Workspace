@@ -2,6 +2,10 @@ from DS.algos.graphs.binary_tree import Node
 from G4G.Problems.stacks.stack import Stack
 
 
+def is_leaf(node):
+    return node.left is None and node.right is None
+
+
 def get_std_tree():
     root = Node(1)
     root.left = Node(2)
@@ -143,3 +147,71 @@ def iterative_in_order(root):
 
 t = get_std_tree()
 iterative_in_order(t)
+print ''
+
+
+def root_to_leaf_path_is_sum_k(root, k, curr_sum, curr_path):
+    if root is None:
+        return
+
+    curr_sum += root.data
+    curr_path.append(root)
+
+    root_to_leaf_path_is_sum_k(root.left, k, curr_sum, curr_path)
+    root_to_leaf_path_is_sum_k(root.right, k, curr_sum, curr_path)
+
+    if is_leaf(root) and curr_sum == k:
+        print curr_path
+
+    curr_path.pop()
+
+
+t = get_child_sum_tree()
+root_to_leaf_path_is_sum_k(t, 21, 0, [])
+root_to_leaf_path_is_sum_k(t, 23, 0, [])
+root_to_leaf_path_is_sum_k(t, 14, 0, [])
+
+"""
+http://www.geeksforgeeks.org/check-if-a-binary-tree-is-subtree-of-another-binary-tree/
+"""
+
+
+def is_same_tree(root1, root2):
+    if root1 is None and root2 is None:
+        return True
+
+    if root1 is None or root2 is None:
+        return False
+
+    if root1.data != root2.data:
+        return False
+
+    return is_same_tree(root1.left, root2.left) and is_same_tree(root1.right, root2.right)
+
+
+def is_subtree(root1, root2):
+    if root1:
+        if root1.data == root2.data:
+            return is_same_tree(root1, root2)
+
+        is_found_left = is_subtree(root1.left, root2)
+        is_found_right = is_subtree(root1.right, root2)
+
+        return is_found_left or is_found_right
+
+
+if __name__ == '__main__':
+    root1 = Node(26)
+    root1.left = Node(10)
+    root1.right = Node(3)
+    root1.left.left = Node(4)
+    root1.left.right = Node(6)
+    root1.left.left.right = Node(30)
+    root1.right.right = Node(3)
+
+    root2 = Node(10)
+    root2.left = Node(4)
+    root2.right = Node(6)
+    root2.left.right = Node(30)
+
+    print is_subtree(root1, root2)
