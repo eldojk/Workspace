@@ -145,6 +145,7 @@ def iterative_in_order(root):
                 done = True
 
 
+print ''
 t = get_std_tree()
 iterative_in_order(t)
 print ''
@@ -166,6 +167,7 @@ def root_to_leaf_path_is_sum_k(root, k, curr_sum, curr_path):
     curr_path.pop()
 
 
+print ''
 t = get_child_sum_tree()
 root_to_leaf_path_is_sum_k(t, 21, 0, [])
 root_to_leaf_path_is_sum_k(t, 23, 0, [])
@@ -201,6 +203,7 @@ def is_subtree(root1, root2):
 
 
 if __name__ == '__main__':
+    print ''
     root1 = Node(26)
     root1.left = Node(10)
     root1.right = Node(3)
@@ -215,3 +218,77 @@ if __name__ == '__main__':
     root2.left.right = Node(30)
 
     print is_subtree(root1, root2)
+
+
+"""
+http://www.geeksforgeeks.org/construct-binary-tree-from-inorder-traversal/
+"""
+def find_max_index(array, start, end):
+    _max = array[start]
+    max_index = start
+    while start <= end:
+        if array[start] > _max:
+            _max = array[start]
+            max_index = start
+
+        start += 1
+
+    return max_index
+
+
+def special_binary_tree_from_inorder(array, start, end):
+    if start > end:
+        return None
+
+    max_index = find_max_index(array, start, end)
+    root = Node(array[max_index])
+    root.left = special_binary_tree_from_inorder(array, start, max_index - 1)
+    root.right = special_binary_tree_from_inorder(array, max_index + 1, end)
+
+    return root
+
+
+if __name__ == '__main__':
+    print ''
+    ar = [5, 10, 40, 30, 28]
+    r = special_binary_tree_from_inorder(ar, 0, 4)
+
+    print r
+    print r.left, r.right
+    print r.left.left, r.right.right
+
+
+"""
+http://www.geeksforgeeks.org/construct-a-special-tree-from-given-preorder-traversal/
+"""
+
+INDEX = 0
+
+
+def get_spl_binary_tree_from_pre_order(pre_order, preLN):
+    global INDEX
+    if INDEX >= len(pre_order):
+        return None
+
+    root = Node(pre_order[INDEX])
+    is_a_leaf = preLN[INDEX] == 'L'
+    INDEX += 1
+
+    if is_a_leaf:
+        return root
+
+    root.left = get_spl_binary_tree_from_pre_order(pre_order, preLN)
+    root.right = get_spl_binary_tree_from_pre_order(pre_order, preLN)
+    return root
+
+
+if __name__ == '__main__':
+    print ''
+    pre_order = [10, 30, 20, 5, 15]
+    preLN = ['N', 'N', 'L', 'L', 'L']
+
+    r = get_spl_binary_tree_from_pre_order(pre_order, preLN)
+
+    print r
+    print r.left, r.right
+    print r.left.left, r.left.right
