@@ -1,3 +1,5 @@
+from Queue import Queue
+
 from DS.algos.graphs.binary_tree import Node
 from G4G.Problems.stacks.stack import Stack
 
@@ -219,10 +221,11 @@ if __name__ == '__main__':
 
     print is_subtree(root1, root2)
 
-
 """
 http://www.geeksforgeeks.org/construct-binary-tree-from-inorder-traversal/
 """
+
+
 def find_max_index(array, start, end):
     _max = array[start]
     max_index = start
@@ -256,7 +259,6 @@ if __name__ == '__main__':
     print r
     print r.left, r.right
     print r.left.left, r.right.right
-
 
 """
 http://www.geeksforgeeks.org/construct-a-special-tree-from-given-preorder-traversal/
@@ -292,3 +294,73 @@ if __name__ == '__main__':
     print r
     print r.left, r.right
     print r.left.left, r.left.right
+
+"""
+http://www.geeksforgeeks.org/reverse-level-order-traversal/
+"""
+
+
+def reverse_level_order(root):
+    q = Queue()
+    s = Stack()
+
+    q.put(root)
+
+    while not q.empty():
+        node = q.get()
+
+        s.push(node)
+
+        if node.right:
+            q.put(node.right)
+
+        if node.left:
+            q.put(node.left)
+
+    return s
+
+
+def print_reverse_level_order(stack):
+    while not stack.is_empty():
+        print stack.pop(),
+
+
+if __name__ == '__main__':
+    print ''
+    r = get_std_tree()
+    print_reverse_level_order(reverse_level_order(r))
+    print ''
+
+"""
+http://www.geeksforgeeks.org/linked-complete-binary-tree-its-creation/
+"""
+
+
+def create_linked_binary_tree(array):
+    q = Queue()
+    i = 0
+    root = Node(array[i])
+    q.put(root)
+    max_index = len(array) - 1
+    i += 1
+
+    while not q.empty():
+        node = q.get()
+
+        if i <= max_index:
+            node.left = Node(array[i])
+            i += 1
+            q.put(node.left)
+
+        if i <= max_index:
+            node.right = Node(array[i])
+            i += 1
+            q.put(node.right)
+
+    return root
+
+
+if __name__ == '__main__':
+    print ''
+    root = create_linked_binary_tree([1, 2, 3, 4, 5])
+    print root, root.left, root.right, root.left.left, root.left.right

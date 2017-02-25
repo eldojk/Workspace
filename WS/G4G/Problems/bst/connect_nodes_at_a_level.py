@@ -54,8 +54,7 @@ def bfs_with_levels(root):
 
 
 def connect_nodes_at_levels(queue):
-    if not queue.empty():
-        left = queue.get()
+    left = queue.get()
 
     while not queue.empty():
         right = queue.get()
@@ -72,15 +71,15 @@ def connect_nodes(root):
     connect_nodes_at_levels(queue)
 
 
-    # if __name__=='__main__':
-    #     root = Node('A')
-    #     root.left = Node('B')
-    #     root.right = Node('C')
-    #     root.left.left = Node('D')
-    #     root.left.right = Node('E')
-    #     root.right.right = Node('F')
-    #
-    #     connect_nodes(root)
-    #     print root.left.nxt
-    #     print root.left.left.nxt
-    #     print root.left.right.nxt
+if __name__=='__main__':
+    root = Node('A')
+    root.left = Node('B')
+    root.right = Node('C')
+    root.left.left = Node('D')
+    root.left.right = Node('E')
+    root.right.right = Node('F')
+
+    connect_nodes(root)
+    print root.left.nxt
+    print root.left.left.nxt
+    print root.left.right.nxt
