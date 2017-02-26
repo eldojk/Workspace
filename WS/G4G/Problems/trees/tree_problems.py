@@ -153,6 +153,27 @@ iterative_in_order(t)
 print ''
 
 
+def iterative_pre_order(root):
+    s = Stack()
+    s.push(root)
+
+    while not s.is_empty():
+        node = s.pop()
+        print node,
+
+        if node.left:
+            s.push(node.right)
+
+        if node.right:
+            s.push(node.left)
+
+
+print ''
+t = get_std_tree()
+iterative_pre_order(t)
+print ''
+
+
 def root_to_leaf_path_is_sum_k(root, k, curr_sum, curr_path):
     if root is None:
         return
@@ -364,3 +385,48 @@ if __name__ == '__main__':
     print ''
     root = create_linked_binary_tree([1, 2, 3, 4, 5])
     print root, root.left, root.right, root.left.left, root.left.right
+
+
+
+"""
+http://www.geeksforgeeks.org/foldable-binary-trees/
+"""
+
+
+def is_foldable_binary_tree(root):
+    if root is None:
+        return True
+
+    return is_foldable_bt(root.left, root.right)
+
+
+def is_foldable_bt(root1, root2):
+    """
+    check if trees are structural mirrors of each other
+
+    :param root1:
+    :param root2:
+    :return:
+    """
+    if root1 is None and root2 is None:
+        return True
+
+    if root1 is None or root2 is None:
+        return False
+
+    return is_foldable_bt(root1.left, root2.right) and is_foldable_bt(root1.right, root2.left)
+
+
+if __name__ == '__main__':
+    print ''
+
+    root = Node(10)
+    root.left = Node(7)
+    root.right = Node(15)
+    root.left.right = Node(9)
+
+    print is_foldable_binary_tree(root)
+
+    root.right.left = Node(11)
+
+    print is_foldable_binary_tree(root)
