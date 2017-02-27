@@ -28,6 +28,7 @@ def vertical_sum(root):
 
     print dict
 
+
 # root = Node(1)
 # root.left = Node(2)
 # root.right = Node(3)
