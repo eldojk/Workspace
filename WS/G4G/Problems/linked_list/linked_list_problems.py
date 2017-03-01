@@ -1,4 +1,5 @@
-from G4G.Problems.linked_list.linked_list import create_linked_list, print_ll, Node
+from G4G.Problems.linked_list.linked_list import create_linked_list, print_ll, create_circular_linked_list, \
+    print_circular_ll, Node
 
 
 def print_middle(node):
@@ -187,3 +188,191 @@ def remove_duplicates_unsorted(node):
 start = create_linked_list([11, 33, 11, 4, 33, 5, 4])
 new_ll = remove_duplicates_unsorted(start)
 print_ll(new_ll)
+print ''
+
+
+"""
+http://www.geeksforgeeks.org/split-a-circular-linked-list-into-two-halves/
+"""
+
+
+def calc_len_of_cll(head):
+    hd = head
+    n = 1
+    while head.nxt != hd:
+        n += 1
+        head = head.nxt
+
+    return n
+
+
+def split_list(dll):
+    head = dll
+    n = calc_len_of_cll(dll)
+
+    head1 = head
+    head2 = None
+    tail1 = None
+    tail2 = None
+    half_len = n / 2
+    i = 1
+
+    while i < n:
+        head = head.nxt
+        i += 1
+
+        if i == half_len:
+            head2 = head.nxt
+            tail1 = head
+
+        if i == n:
+            tail2 = head
+
+    tail1.nxt = head1
+    tail2.nxt = head2
+
+    return head1, head2
+
+
+hd = create_circular_linked_list([1, 2, 3, 4])
+h1, h2 = split_list(hd)
+print_circular_ll(h1)
+print_circular_ll(h2)
+
+
+"""
+http://www.geeksforgeeks.org/sorted-insert-for-circular-linked-list/
+"""
+def get_tail_cll(head):
+    h = head
+    while head.nxt != h:
+        head = head.nxt
+
+    return head
+
+
+def insert_at_beg_of_cll(head, num):
+    tail = get_tail_cll(head)
+
+    node = Node(num)
+    tail.nxt = node
+    node.nxt = head
+    return node
+
+
+def insert_at_end_of_cll(num, head):
+    tail = get_tail_cll(head)
+
+    node = Node(num)
+    tail.nxt = node
+    node.nxt = head
+    return head
+
+
+def sorted_insert_to_cll(head, num):
+    curr = head.nxt
+    start = curr
+    prev = head
+
+    if num <= head.data:
+        return insert_at_beg_of_cll(head, num)
+
+    while True:
+        if num <= curr.data:
+            print curr, prev
+            node = Node(num)
+            prev.nxt = node
+            node.nxt = curr
+            break
+
+        prev = curr
+        curr = curr.nxt
+
+        if start == curr:
+            head = insert_at_end_of_cll(num, head)
+            break
+
+    return head
+
+
+h1 = sorted_insert_to_cll(create_circular_linked_list([1, 2, 4, 5]), 3)
+h2 = sorted_insert_to_cll(create_circular_linked_list([1, 2, 4, 5]), 0)
+h3 = sorted_insert_to_cll(create_circular_linked_list([1, 2, 4, 5]), 7)
+print_circular_ll(h1)
+print_circular_ll(h2)
+print_circular_ll(h3)
+print ''
+
+
+"""
+http://www.geeksforgeeks.org/reverse-alternate-k-nodes-in-a-singly-linked-list/
+"""
+
+
+def alternate_reverse(head):
+    h = head
+    curr = head.nxt
+
+    flag = True
+    while curr is not None:
+        if flag:
+            data = curr.data
+            curr.data = h.data
+            h.data = data
+
+        h = curr
+        curr = curr.nxt
+        flag = not flag
+
+    return head
+
+
+h1 = create_linked_list([1, 2, 3, 4, 5, 6])
+print_ll(alternate_reverse(h1))
+
+h2 = create_linked_list([1, 2, 3, 4, 5])
+print_ll(alternate_reverse(h2))
+
+h3 = create_linked_list([1, 2])
+print_ll(alternate_reverse(h3))
+
+h4 = create_linked_list([1])
+print_ll(alternate_reverse(h4))
+print ''
+
+
+"""
+http://www.geeksforgeeks.org/delete-nodes-which-have-a-greater-value-on-right-side/
+"""
+
+
+def delete_nodes_with_grtr_val_on_right(head):
+    h = head
+    prev = None
+    nxt = h.nxt
+
+    while nxt is not None:
+        if nxt.data > h.data:
+            # remove from beginning
+            if h == head:
+                h = nxt
+                head = h
+                prev = None
+                nxt = nxt.nxt
+                continue
+
+            if prev:
+                prev.nxt = nxt
+
+        prev = h
+        h = nxt
+        nxt = nxt.nxt
+
+    return head
+
+
+h = create_linked_list([12, 15, 10, 11, 5, 6, 2, 3])
+print_ll(delete_nodes_with_grtr_val_on_right(h))
+print ''
+
+

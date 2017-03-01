@@ -32,6 +32,16 @@ def create_linked_list(array, node=Node):
     return ll[0]
 
 
+def create_circular_linked_list(array, node=Node):
+    ll = [node(data) for data in array]
+
+    for i in range(len(array) - 1):
+        ll[i].nxt = ll[i + 1]
+
+    ll[i + 1].nxt = ll[0]
+    return ll[0]
+
+
 def create_doubly_linked_list(array):
     ll = [DNode(data) for data in array]
 
@@ -59,6 +69,19 @@ def print_ll(node):
         node = node.nxt
 
         if node is None:
+            break
+
+    print " -> ".join(map(str, datas))
+
+
+def print_circular_ll(node):
+    datas = []
+    head = node
+    while True:
+        datas.append(node.data)
+        node = node.nxt
+
+        if node == head:
             break
 
     print " -> ".join(map(str, datas))
