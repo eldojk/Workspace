@@ -40,3 +40,4 @@ if __name__ == '__main__':
     print sub_array_with_some_0([4, 2, -3, 1, 6])
     print sub_array_with_some_0([4, 2, 0, 1, 6])
     print sub_array_with_some_0([-3, 2, 3, 1, 6])
+    print sub_array_with_some_0([15, -2, 2, -8, 1, 7, 10, 23])

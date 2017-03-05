@@ -20,6 +20,7 @@ def print_all_paths(root, arr):
 
         arr.pop()
 
+
 root = Node(1)
 root.left = Node(2)
 root.right = Node(3)

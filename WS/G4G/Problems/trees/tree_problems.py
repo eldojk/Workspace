@@ -386,8 +386,6 @@ if __name__ == '__main__':
     root = create_linked_binary_tree([1, 2, 3, 4, 5])
     print root, root.left, root.right, root.left.left, root.left.right
 
-
-
 """
 http://www.geeksforgeeks.org/foldable-binary-trees/
 """
@@ -430,7 +428,6 @@ if __name__ == '__main__':
     root.right.left = Node(11)
 
     print is_foldable_binary_tree(root)
-
 
 """
 http://www.geeksforgeeks.org/difference-between-sums-of-odd-and-even-levels/
@@ -485,13 +482,14 @@ if __name__ == '__main__':
 
     diff_bw_sum_of_odd_and_even_levels(root)
 
-
 """
 http://www.geeksforgeeks.org/find-depth-of-the-deepest-odd-level-node/
 """
 
 DEEPEST_LEVEL = 0
 DEEPEST_NODE = None
+
+
 def deepest_odd_level_node(root, level):
     global DEEPEST_LEVEL, DEEPEST_NODE
 
@@ -527,3 +525,125 @@ if __name__ == '__main__':
 
     deepest_odd_level_node(root, 1)
     print DEEPEST_NODE
+
+"""
+http://www.geeksforgeeks.org/check-leaves-level/
+"""
+
+LEAF_LEVEL_FOUND = -1
+
+
+def check_all_leaves_at_same_level(root, level):
+    global LEAF_LEVEL_FOUND
+
+    if root:
+        if is_leaf(root):
+            if LEAF_LEVEL_FOUND != -1 and LEAF_LEVEL_FOUND != level:
+                return False
+            elif LEAF_LEVEL_FOUND == -1:
+                LEAF_LEVEL_FOUND = level
+                return True
+
+        left_check = check_all_leaves_at_same_level(root.left, level + 1)
+        right_check = check_all_leaves_at_same_level(root.right, level + 1)
+
+        return left_check and right_check
+
+    return True
+
+
+if __name__ == '__main__':
+    print ''
+    root = Node(1)
+
+    root.left = Node(2)
+    root.right = Node(3)
+
+    root.left.left = Node(4)
+
+    print check_all_leaves_at_same_level(root, 0)
+
+    root.right.right = Node(6)
+
+    print check_all_leaves_at_same_level(root, 0)
+
+"""
+http://www.geeksforgeeks.org/print-left-view-binary-tree/
+"""
+
+
+def left_view(root, level, lv):
+    if root:
+        if level >= len(lv):
+            lv.append(root)
+
+        left_view(root.left, level + 1, lv)
+        left_view(root.right, level + 1, lv)
+
+
+def print_left_view(root):
+    # using array to keep track of level bcoz hash is too mainstream :p
+    lv = []
+    left_view(root, 0, lv)
+    print lv
+
+
+if __name__ == '__main__':
+    root = Node(12)
+
+    root.left = Node(10)
+    root.right = Node(30)
+
+    root.right.left = Node(25)
+    root.right.right = Node(40)
+
+    print_left_view(root)
+
+
+"""
+http://www.geeksforgeeks.org/deepest-left-leaf-node-in-a-binary-tree/
+"""
+
+
+DEEPEST_LEFT_LEAF = None
+DEEPEST_LEFT_LEAF_LEVEL = -1
+
+
+def _find_deepest_left_leaf(root, level, is_came_left):
+    global DEEPEST_LEFT_LEAF, DEEPEST_LEFT_LEAF_LEVEL
+    if root:
+        if is_leaf(root) and is_came_left:
+            if DEEPEST_LEFT_LEAF_LEVEL < level:
+                DEEPEST_LEFT_LEAF_LEVEL = level
+                DEEPEST_LEFT_LEAF = root
+
+        _find_deepest_left_leaf(root.left, level + 1, True)
+        _find_deepest_left_leaf(root.right, level + 1, False)
+
+
+def find_deepest_left_leaf(root):
+    _find_deepest_left_leaf(root, 0, True)
+    return DEEPEST_LEFT_LEAF
+
+
+if __name__ == '__main__':
+    print ''
+    root = Node(1)
+
+    root.left = Node(2)
+    root.right = Node(3)
+
+    root.left.left = Node(4)
+    root.right.left = Node(5)
+    root.right.right = Node(6)
+
+    root.right.left.right = Node(7)
+    root.right.left.right.left = Node(9)
+
+    root.right.right.right = Node(8)
+    root.right.right.right.right = Node(10)
+
+    print find_deepest_left_leaf(root)
+
+
+
