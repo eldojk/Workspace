@@ -430,3 +430,100 @@ if __name__ == '__main__':
     root.right.left = Node(11)
 
     print is_foldable_binary_tree(root)
+
+
+"""
+http://www.geeksforgeeks.org/difference-between-sums-of-odd-and-even-levels/
+"""
+
+
+def diff_bw_sum_of_odd_and_even_levels(root):
+    q = Queue()
+    q.put((root, 1))
+    level_sum = {}
+
+    while not q.empty():
+        el = q.get()
+        node = el[0]
+        level = el[1]
+        level_sum[level] = node.data if level_sum.get(level) is None else level_sum[level] + node.data
+
+        if node.left:
+            q.put((node.left, level + 1))
+        if node.right:
+            q.put((node.right, level + 1))
+
+    levels = level_sum.keys()
+
+    odd_sum = 0
+    even_sum = 0
+    for l in levels:
+        if l % 2 == 0:
+            even_sum += level_sum[l]
+        else:
+            odd_sum += level_sum[l]
+
+    print abs(odd_sum - even_sum)
+
+
+if __name__ == '__main__':
+    print ''
+
+    root = Node(5)
+
+    root.left = Node(2)
+    root.right = Node(6)
+
+    root.left.left = Node(1)
+    root.left.right = Node(4)
+
+    root.left.right.left = Node(3)
+
+    root.right.right = Node(8)
+    root.right.right.left = Node(7)
+    root.right.right.right = Node(9)
+
+    diff_bw_sum_of_odd_and_even_levels(root)
+
+
+"""
+http://www.geeksforgeeks.org/find-depth-of-the-deepest-odd-level-node/
+"""
+
+DEEPEST_LEVEL = 0
+DEEPEST_NODE = None
+def deepest_odd_level_node(root, level):
+    global DEEPEST_LEVEL, DEEPEST_NODE
+
+    if root:
+        if is_leaf(root):
+            if level > DEEPEST_LEVEL and level % 2 != 0:
+                DEEPEST_LEVEL = level
+                DEEPEST_NODE = root
+
+        deepest_odd_level_node(root.left, level + 1)
+        deepest_odd_level_node(root.right, level + 1)
+
+
+if __name__ == '__main__':
+    print ''
+
+    root = Node(1)
+
+    root.left = Node(2)
+    root.right = Node(3)
+
+    root.left.left = Node(4)
+
+    root.right.left = Node(5)
+    root.right.right = Node(6)
+
+    root.right.left.right = Node(7)
+    root.right.left.right.left = Node(9)
+
+    root.right.right.right = Node(8)
+    root.right.right.right.right = Node(10)
+    root.right.right.right.right.left = Node(11)
+
+    deepest_odd_level_node(root, 1)
+    print DEEPEST_NODE
