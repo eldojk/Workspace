@@ -12,6 +12,9 @@ public class EdgeWeightedDiGraph {
 	public EdgeWeightedDiGraph(int vertices) {
 		this.V = vertices;
 		adj = (List<DirectedEdge>[]) new ArrayList[vertices];
+		for (int i = 0; i < vertices; i++)
+			adj[i] = new ArrayList<DirectedEdge>();
+			
 		edges = new ArrayList<DirectedEdge>();
 	}
 

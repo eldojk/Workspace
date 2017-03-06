@@ -15,9 +15,8 @@ def find_symmetric_pairs(array):
             print element,
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     find_symmetric_pairs([(11, 20), (30, 40), (5, 10), (40, 30), (10, 5)])
-
 
 """
 http://www.geeksforgeeks.org/find-four-elements-a-b-c-and-d-in-an-array-such-that-ab-cd/
@@ -40,3 +39,29 @@ if __name__ == '__main__':
     print ''
     print ''
     find_ab_cd_equal_sum([3, 4, 7, 1, 2, 9, 8])
+
+"""
+http://www.geeksforgeeks.org/find-itinerary-from-a-given-list-of-tickets/
+"""
+
+
+def find_itinerary(hm):
+    sources = set(hm.keys())
+    destinations = set(hm.values())
+
+    source = list(sources - destinations)[0]
+
+    while hm.get(source):
+        print source, hm[source]
+        source = hm[source]
+
+
+if __name__ == "__main__":
+    print ''
+    itinerary = {
+        "Chennai": "Banglore",
+        "Bombay": "Delhi",
+        "Goa": "Chennai",
+        "Delhi": "Goa"
+    }
+    find_itinerary(itinerary)

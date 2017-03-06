@@ -3,6 +3,12 @@ package workspace.ws.ds.data;
 public class DirectedEdge implements Comparable<DirectedEdge> {
 	private int v, w;
 	private double weight;
+	
+	public DirectedEdge(int v, int w) {
+		this.v = v;
+		this.w = w;
+		this.weight = 0;
+	}
 
 	public DirectedEdge(int v, int w, double weight) {
 		this.v = v;
