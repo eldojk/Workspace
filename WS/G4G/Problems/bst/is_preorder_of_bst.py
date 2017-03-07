@@ -1,5 +1,8 @@
 """
 http://www.geeksforgeeks.org/check-if-a-given-array-can-represent-preorder-traversal-of-binary-search-tree/
+
+This problem is similar to Next (or closest) Greater Element problem.
+Here we find next greater element and after finding next greater, if we find a smaller element, then return false.
 """
 from sys import maxint
 
@@ -22,4 +25,6 @@ def is_preorder(array):
 
     return True
 
-# print is_preorder([4, 2, 1, 3, 6, 5, 7])
+
+if __name__ == '__main__':
+    print is_preorder([4, 2, 1, 3, 6, 5, 7])
