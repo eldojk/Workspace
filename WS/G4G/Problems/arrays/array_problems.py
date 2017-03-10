@@ -214,3 +214,112 @@ def find_shifted_strings(array):
 if __name__ == '__main__':
     print ''
     find_shifted_strings(["acd", "dfg", "wyz", "yab", "mop", "bdfh", "a", "x", "moqs"])
+
+
+"""
+http://www.geeksforgeeks.org/count-maximum-points-on-same-line/
+"""
+from fractions import gcd
+def compute_slope(p1, p2):
+    s = (p2[1] - p1[1], p2[0] - p1[0])
+    g = gcd(s[0], s[1])
+    s = (s[0]/g, s[1]/g)
+    return s
+
+
+def find_max_pts_in_same_line(pts):
+    slope_map = {}
+
+    for i in range(len(pts)):
+        for j in range(i + 1, len(pts)):
+            p1 = pts[i]
+            p2 = pts[j]
+            slope = compute_slope(p1, p2)
+            if slope_map.get(slope):
+                slope_map[slope].add(p1)
+                slope_map[slope].add(p2)
+            else:
+                slope_map[slope] = set([p1, p2])
+
+    max_num = 0
+    max_slope = None
+    for k in slope_map.keys():
+        if max_num < len(slope_map[k]):
+            max_num = len(slope_map[k])
+            max_slope = slope_map[k]
+
+    return max_slope
+
+
+if __name__ == '__main__':
+    print ''
+    print ''
+    print find_max_pts_in_same_line([(-1, 1), (0, 0), (1, 1), (2, 2), (3, 3), (3, 4)])
+
+
+"""
+http://www.geeksforgeeks.org/find-pairs-given-sum-elements-pair-different-rows/
+"""
+
+
+def find_pair_some_different_rows(matrix, k):
+    hm = {}
+    for i in range(len(matrix)):
+        for el in matrix[i]:
+            hm[el] = i
+
+    for i in range(len(matrix)):
+        for el in matrix[i]:
+            if hm.get(k - el) is not None and hm[k - el] != i:
+                print (el, k - el),
+
+
+if __name__ == '__main__':
+    print ''
+    m = [[1, 3, 2, 4],
+         [5, 8, 7, 6],
+         [9, 10, 13, 11],
+         [12, 0, 14, 15]]
+    find_pair_some_different_rows(m, 11)
+
+
+"""
+http://www.geeksforgeeks.org/distinct-strings-odd-even-changes-allowed/
+"""
+
+
+def get_odd_even_swap_char_anagram(string):
+    od = []
+    ev = []
+    for i in range(len(string)):
+        if i%2 == 0:
+            ev.append(string[i])
+        else:
+            od.append(string[i])
+
+    od.sort()
+    ev.sort()
+
+    return "".join(od) + "".join(ev)
+
+
+def find_distinct_odd_even_swappable_strings(strings):
+    hm = {}
+
+    count = 0
+    for s in strings:
+        key = get_odd_even_swap_char_anagram(s)
+        if hm.get(key):
+            continue
+        else:
+            hm[key] = True
+            count += 1
+
+    print count
+
+
+if __name__ == '__main__':
+    print ''
+    print ''
+    find_distinct_odd_even_swappable_strings(["abcd", "cbad", "bacd"])
+    find_distinct_odd_even_swappable_strings(["abc", "cba"])
