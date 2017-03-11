@@ -323,3 +323,30 @@ if __name__ == '__main__':
     print ''
     find_distinct_odd_even_swappable_strings(["abcd", "cbad", "bacd"])
     find_distinct_odd_even_swappable_strings(["abc", "cba"])
+
+
+"""
+http://www.geeksforgeeks.org/maximum-distance-two-occurrences-element-array/
+"""
+
+
+def max_dist_of_two_elements(array):
+    hm = {}
+    for i in range(len(array)):
+        if hm.get(array[i]) is not None:
+            hm[array[i]].append(i)
+        else:
+            hm[array[i]] = [i]
+
+    max_dist = 0
+    for key in hm.keys():
+        el = hm[key]
+        dist_el = abs(max(el) - min(el))
+        max_dist = max(max_dist, dist_el)
+
+    return max_dist
+
+
+if __name__ == '__main__':
+    print ''
+    print max_dist_of_two_elements([3, 2, 1, 2, 1, 4, 5, 8, 6, 7, 4, 2])
