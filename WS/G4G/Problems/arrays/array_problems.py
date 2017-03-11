@@ -1,6 +1,7 @@
 """
 http://www.geeksforgeeks.org/given-an-array-of-pairs-find-all-symmetric-pairs-in-it/
 """
+from DS.algos.math.factorial import iterative_factorial
 
 
 def find_symmetric_pairs(array):
@@ -350,3 +351,45 @@ def max_dist_of_two_elements(array):
 if __name__ == '__main__':
     print ''
     print max_dist_of_two_elements([3, 2, 1, 2, 1, 4, 5, 8, 6, 7, 4, 2])
+
+
+"""
+http://www.geeksforgeeks.org/count-index-pairs-equal-elements-array/
+"""
+
+
+def nc2(n):
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 1
+
+    nf = iterative_factorial(n)
+    cf = 2
+    nm2f = iterative_factorial(n-2)
+
+    return nf / (cf * nm2f)
+
+
+def count_index_pairs_equal_elements(array):
+    fc = {}
+    for el in array:
+        if fc.get(el) is not None:
+            fc[el] += 1
+        else:
+            fc[el] = 1
+
+    sm = 0
+    for k in fc.keys():
+        if fc[k] > 1:
+            sm += nc2(fc[k])
+
+    return sm
+
+
+if __name__ == '__main__':
+    print ''
+    print count_index_pairs_equal_elements([1, 1, 2])
+    print count_index_pairs_equal_elements([1, 1, 1])
+
+

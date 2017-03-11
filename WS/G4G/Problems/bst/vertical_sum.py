@@ -28,6 +28,26 @@ def vertical_sum(root):
 
     print dict
 
+
+def vprint(root, hd, dict):
+    if root:
+        dict[hd] = [root.data] if dict.get(hd) is None else dict[hd] + [root.data]
+
+        vprint(root.left, hd - 1, dict)
+        vprint(root.right, hd + 1, dict)
+
+
+def vertical_print(root):
+    dict = {}
+    vprint(root, 0, dict)
+
+    keys = dict.keys()
+    keys.sort()
+
+    for key in keys:
+        print dict[key]
+
+
 if __name__  == '__main__':
     root = Node(1)
     root.left = Node(2)
@@ -38,3 +58,5 @@ if __name__  == '__main__':
     root.right.right = Node(7)
 
     vertical_sum(root)
+    print ''
+    vertical_print(root)
