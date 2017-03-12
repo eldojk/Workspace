@@ -1,2 +1,2 @@
 # WS
-Practice problems
+Practice problems for DS and Algorithms
