@@ -2,6 +2,7 @@
 http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/
 """
 
+
 class Node(object):
     def __init__(self, data):
         self.left = None
@@ -41,14 +42,28 @@ def dist(root, n1, curr):
     return l_d if l_d > 0 else r_d
 
 
-r = Node(1)
-r.left = Node(2)
-r.right = Node(3)
-r.left.left = Node(4)
-r.left.right = Node(5)
-r.right.left = Node(6)
-r.right.right = Node(7)
+def dist_bw_nodes(root, n1, n2):
+    n1dist = dist(root, n1, 0)
+    n2dist = dist(root, n2, 0)
+    lca_node = lca(root, n1, n2)
+    lca_dist = dist(root, lca_node.data, 0)
 
-print lca(r, 3, 4)
-print dist(r, 4, 0)
-print dist(r, 3, 0)
+    return n1dist + n2dist - (2 * lca_dist)
+
+
+if __name__ == '__main__':
+    r = Node(1)
+    r.left = Node(2)
+    r.right = Node(3)
+    r.left.left = Node(4)
+    r.left.right = Node(5)
+    r.right.left = Node(6)
+    r.right.right = Node(7)
+
+    print lca(r, 3, 4)
+    print ''
+    print dist(r, 4, 0)
+    print dist(r, 3, 0)
+    print ''
+    print dist_bw_nodes(r, 4, 5)
+    print dist_bw_nodes(r, 3, 4)
