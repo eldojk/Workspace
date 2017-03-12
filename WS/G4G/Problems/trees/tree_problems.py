@@ -599,11 +599,9 @@ if __name__ == '__main__':
 
     print_left_view(root)
 
-
 """
 http://www.geeksforgeeks.org/deepest-left-leaf-node-in-a-binary-tree/
 """
-
 
 DEEPEST_LEFT_LEAF = None
 DEEPEST_LEFT_LEAF_LEVEL = -1
@@ -645,5 +643,72 @@ if __name__ == '__main__':
 
     print find_deepest_left_leaf(root)
 
+"""
+http://www.geeksforgeeks.org/sum-numbers-formed-root-leaf-paths/
+"""
+
+SUM_ROOT_TO_LEAF = 0
 
 
+def sum_of_all_number_formed_by_root_to_leaf_paths(root, curr_sum):
+    global SUM_ROOT_TO_LEAF
+    if root:
+        curr_sum = curr_sum * 10 + root.data
+        if is_leaf(root):
+            SUM_ROOT_TO_LEAF += curr_sum
+
+        sum_of_all_number_formed_by_root_to_leaf_paths(root.left, curr_sum)
+        sum_of_all_number_formed_by_root_to_leaf_paths(root.right, curr_sum)
+
+
+if __name__ == '__main__':
+    print ''
+    root = Node(6)
+
+    root.left = Node(3)
+    root.right = Node(5)
+
+    root.left.left = Node(2)
+    root.left.right = Node(5)
+    root.right.right = Node(4)
+
+    root.left.right.left = Node(7)
+    root.left.right.right = Node(4)
+
+    sum_of_all_number_formed_by_root_to_leaf_paths(root, 0)
+    print SUM_ROOT_TO_LEAF
+
+
+"""
+http://www.geeksforgeeks.org/print-nodes-dont-sibling-binary-tree/
+"""
+
+
+def print_nodes_without_sibling(root):
+    if root:
+        if is_leaf(root):
+            return
+
+        if root.left is not None and root.right is None:
+            print root.left,
+
+        if root.right is not None and root.left is None:
+            print root.right,
+
+        print_nodes_without_sibling(root.left)
+        print_nodes_without_sibling(root.right)
+
+
+if __name__ == '__main__':
+    print ''
+    root = Node(1)
+
+    root.left = Node(2)
+    root.right = Node(3)
+
+    root.left.right = Node(4)
+    root.right.left = Node(5)
+
+    root.right.left.left = Node(6)
+
+    print_nodes_without_sibling(root)
