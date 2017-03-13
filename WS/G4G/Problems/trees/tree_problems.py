@@ -712,3 +712,37 @@ if __name__ == '__main__':
     root.right.left.left = Node(6)
 
     print_nodes_without_sibling(root)
+
+
+"""
+http://www.geeksforgeeks.org/check-two-nodes-cousins-binary-tree/
+"""
+
+
+def find_parents(root, nodes, parents, parent, level):
+    if root:
+        for i in range(len(nodes)):
+            if nodes[i] == root.data:
+                parents[i][0] = parent
+                parents[i][1] = level
+
+        find_parents(root.left, nodes, parents, root, level + 1)
+        find_parents(root.right, nodes, parents, root, level + 1)
+
+
+def are_nodes_cousins(root, n1, n2):
+    parents = [[None, 0], [None, 0]]
+    find_parents(root, [n1, n2], parents, None, 0)
+    return parents[0][0] != parents[1][0] and parents[0][1] == parents[1][1]
+
+
+if __name__ == '__main__':
+    print ''
+    print ''
+    r = get_std_tree()
+    r.right.left = Node(6)
+    r.right.right = Node(7)
+
+    print are_nodes_cousins(r, 4, 6)
+    print are_nodes_cousins(r, 4, 5)
+    print are_nodes_cousins(r, 4, 3)
