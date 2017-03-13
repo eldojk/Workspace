@@ -24,6 +24,12 @@ class Node(object):
 
 
 def init_heights(root):
+    """
+    initializing heights of each node
+
+    :param root:
+    :return:
+    """
     if root is None:
         return 0
 
@@ -51,6 +57,8 @@ def min_iters_to_percolate(root, time):
 
         root.children.sort(reverse=True)
 
+        # max depths nodes to be considered first so as to optimise percolation
+        # to reach farthest nodes in shortest time
         for child in root.children:
             min_iters_to_percolate(child, time + offset)
             offset += 1
