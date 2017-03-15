@@ -103,28 +103,3 @@ if __name__ == '__main__':
     while iterator:
         print iterator,
         iterator = iterator.right
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

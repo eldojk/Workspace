@@ -205,56 +205,25 @@ if __name__ == '__main__':
     print get_inorder_array(r, [])
 
 
+"""
+http://www.geeksforgeeks.org/find-minimum-depth-of-a-binary-tree/
+"""
 
 
+def min_depth(root):
+    if root is None:
+        return 0
+
+    return 1 + min(min_depth(root.left), min_depth(root.right))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+if __name__ == '__main__':
+    print ''
+    r = Node(1)
+    r.left = Node(2)
+    r.right = Node(3)
+    r.left.left = Node(4)
+    r.left.right = Node(5)
+    print min_depth(r)
 
 
