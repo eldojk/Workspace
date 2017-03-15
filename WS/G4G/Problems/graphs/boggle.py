@@ -1,6 +1,8 @@
 """
 http://www.geeksforgeeks.org/boggle-find-possible-words-board-characters/
 """
+
+
 def is_valid(m, n, i, j):
     return (0 <= i < m) and (0 <= j < n)
 
@@ -24,7 +26,7 @@ def find_char(matrix, m, n, char):
 def boggle(matrix, m, n, word):
     ch1 = word[0]
     used_cells = []
-    source = find_char(matrix, m , n, ch1)
+    source = find_char(matrix, m, n, ch1)
     used_cells.append(source)
 
     if source is None:
