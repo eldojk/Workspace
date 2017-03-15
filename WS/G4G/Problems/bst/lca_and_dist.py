@@ -67,3 +67,32 @@ if __name__ == '__main__':
     print ''
     print dist_bw_nodes(r, 4, 5)
     print dist_bw_nodes(r, 3, 4)
+
+
+def lca_bst(root, n1, n2):
+    if root is None:
+        return None
+
+    if n1 > root.data and n2 > root.data:
+        return lca(root.right, n1, n2)
+    elif n1 < root.data and n2 < root.data:
+        return lca(root.left, n1, n2)
+    elif root.data == n1:
+        return n1
+    elif root.data == n2:
+        return n2
+    else:
+        return root.data
+
+
+if __name__ == '__main__':
+    print ''
+    r = Node(3)
+    r.left = Node(2)
+    r.right = Node(4)
+    r.left.left = Node(1)
+    r.left.right = Node(2.5)
+    r.right.left = Node(3.5)
+    r.right.right = Node(7)
+
+    print lca_bst(r, 2.5, 7)

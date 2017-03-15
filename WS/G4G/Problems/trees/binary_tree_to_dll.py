@@ -59,3 +59,72 @@ if __name__ == '__main__':
     while iterator:
         print iterator,
         iterator = iterator.right
+
+
+"""
+http://www.geeksforgeeks.org/convert-given-binary-tree-doubly-linked-list-set-3/
+"""
+
+PREV = None
+HEAD = None
+
+
+def tree_to_dll2(root):
+    global PREV, HEAD
+    if root is None:
+        return
+
+    tree_to_dll2(root.left)
+
+    if PREV is None:
+        HEAD = root
+    else:
+        PREV.right = root
+        root.left = PREV
+        PREV = root
+
+    PREV = root
+
+    tree_to_dll2(root.right)
+
+
+if __name__ == '__main__':
+    print ''
+    root = Node(10)
+    root.left = Node(12)
+    root.right = Node(15)
+    root.left.left = Node(25)
+    root.left.right = Node(30)
+    root.right.left = Node(36)
+
+    tree_to_dll2(root)
+
+    iterator = HEAD
+    while iterator:
+        print iterator,
+        iterator = iterator.right
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
