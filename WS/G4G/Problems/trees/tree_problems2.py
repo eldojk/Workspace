@@ -3,6 +3,7 @@ http://www.geeksforgeeks.org/find-sum-left-leaves-given-binary-tree/
 """
 from DS.algos.graphs.binary_tree import Node
 from G4G.Problems.bst.merge_two_balanced_bst import get_inorder_array
+from G4G.Problems.trees.level_order_traversal import print_level_order
 
 
 def get_std_tree():
@@ -260,12 +261,171 @@ if __name__ == '__main__':
 
 
 
+"""
+http://www.geeksforgeeks.org/construct-ancestor-matrix-from-a-given-binary-tree/
+"""
 
 
+def plot_ancestor_matrix(root, matrix, ancestors):
+    if root:
+        for ancestor in ancestors:
+            matrix[ancestor.data][root.data] = 1
+
+        ancestors.append(root)
+        plot_ancestor_matrix(root.left, matrix, ancestors)
+        plot_ancestor_matrix(root.right, matrix, ancestors)
+        ancestors.pop()
 
 
+def ancestor_matrix(root, n):
+    matrix = [[0 for i in range(n)] for j in range(n)]
+    ancestors = []
+    plot_ancestor_matrix(root, matrix, ancestors)
+    for row in matrix:
+        print row
 
 
+if __name__ == '__main__':
+    r = Node(0)
+    r.left = Node(1)
+    r.right = Node(2)
 
+    print ''
+    ancestor_matrix(r, 3)
+
+    r = Node(5)
+    r.left = Node(1)
+    r.right = Node(2)
+    r.left.left = Node(0)
+    r.left.right = Node(4)
+    r.right.left = Node(3)
+
+    print ''
+    ancestor_matrix(r, 6)
+
+
+"""
+http://www.geeksforgeeks.org/sink-odd-nodes-binary-tree/
+"""
+
+def swap_node_vals(node1, node2):
+    tmp = node1.data
+    node1.data = node2.data
+    node2.data = tmp
+
+
+def sink(root):
+    if root is None or is_leaf(root):
+        return
+
+    if root.left is not None and root.left.data % 2 == 0:
+        swap_node_vals(root, root.left)
+        sink(root.left)
+    elif root.right is not None and root.right.data % 2 == 0:
+        swap_node_vals(root, root.right)
+        sink(root.right)
+
+
+def sink_odd_nodes(root):
+    if root is None or is_leaf(root):
+        return
+
+    sink_odd_nodes(root.left)
+    sink_odd_nodes(root.right)
+
+    if root.data % 2 != 0:
+        sink(root)
+
+
+if __name__ == '__main__':
+    print ''
+    root = Node(1)
+    root.left = Node(5)
+    root.right = Node(8)
+    root.left.left = Node(2)
+    root.left.right = Node(4)
+    root.right.left = Node(9)
+    root.right.right = Node(10)
+
+    sink_odd_nodes(root)
+    print_level_order(root)
+
+
+"""
+http://www.geeksforgeeks.org/check-if-removing-an-edge-can-divide-a-binary-tree-in-two-halves/
+"""
+
+
+def count_nodes(root):
+    if root is None:
+        return 0
+
+    return 1 + count_nodes(root.left) + count_nodes(root.right)
+
+
+TREE_DIVISIBLE_TO_HALF = False
+
+
+def can_tree_be_divided_to_two_halves(root, n):
+    global TREE_DIVISIBLE_TO_HALF
+    if root is None:
+        return 0
+
+    l_size = can_tree_be_divided_to_two_halves(root.left, n)
+    r_size = can_tree_be_divided_to_two_halves(root.right, n)
+    s = 1 + l_size + r_size
+
+    if n - s == s:
+        TREE_DIVISIBLE_TO_HALF = True
+
+    return s
+
+
+if __name__ == '__main__':
+    print ''
+    root = Node(1)
+    root.left = Node(5)
+    root.right = Node(8)
+    root.left.left = Node(2)
+    root.right.left = Node(9)
+    root.right.right = Node(10)
+
+    can_tree_be_divided_to_two_halves(root, count_nodes(root))
+    print TREE_DIVISIBLE_TO_HALF
+
+
+"""
+http://www.geeksforgeeks.org/maximum-difference-between-node-and-its-ancestor-in-binary-tree/
+"""
+from sys import maxint
+MAX_DIFF_BW_NODE_AND_ANCESTOR = -maxint
+
+
+def max_diff_bw_node_and_ancestor(root):
+    global MAX_DIFF_BW_NODE_AND_ANCESTOR
+    if root is None:
+        return maxint
+
+    l_min = max_diff_bw_node_and_ancestor(root.left)
+    r_min = max_diff_bw_node_and_ancestor(root.right)
+
+    MAX_DIFF_BW_NODE_AND_ANCESTOR = abs(root.data - min(l_min, r_min))
+    return min(l_min, r_min, root.data)
+
+
+if __name__ == '__main__':
+    print ''
+    root = Node(8)
+    root.left = Node(3)
+    root.right = Node(10)
+    root.left.left = Node(1)
+    root.left.right = Node(6)
+    root.left.right.left = Node(4)
+    root.left.right.right = Node(7)
+    root.right.right = Node(14)
+    root.right.right.left = Node(13)
+
+    max_diff_bw_node_and_ancestor(root)
+    print MAX_DIFF_BW_NODE_AND_ANCESTOR
 
 

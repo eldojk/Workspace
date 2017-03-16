@@ -30,12 +30,13 @@ def create_bst(array, start, end):
 
     return root
 
+
 if __name__ == '__main__':
     r = create_bst([1, 2, 3, 4, 5, 6, 7], 0, 6)
     print r
-    print  r.left
-    print  r.right
-    print  r.left.left
+    print r.left
+    print r.right
+    print r.left.left
     print r.left.right
     print r.right.left
     print r.right.right
