@@ -191,6 +191,7 @@ def remove_nodes_in_sum_path_lt_k(root, curr_sum, k):
 
 
 if __name__ == '__main__':
+    print ''
     r = Node(1)
     r.left = Node(2)
     r.right = Node(3)
@@ -225,5 +226,46 @@ if __name__ == '__main__':
     r.left.left = Node(4)
     r.left.right = Node(5)
     print min_depth(r)
+
+
+"""
+http://www.geeksforgeeks.org/symmetric-tree-tree-which-is-mirror-image-of-itself/
+"""
+
+
+def is_symmetric(root1, root2):
+    if root1 is None and root2 is None:
+        return True
+
+    if root1 is None or root2 is None:
+        return False
+
+    if root1.data != root2.data:
+        return False
+
+    return is_symmetric(root1.left, root2.right) and is_symmetric(root1.right, root2.left)
+
+
+if __name__ == '__main__':
+    print ''
+    r = Node(1)
+    r.left = Node(2)
+    r.right = Node(2)
+    r.left.left = Node(3)
+    r.left.right = Node(4)
+    r.right.left = Node(4)
+    r.right.right = Node(3)
+
+    print is_symmetric(r.left, r.right)
+
+
+
+
+
+
+
+
+
+
 
 

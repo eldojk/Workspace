@@ -1,5 +1,7 @@
 """
 http://www.geeksforgeeks.org/find-maximum-path-sum-in-a-binary-tree/
+
+https://leetcode.com/problems/binary-tree-maximum-path-sum/#/solutions
 """
 from G4G.Problems.bst.vertical_sum import Node
 from sys import maxint
