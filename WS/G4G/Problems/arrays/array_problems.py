@@ -393,3 +393,59 @@ if __name__ == '__main__':
     print count_index_pairs_equal_elements([1, 1, 1])
 
 
+
+"""
+http://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/
+"""
+
+
+def sorted_array_union(array1, array2):
+    i = 0;
+    j = 0;
+
+    union = []
+    while i < len(array1) and j < len(array2):
+        if array1[i] < array2[j]:
+            union.append(array1[i])
+            i += 1
+        elif array1[i] > array2[j]:
+            union.append(array2[j])
+            j += 1
+        else:
+            union.append(array1[i])
+            i += 1
+            j += 1
+
+    while i < len(array1):
+        union.append(array1[i])
+        i += 1
+
+    while j < len(array2):
+        union.append(array2[j])
+        j += 1
+
+    return union
+
+
+def sorted_array_intersection(array1, array2):
+    i = 0;
+    j = 0;
+
+    intersection = []
+    while i < len(array1) and j < len(array2):
+        if array1[i] < array2[j]:
+            i += 1
+        elif array1[i] > array2[j]:
+            j += 1
+        else:
+            intersection.append(array1[i])
+            i += 1
+            j += 1
+
+    return intersection
+
+
+if __name__ == '__main__':
+    print ''
+    print sorted_array_union([1, 3, 4, 5, 7], [2, 3, 5, 6])
+    print sorted_array_intersection([1, 3, 4, 5, 7], [2, 3, 5, 6])

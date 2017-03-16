@@ -174,6 +174,33 @@ iterative_pre_order(t)
 print ''
 
 
+def iterative_post_order(root):
+    s1 = Stack()
+    s2 = Stack()
+
+    s1.push(root)
+
+    while not s1.is_empty():
+        node = s1.pop()
+        if node.left:
+            s1.push(node.left)
+
+        if node.right:
+            s1.push(node.right)
+
+        s2.push(node)
+
+    while not s2.is_empty():
+        print s2.pop(),
+
+
+print ''
+print 'iterative post order'
+t = get_std_tree()
+iterative_post_order(t)
+print ''
+
+
 def root_to_leaf_path_is_sum_k(root, k, curr_sum, curr_path):
     if root is None:
         return
