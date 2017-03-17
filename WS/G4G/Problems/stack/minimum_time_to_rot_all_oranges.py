@@ -18,7 +18,7 @@ def get_rotten_indices(array, m, n):
     return indices
 
 
-def is_all_roten(array, m, n):
+def is_all_rotten(array, m, n):
     for i in range(m):
         for j in range(n):
             if array[i][j] == 1:
@@ -73,7 +73,7 @@ def time_to_rot(array, m, n):
             if new_element_added:
                 q.put(delim)
 
-    return time if is_all_roten(array, m, n) else None
+    return time if is_all_rotten(array, m, n) else None
 
 
 t1 = [[2, 1, 0, 2, 1], [1, 0, 1, 2, 1], [1, 0, 0, 2, 1]]

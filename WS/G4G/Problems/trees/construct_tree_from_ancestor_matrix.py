@@ -35,8 +35,8 @@ def tree_from_ancestor_matrix(matrix):
             for child in next_level_nodes:
                 if used[child]:
                     continue
-                # if node is ancestor of child, then node is parent
 
+                # if node is ancestor of child, then node is parent
                 parent_node = nodes[node]
                 child_node = nodes[child]
 

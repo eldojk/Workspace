@@ -12,8 +12,8 @@ def is_sum_pair_present(root, target):
     done1 = False
     done2 = False
 
-    val1 = False
-    val2 = False
+    val1 = None
+    val2 = None
 
     curr1 = root
     curr2 = root
