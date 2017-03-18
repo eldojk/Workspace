@@ -47,3 +47,4 @@ r.left.right = Node(5)
 r.right.left = Node(6)
 
 print is_complete(r)
+

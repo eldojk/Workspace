@@ -429,5 +429,122 @@ if __name__ == '__main__':
     print MAX_DIFF_BW_NODE_AND_ANCESTOR
 
 
+"""
+http://www.geeksforgeeks.org/print-binary-tree-2-dimensions/
+"""
 
 
+def print_tree_in_2d(root, level):
+    if root:
+        print_tree_in_2d(root.right, level + 1)
+
+        for i in range(level):
+            print ' ',
+        print root
+
+        print_tree_in_2d(root.left, level + 1)
+
+
+if __name__ == '__main__':
+    r = get_std_tree()
+    print ''
+    print_tree_in_2d(r, 0)
+
+
+"""
+http://www.geeksforgeeks.org/construct-a-binary-tree-from-postorder-and-inorder/
+"""
+
+
+def search(array, s, e, el):
+    for i in range(s, e + 1):
+        if array[i] == el:
+            return i
+
+    return -1
+
+
+PO_INDEX = None
+
+
+def build_tree_from_po_and_io(po, io, start, end):
+    global PO_INDEX
+    if start > end:
+        return None
+
+    key = po[PO_INDEX]
+    node = Node(key)
+    PO_INDEX -= 1
+
+    if start == end:
+        return node
+
+    in_idx = search(io, start, end, key)
+
+    # start from right
+    node.right = build_tree_from_po_and_io(po, io, in_idx + 1, end)
+    node.left = build_tree_from_po_and_io(po, io, start, in_idx - 1)
+
+    return node
+
+
+def build_tree_from_post_order_and_inorder(post_order, in_order):
+    global PO_INDEX
+    PO_INDEX = len(post_order) - 1
+    return build_tree_from_po_and_io(post_order, in_order, 0, len(post_order) - 1)
+
+
+if __name__ == '__main__':
+    r = build_tree_from_post_order_and_inorder([8, 4, 5, 2, 6, 7, 3, 1], [4, 8, 2, 5, 1, 6, 3, 7])
+    print get_inorder_array(r, [])
+
+
+"""
+http://www.geeksforgeeks.org/find-largest-subtree-having-identical-left-and-right-subtrees/
+"""
+
+
+def is_sequence_same(l, r):
+    if len(l) != len(r):
+        return False
+
+    for i in range(len(l)):
+        if l[i] != r[i]:
+            return False
+
+    return True
+
+LARGEST_SAME_SEQ = None
+
+
+def largest_subtree_with_identical_l_and_r(root):
+    global LARGEST_SAME_SEQ
+    if root is None:
+        return []
+
+    l = largest_subtree_with_identical_l_and_r(root.left)
+    r = largest_subtree_with_identical_l_and_r(root.right)
+
+    if is_sequence_same(l, r):
+        LARGEST_SAME_SEQ = l + [root.data] + r
+
+    return l + [root.data] + r
+
+
+if __name__ == '__main__':
+    print ''
+
+    r = Node(50)
+    r.left = Node(10)
+    r.right = Node(60)
+    r.left.left = Node(5)
+    r.left.right = Node(20)
+    r.right.left = Node(70)
+    r.right.right = Node(70)
+    r.right.left.left = Node(65)
+    r.right.left.right = Node(80)
+    r.right.right.left = Node(65)
+    r.right.right.right = Node(80)
+
+    largest_subtree_with_identical_l_and_r(r)
+    print LARGEST_SAME_SEQ, len(LARGEST_SAME_SEQ)
