@@ -130,3 +130,26 @@ if __name__ == '__main__':
     print ''
     root = get_tree()
     print_bottom_up_of_this(root)
+
+
+def print_level_nodes_alternate_order(root):
+    print root.data,
+
+    flag = False
+    l = root.left
+    r = root.right
+
+    while l is not None:
+        if flag:
+            print l.data,
+        else:
+            print r.data,
+
+        l = l.left
+        r = r.right
+        flag = not flag
+
+
+if __name__ == '__main__':
+    print ''
+    print_level_nodes_alternate_order(get_tree())
