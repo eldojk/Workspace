@@ -15,3 +15,7 @@ def find_max_contiguous_sum(array):
         sum_arr[i] = max(sum_arr[i - 1] + array[i], sum_arr[i])
 
     return max(sum_arr)
+
+
+if __name__ == '__main__':
+    print find_max_contiguous_sum([-2, -3, 4, -1, -2, 1, 5, -3])

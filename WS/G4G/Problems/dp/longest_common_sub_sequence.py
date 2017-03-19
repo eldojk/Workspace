@@ -1,33 +1,47 @@
 """
-Length of LCS of array1[i, j] and array2[i, k] is abc lets say,
-then if we add the next character (say 'd') to array2 (i.e. array2[1, k+1],
-Now the LCS will be if 'd' occurs after the last previous common char
-LCS of abcd , ac = 2 ->
-we arrive by first looking from beggining
-LCS(a, a) = 1
-LCS(ab, a) = 1
-LCS(abc, a) = 1
-LCS(abcd, a) = 1 # first iteration over
-LCS(a, ac) = 1
-LCS(ab, ac) = 1
-LCS(abc, ac) = 2
-LCS(abcd, ac) = 2
+http://www.geeksforgeeks.org/dynamic-programming-set-4-longest-common-subsequence/
+
+		A	B	C	D	G	H
+	0	0	0	0	0	0	0
+A	0	1	1	1	1	1	1
+E	0	1	1	1	1	1	1
+D	0	1	1	1	2	2	2
+F	0	1	1	1	2	2	2
+H	0	1	1	1	2	2	3
+R	0	1	1	1	2	2	3
+
+it can be:
+if last elements of both strings are equal:
+    - lcs of both strings with the last char removed from them + 1
+    (i.e, abc and afc with c being considered, it will be lcs of
+    ab and af + 1 for the c in each string)
+
+    - last char not equal, ABCDGH, AEDFHR will be the max of last char
+    removed from either of them and the other one intact
+    ie. max of [ABCDG and AEDFHR] and [ABCDGH and AEDFH] = max of AD and ADH
 """
 
 
 def lcs_length(array1, array2):
-    lcs_len = [0 for i in range(len(array1))]
+    lcs_dp = [[0 for i in range(len(array1) + 1)] for j in range(len(array2) + 1)]
 
-    for i in range(len(array2)):
-        for j in range(len(array1)):
-            c2 = array2[i]
-            c1 = array1[j]
+    for i in range(1, len(array2) + 1):
+        for j in range(1, len(array1) + 1):
 
-            if c2 == c1:
-                if lcs_len[j] < j + 1:
-                    lcs_len[j] += 1
+            # equating last element
+            if array2[i - 1] == array1[j - 1]:
+
+                # 1 + lcs of last char removed from both strings
+                lcs_dp[i][j] = 1 + lcs_dp[i - 1][j - 1]
+
             else:
-                if j > 0 and lcs_len[j - 1]:
-                    lcs_len[j] = lcs_len[j - 1]
+                lcs_dp[i][j] = max(
+                    lcs_dp[i - 1][j],  # last char removed from array1
+                    lcs_dp[i][j - 1]   # last char removed from array2
+                )
 
-    return lcs_len[len(array1) - 1]
+    return max([max(row) for row in lcs_dp])
+
+
+if __name__ == '__main__':
+    print lcs_length('ABCDGH', 'AEDFHR')
