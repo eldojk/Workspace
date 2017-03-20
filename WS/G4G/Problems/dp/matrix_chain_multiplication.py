@@ -35,11 +35,16 @@ def minimum_value_of_chain_multiplication(matrices):
 
     for l in range(1, len(matrices)):
         for i in range(len(matrices)):
+
             j = i + l
+
             if j <= max_index:
+                # cost of multiplying matrices i through j = cost of i through k + cost of k + 1 through j
+                # + cost of multiplying the above to results for all k between i and j
                 cost[i][j] = min([cost[i][k] + cost[k + 1][j] + calc_cost(matrices, i, k, j) for k in range(i, j)])
 
     return cost[0][max_index]
 
 
-print minimum_value_of_chain_multiplication([(2, 3), (3, 6), (6, 4), (4, 5)])
+if __name__ == '__main__':
+    print minimum_value_of_chain_multiplication([(2, 3), (3, 6), (6, 4), (4, 5)])
