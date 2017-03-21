@@ -29,7 +29,7 @@ def longest_non_repeating_substring(string):
             current_length = i - last_occurrence[idx]
 
             # update ast occurrence every time
-            last_occurrence[idx] = i
+        last_occurrence[idx] = i
 
     return longest_substring_length
 
