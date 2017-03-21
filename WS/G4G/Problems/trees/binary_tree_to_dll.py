@@ -103,3 +103,29 @@ if __name__ == '__main__':
     while iterator:
         print iterator,
         iterator = iterator.right
+
+
+"""
+http://www.geeksforgeeks.org/convert-a-binary-tree-to-a-circular-doubly-link-list/
+"""
+
+
+if __name__ == '__main__':
+    print ''
+    root = Node(10)
+    root.left = Node(12)
+    root.right = Node(15)
+    root.left.left = Node(25)
+    root.left.right = Node(30)
+    root.right.left = Node(36)
+
+    tree_to_dll2(root)
+    HEAD.left = PREV
+    PREV.right = HEAD
+
+    iterator = HEAD
+    i = 7
+    while i > 0:
+        print iterator,
+        iterator = iterator.right
+        i -= 1
