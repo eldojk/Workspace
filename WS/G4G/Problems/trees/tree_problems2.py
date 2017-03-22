@@ -550,3 +550,54 @@ if __name__ == '__main__':
     print LARGEST_SAME_SEQ, len(LARGEST_SAME_SEQ)
 
 
+"""
+http://www.geeksforgeeks.org/print-nodes-binary-tree-k-leaves/
+"""
+
+
+def print_nodes_with_k_elements(root, k):
+    if root is None:
+        return 0
+
+    left_count = print_nodes_with_k_elements(root.left, k)
+    right_count = print_nodes_with_k_elements(root.right, k)
+
+    if left_count + right_count + 1 == k:
+        print root,
+
+    return left_count + right_count + 1
+
+
+if __name__ == '__main__':
+    print ''
+    t = get_std_tree()
+    print_nodes_with_k_elements(t, 3)
+    print ''
+
+
+"""
+http://www.geeksforgeeks.org/subtree-given-sum-binary-tree/
+"""
+
+
+def subtree_with_sum_exists(root, k):
+    if root is None:
+        return 0, False
+
+    left_sum, left_exists = subtree_with_sum_exists(root.left, k)
+    right_sum, right_exists = subtree_with_sum_exists(root.right, k)
+
+    root_sum = left_sum + right_sum + root.data
+
+    if root_sum == k:
+        return root_sum, True
+
+    return root_sum, (left_exists or right_exists)
+
+
+if __name__ == '__main__':
+    print ''
+    t = get_std_tree()
+    print subtree_with_sum_exists(t, 11)
+
+
