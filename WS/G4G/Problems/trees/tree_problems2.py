@@ -601,3 +601,48 @@ if __name__ == '__main__':
     print subtree_with_sum_exists(t, 11)
 
 
+"""
+http://www.geeksforgeeks.org/convert-tree-forest-even-nodes/
+"""
+
+
+class NNode(object):
+    def __init__(self, data):
+        self.data = data
+        self.children = []
+
+    def __repr__(self):
+        return str(self.data)
+
+
+TO_REMOVE = 0
+
+
+def num_paths_to_remove_for_even_forest(root):
+    global TO_REMOVE
+    if root is None:
+        return 0
+
+    child_sizes = []
+    for child in root.children:
+        size = num_paths_to_remove_for_even_forest(child)
+        child_sizes.append(size)
+
+    for size in child_sizes:
+        if size > 0 and size % 2 == 0:
+            TO_REMOVE += 1
+
+    return 1 + sum(child_sizes)
+
+
+if __name__ == '__main__':
+    print ''
+    r = NNode(1)
+    r.children = [NNode(2), NNode(3), NNode(4)]
+    r.children[0].children = [NNode(5)]
+    r.children[0].children[0].children = [NNode(9), NNode(10)]
+    r.children[1].children = [NNode(6)]
+    r.children[2].children = [NNode(7), NNode(8)]
+
+    num_paths_to_remove_for_even_forest(r)
+    print TO_REMOVE
