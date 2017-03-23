@@ -1,37 +1,54 @@
 """
 print paths summing up to a given value
+
+http://www.geeksforgeeks.org/print-k-sum-paths-binary-tree/
 """
+from DS.algos.graphs.binary_tree import Node
 
 
 def print_path(path, i, j):
-    print " -> ".join(path[i:j + 1])
+    while i <= j:
+        print path[i],
+        i += 1
+
+    print ''
 
 
-def get_depth(root):
+def paths_sum_to_k(root, path, k):
     if root is None:
-        return 0
-
-    return 1 + max(get_depth(root.left), get_depth(root.right))
-
-
-def find_sum(node, s, path, level):
-    if node is None:
         return
 
-    path[level] = node.data
-    i = level
+    path.append(root.data)
 
-    curr_sum = 0
-    while i >= 0:
-        curr_sum += path[i]
-        if curr_sum == s:
-            print_path(path, i, level)
+    paths_sum_to_k(root.left, path, k)
+    paths_sum_to_k(root.right, path, k)
 
-    find_sum(node.left, s, path, level + 1)
-    find_sum(node.right, s, path, level + 1)
+    current_sum = 0
+    m = len(path) - 1
+    n = m
+
+    while m >= 0:
+        current_sum += path[m]
+
+        if current_sum == k:
+            print_path(path, m, n)
+
+        m -= 1
+
+    path.pop()
 
 
-def find_sum_paths(root, sum_to_find):
-    depth = get_depth(root)
-    path = [None for i in range(depth)]
-    find_sum(root, sum_to_find, path, 0)
+if __name__ == '__main__':
+    r = Node(1)
+    r.left = Node(3)
+    r.right = Node(-1)
+    r.left.left = Node(2)
+    r.left.right = Node(1)
+    r.right.left = Node(4)
+    r.right.right = Node(5)
+    r.left.right.left = Node(1)
+    r.right.left.left = Node(1)
+    r.right.left.right = Node(2)
+    r.right.right.right = Node(6)
+
+    paths_sum_to_k(r, [], 5)

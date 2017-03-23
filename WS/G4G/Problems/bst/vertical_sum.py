@@ -103,5 +103,3 @@ if __name__ == '__main__':
     keys.sort()
     for key in keys:
         print dict[key][0],
-
-
