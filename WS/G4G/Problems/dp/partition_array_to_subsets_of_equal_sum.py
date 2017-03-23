@@ -15,6 +15,14 @@ isSubsetSum (arr, n, sum/2) = isSubsetSum (arr, n-1, sum/2) ||
 
 is_sum(0, 4, 5) = is_sum(0, 4-1, 5) or # not including 5
 				  is_sum(0, 4-1, 5-array[4-1])
+
+   0    3    1    1    2    2    1
+0 True True True True True True True
+1 False False True True True True True
+2 False False False True True True True
+3 False True True True True True True
+4 False False True True True True True
+5 False False False True True True True
 """
 from G4G.Problems.dp.min_matrix_cost_path_to_mn import print_matrix
 
@@ -33,6 +41,7 @@ def is_subset_sum_possible(array, sm):
             else:
                 dp[i][j] = dp[i][j - 1] or dp[i - array[j - 1]][j - 1]
 
+    print_matrix(dp)
     return dp[sm][len(array)]
 
 
