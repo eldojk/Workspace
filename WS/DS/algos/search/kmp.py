@@ -1,74 +1,110 @@
 """
-KMP Algorithm.
-DFA generation: https://www.youtube.com/watch?v=KG44VoDtsAA
-Pattern matching: https://youtu.be/GTJr8OvyEVQ?t=632
+KMP Sedgewick
+
+Match transition
+
+    0	1	2	3	4	5
+    A	B	A	B	A	C
+A	1		3		5
+B		2		4
+C						6
+
+In case of mismatch at dfa[c][j], we will simulate the normal brute force approach.
+
+in brute force if we have string ababaaa and pattern ababac, we scan from string[0]
+when the c mismatches, we set the cursor back at position 1. i.e string[1] and start
+over the same process again. But at this position we know we are looking at string
+babaaa, so we can skip forward by simulating this new string babaa (as if we are
+looking for babac). When c and a mismatches, we have covered only one less state,
+than when we started and reached ababaa earlier. And we have this information already
+in the table. use it
+Instead of re-running at every mismatch, if we keep track of the state we will be at,
+if we start at string[1] we can reuse this info (memoize!!!). Lets call this state X
+
+	0	1	2	3	4	5
+	A	B	A	B	A	C
+A	1	1	3	1	5	1
+B	0	2	0	4	0	4
+C	0	0	0	0	0	6
+
+1 - x = 0 and | 1,a = x,a; 1,c = x,c which is 0 and 0;
+x - x,b = 0  # update x as we need x in next move
+
+2 - x = 0 and | 2,b = x,b; 2,c = x,c which is 0 and 0;
+x - x, a = 1
+
+3 - x = 1 and | 3,a = x,a; 3,c - x,x which is 1 and 0
+x - x,b = 2
+
+4 - x = 2 and | 4,b = x,b; 4,c = x,c which is 0 and 0
+x - x,a = 3
+
+5 - x = 3 and | 5,a = x,a; 5,b = x,b which is 1 and 4
+x - x,c = 0
+
+^ the last state is as if we ran babac which is 0 :)
 """
 
 
-class KMP(object):
-    def __init__(self, string):
-        self.string = string
-        self.pattern = None
-        self.dfa = []
+def pos(character):
+    return ord(character) - ord('a')
 
-    def _compute_index(self, i, j):
-        if self.pattern[i] == self.pattern[j]:
-            # If match, increment i and j, dfa_val[i] = j+1
-            self.dfa[i] = j + 1
-            i += 1
-            j += 1
-        else:
-            # If Mismatch
-            if j == 0:
-                # if j=0, increment i, j stays same
-                self.dfa[i] = 0
-                i += 1
-            else:
-                # set j to dfa_val of previous, recursively reduce j until match occurs or j becomes 0
-                j = self.dfa[j - 1]
-                self._compute_index(i, j)
 
-        return i, j
+def construct_dfa(pattern):
+    dfa = [[0 for i in pattern] for i in range(26)]
 
-    def compute_dfa(self, pattern):
-        if self.pattern == pattern:
-            return
+    # initialize first match state
+    dfa[pos(pattern[0])][0] = 1
 
-        self.pattern = pattern
-        self.dfa = [None for _i in range(len(self.pattern))]
-        self.dfa[0] = 0
-        i = 1
-        j = 0
+    # From state 1
+    j = 1
+    X = 0
+    M = len(pattern)
 
-        while i < len(self.pattern):
-            i, j = self._compute_index(i, j)
+    while j < M:
+        # MisMatch transition
+        for c in range(26):
+            dfa[c][j] = dfa[c][X]
 
-    def _search_substring(self, str_index, pat_index):
-        if self.string[str_index] == self.pattern[pat_index]:
-            # If match look for next characters in string and pattern
-            str_index += 1
-            pat_index += 1
-        else:
-            # If mismatch
-            if pat_index == 0:
-                # If pattern beginning has not yet reached, just keep iterating over the string
-                str_index += 1
-            else:
-                # If portion of pattern is already matched, start checking again from dfa_val of previous
-                pat_index = self.dfa[pat_index - 1]
-                self._search_substring(str_index, pat_index)
+        # Match transition
+        character = pattern[j]
+        pos_of_char = pos(character)
+        dfa[pos_of_char][j] = j + 1  # on match, move to next state
 
-        return str_index, pat_index
+        # Update X
+        X = dfa[pos_of_char][X]
 
-    def search_substring(self, pattern):
-        self.compute_dfa(pattern)
-        str_index = 0
-        pat_index = 0
+        j += 1
 
-        while str_index < len(self.string) and pat_index < len(self.pattern):
-            str_index, pat_index = self._search_substring(str_index, pat_index)
+    return dfa
 
-        if pat_index < len(self.pattern) - 1:
-            return False
 
-        return True
+def search(string, pattern):
+    """
+    Pass in lower case alphabets only (radix is set to 26)
+
+    :param string:
+    :param pattern:
+    :return:
+    """
+    dfa = construct_dfa(pattern)
+
+    i = 0
+    j = 0
+    N = len(string)
+    M = len(pattern)
+
+    while i < N and j < M:
+        # update to next state based on current char and current state
+        j = dfa[pos(string[i])][j]
+        i += 1
+
+    # if last state reached
+    if j == M:
+        return i - M
+
+    return None
+
+
+if __name__ == '__main__':
+    print search('ababaaaaababacc', 'ababac')
