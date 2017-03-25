@@ -40,7 +40,7 @@ class PriorityQueue(object):
             k = child
 
     def is_empty(self):
-        self.N == 0
+        return self.N == 0
 
     def get_size(self):
         return self.N
