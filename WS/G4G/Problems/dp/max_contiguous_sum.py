@@ -4,6 +4,7 @@ sum[i] denotes the maximum contiguous sum with array[i] as the ending element, i
 and contiguous
 now starting from the second element it is obvious that the maximum contiguous sum will be the value of
 MAX(sum[i-1] + array[i], sum[i])
+since the sequence has to end at some place, choose maximum of this :)
 """
 from copy import copy
 

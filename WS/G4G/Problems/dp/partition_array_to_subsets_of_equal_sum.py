@@ -4,12 +4,12 @@ http://www.geeksforgeeks.org/dynamic-programming-set-18-partition-problem/
 Let isSubsetSum(arr, n, sum/2) be the function that returns true if
 there is a subset of arr[0..n-1] with sum equal to sum/2
 
-The isSubsetSum problem can be divided into two subproblems
+The isSubsetSum problem can be divided into two sub problems
  a) isSubsetSum() without considering last element
     (reducing n to n-1)
  b) isSubsetSum considering the last element
     (reducing sum/2 by arr[n-1] and n to n-1)
-If any of the above the above subproblems return true, then return true.
+If any of the above the above sub problems return true, then return true.
 isSubsetSum (arr, n, sum/2) = isSubsetSum (arr, n-1, sum/2) ||
                               isSubsetSum (arr, n-1, sum/2 - arr[n-1])
 

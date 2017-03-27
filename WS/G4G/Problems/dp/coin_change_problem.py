@@ -2,7 +2,17 @@
 """
 https://www.youtube.com/watch?&v=NJuKJ8sasGk TUSHAR ROY explains
 
-sys.maxint
+    0   1   2   3   4   5   6   7   8   9   10  11  12  13
+7   0   x   x   x   x   x   x   1   x   x   x   x   x   x
+2   0   x   1   x   2   x   3   1   4   2   5   3   6   4
+3   0   x   2   1   2   2   ....
+6
+
+^ using array is better
+
+each coin we can use or not use,
+if we use it, min[i] = 1 + min[i - val[i]]
+or not use, min[i] = min[i]
 """
 from sys import maxint
 
@@ -23,6 +33,7 @@ def find_min_coins(coins, value):
 
 
 if __name__ == '__main__':
+
     print find_min_coins([7, 2, 3, 6], 13)
 
 
