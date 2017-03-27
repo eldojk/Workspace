@@ -4,6 +4,7 @@ http://www.geeksforgeeks.org/find-sum-left-leaves-given-binary-tree/
 from DS.algos.graphs.binary_tree import Node
 from G4G.Problems.bst.merge_two_balanced_bst import get_inorder_array
 from G4G.Problems.trees.level_order_traversal import print_level_order
+from Queue import Queue
 
 
 def get_std_tree():
@@ -646,3 +647,57 @@ if __name__ == '__main__':
 
     num_paths_to_remove_for_even_forest(r)
     print TO_REMOVE
+
+
+"""
+http://www.geeksforgeeks.org/check-if-a-given-binary-tree-is-heap/
+
+Just one level order traversal of the given binary tree would be sufficient to check both the properties of binary heap
+To check Complete binary tree property: Just check no NON NULL value should proceed,once any NULL value is inserted into
+the queue.
+Checking the other property of binary heap is very easy, while inserting the children of a node , just check that they
+both are less than or greater than the parent.
+"""
+
+
+def is_tree_heap(root):
+    q = Queue()
+    q.put(root)
+
+    null_found = False
+    while not q.empty():
+        node = q.get()
+
+        if node.left:
+            if null_found:
+                return False
+            if node.left.data < node.data:
+                return False
+
+            q.put(node.left)
+        else:
+            if not null_found:
+                null_found = True
+
+        if node.right:
+            if null_found:
+                return False
+            if node.right.data < node.data:
+                return False
+
+            q.put(node.right)
+        else:
+            if not null_found:
+                null_found = True
+
+    return True
+
+
+if __name__ == '__main__':
+    print ''
+    t = get_std_tree()
+    print is_tree_heap(t)
+    t.left.left.right = Node(9)
+    print is_tree_heap(t)
+    t.left.left.left = Node(8)
+    print is_tree_heap(t)
