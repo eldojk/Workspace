@@ -701,3 +701,44 @@ if __name__ == '__main__':
     print is_tree_heap(t)
     t.left.left.left = Node(8)
     print is_tree_heap(t)
+
+
+"""
+http://www.geeksforgeeks.org/tree-isomorphism-problem/
+"""
+
+
+def is_isomorphic(root1, root2):
+    if root1 is None and root2 is None:
+        return True
+
+    if root1 is None or root2 is None:
+        return False
+
+    return is_isomorphic(root1.left, root2.left) and is_isomorphic(root1.right, root2.right)
+
+
+if __name__ == '__main__':
+    print ''
+    print is_isomorphic(get_std_tree(), get_std_tree())
+
+
+"""
+http://tech-queries.blogspot.in/2010/04/quasi-isomorphic-trees.html
+"""
+
+
+def is_quasi_isomorphic(root1, root2):
+    if root1 is None and root2 is None:
+        return True
+
+    if root1 is None or root2 is None:
+        return False
+
+    return (is_isomorphic(root1.left, root2.left) and is_isomorphic(root1.right, root2.right)) or \
+           (is_isomorphic(root1.left, root2.right) and is_isomorphic(root1.right, root2.left))
+
+
+if __name__ == '__main__':
+    print ''
+    print is_isomorphic(get_std_tree(), get_std_tree())

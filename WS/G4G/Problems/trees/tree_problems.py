@@ -110,23 +110,6 @@ def count_leaves(root):
     return count_leaves(root.left) + count_leaves(root.right)
 
 
-def convert_to_mirror(root):
-    if root is None:
-        return
-
-    left = root.left
-    root.left = root.right
-    root.right = left
-
-    convert_to_mirror(root.left)
-    convert_to_mirror(root.right)
-
-
-t = get_std_tree()
-convert_to_mirror(t)
-print t, t.left, t.right, t.right.left, t.right.right
-
-
 def iterative_in_order(root):
     current = root
     s = Stack()
