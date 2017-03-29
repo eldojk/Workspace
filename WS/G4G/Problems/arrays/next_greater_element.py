@@ -16,4 +16,4 @@ def get_next_minimum(array):
     while not stack.is_empty():
         print '{0} : {1}'.format(stack.pop(), '-1')
 
-# get_next_minimum([40,50,11,32,55,68,75])
+get_next_minimum([40,50,11,32,55,68,75])
