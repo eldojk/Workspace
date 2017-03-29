@@ -43,3 +43,24 @@ def print_k_length_combinations(letters, length, prefix):
 if __name__ == '__main__':
     print ''
     print_k_length_combinations('abc', 2, '')
+
+
+"""
+print all combinations of characters in a string
+
+http://www.mytechinterviews.com/combinations-of-a-string
+"""
+
+
+def print_all_length_combinations(string, index, outer_string):
+    for i in range(index, len(string)):
+        outer_string.append(string[i])
+        print ''.join(outer_string),
+        print_all_length_combinations(string, i + 1, outer_string)
+        outer_string.pop()
+
+
+if __name__ == '__main__':
+    print ''
+    print ''
+    print_all_length_combinations('abc', 0, [])

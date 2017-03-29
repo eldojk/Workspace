@@ -376,3 +376,32 @@ print_ll(delete_nodes_with_grtr_val_on_right(h))
 print ''
 
 
+"""
+sorted insert to ll
+"""
+
+
+def insert_to_sorted_ll(head, data):
+    if head is None:
+        return Node(data)
+
+    if head.data > data:
+        h = Node(data)
+        h.nxt = head
+        return h
+
+    head.nxt = insert_to_sorted_ll(head.nxt, data)
+    return head
+
+
+if __name__ == '__main__':
+    h = create_linked_list([1, 4, 7, 8, 12])
+
+    h = insert_to_sorted_ll(h, 5)
+    print_ll(h)
+
+    h = insert_to_sorted_ll(h, 0)
+    print_ll(h)
+
+    h = insert_to_sorted_ll(h, 13)
+    print_ll(h)
