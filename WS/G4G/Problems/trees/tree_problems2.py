@@ -742,3 +742,71 @@ def is_quasi_isomorphic(root1, root2):
 if __name__ == '__main__':
     print ''
     print is_isomorphic(get_std_tree(), get_std_tree())
+
+
+"""
+min root to leaf path
+"""
+
+
+def min_path(root):
+    if is_leaf(root):
+        return 0
+
+    l_min = maxint
+    if root.left:
+        l_min = min_path(root.left)
+
+    r_min = maxint
+    if root.right:
+        r_min = min_path(root.right)
+
+    return 1 + min(l_min, r_min)
+
+
+if __name__ == '__main__':
+    print ''
+    r = Node(1)
+    r.left = Node(2)
+    r.right = Node(3)
+    r.right.left = Node(4)
+
+    print min_path(r)
+
+
+"""
+http://www.geeksforgeeks.org/check-if-two-nodes-are-on-same-path-in-a-tree/
+"""
+
+N1_TIME = -1
+N1_IN_TIME = -1
+N2_TIME = -1
+N2_IN_TIME = -1
+TIMER = 0
+
+
+def check_nodes_are_on_same_path(root, n1, n2):
+    global N1_TIME, N2_TIME, TIMER, N2_IN_TIME, N1_IN_TIME
+
+    if root:
+        TIMER += 1
+        if root.data == n1:
+            N1_IN_TIME = TIMER
+        elif root.data == n2:
+            N2_IN_TIME = TIMER
+
+        check_nodes_are_on_same_path(root.left, n1, n2)
+        check_nodes_are_on_same_path(root.right, n1, n2)
+
+        TIMER += 1
+        if root.data == n1:
+            N1_TIME = TIMER
+        elif root.data == n2:
+            N2_TIME = TIMER
+
+
+if __name__ == '__main__':
+    r = get_std_tree()
+    check_nodes_are_on_same_path(r, 1, 4)
+    print (N1_IN_TIME < N2_IN_TIME and N1_TIME > N2_TIME) or \
+          (N2_IN_TIME < N1_IN_TIME and N2_TIME > N1_TIME)
