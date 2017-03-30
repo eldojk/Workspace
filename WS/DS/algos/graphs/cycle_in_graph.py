@@ -1,7 +1,5 @@
 """
 Connected graph. Detect cycle
-
-
 """
 from DS.algos.graphs.graphs import Node
 
