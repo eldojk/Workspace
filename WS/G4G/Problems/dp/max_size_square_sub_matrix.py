@@ -14,6 +14,8 @@ def max_size_sub_matrix(matrix, m, n):
 
             # if you include one more cell the size of square matrix
             # can only be as high as 1 plus the smallest adjacent cell
+            # if all three are 1 we get 1, if one is zero, it has to be
+            # at most the size of minimum + 1
             if matrix[i][j] == 1:
                 sum_matrix[i][j] = min(
                     sum_matrix[i - 1][j],
