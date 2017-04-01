@@ -1,4 +1,6 @@
 """
+http://www.geeksforgeeks.org/count-possible-paths-top-left-bottom-right-nxm-matrix/
+
 in an x, y grid, starting at 0,0 how many ways can u reach x,y if you can only move down and right
 
 CITC 9.2 #317
@@ -33,4 +35,5 @@ def get_number_of_ways(x, y):
     return matrix[x + 1][y + 1]
 
 
-    # print get_number_of_ways(3, 3)
+if __name__ == '__main__':
+    print get_number_of_ways(3, 3)
