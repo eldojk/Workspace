@@ -1,6 +1,14 @@
 """
 http://www.geeksforgeeks.org/count-possible-decodings-given-digit-sequence/
 
+Input:  digits[] = "121"
+Output: 3
+The possible decodings are "ABA", "AU", "LA"
+
+Input: digits[] = "1234"
+Output: 3
+The possible decodings are "ABCD", "LCD", "AWD"
+
 	0	1	2	3	4
 	1	1	2	3	3
 
@@ -13,6 +21,7 @@ http://www.geeksforgeeks.org/count-possible-decodings-given-digit-sequence/
 def get_max_decodings(number):
     decodings = [0 for i in range(len(number) + 1)]
     number = "".join(['0', number])
+
     decodings[0] = 1
     decodings[1] = 1
 
@@ -20,14 +29,15 @@ def get_max_decodings(number):
         decodings[i] = 0
 
         num = int(number[i])
-        if num > 0 and num <= 9:
+        if 0 < num <= 9:
             decodings[i] += decodings[i - 1]
 
         num = int("".join([number[i - 1], number[i]]))
-        if num > 0 and num <= 26:
+        if 0 < num <= 26:
             decodings[i] += decodings[i - 2]
 
     return decodings[len(number) - 1]
 
 
-print get_max_decodings('1234')
+if __name__ == '__main__':
+    print get_max_decodings('1234')
