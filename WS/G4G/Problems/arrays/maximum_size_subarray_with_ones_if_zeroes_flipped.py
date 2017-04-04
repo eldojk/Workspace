@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/find-zeroes-to-be-flipped-so-that-number-of-consecutive-1s-is-maximized/
 """
 
@@ -16,7 +18,7 @@ class SubArrayFinder(object):
 
     def update_max_width(self):
         if self.r - self.l + 1 > self.max_width:
-            self.max_width = self.r - self.l
+            self.max_width = self.r - self.l + 1
             self.max_l = self.l
             self.max_r = self.r
 

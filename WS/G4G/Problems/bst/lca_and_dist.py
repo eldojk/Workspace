@@ -75,12 +75,16 @@ def lca_bst(root, n1, n2):
 
     if n1 > root.data and n2 > root.data:
         return lca(root.right, n1, n2)
+
     elif n1 < root.data and n2 < root.data:
         return lca(root.left, n1, n2)
+
     elif root.data == n1:
         return n1
+
     elif root.data == n2:
         return n2
+
     else:
         return root.data
 
@@ -96,3 +100,48 @@ if __name__ == '__main__':
     r.right.right = Node(7)
 
     print lca_bst(r, 2.5, 7)
+
+
+"""
+http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-tree-set-2-using-parent-pointer/
+
+2nd approach
+"""
+
+
+def depth(node):
+    d = -1
+
+    while node is not None:
+        node = node.parent
+        d += 1
+
+    return d
+
+
+def lca_with_parent_ptr(n1, n2):
+    d1 = depth(n1)
+    d2 = depth(n2)
+
+    diff = abs(d1 - d2)
+
+    a = n1
+    b = n2
+
+    if d1 > d2:
+        a = n2
+        b = n1
+
+    # ^ a is the node at lesser depth
+
+    while diff != 0:
+        b = b.parent
+
+    while a is not None and b is not None:
+        if a == b:
+            return a
+
+        a = a.parent
+        b = b.parent
+
+    return None

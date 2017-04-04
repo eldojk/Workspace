@@ -1,4 +1,6 @@
 """
+amzn
+
 CHECK THESE TWO PROBLEMS. ALL 3 SOLUTIONS ARE AWESOME
 http://www.geeksforgeeks.org/a-linked-list-with-next-and-arbit-pointer/
 http://www.geeksforgeeks.org/clone-linked-list-next-arbit-pointer-set-2/

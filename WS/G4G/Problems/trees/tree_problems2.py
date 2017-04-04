@@ -810,3 +810,60 @@ if __name__ == '__main__':
     check_nodes_are_on_same_path(r, 1, 4)
     print (N1_IN_TIME < N2_IN_TIME and N1_TIME > N2_TIME) or \
           (N2_IN_TIME < N1_IN_TIME and N2_TIME > N1_TIME)
+
+
+"""
+Given a binary tree, sum all the root to leaf nodes and return the sum.
+
+Ex:
+          1
+        /   \
+      2      3
+    /   \       \
+   4     6       7
+
+here ans: 124 + 126 + 137 = 387
+"""
+
+
+def get_num_represented_by_stack(stack):
+    copy_stack = [i for i in stack]
+    total = 0
+    n = 1
+
+    while len(copy_stack) != 0:
+        total += copy_stack.pop().data * n
+        n *= 10
+
+    return total
+
+
+SUM_REPRESENTED_BY_R_TO_S_PATHS = 0
+
+
+def sum_of_all_root_to_leaf_representations(root, stack):
+    global SUM_REPRESENTED_BY_R_TO_S_PATHS
+    if root:
+        stack.append(root)
+
+        sum_of_all_root_to_leaf_representations(root.left, stack)
+        sum_of_all_root_to_leaf_representations(root.right, stack)
+
+        if is_leaf(root):
+            num = get_num_represented_by_stack(stack)
+            SUM_REPRESENTED_BY_R_TO_S_PATHS += num
+
+        stack.pop()
+
+
+if __name__ == '__main__':
+    print ''
+    r = Node(1)
+    r.left = Node(2)
+    r.right = Node(3)
+    r.left.left = Node(4)
+    r.left.right = Node(6)
+    r.right.right = Node(7)
+
+    sum_of_all_root_to_leaf_representations(r, [])
+    print SUM_REPRESENTED_BY_R_TO_S_PATHS
