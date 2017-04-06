@@ -67,7 +67,6 @@ if __name__ == "__main__":
     }
     find_itinerary(itinerary)
 
-
 """
 http://www.geeksforgeeks.org/find-missing-elements-of-a-range/
 """
@@ -89,7 +88,6 @@ if __name__ == "__main__":
     print_missing_elements_in_range([10, 12, 11, 15], 10, 15)
     print ''
 
-
 """
 http://www.geeksforgeeks.org/pair-with-given-product-set-1-find-if-any-pair-exists/
 """
@@ -100,7 +98,7 @@ def find_pair_with_given_product(array, product):
     for el in array:
         if el == 0 and product == 0:
             return True
-        elif product % el == 0 and hm.get(product/el):
+        elif product % el == 0 and hm.get(product / el):
             return True
         else:
             hm[el] = True
@@ -115,8 +113,6 @@ if __name__ == '__main__':
     print find_pair_with_given_product([-10, 20, 9, -40], 400)
     print find_pair_with_given_product([-10, 20, 9, 40], -400)
     print find_pair_with_given_product([0, 20, 9, 40], 0)
-
-
 
 """
 http://www.geeksforgeeks.org/find-subarray-with-given-sum/
@@ -174,16 +170,13 @@ if __name__ == '__main__':
     sub_array_with_sum_hashmap([1, 4, 0, 0, 3, 10, 5], 7)
     sub_array_with_sum_hashmap([1, 4], 0)
 
-
 """
 http://www.geeksforgeeks.org/print-all-subarrays-with-0-sum/
 """
 
-
 if __name__ == '__main__':
     print ''
     sub_array_with_sum_hashmap([6, 3, -1, -3, 4, -2, 2, 4, 6, -12, -7], 0)
-
 
 """
 http://www.geeksforgeeks.org/group-shifted-string/
@@ -216,15 +209,16 @@ if __name__ == '__main__':
     print ''
     find_shifted_strings(["acd", "dfg", "wyz", "yab", "mop", "bdfh", "a", "x", "moqs"])
 
-
 """
 http://www.geeksforgeeks.org/count-maximum-points-on-same-line/
 """
 from fractions import gcd
+
+
 def compute_slope(p1, p2):
     s = (p2[1] - p1[1], p2[0] - p1[0])
     g = gcd(s[0], s[1])
-    s = (s[0]/g, s[1]/g)
+    s = (s[0] / g, s[1] / g)
     return s
 
 
@@ -257,7 +251,6 @@ if __name__ == '__main__':
     print ''
     print find_max_pts_in_same_line([(-1, 1), (0, 0), (1, 1), (2, 2), (3, 3), (3, 4)])
 
-
 """
 http://www.geeksforgeeks.org/find-pairs-given-sum-elements-pair-different-rows/
 """
@@ -283,7 +276,6 @@ if __name__ == '__main__':
          [12, 0, 14, 15]]
     find_pair_some_different_rows(m, 11)
 
-
 """
 http://www.geeksforgeeks.org/distinct-strings-odd-even-changes-allowed/
 """
@@ -293,7 +285,7 @@ def get_odd_even_swap_char_anagram(string):
     od = []
     ev = []
     for i in range(len(string)):
-        if i%2 == 0:
+        if i % 2 == 0:
             ev.append(string[i])
         else:
             od.append(string[i])
@@ -325,7 +317,6 @@ if __name__ == '__main__':
     find_distinct_odd_even_swappable_strings(["abcd", "cbad", "bacd"])
     find_distinct_odd_even_swappable_strings(["abc", "cba"])
 
-
 """
 http://www.geeksforgeeks.org/maximum-distance-two-occurrences-element-array/
 """
@@ -352,7 +343,6 @@ if __name__ == '__main__':
     print ''
     print max_dist_of_two_elements([3, 2, 1, 2, 1, 4, 5, 8, 6, 7, 4, 2])
 
-
 """
 http://www.geeksforgeeks.org/count-index-pairs-equal-elements-array/
 """
@@ -366,7 +356,7 @@ def nc2(n):
 
     nf = iterative_factorial(n)
     cf = 2
-    nm2f = iterative_factorial(n-2)
+    nm2f = iterative_factorial(n - 2)
 
     return nf / (cf * nm2f)
 
@@ -391,8 +381,6 @@ if __name__ == '__main__':
     print ''
     print count_index_pairs_equal_elements([1, 1, 2])
     print count_index_pairs_equal_elements([1, 1, 1])
-
-
 
 """
 http://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/
@@ -449,3 +437,28 @@ if __name__ == '__main__':
     print ''
     print sorted_array_union([1, 3, 4, 5, 7], [2, 3, 5, 6])
     print sorted_array_intersection([1, 3, 4, 5, 7], [2, 3, 5, 6])
+
+"""
+Find a pair with sum 0 sorted array
+"""
+
+
+def find_pair_with_sum(array, sm):
+    i = 0
+    j = len(array) - 1
+
+    while i <= j:
+        if array[i] + array[j] == sm:
+            return i, j
+        elif array[i] + array[j] > sm:
+            j -= 1
+        else:
+            i += 1
+
+    return None
+
+
+if __name__ == '__main__':
+    print ''
+    a = [-3, 1, 2, 3, 4, 9, 10]
+    print find_pair_with_sum(a, 0)
