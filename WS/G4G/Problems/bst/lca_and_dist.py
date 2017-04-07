@@ -79,14 +79,23 @@ def lca_bst(root, n1, n2):
     elif n1 < root.data and n2 < root.data:
         return lca(root.left, n1, n2)
 
-    elif root.data == n1:
-        return n1
-
-    elif root.data == n2:
-        return n2
-
     else:
         return root.data
+
+
+def dist_from_root_bst(root, n, k):
+    if root:
+        if root.data > n:
+            return dist_from_root_bst(root.left, n, k + 1)
+
+        elif root.data < n:
+            return dist_from_root_bst(root.right, n, k + 1)
+
+        else:
+            return k
+
+    else:
+        return -1
 
 
 if __name__ == '__main__':
@@ -100,7 +109,7 @@ if __name__ == '__main__':
     r.right.right = Node(7)
 
     print lca_bst(r, 2.5, 7)
-
+    print dist_from_root_bst(r, 7, 0)
 
 """
 http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-tree-set-2-using-parent-pointer/

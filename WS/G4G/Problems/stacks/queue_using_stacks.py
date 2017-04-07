@@ -1,3 +1,7 @@
+"""
+amzn
+"""
+
 from G4G.Problems.stacks.stack import Stack
 
 
