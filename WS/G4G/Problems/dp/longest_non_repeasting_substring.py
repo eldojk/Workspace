@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/
 """
 
@@ -21,7 +23,7 @@ def longest_non_repeating_substring(string):
                 longest_substring_length = current_length
 
         else:
-            # update longest len before current len is changed
+            # update longest len before current len is changed ( this required?? )
             if current_length > longest_substring_length:
                 longest_substring_length = current_length
 
