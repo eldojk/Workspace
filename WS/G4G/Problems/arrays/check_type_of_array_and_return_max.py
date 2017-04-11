@@ -1,6 +1,7 @@
 """
 http://www.geeksforgeeks.org/type-array-maximum-element/
 """
+#todo
 
 
 def check_type(array):
