@@ -1,5 +1,8 @@
 """
+amzn
 http://algorithmsandme.in/2017/01/find-first-circular-tour-visits-petrol-pumps/
+http://www.geeksforgeeks.org/find-a-tour-that-visits-all-stations
+
 
 {4, 6}, {6, 5}, {7, 3} and {4, 5}
 {4, 5}, {6, 5}, {2, 4} and {6, 4}

@@ -1,3 +1,9 @@
+"""
+amzn
+
+http://www.geeksforgeeks.org/implement-a-stack-using-single-queue/
+"""
+
 from Queue import Queue
 
 
@@ -12,6 +18,8 @@ class Stack(object):
         else:
             s = self.q.qsize()
             self.q.put(element)
+
+            # pop from front and put it at the back
             for i in range(s):
                 self.q.put(self.q.get())
 
@@ -19,9 +27,10 @@ class Stack(object):
         return self.q.get()
 
 
-s = Stack()
-s.push(1)
-s.push(2)
-s.push(3)
+if __name__ == '__main__':
+    s = Stack()
+    s.push(1)
+    s.push(2)
+    s.push(3)
 
-print s.pop(), s.pop(), s.pop()
+    print s.pop(), s.pop(), s.pop()

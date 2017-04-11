@@ -1,5 +1,7 @@
 # coding=utf-8
 """
+amzn
+
 http://www.geeksforgeeks.org/counting-inversions/
 
 Inversion Count for an array indicates – how far (or close) the array is from being sorted. I
@@ -31,7 +33,7 @@ def _count_invs(array, aux, p, q, r):
             i += 1
             k += 1
         else:
-            INV_COUNT += (q - i + 1)
+            INV_COUNT += (q - i + 1)  # count inversions now
             aux[k] = array[j]
             j += 1
             k += 1
@@ -64,5 +66,5 @@ def count_inversions(array):
     return INV_COUNT
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     print count_inversions([2, 4, 1, 3, 5])

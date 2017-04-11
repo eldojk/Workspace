@@ -19,28 +19,29 @@ def get_min_trains(arrivals, departures):
     arrivals.sort()
     departures.sort()
     n = len(arrivals)
-    i =0
+    i = 0
     j = 0
 
-    max_reqd = 0
-    currently_reqd = 0
+    max_required = 0
+    currently_required = 0
+
     while i < n and j < n:
         if arrivals[i] < departures[j]:
-            currently_reqd += 1
-            max_reqd = currently_reqd if currently_reqd > max_reqd else max_reqd
+            currently_required += 1
+            max_required = currently_required if currently_required > max_required else max_required
             i += 1
         elif departures[j] < arrivals[i]:
-            currently_reqd -= 1
+            currently_required -= 1
             j += 1
         else:
             i += 1
             j += 1
 
-    return max_reqd
+    return max_required
 
 
-# if __name__=='__main__':
-#     arr = [900, 940, 950, 1100, 1500, 1800]
-#     dep = [910, 1200, 1120, 1130, 1900, 2000]
-#
-#     print get_min_trains(arr, dep)
+if __name__ == '__main__':
+    arr = [900, 940, 950, 1100, 1500, 1800]
+    dep = [910, 1200, 1120, 1130, 1900, 2000]
+
+    print get_min_trains(arr, dep)

@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/count-distinct-elements-in-every-window-of-size-k/
 """
 
