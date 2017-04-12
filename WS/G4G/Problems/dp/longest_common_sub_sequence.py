@@ -20,6 +20,7 @@ if last elements of both strings are equal:
     removed from either of them and the other one intact
     ie. max of [ABCDG and AEDFHR] and [ABCDGH and AEDFH] = max of AD and ADH
 """
+from G4G.Problems.dp.min_matrix_cost_path_to_mn import print_matrix
 
 
 def lcs_length(array1, array2):
@@ -37,10 +38,11 @@ def lcs_length(array1, array2):
             else:
                 lcs_dp[i][j] = max(
                     lcs_dp[i - 1][j],  # last char removed from array1
-                    lcs_dp[i][j - 1]   # last char removed from array2
+                    lcs_dp[i][j - 1]  # last char removed from array2
                 )
 
-    return max([max(row) for row in lcs_dp])
+    # print_matrix(lcs_dp)
+    return lcs_dp[len(array2)][len(array1)]
 
 
 if __name__ == '__main__':
