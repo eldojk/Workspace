@@ -29,7 +29,6 @@ def get_valid_neighbours(i, j, matrix):
 
 
 def dfs(matrix, dp, i, j, visited):
-    print 'dfs'
     visited[i][j] = True  # setting this flag so that we don't come back here in this dfs recursion
 
     if dp[i][j] != -1:
