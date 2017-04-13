@@ -34,7 +34,9 @@ Explanation : Subarrays of size 4 are :
 from copy import copy
 from G4G.Problems.dp.min_matrix_cost_path_to_mn import print_matrix
 
-
+"""
+This is bad, use a bst
+"""
 def sliding_window_sizes(array, sw_size):
     min_sw_sizes = [[0 for i in array] for j in range(sw_size)]
     min_sw_sizes[0] = copy(array)

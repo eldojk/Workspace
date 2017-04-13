@@ -18,8 +18,8 @@ def get_number_from_rev_list(head):
     multiplier = 1
 
     while head is not None:
-        num = num + multiplier * head.data
-        multiplier = multiplier * 10
+        num += (multiplier * head.data)
+        multiplier *= 10
         head = head.nxt
 
     return num
