@@ -2,6 +2,7 @@
 http://www.geeksforgeeks.org/given-an-array-of-pairs-find-all-symmetric-pairs-in-it/
 """
 from DS.algos.math.factorial import iterative_factorial
+from sys import maxint
 
 
 def find_symmetric_pairs(array):
@@ -462,3 +463,51 @@ if __name__ == '__main__':
     print ''
     a = [-3, 1, 2, 3, 4, 9, 10]
     print find_pair_with_sum(a, 0)
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/to-find-smallest-and-second-smallest-element-in-an-array/
+"""
+
+
+def find_second_smallest_and_largest(array):
+    first_s = maxint
+    second_s = maxint
+    first_l = -maxint
+    second_l = -maxint
+
+    n = len(array)
+
+    if n < 2:
+        print 'Not possible'
+        return
+
+    for i in range(n):
+
+        if array[i] < first_s:
+            second_s = first_s
+            first_s = array[i]
+
+        elif array[i] < second_s and array[i] != first_s:
+            second_s = array[i]
+
+        if array[i] > first_l:
+            second_l = first_l
+            first_l = array[i]
+
+        elif array[i] > second_l and array[i] != first_l:
+            second_l = array[i]
+
+    if second_s == maxint or second_l == -maxint:
+        print 'No second largest/smallest element'
+
+    else:
+        print 'smallest {0}, second smallest {1}'.format(str(first_s), str(second_s))
+        print 'largest {0}, second largest {1}'.format(str(first_l), str(second_l))
+
+
+if __name__ == '__main__':
+    print ''
+    find_second_smallest_and_largest([12, 13, 1, 10, 34, 1])
