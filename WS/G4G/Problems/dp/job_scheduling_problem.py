@@ -25,6 +25,10 @@ class Job:
 def maximum_value(jobs):
     """
     Jobs are sorted based on finish time. this is important
+    We can't schedule job1 before job2 if job1's finish time is
+    after job2
+    So when we consider a job we want to find all jobs that finishes
+    before this one does
 
     :param jobs:
     :return:
