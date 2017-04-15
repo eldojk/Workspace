@@ -511,3 +511,24 @@ def find_second_smallest_and_largest(array):
 if __name__ == '__main__':
     print ''
     find_second_smallest_and_largest([12, 13, 1, 10, 34, 1])
+
+
+"""
+http://www.geeksforgeeks.org/find-the-missing-number/
+"""
+
+
+def missing_num(array):
+    n = len(array) + 1
+    expected_sum = (n * (n + 1)) / 2
+
+    observed_sum = 0
+    for candidate in array:
+        observed_sum += candidate
+
+    return expected_sum - observed_sum
+
+
+if __name__ == '__main__':
+    print ''
+    print missing_num([1, 2, 3, 4, 6, 7, 8])

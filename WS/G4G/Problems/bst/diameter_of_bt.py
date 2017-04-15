@@ -1,7 +1,7 @@
 """
 http://www.geeksforgeeks.org/diameter-of-a-binary-tree/
 
-
+diameter is also the longest path between two nodes in a tree
 """
 
 
