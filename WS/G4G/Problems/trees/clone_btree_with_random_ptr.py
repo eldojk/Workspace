@@ -1,6 +1,8 @@
 """
 http://www.geeksforgeeks.org/clone-binary-tree-random-pointers/
 """
+
+
 class Node(object):
     def __init__(self, data):
         self.data = data

@@ -28,6 +28,13 @@ in middle
 max(lps[0, n-2], lps[1, n-1]) if s[0] != s[1] else 2 cases, ignoring 1st char and last char
 
 """
+
+"""
+http://www.geeksforgeeks.org/find-if-string-is-k-palindrome-or-not-set-2/
+
+^ this also use longest palindromic subsequence length to solve the problem
+"""
+
 from G4G.Problems.dp.min_matrix_cost_path_to_mn import print_matrix
 
 
