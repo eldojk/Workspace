@@ -1,4 +1,6 @@
 """
+amzn
+
 like binary search
 http://stackoverflow.com/questions/1623375/writing-your-own-square-root-function
 

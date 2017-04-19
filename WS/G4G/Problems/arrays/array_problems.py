@@ -532,3 +532,41 @@ def missing_num(array):
 if __name__ == '__main__':
     print ''
     print missing_num([1, 2, 3, 4, 6, 7, 8])
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/count-substrings-with-same-first-and-last-characters/
+"""
+
+
+def find_num_substrings_with_same_first_and_last_char(string):
+    """
+     each char is a substring with same first and last char
+
+     also for a string ending at char at i, if the same char
+     occured before, then that occurrence to this will be a substring
+
+    :param string:
+    :return:
+    """
+
+    total = len(string)
+    occ = {}
+
+    for i in range(len(string)):
+        if occ.get(string[i]) is not None:
+            num = occ[string[i]]
+            total += num
+            occ[string[i]] = num + 1
+        else:
+            occ[string[i]] = 1
+
+    return total
+
+
+if __name__ == '__main__':
+    print ''
+    print find_num_substrings_with_same_first_and_last_char('abcab')
+    print find_num_substrings_with_same_first_and_last_char('aba')

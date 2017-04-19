@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/dynamic-programming-set-36-cut-a-rope-to-maximize-product/
 
 must make at least one cut.

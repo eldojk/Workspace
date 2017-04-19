@@ -1,4 +1,6 @@
 """
+amzn
+
 Given a rod of length and prices at which different length of this rod can sell, how do you cut this rod to
 maximize profit
 

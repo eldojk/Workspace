@@ -42,6 +42,12 @@ if __name__ == '__main__':
     print get_number_from_list(create_linked_list([1, 2, 3]))[0]
 
 
+"""
+amzn
+
+add num to ll or add 1 to ll
+"""
+
 def _add_num_to_linked_list(head, num):
     if head is not None:
         carry = _add_num_to_linked_list(head.nxt, num)

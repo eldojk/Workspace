@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/longest-palindrome-substring-set-1/
 
         b	a	b	a	c	s

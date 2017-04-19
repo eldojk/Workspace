@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/merging-intervals/
 """
 from G4G.Problems.stacks.stack import Stack

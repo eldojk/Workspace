@@ -1,5 +1,7 @@
 # coding=utf-8
 """
+amzn
+
 https://www.youtube.com/watch?&v=NJuKJ8sasGk TUSHAR ROY explains
 
     0   1   2   3   4   5   6   7   8   9   10  11  12  13

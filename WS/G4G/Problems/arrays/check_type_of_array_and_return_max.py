@@ -1,41 +1,65 @@
 """
 http://www.geeksforgeeks.org/type-array-maximum-element/
+
+43215
 """
 #todo
 
 
-def check_type(array):
-    array = array.extend(array)
+def is_ascending(array, n):
+    prev = array[0]
+    for i in range(1, n):
+        if prev >= array[i]:
+            return False
 
+        prev = array[i]
+
+    return True
+
+
+def is_descending(array, n):
+    prev = array[0]
+    for i in range(1, n):
+        if prev <= array[i]:
+            return False
+
+        prev = array[i]
+
+    return True
+
+
+def check_type(array):
     n = len(array)
 
-    i = 0
-    j = 0
+    if n < 2:
+        return 'Undecidable'
 
-    f1 = False
-    f2 = False
+    first = array[0]
+    last = array[n - 1]
 
-    while i < n - 1 and j < n - 1:
-        if array[i] < array[i + 1]:
-            i += 1
-            f1 = True
+    if first < last:
+        # ascending or descending rotated
 
-        if array[j] > array[j + 1]:
-            j += 1
-            f2 = True
+        if is_ascending(array, n):
+            return 'Ascending'
 
-        if not (f1 or f2):
-            break
+        else:
+            return 'Descending rotated'
 
-        f1 = False
-        f2 = False
+    else:
 
+        # descending or ascending rotated
 
-    
+        if is_descending(array, n):
+            return 'Descending'
 
+        else:
+            return 'Ascending rotated'
 
 
 if __name__ == '__main__':
-    #print check_type([4, 5, 6, 1, 2, 3])
-    #print check_type([6, 1, 2, 3, 4, 5])
+    print check_type([4, 5, 6, 1, 2, 3])
+    print check_type([6, 1, 2, 3, 4, 5])
     print check_type([2, 1, 7, 5, 4, 3])
+    print check_type([1, 2, 3, 4, 5, 8])
+    print check_type([9, 5, 4, 3, 2, 1])

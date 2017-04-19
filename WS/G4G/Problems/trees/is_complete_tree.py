@@ -1,6 +1,11 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/check-if-a-given-binary-tree-is-complete-tree-or-not/
+
 """
+# todo check if recursive version exists !!
+
 from Queue import Queue
 
 from G4G.Problems.bst.connect_nodes_at_a_level import Node
@@ -47,4 +52,3 @@ r.left.right = Node(5)
 r.right.left = Node(6)
 
 print is_complete(r)
-
