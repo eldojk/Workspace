@@ -1,5 +1,7 @@
 """
 http://www.geeksforgeeks.org/perfect-binary-tree-specific-level-order-traversal/
+
+more ques underneath
 """
 from Queue import Queue
 from G4G.Problems.stacks.stack import Stack
@@ -130,6 +132,14 @@ if __name__ == '__main__':
     print ''
     root = get_tree()
     print_bottom_up_of_this(root)
+
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/print-extreme-nodes-of-each-level-of-binary-tree-in-alternate-order/
+"""
 
 
 def print_level_nodes_alternate_order(root):

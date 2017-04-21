@@ -52,5 +52,5 @@ def merge_overlapping_intervals(array):
 
     print [(i.start, i.end) for i in s.items]
 
-
-print merge_overlapping_intervals([Interval(2, 4), Interval(5, 7), Interval(1, 3), Interval(6, 8)])
+if __name__ == '__main__':
+    merge_overlapping_intervals([Interval(2, 4), Interval(5, 7), Interval(1, 3), Interval(6, 8)])

@@ -16,8 +16,8 @@ def find_sum_pair(array1, array2, sum_to_find):
         else:
             j -= 1
 
-
-print find_sum_pair([1, 4, 6, 7, 9], [2, 3, 4, 5, 8], 7)
+if __name__ == '__main__':
+    print find_sum_pair([1, 4, 6, 7, 9], [2, 3, 4, 5, 8], 7)
 
 
 
