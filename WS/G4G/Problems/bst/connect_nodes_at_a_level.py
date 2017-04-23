@@ -85,3 +85,77 @@ if __name__=='__main__':
     print root.left.nxt
     print root.left.left.nxt
     print root.left.right.nxt
+
+
+"""
+amzn
+
+using constant extra space
+
+http://www.geeksforgeeks.org/connect-nodes-at-same-level-with-o1-extra-space/
+"""
+
+
+def get_next_right(node):
+    tmp = node.nxt
+
+    while tmp is not None:
+        if tmp.left:
+            return tmp.left
+
+        elif tmp.right:
+            return tmp.right
+
+        else:
+            tmp = tmp.nxt
+
+    return None
+
+
+def connect_with_constant_space(root):
+    if root is None:
+        return
+
+    p = root
+
+    while p is not None:
+
+        q = p
+
+        while q is not None:
+
+            if q.left:
+                if q.right:
+                    q.left.nxt = q.right
+
+                else:
+                    q.left.nxt = get_next_right(q)
+
+            if q.right:
+                q.right.nxt = get_next_right(q)
+
+            q = q.nxt
+
+        if p.left:
+            p = p.left
+
+        elif p.right:
+            p = p.right
+
+        else:
+            p = get_next_right(p)
+
+
+if __name__=='__main__':
+    root = Node('A')
+    root.left = Node('B')
+    root.right = Node('C')
+    root.left.left = Node('D')
+    root.left.right = Node('E')
+    root.right.right = Node('F')
+
+    print ''
+    connect_with_constant_space(root)
+    print root.left.nxt
+    print root.left.left.nxt
+    print root.left.right.nxt
