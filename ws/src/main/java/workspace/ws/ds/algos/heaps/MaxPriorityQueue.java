@@ -75,4 +75,12 @@ public class MaxPriorityQueue<Key extends Comparable<Key>> {
 		return max;
 
 	}
+	
+	public Key top() {
+		return pq[1];
+	}
+	
+	public Key[] getElements() {
+		return pq;
+	}
 }
