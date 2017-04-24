@@ -116,6 +116,8 @@ if __name__ == '__main__':
     print find_pair_with_given_product([0, 20, 9, 40], 0)
 
 """
+amzn
+
 http://www.geeksforgeeks.org/find-subarray-with-given-sum/
 
 note - this is o(n). check link for proof
