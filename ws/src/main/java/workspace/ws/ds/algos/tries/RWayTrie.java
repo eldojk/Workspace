@@ -52,4 +52,35 @@ public class RWayTrie<Value> {
 	public boolean contains(String key) {
 		return get(key) != null;
 	}
+	
+	private Node findPrefixNode(Node node, String prefix, int index) {
+		if ((index < prefix.length()) && (node != null)) {
+			Node next = node.next[prefix.charAt(index)];
+			return findPrefixNode(next, prefix, index + 1);
+		}
+		
+		return node;
+	}
+	
+	private void recursivelyPrintPrefixes(String prefix, Node node) {
+		if (node.value != null) {
+			System.out.println(prefix);
+		}
+		
+		for (int i = 0; i < node.next.length; i++) {
+			if (node.next[i] != null)
+				recursivelyPrintPrefixes(prefix + (char) i, node.next[i]);
+		}
+	}
+	
+	public void searchWithPrefix(String prefix) {
+		Node node = findPrefixNode(root, prefix, 0);
+		
+		if (node == null) {
+			System.out.println("No results found");
+			return;
+		}
+		
+		recursivelyPrintPrefixes(prefix, node);
+	}
 }
