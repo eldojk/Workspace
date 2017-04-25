@@ -1,5 +1,7 @@
 # coding=utf-8
 """
+amzn
+
 http://www.geeksforgeeks.org/dynamic-programming-set-28-minimum-insertions-to-form-a-palindrome/
 
 ab: Number of insertions required is 1. bab

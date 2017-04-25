@@ -1,4 +1,7 @@
 """
+amzn
+
+this is not dp. done it differently here
 http://www.geeksforgeeks.org/check-whether-a-given-string-is-an-interleaving-of-two-other-given-strings-set-2/
 """
 
@@ -39,3 +42,4 @@ if __name__ == '__main__':
     print is_inter_leaved("AB", "CD", "CADB")
     print is_inter_leaved("AB" ,"CD" ,"CDAB")
     print is_inter_leaved("DAACSA" ,"DAS" ,"AAACC")
+    print is_inter_leaved('XXZ', 'XXXY', 'XXZXXXY')

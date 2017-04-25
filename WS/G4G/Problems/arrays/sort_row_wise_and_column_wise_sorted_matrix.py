@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/print-elements-sorted-order-row-column-wise-sorted-matrix/
 """
 
@@ -7,8 +9,7 @@ def get_matrix_to_single_array(matrix):
     array = []
     for i in range(len(matrix)):
         arr = matrix[i]
-        for j in range(len(arr)):
-            array.append(arr[j])
+        array.extend(arr)
 
     return array
 
@@ -21,6 +22,7 @@ def copy(array, aux):
 def merge(array, aux, p, q, r, n):
     # optimisation that makes this run in n2lgn instead of n2lgn2
     if (q - p) < n:
+        # bcoz this is already sorted
         return
 
     i = p
