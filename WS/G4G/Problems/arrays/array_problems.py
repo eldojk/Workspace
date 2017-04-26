@@ -572,3 +572,25 @@ if __name__ == '__main__':
     print ''
     print find_num_substrings_with_same_first_and_last_char('abcab')
     print find_num_substrings_with_same_first_and_last_char('aba')
+
+
+"""
+amzn
+"""
+
+
+def get_pair_with_given_product_two_arrays(array1, array2, product):
+    hm = {i: True for i in array2}
+
+    for num in array1:
+        element = product // num
+
+        if hm.get(element):
+            return num, element
+
+    return None
+
+
+if __name__ == '__main__':
+    print ''
+    print get_pair_with_given_product_two_arrays([1, 3, 5], [4, 5, 6], 15)

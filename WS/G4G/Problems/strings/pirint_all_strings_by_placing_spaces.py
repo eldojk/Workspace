@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/print-possible-strings-can-made-placing-spaces/
 """
 
