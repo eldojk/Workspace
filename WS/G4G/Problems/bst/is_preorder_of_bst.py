@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/check-if-a-given-array-can-represent-preorder-traversal-of-binary-search-tree/
 
 This problem is similar to Next (or closest) Greater Element problem.

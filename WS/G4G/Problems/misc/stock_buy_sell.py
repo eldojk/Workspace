@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/stock-buy-sell/
 
 The cost of a stock on each day is given in an array, find the max profit that you can make by buying and selling in

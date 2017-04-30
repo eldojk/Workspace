@@ -1,5 +1,7 @@
 # coding=utf-8
 """
+amzn
+
 http://www.geeksforgeeks.org/find-next-greater-number-set-digits/
 
 Following are few observations about the next greater number.

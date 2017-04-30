@@ -594,3 +594,4 @@ def get_pair_with_given_product_two_arrays(array1, array2, product):
 if __name__ == '__main__':
     print ''
     print get_pair_with_given_product_two_arrays([1, 3, 5], [4, 5, 6], 15)
+

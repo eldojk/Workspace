@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/largest-subarray-with-equal-number-of-0s-and-1s/
 
 consider 0s as -1 so when we find a sum of zero for all elements we know there is equal number of zeros and ones
