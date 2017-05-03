@@ -15,5 +15,7 @@ public class MinPriorityQueue<Key extends Comparable<Key>> extends
 		// is i > j
 		return pq[i].compareTo(pq[j]) > 0;
 	}
+	
+	
 
 }
