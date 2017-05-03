@@ -10,7 +10,14 @@ public class PhoneBook {
 		trie.put("sdfss", true);
 		trie.put("gks", true);
 		trie.put("geeklsgfdfps", true);
+		trie.put("abcd", true);
+		trie.put("lmn", true);
+		trie.put("zebra", true);
 		
-		trie.searchWithPrefix("asdsa");
+		trie.searchWithPrefix("gee");
+		
+		System.out.println("----");
+		
+		trie.printInAlphabeticalOrder();
 	}
 }

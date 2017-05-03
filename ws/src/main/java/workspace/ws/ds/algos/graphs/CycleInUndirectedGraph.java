@@ -5,6 +5,11 @@ import workspace.ws.ds.algos.unionfind.UnionFind;
 import workspace.ws.ds.data.Edge;
 import workspace.ws.ds.data.EdgeWeightedGraph;
 
+/**
+ * smsg, amzn
+ * 
+ * @author eldo.joseph
+ */
 public class CycleInUndirectedGraph {
 	private EdgeWeightedGraph graph;
 	private UnionFind uf;

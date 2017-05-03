@@ -73,6 +73,11 @@ public class RWayTrie<Value> {
 		}
 	}
 	
+	/**
+	 * For search suggestions
+	 * 
+	 * @param prefix
+	 */
 	public void searchWithPrefix(String prefix) {
 		Node node = findPrefixNode(root, prefix, 0);
 		
@@ -82,5 +87,21 @@ public class RWayTrie<Value> {
 		}
 		
 		recursivelyPrintPrefixes(prefix, node);
+	}
+	
+	private void printLexicographically(Node node, String prefix) {
+		if (node.value != null) {
+			System.out.println(prefix);
+		}
+		
+		for(int i = 0; i < R; i++) {
+			if (node.next[i] != null) {
+				printLexicographically(node.next[i], prefix + (char) i);
+			}
+		}
+	}
+	
+	public void printInAlphabeticalOrder() {
+		printLexicographically(root, "");
 	}
 }
