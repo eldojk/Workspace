@@ -3,6 +3,8 @@ package workspace.ws.ds.algos.graphs;
 import workspace.ws.ds.data.DiGraph;
 
 /**
+ * smsg, amzn
+ * 
  * https://www.youtube.com/watch?v=rKQaZuoUR4M tushar roy
  * 
  * @author eldo.joseph
