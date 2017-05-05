@@ -30,6 +30,44 @@ def set_matrix(matrix):
     return matrix
 
 
+def set_matrix_constant_extra_space(matrix):
+    r_flag = False
+    c_flag = False
+
+    for i in range(len(matrix)):
+        if matrix[i][0] == 1:
+            c_flag = True
+            break
+
+    for j in range(len(matrix[0])):
+        if matrix[0][j] == 1:
+            r_flag = True
+            break
+
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+
+            if matrix[i][j] == 1:
+                matrix[0][j] = 1
+                matrix[i][0] = 1
+
+    for i in range(1, len(matrix)):
+        for j in range(1, len(matrix[0])):
+
+            if matrix[i][0] == 1 or matrix[0][j] == 1:
+                matrix[i][j] = 1
+
+    if r_flag:
+        for i in range(len(matrix[0])):
+            matrix[0][i] = 1
+
+    if c_flag:
+        for i in range(len(matrix)):
+            matrix[i][0] = 1
+
+    return matrix
+
+
 if __name__ == '__main__':
     m = [
         [1, 0, 0, 1],
@@ -38,4 +76,14 @@ if __name__ == '__main__':
     ]
 
     set_matrix(m)
+    print_matrix(m)
+
+    print ''
+
+    m = [
+        [1, 0, 0, 1],
+        [0, 0, 1, 0],
+        [0, 0, 0, 0]
+    ]
+    set_matrix_constant_extra_space(m)
     print_matrix(m)

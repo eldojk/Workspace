@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/count-possible-decodings-given-digit-sequence/
 
 This problem is recursive and can be broken in sub-problems. We start from end of the given digit sequence. We
@@ -25,6 +27,7 @@ def num_decodings(string, n):
 
 if __name__ == '__main__':
     print num_decodings('1234', 4)
+
 
 """
 DYNAMIC PROGRAMMING

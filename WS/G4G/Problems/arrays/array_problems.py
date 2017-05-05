@@ -595,3 +595,37 @@ if __name__ == '__main__':
     print ''
     print get_pair_with_given_product_two_arrays([1, 3, 5], [4, 5, 6], 15)
 
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/find-position-element-sorted-array-infinite-numbers/
+"""
+
+
+def binary_search(array, l, h, key):
+    if h < l:
+        return -1
+
+    mid = (l + h) // 2
+
+    if array[mid] == key:
+        return mid
+
+    elif array[mid] < key:
+        return binary_search(array, mid + 1, h, key)
+
+    else:
+        return binary_search(array, l, mid - 1, key)
+
+
+def search_inf_array(array, key):
+    l, h = 0
+    val = array[0]
+
+    while val < key:
+        l = h
+        h *= 2  # double h
+        val = array[h]
+
+    return binary_search(array, l, h, key)
