@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/find-sum-left-leaves-given-binary-tree/
 """
 from DS.algos.graphs.binary_tree import Node

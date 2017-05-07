@@ -21,6 +21,8 @@ if __name__ == '__main__':
     find_symmetric_pairs([(11, 20), (30, 40), (5, 10), (40, 30), (10, 5)])
 
 """
+amzn
+
 http://www.geeksforgeeks.org/find-four-elements-a-b-c-and-d-in-an-array-such-that-ab-cd/
 """
 
