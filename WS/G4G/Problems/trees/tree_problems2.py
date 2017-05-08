@@ -869,3 +869,57 @@ if __name__ == '__main__':
 
     sum_of_all_root_to_leaf_representations(r, [])
     print SUM_REPRESENTED_BY_R_TO_S_PATHS
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/longest-consecutive-sequence-binary-tree/
+"""
+
+
+LCSSL = 1
+
+
+def longest_consecutive_sub_sequence_length(root, curr_len):
+    global LCSSL
+
+    if curr_len > LCSSL:
+        LCSSL = curr_len
+
+    if root.left:
+        if root.left.data == root.data + 1:
+            longest_consecutive_sub_sequence_length(root.left, curr_len + 1)
+        else:
+            longest_consecutive_sub_sequence_length(root.left, 1)
+
+    if root.right:
+        if root.right.data == root.data + 1:
+            longest_consecutive_sub_sequence_length(root.right, curr_len + 1)
+        else:
+            longest_consecutive_sub_sequence_length(root.right, 1)
+
+
+if __name__ == '__main__':
+    print ''
+    r = Node(6)
+    r.right = Node(9)
+    r.right.left = Node(7)
+    r.right.right = Node(10)
+    r.right.right.right = Node(11)
+
+    longest_consecutive_sub_sequence_length(r, 1)
+    print LCSSL
+
+    LCSSL = 1
+
+    r = Node(1)
+    r.left = Node(2)
+    r.right = Node(4)
+    r.left.left = Node(3)
+    r.right.left = Node(5)
+    r.right.right = Node(6)
+    r.right.right.left = Node(7)
+
+    longest_consecutive_sub_sequence_length(r, 1)
+    print LCSSL

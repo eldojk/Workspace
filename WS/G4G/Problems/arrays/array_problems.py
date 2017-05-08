@@ -631,3 +631,64 @@ def search_inf_array(array, key):
         val = array[h]
 
     return binary_search(array, l, h, key)
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/segregate-even-and-odd-numbers/
+"""
+
+
+def segregate_odd_even(array):
+    l = 0
+    r = len(array) - 1
+
+    while l < r:
+
+        while array[l] % 2 == 1 and l < r:
+            l += 1
+
+        while array[r] % 2 == 0 and l < r:
+            r -= 1
+
+        if l < r:
+            array[l], array[r] = array[r], array[l]
+            l += 1
+            r -= 1
+
+    return array
+
+
+if __name__ == '__main__':
+    print ''
+    print segregate_odd_even([12, 34, 45, 9, 8, 90, 3])
+
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/move-zeroes-end-array/
+"""
+
+
+def push_zeroes_to_end(array):
+    n = len(array)
+    c = 0
+
+    for i in range(n):
+        if array[i] != 0:
+            array[c] = array[i]
+            c += 1
+
+    while c < n:
+        array[c] = 0
+        c += 1
+
+    return array
+
+
+if __name__ == '__main__':
+    print ''
+    print push_zeroes_to_end([1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9])
