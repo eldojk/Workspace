@@ -2,6 +2,8 @@
 http://www.geeksforgeeks.org/given-an-array-of-pairs-find-all-symmetric-pairs-in-it/
 """
 from DS.algos.math.factorial import iterative_factorial
+from G4G.Problems.bst.merge_two_balanced_bst import get_inorder_array
+from G4G.Problems.bst.vertical_sum import Node
 from sys import maxint
 
 
@@ -692,3 +694,69 @@ def push_zeroes_to_end(array):
 if __name__ == '__main__':
     print ''
     print push_zeroes_to_end([1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9])
+
+
+"""
+sorted array to balanced bst
+
+http://www.geeksforgeeks.org/sorted-array-to-balanced-bst/
+"""
+
+
+def convert_sorted_array_to_bst(array, l, h):
+    if l > h:
+        return None
+
+    mid = (l + h) // 2
+
+    root = Node(array[mid])
+
+    root.left = convert_sorted_array_to_bst(array, l, mid - 1)
+    root.right = convert_sorted_array_to_bst(array, mid + 1, h)
+
+    return root
+
+
+if __name__ == '__main__':
+    print ''
+    r = convert_sorted_array_to_bst([1, 2, 3, 4, 5], 0, 4)
+    print get_inorder_array(r, [])
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/count-negative-numbers-in-a-column-wise-row-wise-sorted-matrix/
+"""
+
+
+def count_negatives(matrix):
+    m = len(matrix)
+    n = len(matrix[0])
+
+    count = 0
+    i = 0
+    j = n - 1
+
+    while i < m and j >= 0:
+        if matrix[i][j] < 0:
+
+            count += j + 1
+
+            i += 1
+
+        else:
+            j -= 1
+
+    return count
+
+
+if __name__ == '__main__':
+    print ''
+    m = [
+      [-3, -2, -1,  1],
+      [-2,  2,  3,  4],
+      [4,   5,  7,  8]
+    ]
+
+    print count_negatives(m)

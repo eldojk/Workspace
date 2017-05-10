@@ -1,4 +1,7 @@
 """
+amzn
+see other imps down
+
 http://www.geeksforgeeks.org/in-place-convert-a-given-binary-tree-to-doubly-linked-list/
 """
 from G4G.Problems.bst.vertical_sum import Node
@@ -62,6 +65,8 @@ if __name__ == '__main__':
 
 
 """
+amzn
+
 http://www.geeksforgeeks.org/convert-given-binary-tree-doubly-linked-list-set-3/
 """
 

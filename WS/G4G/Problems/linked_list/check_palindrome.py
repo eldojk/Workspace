@@ -36,6 +36,10 @@ def is_palindrome(node):
     return True
 
 
+"""
+amzn
+"""
+
 def is_palindrome_2(node, complementary_node):
     isPal = True
     if node.nxt:
@@ -46,5 +50,7 @@ def is_palindrome_2(node, complementary_node):
 
     return False, complementary_node.nxt
 
-l = create_linked_list([1, 2, 2, 3, 4, 4, 2, 2, 1])
-print is_palindrome_2(l, l)
+
+if __name__ == '__main__':
+    l = create_linked_list([1, 2, 2, 3, 4, 4, 2, 2, 1])
+    print is_palindrome_2(l, l)

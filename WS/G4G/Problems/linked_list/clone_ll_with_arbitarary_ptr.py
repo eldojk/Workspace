@@ -50,8 +50,7 @@ amzn
 insert it between 2 & 3.. Continue in this fashion, add the copy of N afte the Nth node
 2) Now copy the arbitrary link in this fashion
 
-     original->next->arbitrary = original->arbitrary->next;  /*TRAVERSE
-TWO NODES*/
+     original->next->arbitrary = original->arbitrary->next;  /*TRAVERSE TWO NODES*/
 This works because original->next is nothing but copy of original and Original->arbitrary->next is nothing but copy of
 arbitrary.
 3) Now restore the original and copy linked lists in this fashion in a single loop.
