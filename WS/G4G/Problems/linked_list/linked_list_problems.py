@@ -405,3 +405,39 @@ if __name__ == '__main__':
 
     h = insert_to_sorted_ll(h, 13)
     print_ll(h)
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/linked-list-in-zig-zag-fashion/
+"""
+
+
+def zig_zag_ll(head):
+    # similar to zig zag array
+    flag = True
+
+    curr = head
+
+    while curr.nxt is not None:
+
+        if flag:
+            if curr.data > curr.nxt.data:
+                curr.data, curr.nxt.data = curr.nxt.data, curr.data
+
+        else:
+            if curr.data < curr.nxt.data:
+                curr.data, curr.nxt.data = curr.nxt.data, curr.data
+
+        flag = not flag
+        curr = curr.nxt
+
+    return head
+
+
+if __name__ == '__main__':
+    print ''
+    h = create_linked_list([4, 3, 7, 8, 6, 2, 1])
+    res = zig_zag_ll(h)
+    print_ll(res)

@@ -6,7 +6,7 @@ Given an array ‘pre[]’ that represents Preorder traversal of a spacial binar
 indicates that the corresponding node in Binary Tree is a leaf node and value ‘N’ indicates that the corresponding node
 is non-leaf node. Write a function to construct the tree from the given two arrays.
 
-Source: Amazon Interview Question
+amzn
 
 Example:
 

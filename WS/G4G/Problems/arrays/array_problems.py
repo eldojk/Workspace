@@ -217,6 +217,8 @@ if __name__ == '__main__':
     find_shifted_strings(["acd", "dfg", "wyz", "yab", "mop", "bdfh", "a", "x", "moqs"])
 
 """
+amzn
+
 http://www.geeksforgeeks.org/count-maximum-points-on-same-line/
 """
 from fractions import gcd
@@ -257,6 +259,7 @@ if __name__ == '__main__':
     print ''
     print ''
     print find_max_pts_in_same_line([(-1, 1), (0, 0), (1, 1), (2, 2), (3, 3), (3, 4)])
+
 
 """
 http://www.geeksforgeeks.org/find-pairs-given-sum-elements-pair-different-rows/
@@ -760,3 +763,41 @@ if __name__ == '__main__':
     ]
 
     print count_negatives(m)
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/find-pythagorean-triplet-in-an-unsorted-array/
+"""
+
+
+def pythagorean_triplet(array):
+    sq_arr = [i*i for i in array]
+
+    sq_arr.sort()
+
+    n = len(array)
+    i = n - 2
+
+    while i >= 2:
+        l = 0
+        r = i - 1
+
+        while l < r:
+            if sq_arr[l] + sq_arr[r] > sq_arr[i]:
+                r -= 1
+
+            elif sq_arr[l] + sq_arr[r] < sq_arr[i]:
+                l += 1
+
+            else:
+                return True
+        i -= 1
+
+    return False
+
+
+if __name__ == '__main__':
+    print ''
+    print pythagorean_triplet([3, 1, 4, 6, 5])

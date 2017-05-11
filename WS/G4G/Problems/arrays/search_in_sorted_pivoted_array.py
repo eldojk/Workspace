@@ -16,7 +16,7 @@ http://www.geeksforgeeks.org/search-an-element-in-a-sorted-and-pivoted-array/
 """
 
 
-def search(array, low, high, key):
+def search_in_sorted_rotated_array(array, low, high, key):
     if low > high:
         return None
 
@@ -28,16 +28,16 @@ def search(array, low, high, key):
     # if array low to mid is sorted
     if array[low] <= array[mid]:
         if array[low] <= key <= array[mid]:
-            return search(array, low, mid - 1, key)
+            return search_in_sorted_rotated_array(array, low, mid - 1, key)
 
-        return search(array, mid + 1, high, key)
+        return search_in_sorted_rotated_array(array, mid + 1, high, key)
 
     else:
         if array[mid] <= key <= array[high]:
-            return search(array, mid + 1, high, key)
+            return search_in_sorted_rotated_array(array, mid + 1, high, key)
 
-        return search(array, low, mid - 1, key)
+        return search_in_sorted_rotated_array(array, low, mid - 1, key)
 
 
 if __name__ == '__main__':
-    print search([4, 5, 6, 7, 8, 9, 1, 2, 3], 0, 8, 6)
+    print search_in_sorted_rotated_array([4, 5, 6, 7, 8, 9, 1, 2, 3], 0, 8, 6)

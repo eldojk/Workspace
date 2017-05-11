@@ -294,6 +294,8 @@ if __name__ == '__main__':
     print r.left.left, r.right.right
 
 """
+amzn
+
 http://www.geeksforgeeks.org/construct-a-special-tree-from-given-preorder-traversal/
 """
 
