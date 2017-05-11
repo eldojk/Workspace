@@ -801,3 +801,60 @@ def pythagorean_triplet(array):
 if __name__ == '__main__':
     print ''
     print pythagorean_triplet([3, 1, 4, 6, 5])
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/a-product-array-puzzle/
+"""
+
+
+def get_product_array(array):
+    left_arr = [1 for i in array]
+    right_arr = [1 for i in array]
+
+    for i in range(1, len(array)):
+        left_arr[i] = array[i] * left_arr[i - 1]
+
+    i = len(array) - 2
+    while i >= 0:
+        right_arr[i] = array[i] * right_arr[i + 1]
+        i -= 1
+
+    prod_arr = []
+    for i in range(len(array)):
+        prod_arr.append(left_arr[i] * right_arr[i])
+
+    return prod_arr
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/given-an-array-of-numbers-arrange-the-numbers-to-form-the-biggest-number/
+"""
+
+
+def custom_comparator(a, b):
+    ab = int(a + b)
+    ba = int(b + a)
+
+    if ab > ba:
+        return 1
+    elif ab < ba:
+        return -1
+    else:
+        return 0
+
+
+def print_largest(array):
+    array = map(str, array)
+    array.sort(cmp=custom_comparator)
+    array.reverse()
+    print ''.join(array)
+
+
+if __name__ == '__main__':
+    print ''
+    print_largest([54, 546, 548, 60])
