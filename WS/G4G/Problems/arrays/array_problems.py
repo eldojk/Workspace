@@ -858,3 +858,24 @@ def print_largest(array):
 if __name__ == '__main__':
     print ''
     print_largest([54, 546, 548, 60])
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/find-two-rectangles-overlap/
+"""
+
+
+def is_in_rectangle(x, a, b):
+    return a[0] < x[0] < b[0] and a[1] < x[1] < b[1]
+
+
+def do_rectangles_overlap(c1, c2, a1, a2):
+    c3 = (c1[0], c2[1])
+    c4 = (c1[1], c2[0])
+
+    return is_in_rectangle(c1, a1, a2) or \
+        is_in_rectangle(c2, a1, a2) or \
+        is_in_rectangle(c3, a1, a2) or \
+        is_in_rectangle(c4, a1, a2)

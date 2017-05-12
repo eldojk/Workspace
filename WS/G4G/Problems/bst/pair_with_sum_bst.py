@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/find-a-pair-with-given-sum-in-bst/
 """
 from G4G.Problems.bst.vertical_sum import Node

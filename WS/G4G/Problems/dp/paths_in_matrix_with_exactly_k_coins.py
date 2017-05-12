@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/number-of-paths-with-exactly-k-coins/
 
 Example:

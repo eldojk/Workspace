@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/dynamic-programming-set-18-partition-problem/
 
 Let isSubsetSum(arr, n, sum/2) be the function that returns true if

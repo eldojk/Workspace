@@ -37,3 +37,4 @@ def max_price(prices, n, k):
 
 if __name__ == '__main__':
     print max_price([10, 22, 5, 75, 65, 80], 6, 2)
+
