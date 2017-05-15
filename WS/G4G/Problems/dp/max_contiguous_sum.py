@@ -1,4 +1,6 @@
 """
+amzn
+
 To find max contiguous sum of an integer array, Lets initialize another array sum[i] with the same values as array[i]
 sum[i] denotes the maximum contiguous sum with array[i] as the ending element, i.e sum till i from 0 which is maximum
 and contiguous

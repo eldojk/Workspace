@@ -582,6 +582,8 @@ if __name__ == '__main__':
     print check_all_leaves_at_same_level(root, 0)
 
 """
+amzn
+
 http://www.geeksforgeeks.org/print-left-view-binary-tree/
 """
 

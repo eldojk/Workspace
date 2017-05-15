@@ -1,4 +1,6 @@
 """
+amzn
+
 print paths summing up to a given value
 
 http://www.geeksforgeeks.org/print-k-sum-paths-binary-tree/

@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/next-greater-element/
 
 Given an array, print the Next Greater Element (NGE) for every element.

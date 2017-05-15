@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/next-greater-element/
 """
 

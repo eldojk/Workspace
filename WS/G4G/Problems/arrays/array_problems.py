@@ -879,3 +879,124 @@ def do_rectangles_overlap(c1, c2, a1, a2):
         is_in_rectangle(c2, a1, a2) or \
         is_in_rectangle(c3, a1, a2) or \
         is_in_rectangle(c4, a1, a2)
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/find-common-elements-three-sorted-arrays/
+"""
+
+
+def find_common_among_three_arrays(a, b, c):
+    x = y = z = 0
+
+    while x < len(a) and y < len(b) and z < len(c):
+        if a[x] == b[y] == c[z]:
+            print a[x],
+            x += 1
+            y += 1
+            z += 1
+
+        elif a[x] < b[y]:
+            x += 1
+
+        elif b[y] < c[z]:
+            y += 1
+
+        else:
+            z += 1
+
+
+if __name__ == '__main__':
+    print ''
+    find_common_among_three_arrays(
+        [1, 5, 10, 20, 40, 80],
+        [6, 7, 20, 80, 100],
+        [3, 4, 15, 20, 30, 70, 80, 120]
+    )
+
+
+"""
+amzn
+
+http://www.ideserve.co.in/learn/find-common-elements-in-n-sorted-arrays
+"""
+
+
+def get_common_elements_n_arrays(arrays):
+    smallest_array_finished = False
+    base_index = 0
+    indices = [0 for i in arrays]
+
+    while base_index < len(arrays[0]) and not smallest_array_finished:
+
+        matched = 0
+        for i in range(1, len(arrays)):
+            curr_idx = indices[i]
+
+            while curr_idx < len(arrays[i]) and arrays[i][curr_idx] < arrays[0][base_index]:
+                curr_idx += 1
+
+            if curr_idx < len(arrays[i]):
+                if arrays[i][curr_idx] == arrays[0][base_index]:
+                    matched += 1
+
+            else:
+                smallest_array_finished = True
+
+            indices[i] = curr_idx
+
+        if matched == len(arrays) - 1:
+            print arrays[0][base_index],
+
+        base_index += 1
+
+
+if __name__ == '__main__':
+    print ''
+    print ''
+    get_common_elements_n_arrays([
+        [23, 34, 67, 89, 123, 566, 1000],
+        [11, 22, 23, 24,33, 37, 185, 566, 987, 1223, 1234],
+        [23, 43, 67, 98, 566, 6780],
+        [1, 4, 5, 23, 34, 76, 87, 132, 566, 665],
+        [1, 2, 3, 23, 24, 344, 566]
+    ])
+    print ''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
