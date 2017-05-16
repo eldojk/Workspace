@@ -1,6 +1,7 @@
 """
 http://www.geeksforgeeks.org/convert-binary-tree-threaded-binary-tree/
 """
+from G4G.Problems.stacks.queue_using_stacks import Queue2
 
 
 class Node(object):
@@ -8,51 +9,77 @@ class Node(object):
         self.data = data
         self.left = None
         self.right = None
-        self.successor = None
+        self.threaded = False
 
     def __repr__(self):
         return str(self.data)
 
 
-def convert(root):
+def populate_queue(root, q):
+    if root:
+        populate_queue(root.left, q)
+        q.push(root)
+        populate_queue(root.right, q)
+
+
+def create_threaded(root, q):
+    if root is None:
+        return
+
+    if root.left:
+        create_threaded(root.left, q)
+
+    q.pop()
+
+    if root.right:
+        create_threaded(root.right, q)
+
+    else:
+        root.right = q.peek()
+        root.threaded = True
+
+
+def threaded_tree(root):
+    q = Queue2()
+    populate_queue(root, q)
+    create_threaded(root, q)
+
+
+def left_most(root):
     if root is None:
         return None
 
-    pred = convert(root.left)
 
-    if pred:
-        pred.successor = root
-
-    last_node = convert(root.right)
-
-    if last_node:
-        return last_node
+    while root.left is not None:
+        root = root.left
 
     return root
 
 
-def _in_order_print(root):
-    if root:
-        _in_order_print(root.left)
+def in_order(root):
+    if root is None:
+        return
 
-        if root.successor:
-            print root, '->', root.successor
+    curr = left_most(root)
+
+    while curr is not None:
+        print curr,
+
+        if curr.threaded:
+            curr = curr.right
+
         else:
-            print root, '->', root.right
-
-        _in_order_print(root.right)
+            curr = left_most(curr.right)
 
 
 if __name__ == '__main__':
-    r = Node(6)
-    r.left = Node(3)
-    r.right = Node(8)
-    r.left.left = Node(1)
+    r = Node(1)
+    r.left = Node(2)
+    r.right = Node(3)
+    r.left.left = Node(4)
     r.left.right = Node(5)
-    r.right.left = Node(7)
-    r.right.right = Node(11)
-    r.right.right.left = Node(9)
-    r.right.right.right = Node(13)
+    r.right.left = Node(6)
+    r.right.right = Node(7)
 
-    convert(r)
-    _in_order_print(r)
+    threaded_tree(r)
+    in_order(r)

@@ -1028,8 +1028,34 @@ if __name__ == '__main__':
     print count_occurrences([1, 2, 2, 3, 3, 3, 3], 3)
 
 
+"""
+amzn
+
+http://www.geeksforgeeks.org/find-maximum-value-of-sum-iarri-with-only-rotations-on-given-array-allowed/
+"""
 
 
+def max_sum_rotations(array):
+    arr_sum = 0
+    curr_val = 0
+    n = len(array)
+
+    for i in range(n):
+        arr_sum += array[i]
+        curr_val += i * array[i]
+
+    max_val = curr_val
+
+    for j in range(1, n):
+        curr_val += arr_sum - n * array[n - j]
+        max_val = max(curr_val, max_val)
+
+    return max_val
+
+
+if __name__ == '__main__':
+    print ''
+    print max_sum_rotations([10, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 
 
