@@ -54,3 +54,28 @@ def multiply(x, y):
 if __name__ == '__main__':
     print ''
     print multiply(5, -11)
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/print-squares-first-n-natural-numbers-without-using/
+x2 = (x-1)2 + x + (x - 1)
+"""
+
+
+def get_square(x):
+    if x <= 1:
+        return x
+
+    return get_square(x - 1) + x + x - 1
+
+
+def print_squares(n):
+    for i in range(1, n + 1):
+        print get_square(i),
+
+
+if __name__ == '__main__':
+    print ''
+    print_squares(5)

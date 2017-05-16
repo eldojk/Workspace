@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 http://www.geeksforgeeks.org/given-an-array-of-pairs-find-all-symmetric-pairs-in-it/
 """
@@ -964,6 +965,67 @@ if __name__ == '__main__':
         [1, 2, 3, 23, 24, 344, 566]
     ])
     print ''
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/count-number-of-occurrences-or-frequency-in-a-sorted-array/
+
+1) Use Binary search to get index of the first occurrence of x in arr[]. Let the index of
+the first occurrence be i.
+2) Use Binary search to get index of the last occurrence of x in arr[]. Let the index of
+the last occurrence be j.
+3) Return (j – i + 1);
+"""
+
+
+def first_occurrence(array, l, h, x):
+    if h >= l:
+        mid = (l + h) // 2
+
+        if mid == 0 or (x > array[mid - 1] and array[mid] == x):
+            return mid
+
+        elif x > array[mid]:
+            return first_occurrence(array, mid + 1, h, x)
+
+        else:
+            return first_occurrence(array, l, mid - 1, x)
+
+    return -1
+
+
+def last_occurrence(array, l, h, x):
+    if h >= l:
+        mid = (l + h) // 2
+
+        if mid == h or (x < array[mid + 1] and array[mid] == x):
+            return mid
+
+        elif x < array[mid]:
+            return last_occurrence(array, l, mid - 1, x)
+
+        return last_occurrence(array, mid + 1, h, x)
+
+    return -1
+
+
+def count_occurrences(array, x):
+    n = len(array)
+    i = first_occurrence(array, 0, n - 1, x)
+
+    if i == -1:
+        return 0
+
+    j = last_occurrence(array, 0, n - 1, x)
+
+    return j - i + 1
+
+
+if __name__ == '__main__':
+    print ''
+    print count_occurrences([1, 2, 2, 3, 3, 3, 3], 3)
 
 
 
