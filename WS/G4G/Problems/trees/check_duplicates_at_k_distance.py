@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/check-given-array-contains-duplicate-elements-within-k-distance/
 """
 

@@ -1,6 +1,8 @@
 from G4G.Problems.bst.merge_two_balanced_bst import get_inorder_array, Node
 
 """
+amzn
+
 http://www.geeksforgeeks.org/convert-bst-to-a-binary-tree/
 
 Given a Binary Search Tree (BST), convert it to a Binary Tree such that every key of the original BST is changed to key

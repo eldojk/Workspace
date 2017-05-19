@@ -1,4 +1,7 @@
 """
+amzn
+
+(more downstairs. scroll down)
 Given a binary tree, write a function that returns true if the tree satisfies below property.
 
 For every node, data value must be equal to sum of data values in left and right children. Consider data value as 0 for
@@ -42,6 +45,8 @@ if __name__ == '__main__':
 
 
 """
+amzn
+
 http://www.geeksforgeeks.org/convert-an-arbitrary-binary-tree-to-a-tree-that-holds-children-sum-property/
 """
 

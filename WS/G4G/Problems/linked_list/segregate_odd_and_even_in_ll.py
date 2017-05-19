@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/segregate-even-and-odd-elements-in-a-linked-list/
 """
 from G4G.Problems.linked_list.linked_list import create_linked_list, print_ll

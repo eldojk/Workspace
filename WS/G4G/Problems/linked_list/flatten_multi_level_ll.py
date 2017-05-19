@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/flatten-a-linked-list-with-next-and-child-pointers/
 """
 from Queue import Queue

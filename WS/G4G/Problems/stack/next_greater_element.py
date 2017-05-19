@@ -10,6 +10,7 @@ Elements for which no greater element exist, consider next greater element as -1
 
 from G4G.Problems.stacks.stack import Stack
 
+
 def next_greater_element(array):
     s = Stack()
     s.push(array[0])

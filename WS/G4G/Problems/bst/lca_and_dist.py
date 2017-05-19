@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/
 """
 
@@ -67,6 +69,11 @@ if __name__ == '__main__':
     print ''
     print dist_bw_nodes(r, 4, 5)
     print dist_bw_nodes(r, 3, 4)
+
+
+"""
+amzn
+"""
 
 
 def lca_bst(root, n1, n2):

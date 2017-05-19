@@ -6,6 +6,7 @@ http://www.geeksforgeeks.org/next-greater-element/
 
 from G4G.Problems.stacks.stack import Stack
 
+
 def get_nge(array):
     s = Stack()
 

@@ -1,5 +1,11 @@
+"""
+amzn
+"""
+
+
 from DS.algos.graphs.binary_tree import Node
 from Queue import Queue
+
 
 class NNode(object):
     def __init__(self, data):

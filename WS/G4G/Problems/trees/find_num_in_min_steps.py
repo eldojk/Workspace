@@ -1,5 +1,7 @@
 # coding=utf-8
 """
+amzn
+
 http://www.geeksforgeeks.org/find-a-number-in-minimum-steps/
 
 Given an infinite number line from -INFINITY to +INFINITY and we are on zero. We can move n steps either side at each
