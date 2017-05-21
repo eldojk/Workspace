@@ -1058,10 +1058,39 @@ if __name__ == '__main__':
     print max_sum_rotations([10, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 
+"""
+amzn
+
+http://www.geeksforgeeks.org/find-the-minimum-distance-between-two-numbers/
+"""
 
 
+def min_dist(array, x, y):
+    _x = -1
+    _y = -1
+    min_dis = maxint
+
+    for i in range(len(array)):
+        if array[i] == x:
+            _x = i
+
+        elif array[i] == y:
+            _y = i
+
+        if _x != -1 and _y != -1:
+            min_dis = min(
+                min_dis,
+                abs(_x - _y)
+            )
+
+    return min_dis
 
 
+if __name__ == '__main__':
+    print ''
+    print min_dist([3, 5, 4, 2, 6, 3, 0, 0, 5, 4, 8, 3], 3, 6)
+    print min_dist([3, 5, 4, 2, 6, 5, 6, 6, 5, 4, 8, 3], 3, 6)
+    print min_dist([2, 5, 3, 5, 4, 4, 2, 3], 3, 2)
 
 
 
