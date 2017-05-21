@@ -441,3 +441,50 @@ if __name__ == '__main__':
     h = create_linked_list([4, 3, 7, 8, 6, 2, 1])
     res = zig_zag_ll(h)
     print_ll(res)
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/delete-n-nodes-after-m-nodes-of-a-linked-list/
+"""
+
+
+def delete_n_after_m(head, m, n):
+    h = head
+
+    while h is not None:
+        _m = m
+
+        while h is not None and _m > 1:
+            h = h.nxt
+            _m -= 1
+
+        _n = n
+
+        while h is not None and h.nxt is not None and _n > 0:
+            h.nxt = h.nxt.nxt
+            _n -= 1
+
+        h = h.nxt
+
+    return h
+
+
+if __name__ == '__main__':
+    print ''
+    h = create_linked_list([1, 2, 3, 4, 5, 6, 7, 8])
+    delete_n_after_m(h, 2, 2)
+    print_ll(h)
+
+    h = create_linked_list([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    delete_n_after_m(h, 2, 2)
+    print_ll(h)
+
+    h = create_linked_list([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    delete_n_after_m(h, 3, 2)
+    print_ll(h)
+
+    h = create_linked_list([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    delete_n_after_m(h, 1, 1)
+    print_ll(h)
