@@ -3,6 +3,7 @@
 amzn
 
 http://www.geeksforgeeks.org/find-a-number-in-minimum-steps/
+http://www.geeksforgeeks.org/minimum-steps-to-reach-a-destination/
 
 Given an infinite number line from -INFINITY to +INFINITY and we are on zero. We can move n steps either side at each
 n’th time.

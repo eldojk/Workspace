@@ -1093,8 +1093,37 @@ if __name__ == '__main__':
     print min_dist([2, 5, 3, 5, 4, 4, 2, 3], 3, 2)
 
 
+"""
+amzn
+
+http://www.geeksforgeeks.org/third-largest-element-array-distinct-elements/
+"""
 
 
+def third_largest(array):
+    first = second = third = array[0]
+
+    for i in xrange(len(array)):
+        el = array[i]
+
+        if el > first:
+            third = second
+            second = first
+            first = el
+
+        elif el > second:
+            third = second
+            second = el
+
+        elif el > third:
+            third = el
+
+    return third
+
+
+if __name__ == '__main__':
+    print ''
+    print third_largest([12, 13, 1, 10, 34, 16])
 
 
 
