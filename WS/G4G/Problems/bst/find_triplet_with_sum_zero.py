@@ -2,6 +2,7 @@
 amzn : triplets adding to given val in array -> sort the array and do the same
 
 http://www.geeksforgeeks.org/find-if-there-is-a-triplet-in-bst-that-adds-to-0/
+http://www.geeksforgeeks.org/find-a-triplet-that-sum-to-a-given-value/
 """
 from G4G.Problems.bst.merge_two_balanced_bst import get_inorder_array, Node
 

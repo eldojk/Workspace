@@ -120,6 +120,8 @@ if __name__ == '__main__':
     print dist_from_root_bst(r, 7, 0)
 
 """
+amzn
+
 http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-tree-set-2-using-parent-pointer/
 
 2nd approach

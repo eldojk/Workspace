@@ -1126,8 +1126,61 @@ if __name__ == '__main__':
     print third_largest([12, 13, 1, 10, 34, 16])
 
 
+"""
+amzn
+
+http://www.geeksforgeeks.org/search-an-element-in-an-array-where-difference-between-adjacent-elements-is-1/
+
+The idea is to start comparing from the leftmost element and find the difference
+between current array element and x. Let this difference be ‘diff’. From the given
+property of array, we always know that x must be at-least ‘diff’ away, so instead of
+searching one by one, we jump ‘diff’.
+"""
 
 
+def search_in_diff_1_adj_array(array, x):
+    i = 0
+    n = len(array)
+
+    while i < n:
+        if array[i] == x:
+            return i
+
+        diff = abs(x - array[i])
+
+        i += diff
+
+    return -1
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/find-a-fixed-point-in-a-given-array/
+"""
+
+
+def get_fixed_point(array, l, h):
+    if l > h:
+        return -1
+
+    mid = (l + h) // 2
+
+    if array[mid] == mid:
+        return mid
+
+    elif array[mid] > mid:
+        return get_fixed_point(array, l, mid - 1)
+
+    else:
+        return get_fixed_point(array, mid + 1, h)
+
+
+if __name__ == '__main__':
+    print ''
+    print get_fixed_point([-10, -5, 0, 3, 7], 0, 4)
+    print get_fixed_point([0, 2, 5, 8, 17], 0, 4)
+    print get_fixed_point([-10, -5, 3, 4, 7, 9], 0, 5)
 
 
 
