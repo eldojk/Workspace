@@ -28,3 +28,11 @@ class TrieTestCase(TestCase):
         self.trie.delete("star")
         self.assertEqual(self.trie.get("star"), None)
         self.assertEqual(self.trie.get("start"), 83)
+
+    def test_lcp(self):
+        self.trie.put("star", 8)
+        self.trie.put("start", 83)
+        self.trie.put("state", 99)
+        self.trie.put("stamina", 33)
+
+        self.assertEqual(self.trie.longest_common_prefix(), 'sta')

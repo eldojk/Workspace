@@ -971,6 +971,7 @@ if __name__ == '__main__':
 amzn
 
 http://www.geeksforgeeks.org/count-number-of-occurrences-or-frequency-in-a-sorted-array/
+http://www.geeksforgeeks.org/find-first-last-occurrences-element-sorted-array/
 
 1) Use Binary search to get index of the first occurrence of x in arr[]. Let the index of
 the first occurrence be i.
@@ -1182,6 +1183,31 @@ if __name__ == '__main__':
     print get_fixed_point([0, 2, 5, 8, 17], 0, 4)
     print get_fixed_point([-10, -5, 3, 4, 7, 9], 0, 5)
 
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/find-a-pair-with-the-given-difference/
+"""
+
+
+def find_pair_with_diff(array, diff):
+    array.sort()
+    n = len(array)
+    _max = array[n - 1]
+
+    for val in array:
+        key = val + diff
+
+        if key > _max:
+            print 'not found'
+            break
+
+        pair = binary_search(array, 0, n - 1, key)
+
+        if pair != -1:
+            print val, array[pair]
+            break
 
 
 

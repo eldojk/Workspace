@@ -2,6 +2,7 @@
 R-way trie
 
 This implementation does a soft delete.
+http://www.geeksforgeeks.org/longest-common-prefix-set-5-using-trie/
 """
 
 
@@ -61,3 +62,16 @@ class TrieDS(object):
 
     def delete(self, key):
         self._delete(self.root, key, 0)
+
+    def _lcp(self, root, prefix):
+        non_null_children = [i for i in range(256) if root.nxt[i] is not None]
+
+        while len(non_null_children) == 1:
+            prefix += chr(non_null_children[0])
+            root = root.nxt[non_null_children[0]]
+            non_null_children = [i for i in range(256) if root.nxt[i] is not None]
+
+        return prefix
+
+    def longest_common_prefix(self):
+        return self._lcp(self.root, '')

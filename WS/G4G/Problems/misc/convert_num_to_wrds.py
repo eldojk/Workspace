@@ -1,8 +1,57 @@
 """
 amzn
-
+http://www.geeksforgeeks.org/program-to-convert-a-given-number-to-words-set-2/
 http://www.geeksforgeeks.org/convert-number-to-words/
 """
+
+ONE = ["", "one ", "two ", "three ", "four ",
+       "five ", "six ", "seven ", "eight ",
+       "nine ", "ten ", "eleven ", "twelve ",
+       "thirteen ", "fourteen ", "fifteen ",
+       "sixteen ", "seventeen ", "eighteen ",
+       "nineteen "]
+TEN = ["", "", "twenty ", "thirty ", "forty ",
+       "fifty ", "sixty ", "seventy ", "eighty ",
+       "ninety "]
+
+
+def num_tow_words(num, suffix):
+    res = ''
+
+    if num > 19:
+        res += TEN[num // 10] + ONE[num % 10]
+    else:
+        res += TEN[num]
+
+    if num != 0:
+        res += suffix
+
+    return res
+
+
+def better_convert(num):
+    output = ''
+
+    output += num_tow_words((num // 10000000), 'crore ')
+
+    output += num_tow_words((num // 100000) % 100, 'lakh ')
+
+    output += num_tow_words((num // 1000) % 100, 'thousand ')
+
+    output += num_tow_words((num // 100) % 10, 'hundred ')
+
+    if num > 100 and num % 100 != 0:
+        output += 'and '
+
+    output += num_tow_words(num % 100, '')
+
+    return output
+
+
+if __name__ == '__main__':
+    print ''
+    print better_convert(438237764)
+    print ''
 
 
 def convert(num):
@@ -13,7 +62,8 @@ def convert(num):
         return 'unsupported'
 
     single_digits = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
-    two_digits = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
+    two_digits = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
+                  "nineteen"]
     tens_multiple = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
     tens_power = ["hundred", "thousand"]
 
