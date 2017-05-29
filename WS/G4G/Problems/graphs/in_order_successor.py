@@ -2,6 +2,7 @@
 amzn
 
 In order successor
+http://www.geeksforgeeks.org/inorder-successor-in-binary-search-tree/
 """
 
 
@@ -24,3 +25,23 @@ def in_order_successor(node):
             p = p.parent
 
         return p
+
+
+def in_order_successor_wo_parent(node, root):
+    if node.right:
+        return minimum_node(node.right)
+
+    succ = None
+
+    while root is not None:
+        if node.data < root.data:
+            succ = root
+            root = root.left
+
+        elif node.data > root.data:
+            root = root.right
+
+        else:
+            break
+
+    return succ

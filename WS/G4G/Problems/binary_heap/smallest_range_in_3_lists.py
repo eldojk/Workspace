@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/find-smallest-range-containing-elements-from-k-lists/
 """
 from DS.algos.binary_heap.priority_queue import MIN_PQ, PriorityQueue
