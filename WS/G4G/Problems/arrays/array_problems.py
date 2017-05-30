@@ -1210,12 +1210,65 @@ def find_pair_with_diff(array, diff):
             break
 
 
+"""
+amzn
+
+http://www.geeksforgeeks.org/replace-every-element-with-the-greatest-on-right-side/
+"""
 
 
+def replace_with_nge(array):
+    n = len(array)
+    max_from_right = array[n - 1]
+
+    array[n - 1] = -1
+
+    i = 0
+    while i >= 0:
+        temp = array[i]
+        array[i] = max_from_right
+
+        if max_from_right < temp:
+            max_from_right = temp
+
+        i -=1
+
+    return array
 
 
+"""
+amzn
+
+http://www.geeksforgeeks.org/count-pairs-with-given-sum/
+"""
 
 
+def count_pairs_with_sum(array, s):
+    hm = {}
+
+    for num in array:
+        if hm.get(num) is None:
+            hm[num] = 0
+
+        hm[num] += 1
+
+    twice_count = 0
+
+    for num in array:
+        exptd_sum = s - num
+
+        if hm.get(exptd_sum) is not None:
+            twice_count += hm[exptd_sum]
+
+        if exptd_sum == num:
+            twice_count -= 1
+
+    return twice_count / 2
+
+
+if __name__ == '__main__':
+    print ''
+    print count_pairs_with_sum([1, 5, 7, -1, 5], 6)
 
 
 
