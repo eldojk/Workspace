@@ -243,6 +243,8 @@ print_circular_ll(h2)
 """
 http://www.geeksforgeeks.org/sorted-insert-for-circular-linked-list/
 """
+
+
 def get_tail_cll(head):
     h = head
     while head.nxt != h:

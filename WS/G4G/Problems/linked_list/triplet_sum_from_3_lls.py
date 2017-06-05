@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/find-a-triplet-from-three-linked-lists-with-sum-equal-to-a-given-number/
 """
 from G4G.Problems.linked_list.linked_list import create_linked_list

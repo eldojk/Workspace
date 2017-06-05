@@ -1,11 +1,14 @@
 """
 amzn
+(more down)
 
 Recursively reverse LL
+http://www.geeksforgeeks.org/write-a-function-to-reverse-the-nodes-of-a-linked-list/
 
 #todo
 """
 from G4G.Problems.linked_list.linked_list import create_linked_list, print_ll
+
 
 HEAD = None
 
@@ -38,3 +41,50 @@ if __name__ == '__main__':
     new_head = reverse2(start, None)
 
     print_ll(new_head)
+
+
+"""
+Iterative reverse
+"""
+
+
+def iterative_reverse(head):
+    prev = head
+    curr = head.nxt
+    prev.nxt = None
+
+    while curr:
+        next_node = curr.nxt
+        curr.nxt = prev
+        prev = curr
+        curr = next_node
+
+    return prev
+
+
+if __name__ == '__main__':
+    print ''
+    print 'Iterative rev'
+    print ''
+
+    h1 = create_linked_list([1, 2, 3, 4, 5])
+    rh1 = iterative_reverse(h1)
+    print_ll(rh1)
+
+    print ''
+
+    h1 = create_linked_list([1, 2, 3])
+    rh1 = iterative_reverse(h1)
+    print_ll(rh1)
+
+    print ''
+
+    h1 = create_linked_list([1, 2])
+    rh1 = iterative_reverse(h1)
+    print_ll(rh1)
+
+    print ''
+
+    h1 = create_linked_list([1])
+    rh1 = iterative_reverse(h1)
+    print_ll(rh1)

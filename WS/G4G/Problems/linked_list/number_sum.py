@@ -46,3 +46,9 @@ def sum_ll(node1, node2):
 # l1 = create_linked_list([1, 2, 3, 4])
 # l2 = create_linked_list([1, 2, 3, 4])
 # print_ll(sum_ll(l1, l2))
+
+
+"""
+http://www.geeksforgeeks.org/sum-of-two-linked-lists/
+http://www.geeksforgeeks.org/add-two-numbers-represented-by-linked-lists/
+"""

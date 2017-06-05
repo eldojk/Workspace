@@ -3,6 +3,9 @@ amzn
 
 http://www.geeksforgeeks.org/reverse-a-list-in-groups-of-given-size/
 
+a generic solution for this is implemented:
+http://www.geeksforgeeks.org/pairwise-swap-elements-of-a-given-linked-list/
+
 different implementation :)
 """
 from G4G.Problems.linked_list.linked_list import create_linked_list, print_ll

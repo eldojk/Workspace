@@ -1,5 +1,9 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/in-place-conversion-of-sorted-dll-to-balanced-bst/
+http://www.geeksforgeeks.org/sorted-linked-list-to-balanced-bst/
+
 
 in place. we are creating bottom up way. check this
 """
@@ -31,3 +35,4 @@ if __name__ == '__main__':
     print '   ', r
     print '', r.prev, '   ', r.nxt
     print r.prev.prev, '', r.prev.nxt, '', r.nxt.prev, '', r.nxt.nxt
+
