@@ -1,7 +1,9 @@
 """
 amzn
+msft
 
 http://www.geeksforgeeks.org/fix-two-swapped-nodes-of-bst/
+http://www.geeksforgeeks.org/sort-an-almost-sorted-array-where-only-two-elements-are-swapped/
 
 CHECK the link. see the two cases
 """

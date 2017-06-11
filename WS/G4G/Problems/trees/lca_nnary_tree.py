@@ -1,4 +1,6 @@
 """
+amzn, msft
+
 http://www.geeksforgeeks.org/lca-n-ary-tree-constant-query-o1/
 """
 

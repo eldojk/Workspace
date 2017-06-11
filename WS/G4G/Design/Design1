@@ -1,0 +1,18 @@
+***************************************************************************
+Design bus booking system:- Each row has x seat. If customer wants K seats
+if you have K consecutive seats available, reserve them. Otherwise give
+seats from any row.
+***************************************************************************
+
+Give an adjacency list like DS, with available seats mapped to rows
+->  {
+        0: [],
+        1: [],
+        .
+        .
+        x: [<all rows>]
+    }
+
+^ This being initial State, keep taking bookings and after bookings based on
+remaining seats put each rows in its appropriate columns
+

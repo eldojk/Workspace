@@ -1,7 +1,7 @@
 """
-amzn
+amzn, msft
 
-power
+power O(lgy) time
 
 http://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/
 """

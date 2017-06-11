@@ -1,5 +1,8 @@
 """
+amzn, msft
+
 https://www.careercup.com/question?id=5693863291256832
+http://www.geeksforgeeks.org/rearrange-characters-string-no-two-adjacent/
 
 Rearrange characters in a string so that no character repeats twice.
 

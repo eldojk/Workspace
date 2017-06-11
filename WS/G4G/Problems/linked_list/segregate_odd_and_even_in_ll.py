@@ -1,5 +1,5 @@
 """
-amzn
+amzn, msft
 
 http://www.geeksforgeeks.org/segregate-even-and-odd-elements-in-a-linked-list/
 """

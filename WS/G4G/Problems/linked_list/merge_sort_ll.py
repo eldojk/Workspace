@@ -2,6 +2,9 @@
 amzn
 
 http://www.geeksforgeeks.org/merge-sort-for-linked-list/
+
+sorting using arbit ptr instead of nxt ptr will solve this
+http://www.geeksforgeeks.org/point-to-next-higher-value-node-in-a-linked-list-with-an-arbitrary-pointer/
 """
 from G4G.Problems.linked_list.linked_list import create_linked_list, print_ll
 from G4G.Problems.linked_list.merge_sorted_ll import sorted_merge
