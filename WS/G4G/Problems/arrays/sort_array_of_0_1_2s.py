@@ -1,5 +1,5 @@
 """
-amzn
+amzn, msft
 
 (dutch national flag problem) - single scan algorithm
 http://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/

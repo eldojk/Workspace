@@ -26,6 +26,7 @@ if __name__ == '__main__':
 """
 amzn
 
+find 4 elements a, b, c, d such that a + b = c + d
 http://www.geeksforgeeks.org/find-four-elements-a-b-c-and-d-in-an-array-such-that-ab-cd/
 """
 
@@ -46,6 +47,7 @@ if __name__ == '__main__':
     print ''
     print ''
     find_ab_cd_equal_sum([3, 4, 7, 1, 2, 9, 8])
+
 
 """
 http://www.geeksforgeeks.org/find-itinerary-from-a-given-list-of-tickets/
@@ -72,6 +74,7 @@ if __name__ == "__main__":
         "Delhi": "Goa"
     }
     find_itinerary(itinerary)
+
 
 """
 http://www.geeksforgeeks.org/find-missing-elements-of-a-range/
@@ -125,6 +128,12 @@ amzn
 
 http://www.geeksforgeeks.org/find-subarray-with-given-sum/
 
+Initialize a variable curr_sum as first element. curr_sum indicates the
+sum of current subarray. Start from the second element and add all elements
+one by one to the curr_sum. If curr_sum becomes equal to sum, then print
+the solution. If curr_sum exceeds the sum, then remove trailing elements
+while curr_sum is greater than sum.
+
 note - this is o(n). check link for proof
 """
 
@@ -153,6 +162,13 @@ if __name__ == '__main__':
     subarray_with_sum([1, 4], 0)
 
 
+"""
+msft
+
+http://www.geeksforgeeks.org/print-all-subarrays-with-0-sum/
+"""
+
+
 def sub_array_with_sum_hashmap(array, sm):
     curr_sum = 0
     hm = {}
@@ -165,6 +181,7 @@ def sub_array_with_sum_hashmap(array, sm):
             print 0, i
 
         if hm.get(curr_sum - sm) is not None:
+            # ^ this means sm exists
             indexes = hm[curr_sum - sm]
             for idx in indexes:
                 print idx + 1, i
@@ -178,13 +195,11 @@ if __name__ == '__main__':
     sub_array_with_sum_hashmap([1, 4, 0, 0, 3, 10, 5], 7)
     sub_array_with_sum_hashmap([1, 4], 0)
 
-"""
-http://www.geeksforgeeks.org/print-all-subarrays-with-0-sum/
-"""
 
 if __name__ == '__main__':
     print ''
     sub_array_with_sum_hashmap([6, 3, -1, -3, 4, -2, 2, 4, 6, -12, -7], 0)
+
 
 """
 http://www.geeksforgeeks.org/group-shifted-string/
@@ -216,6 +231,7 @@ def find_shifted_strings(array):
 if __name__ == '__main__':
     print ''
     find_shifted_strings(["acd", "dfg", "wyz", "yab", "mop", "bdfh", "a", "x", "moqs"])
+
 
 """
 amzn
@@ -286,6 +302,7 @@ if __name__ == '__main__':
          [9, 10, 13, 11],
          [12, 0, 14, 15]]
     find_pair_some_different_rows(m, 11)
+
 
 """
 http://www.geeksforgeeks.org/distinct-strings-odd-even-changes-allowed/
@@ -831,7 +848,7 @@ def get_product_array(array):
 
 
 """
-amzn
+amzn, msft
 
 http://www.geeksforgeeks.org/given-an-array-of-numbers-arrange-the-numbers-to-form-the-biggest-number/
 """
@@ -1271,10 +1288,147 @@ if __name__ == '__main__':
     print count_pairs_with_sum([1, 5, 7, -1, 5], 6)
 
 
+"""
+msft
+
+https://www.careercup.com/question?id=11903257
+
+Suppose we have to divide a number ie 1279 by 3. we get 1279 as streams ..first i get 1 ..1%3=1..1 is stored in rem.
+Now 2 comes, we do rem=(1*10+2)%3=0.Now 7 is in teh stream,
+rem=(rem*10+7)%3=1, when 9 comes rem=(1*10+9)%3=1. So we get at each step where the stream entered till that place
+is divisible by three or not.
+Same is the case when stream cotains 0 and 1. Instead of multiplying the rem by 10, multiply by 2.
+"""
 
 
+"""
+msft
+
+http://www.geeksforgeeks.org/build-lowest-number-by-removing-n-digits-from-a-given-number/
+"""
+from G4G.Problems.stacks.stack import Stack
 
 
+def build_lowest_number_removing_k_digits(num, k):
+    s = Stack()
+    l = len(num) - k
+
+    for c in num:
+        if not s.is_empty() and int(s.peek()) > int(c) and k > 0:
+            s.pop()
+            k -= 1
+
+        s.push(c)
+
+    return ''.join(s.get_list()[:l])
 
 
+if __name__ == '__main__':
+    print ''
+    print 'build_lowest_number_removing_k_digits'
+    print build_lowest_number_removing_k_digits('4325043', 3)
+    print build_lowest_number_removing_k_digits('765028321', 5)
+    print build_lowest_number_removing_k_digits('121198', 2)
 
+
+"""
+msft
+
+http://www.geeksforgeeks.org/given-sorted-array-number-x-find-pair-array-whose-sum-closest-x/
+"""
+
+
+def get_closest_pair(array, x):
+    res_l = 0
+    res_r = 0
+    l = 0
+    n = len(array)
+    r = n - 1
+    diff = maxint
+
+    while r > l:
+        if abs(array[l] + array[r] - x) < diff:
+            diff = abs(array[l] + array[r] - x)
+            res_l = l
+            res_r = r
+
+        if array[l] + array[r] > x:
+            r -= 1
+
+        else:
+            l += 1
+
+    print 'closest pair: ' + str(array[res_l]) + ', ' + str(array[res_r]) + ', diff: ' + str(diff)
+
+
+if __name__ == '__main__':
+    print ''
+    print 'get closest pair to given sum'
+    get_closest_pair([10, 22, 28, 29, 30, 40], 54)
+    get_closest_pair([1, 3, 4, 7, 10], 15)
+
+
+"""
+msft
+
+http://www.geeksforgeeks.org/given-two-sorted-arrays-number-x-find-pair-whose-sum-closest-x/
+"""
+
+
+def get_closest_pair_two_arrays(array1, array2, x):
+    res_l = 0
+    res_r = 0
+    l = 0
+    m = len(array1)
+    n = len(array2)
+    r = n - 1
+    diff = maxint
+
+    while r >= 0 and l < m:
+        if abs(array1[l] + array2[r] - x) < diff:
+            diff = abs(array1[l] + array2[r] - x)
+            res_l = l
+            res_r = r
+
+        if array1[l] + array2[r] > x:
+            r -= 1
+
+        else:
+            l += 1
+
+    print 'closest pair: ' + str(array1[res_l]) + ', ' + str(array2[res_r]) + ', diff: ' + str(diff)
+
+
+if __name__ == '__main__':
+    print ''
+    print 'get closest pair to given sum in two arrays'
+    get_closest_pair_two_arrays([1, 4, 5, 7], [10, 20, 30, 40], 32)
+    get_closest_pair_two_arrays([1, 4, 5, 7], [10, 20, 30, 40], 50)
+
+
+"""
+msft
+
+http://www.geeksforgeeks.org/array-rotation/
+"""
+
+
+def reverse_arr(array, i, j):
+    while i < j:
+        array[i], array[j] = array[j], array[i]
+        i += 1
+        j -= 1
+
+
+def rotate(array, k):
+    n = len(array)
+    reverse_arr(array, 0, k - 1)
+    reverse_arr(array, k, n - 1)
+    array.reverse()
+    return array
+
+
+if __name__ == '__main__':
+    print ''
+    print 'rotate array'
+    print rotate([1, 2, 3, 4, 5, 6, 7], 2)

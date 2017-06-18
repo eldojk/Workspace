@@ -1,6 +1,7 @@
 """
 amzn
 
+sliding window
 http://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/
 
 check to find explanation: https://www.youtube.com/watch?v=39grPZtywyQ

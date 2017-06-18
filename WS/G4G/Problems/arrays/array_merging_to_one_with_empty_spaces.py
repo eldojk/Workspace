@@ -4,6 +4,9 @@ amzn
 2 sorted arrays of size m and n (m > n) are given. There are n empty spaces at the
 end of the array1. Make the array1 consisting/merging the elements from both
 the arrays and store it in array1
+
+start from end of array 1. copy elements which are larger first
+(merge sort procedure. but from end of array)
 """
 
 

@@ -1,5 +1,5 @@
 """
-amzn
+amzn, msft
 
 http://www.geeksforgeeks.org/median-of-two-sorted-arrays/
 
@@ -51,3 +51,57 @@ if __name__ == '__main__':
 read up
 http://www.geeksforgeeks.org/median-of-two-sorted-arrays-of-different-sizes/
 """
+
+
+
+"""
+my method. but complexity is O(m + n / 2) :(
+
+"""
+def my_median(array1, array2):
+    n1 = len(array1)
+    n2 = len(array2)
+    i = 0
+    j = 0
+
+    prev = curr = None
+
+    median_pos = (n1 + n2) // 2
+    curr_pos = -1
+
+    while curr_pos < median_pos and i < n1 and j < n2:
+        if array1[i] <= array2[j]:
+            prev = curr
+            curr = array1[i]
+            i += 1
+
+        else:
+            prev = curr
+            curr = array2[j]
+            j += 1
+
+        curr_pos += 1
+
+    while curr_pos < median_pos and i < n1:
+        prev = curr
+        curr = array1[i]
+        curr_pos += 1
+        i += 1
+
+    while curr_pos < median_pos and j < n2:
+        prev = curr
+        curr = array2[j]
+        curr_pos += 1
+        j += 1
+
+    if (n1 + n2) % 2 == 0 and prev is not None:
+        return (prev + curr) / 2.0
+
+    return curr
+
+
+if __name__ == '__main__':
+    print ''
+    print 'my median'
+    print my_median([1, 2, 3, 6, 7], [4, 5, 8, 9, 10])
+    print my_median([900], [5, 8, 10, 20])

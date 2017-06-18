@@ -21,7 +21,7 @@ def can_be_divided(array, k):
         rem = el % k
 
         if 2 * rem == k or rem == 0:
-            if freq[rem] % 2 != 0:
+            if freq[rem] % 2 != 0:  # there should be even occurrences
                 return False
 
         elif freq[rem] != freq[k - rem]:

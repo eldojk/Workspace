@@ -307,6 +307,8 @@ print ''
 
 
 """
+amzn, msft
+
 http://www.geeksforgeeks.org/reverse-alternate-k-nodes-in-a-singly-linked-list/
 """
 

@@ -1,5 +1,5 @@
 """
-amzn
+amzn msft
 
 http://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/
 (this is not zig zag printing)

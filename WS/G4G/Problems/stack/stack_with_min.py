@@ -1,5 +1,5 @@
 """
-amzn
+amzn, msft
 
 http://www.geeksforgeeks.org/design-and-implement-special-stack-data-structure/
 Stack with min

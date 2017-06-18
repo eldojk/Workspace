@@ -17,7 +17,8 @@ our maximum height stack.
 
 Following is the solution based on DP solution of LIS problem.
 
-1) Generate all 3 rotations of all boxes. The size of rotation array becomes 3 times the size of original array.
+1) Generate all 3 rotations of all boxes. The size of rotation array becomes
+3 times the size of original array.
 For simplicity, we consider depth as always smaller than or equal to width.
 
 2) Sort the above generated 3n boxes in decreasing order of base area.
@@ -88,8 +89,8 @@ def stack_boxes(boxes):
         for j in range(i):
 
             height_of_i = box_combinations[i][2]
-            if can_go_on_top(box_combinations[j], box_combinations[i]) and \
-                            max_heights[i] < max_heights[j] + height_of_i:
+            if can_go_on_top(box_combinations[j], box_combinations[i]) \
+                    and max_heights[i] < max_heights[j] + height_of_i:
 
                 max_heights[i] = max_heights[j] + height_of_i
                 result[i] = j

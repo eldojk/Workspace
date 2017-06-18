@@ -1,5 +1,5 @@
 """
-amzn
+amzn msft
 
 http://www.geeksforgeeks.org/anagram-substring-search-search-permutations/
 

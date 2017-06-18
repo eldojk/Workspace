@@ -53,7 +53,7 @@ So the output should be 5.
 
             Amount
 last coin	0	1	2	3	4
-0           0   0   0   0   0
+0           1   0   0   0   0
 1	        1	1	1	1	1
 2	        1	1	2	2	3
 3	        1	1	2	3	4

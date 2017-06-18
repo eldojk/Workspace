@@ -1,5 +1,5 @@
 """
-amzn
+amzn, msft
 
 http://www.geeksforgeeks.org/find-the-maximum-element-in-an-array-which-is-first-increasing-and-then-decreasing/
 

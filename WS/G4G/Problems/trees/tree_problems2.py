@@ -228,6 +228,7 @@ def min_depth(root):
 
 if __name__ == '__main__':
     print ''
+    print 'min depth',
     r = Node(1)
     r.left = Node(2)
     r.right = Node(3)
@@ -937,3 +938,34 @@ if __name__ == '__main__':
 
     longest_consecutive_sub_sequence_length(r, 1)
     print LCSSL
+
+
+"""
+msft
+
+https://www.careercup.com/question?id=5769792860454912
+"""
+
+
+def left_most_node_at_level(root, level):
+    if level == 0:
+        return root
+
+    if root.left is None and root.right is None:
+        return None
+
+    if root.left:
+        return left_most_node_at_level(root.left, level - 1)
+
+    return left_most_node_at_level(root.right, level - 1)
+
+
+if __name__ == '__main__':
+    print ''
+    print 'left most node at level'
+
+    r = get_std_tree()
+    print left_most_node_at_level(r, 2)
+    print left_most_node_at_level(r, 1)
+
+
