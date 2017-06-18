@@ -1432,3 +1432,40 @@ if __name__ == '__main__':
     print ''
     print 'rotate array'
     print rotate([1, 2, 3, 4, 5, 6, 7], 2)
+
+
+"""
+msft
+
+http://www.geeksforgeeks.org/count-frequencies-elements-array-o1-extra-space-time/
+"""
+
+
+def find_counts_without_extra_space(array):
+    i = 0
+    n = len(array)
+
+    while i < n:
+        if array[i] <= 0:
+            i += 1
+            continue
+
+        element_index = array[i] - 1
+
+        if array[element_index] > 0:
+            array[i] = array[element_index]
+            array[element_index] = -1
+
+        else:
+            array[element_index] -= 1
+            array[i] = 0
+            i += 1
+
+    for i in range(len(array)):
+        print 'count of ' + str(i + 1) + ': ' + str(-array[i])
+
+
+if __name__ == '__main__':
+    print ''
+    print 'counts without extra space'
+    find_counts_without_extra_space([2, 3, 3, 2, 5])
