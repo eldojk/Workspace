@@ -969,3 +969,34 @@ if __name__ == '__main__':
     print left_most_node_at_level(r, 1)
 
 
+"""
+msft
+
+http://www.geeksforgeeks.org/root-to-leaf-path-sum-equal-to-a-given-number/
+"""
+
+
+def is_root_to_leaf_path_sum(root, k, curr):
+    curr.append(root.data)
+
+    if not is_leaf(root):
+
+        is_sub_tree_leaf_sum_found = is_root_to_leaf_path_sum(root.left, k, curr) \
+                                     or is_root_to_leaf_path_sum(root.right, k, curr)
+        curr.pop()
+        return is_sub_tree_leaf_sum_found
+
+    else:
+        sum_found = sum(curr) == k
+        curr.pop()
+        return sum_found
+
+
+if __name__ == '__main__':
+    r = get_std_tree()
+    print ''
+    print 'root to leaf path is sum?'
+    print is_root_to_leaf_path_sum(r, 7, [])
+    print is_root_to_leaf_path_sum(r, 6, [])
+    print is_root_to_leaf_path_sum(r, 8, [])
+    print is_root_to_leaf_path_sum(r, 11, [])

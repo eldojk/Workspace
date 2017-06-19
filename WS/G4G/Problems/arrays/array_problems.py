@@ -1335,6 +1335,7 @@ if __name__ == '__main__':
 msft
 
 http://www.geeksforgeeks.org/given-sorted-array-number-x-find-pair-array-whose-sum-closest-x/
+http://www.geeksforgeeks.org/two-elements-whose-sum-is-closest-to-zero/
 """
 
 
@@ -1366,6 +1367,9 @@ if __name__ == '__main__':
     print 'get closest pair to given sum'
     get_closest_pair([10, 22, 28, 29, 30, 40], 54)
     get_closest_pair([1, 3, 4, 7, 10], 15)
+    ar = [1, 60, -10, 70, -80, 85]
+    ar.sort()
+    get_closest_pair(ar, 0)
 
 
 """
@@ -1469,3 +1473,84 @@ if __name__ == '__main__':
     print ''
     print 'counts without extra space'
     find_counts_without_extra_space([2, 3, 3, 2, 5])
+
+
+"""
+msft
+
+https://leetcode.com/problems/simplify-path/#/solutions
+"""
+
+
+def simplify_linux_dir_path(path):
+    places = [p for p in path.split("/") if p != "." and p != ""]
+    s = Stack()
+
+    for p in places:
+        if p == "..":
+            s.pop()
+
+        else:
+            s.push(p)
+
+    return "/" + '/'.join(s.get_list())
+
+
+if __name__ == '__main__':
+    print ''
+    print 'Simplify linux path'
+    print simplify_linux_dir_path('/a/./b/../../c/')
+
+
+"""
+msft
+
+http://www.geeksforgeeks.org/majority-element/
+"""
+
+
+def get_majority_element(array):
+    maj_idx = 0
+    count = 1
+
+    for i in range(len(array)):
+        if array[maj_idx] == array[i]:
+            count += 1
+        else:
+            count -= 1
+
+        if count == 0:
+            maj_idx = i
+            count = 1
+
+    return array[maj_idx]
+
+
+def find_majority_element(array):
+    idx = get_majority_element(array)
+    el = array[idx]
+    cnt = 0
+    n = len(array)
+
+    for i in range(n):
+        if array[i] == el:
+            cnt += 1
+
+    if cnt > n // 2:
+        return el
+
+    return None
+
+
+if __name__ == '__main__':
+    print ''
+    print 'majority element'
+    print find_majority_element([1, 3, 3, 1, 2])
+    print find_majority_element([3, 3, 4, 2, 4, 4, 2, 4, 4])
+
+
+
+
+
+
+
