@@ -1,6 +1,7 @@
 """
 http://www.geeksforgeeks.org/custom-tree-problem/
 """
+# todo fix
 
 
 def print_tree(links, char, prefix):
@@ -10,7 +11,7 @@ def print_tree(links, char, prefix):
         return
 
     for neighbour in links[char]:
-        print_tree(links, neighbour, prefix + '__')
+        print_tree(links, neighbour, prefix + '_ _ ')
 
 
 if __name__ == '__main__':
@@ -19,4 +20,4 @@ if __name__ == '__main__':
         'b': ['c', 'd']
     }
 
-    print_tree(_links, 'a', '__')
+    print_tree(_links, 'a', '_ _ ')

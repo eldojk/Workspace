@@ -48,4 +48,4 @@ def get_all_trees(arr, start, end):
 
 if __name__ == '__main__':
     t = get_all_trees([4, 5, 7], 0, 2)  # notice we are passing 0, 2 instead of 0,3. this handles all corner cases
-    print len(t)
+    print t

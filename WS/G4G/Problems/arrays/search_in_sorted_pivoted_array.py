@@ -15,6 +15,8 @@ http://www.geeksforgeeks.org/search-an-element-in-a-sorted-and-pivoted-array/
     b) Else recur for arr[l..mid]
 """
 
+#todo or just find the pivot element and proceed using that info
+
 
 def search_in_sorted_rotated_array(array, low, high, key):
     if low > high:

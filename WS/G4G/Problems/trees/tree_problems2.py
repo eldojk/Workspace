@@ -49,6 +49,7 @@ if __name__ == '__main__':
     sum_left_leaf(get_std_tree())
     print LEFT_LEAF_SUM
 
+
 """
 amzn
 
@@ -270,7 +271,6 @@ if __name__ == '__main__':
     print is_symmetric(r.left, r.right)
 
 
-
 """
 amzn
 
@@ -320,6 +320,7 @@ if __name__ == '__main__':
 http://www.geeksforgeeks.org/sink-odd-nodes-binary-tree/
 """
 
+
 def swap_node_vals(node1, node2):
     tmp = node1.data
     node1.data = node2.data
@@ -330,6 +331,7 @@ def sink(root):
     if root is None or is_leaf(root):
         return
 
+    # todo shouldn't we check if root is odd?
     if root.left is not None and root.left.data % 2 == 0:
         swap_node_vals(root, root.left)
         sink(root.left)
@@ -431,6 +433,7 @@ def max_diff_bw_node_and_ancestor(root):
 
 if __name__ == '__main__':
     print ''
+    print 'max diff bw node and ancestor'
     root = Node(8)
     root.left = Node(3)
     root.right = Node(10)
@@ -532,6 +535,7 @@ def is_sequence_same(l, r):
 
     return True
 
+
 LARGEST_SAME_SEQ = None
 
 
@@ -551,7 +555,7 @@ def largest_subtree_with_identical_l_and_r(root):
 
 if __name__ == '__main__':
     print ''
-
+    print 'largest subtree with identical left and right subtrees'
     r = Node(50)
     r.left = Node(10)
     r.right = Node(60)
@@ -669,11 +673,12 @@ if __name__ == '__main__':
 """
 http://www.geeksforgeeks.org/check-if-a-given-binary-tree-is-heap/
 
-Just one level order traversal of the given binary tree would be sufficient to check both the properties of binary heap
-To check Complete binary tree property: Just check no NON NULL value should proceed,once any NULL value is inserted into
-the queue.
-Checking the other property of binary heap is very easy, while inserting the children of a node , just check that they
-both are less than or greater than the parent.
+Just one level order traversal of the given binary tree would be sufficient to check
+both the properties of binary heap
+To check Complete binary tree property: Just check no NON NULL value should proceed,
+once any NULL value is inserted into the queue.
+Checking the other property of binary heap is very easy, while inserting the
+children of a node , just check that they both are less than or greater than the parent.
 """
 
 
@@ -732,7 +737,13 @@ def is_isomorphic(root1, root2):
     if root1 is None or root2 is None:
         return False
 
-    return is_isomorphic(root1.left, root2.left) and is_isomorphic(root1.right, root2.right)
+    if root1.data != root2.data:
+        return False
+
+    return (is_isomorphic(root1.left, root2.left)
+            and is_isomorphic(root1.right, root2.right)) or \
+           (is_isomorphic(root1.left, root2.right)
+            and is_isomorphic(root1.right, root2.left))
 
 
 if __name__ == '__main__':
@@ -830,63 +841,6 @@ if __name__ == '__main__':
 
 
 """
-Given a binary tree, sum all the root to leaf nodes and return the sum.
-
-Ex:
-          1
-        /   \
-      2      3
-    /   \       \
-   4     6       7
-
-here ans: 124 + 126 + 137 = 387
-"""
-
-
-def get_num_represented_by_stack(stack):
-    copy_stack = [i for i in stack]
-    total = 0
-    n = 1
-
-    while len(copy_stack) != 0:
-        total += copy_stack.pop().data * n
-        n *= 10
-
-    return total
-
-
-SUM_REPRESENTED_BY_R_TO_S_PATHS = 0
-
-
-def sum_of_all_root_to_leaf_representations(root, stack):
-    global SUM_REPRESENTED_BY_R_TO_S_PATHS
-    if root:
-        stack.append(root)
-
-        sum_of_all_root_to_leaf_representations(root.left, stack)
-        sum_of_all_root_to_leaf_representations(root.right, stack)
-
-        if is_leaf(root):
-            num = get_num_represented_by_stack(stack)
-            SUM_REPRESENTED_BY_R_TO_S_PATHS += num
-
-        stack.pop()
-
-
-if __name__ == '__main__':
-    print ''
-    r = Node(1)
-    r.left = Node(2)
-    r.right = Node(3)
-    r.left.left = Node(4)
-    r.left.right = Node(6)
-    r.right.right = Node(7)
-
-    sum_of_all_root_to_leaf_representations(r, [])
-    print SUM_REPRESENTED_BY_R_TO_S_PATHS
-
-
-"""
 amzn
 
 http://www.geeksforgeeks.org/longest-consecutive-sequence-binary-tree/
@@ -967,36 +921,3 @@ if __name__ == '__main__':
     r = get_std_tree()
     print left_most_node_at_level(r, 2)
     print left_most_node_at_level(r, 1)
-
-
-"""
-msft
-
-http://www.geeksforgeeks.org/root-to-leaf-path-sum-equal-to-a-given-number/
-"""
-
-
-def is_root_to_leaf_path_sum(root, k, curr):
-    curr.append(root.data)
-
-    if not is_leaf(root):
-
-        is_sub_tree_leaf_sum_found = is_root_to_leaf_path_sum(root.left, k, curr) \
-                                     or is_root_to_leaf_path_sum(root.right, k, curr)
-        curr.pop()
-        return is_sub_tree_leaf_sum_found
-
-    else:
-        sum_found = sum(curr) == k
-        curr.pop()
-        return sum_found
-
-
-if __name__ == '__main__':
-    r = get_std_tree()
-    print ''
-    print 'root to leaf path is sum?'
-    print is_root_to_leaf_path_sum(r, 7, [])
-    print is_root_to_leaf_path_sum(r, 6, [])
-    print is_root_to_leaf_path_sum(r, 8, [])
-    print is_root_to_leaf_path_sum(r, 11, [])

@@ -46,6 +46,7 @@ def get_tree():
 
     return root
 
+
 class Node:
     def __init__(self, key):
         self.data = key

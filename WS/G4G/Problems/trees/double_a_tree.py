@@ -4,6 +4,7 @@ duplicate for each node, and insert the duplicate as the left child of the origi
 
 http://www.geeksforgeeks.org/double-tree/
 """
+from G4G.Problems.bst.merge_two_balanced_bst import get_inorder_array
 from G4G.Problems.bst.vertical_sum import Node
 
 
@@ -32,9 +33,14 @@ if __name__ == '__main__':
 
     double_tree(root)
 
-    print root
-    print root.left
-    print root.right
-    print root.right.left
-    print root.left.left
-    print root.left.left.left
+    print get_inorder_array(root, [])
+
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
+
+    double_tree(root)
+
+    print get_inorder_array(root, [])

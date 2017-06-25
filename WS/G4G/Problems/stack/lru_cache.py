@@ -3,6 +3,7 @@ amzn, msft
 
 http://www.geeksforgeeks.org/implement-lru-cache/
 """
+# todo not lru yet. fix
 
 from G4G.Problems.linked_list.linked_list import DNode
 
@@ -26,8 +27,6 @@ class Cache(object):
             self.node_count += 1
 
             if self.node_count > self.max_count:
-                last = self.last_page
-                last.prev = None
                 self.last_page = self.last_page.prev
                 self.last_page.nxt = None
                 del self.hash[key]

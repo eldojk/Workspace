@@ -30,11 +30,12 @@ if __name__ == '__main__':
     root.right.left = Node(6)
     root.right.right = Node(7)
 
-
     print_all_paths(root, [])
 
 
 """
+amzn, goog
+
 http://www.geeksforgeeks.org/print-all-root-to-leaf-paths-with-there-relative-positions/
 """
 

@@ -26,6 +26,7 @@ class LevelLL(object):
     def get_ll(self):
         return self.dict
 
+
 # if __name__=='__main__':
 #     root = Node(0)
 #     root.left = Node(1)

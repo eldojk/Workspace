@@ -2,7 +2,6 @@
 Check if a binary tree is a heap
 
 max heap on array of integers
-TODO: WRITE TESTS
 """
 
 

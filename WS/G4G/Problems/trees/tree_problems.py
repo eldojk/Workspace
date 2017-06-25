@@ -36,7 +36,7 @@ def size_of_tree(root):
     return 1 + size_of_tree(root.left) + size_of_tree(root.right)
 
 
-def are_tres_identical(root1, root2):
+def are_trees_identical(root1, root2):
     if root1 is None and root2 is None:
         return True
 
@@ -44,7 +44,7 @@ def are_tres_identical(root1, root2):
         return False
 
     if root1.data == root2.data:
-        return are_tres_identical(root1.left, root2.left) and are_tres_identical(root1.right, root2.right)
+        return are_trees_identical(root1.left, root2.left) and are_trees_identical(root1.right, root2.right)
 
     return False
 
@@ -219,7 +219,7 @@ http://www.geeksforgeeks.org/check-if-a-binary-tree-is-subtree-of-another-binary
 """
 
 
-def is_same_tree(root1, root2):
+def are_trees_identical(root1, root2):
     if root1 is None and root2 is None:
         return True
 
@@ -229,13 +229,14 @@ def is_same_tree(root1, root2):
     if root1.data != root2.data:
         return False
 
-    return is_same_tree(root1.left, root2.left) and is_same_tree(root1.right, root2.right)
+    return are_trees_identical(root1.left, root2.left) and \
+           are_trees_identical(root1.right, root2.right)
 
 
 def is_subtree(root1, root2):
     if root1:
-        if root1.data == root2.data:
-            return is_same_tree(root1, root2)
+        if root1.data == root2.data and are_trees_identical(root1, root2):
+            return True
 
         is_found_left = is_subtree(root1.left, root2)
         is_found_right = is_subtree(root1.right, root2)
@@ -260,81 +261,6 @@ if __name__ == '__main__':
 
     print is_subtree(root1, root2)
 
-"""
-http://www.geeksforgeeks.org/construct-binary-tree-from-inorder-traversal/
-"""
-
-
-def find_max_index(array, start, end):
-    _max = array[start]
-    max_index = start
-    while start <= end:
-        if array[start] > _max:
-            _max = array[start]
-            max_index = start
-
-        start += 1
-
-    return max_index
-
-
-def special_binary_tree_from_inorder(array, start, end):
-    if start > end:
-        return None
-
-    max_index = find_max_index(array, start, end)
-    root = Node(array[max_index])
-    root.left = special_binary_tree_from_inorder(array, start, max_index - 1)
-    root.right = special_binary_tree_from_inorder(array, max_index + 1, end)
-
-    return root
-
-
-if __name__ == '__main__':
-    print ''
-    ar = [5, 10, 40, 30, 28]
-    r = special_binary_tree_from_inorder(ar, 0, 4)
-
-    print r
-    print r.left, r.right
-    print r.left.left, r.right.right
-
-"""
-amzn
-
-http://www.geeksforgeeks.org/construct-a-special-tree-from-given-preorder-traversal/
-"""
-
-INDEX = 0
-
-
-def get_spl_binary_tree_from_pre_order(pre_order, preLN):
-    global INDEX
-    if INDEX >= len(pre_order):
-        return None
-
-    root = Node(pre_order[INDEX])
-    is_a_leaf = preLN[INDEX] == 'L'
-    INDEX += 1
-
-    if is_a_leaf:
-        return root
-
-    root.left = get_spl_binary_tree_from_pre_order(pre_order, preLN)
-    root.right = get_spl_binary_tree_from_pre_order(pre_order, preLN)
-    return root
-
-
-if __name__ == '__main__':
-    print ''
-    pre_order = [10, 30, 20, 5, 15]
-    preLN = ['N', 'N', 'L', 'L', 'L']
-
-    r = get_spl_binary_tree_from_pre_order(pre_order, preLN)
-
-    print r
-    print r.left, r.right
-    print r.left.left, r.left.right
 
 """
 http://www.geeksforgeeks.org/reverse-level-order-traversal/
@@ -372,6 +298,7 @@ if __name__ == '__main__':
     print_reverse_level_order(reverse_level_order(r))
     print ''
 
+
 """
 http://www.geeksforgeeks.org/linked-complete-binary-tree-its-creation/
 """
@@ -405,6 +332,7 @@ if __name__ == '__main__':
     print ''
     root = create_linked_binary_tree([1, 2, 3, 4, 5])
     print root, root.left, root.right, root.left.left, root.left.right
+
 
 """
 http://www.geeksforgeeks.org/foldable-binary-trees/
@@ -448,6 +376,7 @@ if __name__ == '__main__':
     root.right.left = Node(11)
 
     print is_foldable_binary_tree(root)
+
 
 """
 http://www.geeksforgeeks.org/difference-between-sums-of-odd-and-even-levels/
@@ -502,6 +431,7 @@ if __name__ == '__main__':
 
     diff_bw_sum_of_odd_and_even_levels(root)
 
+
 """
 http://www.geeksforgeeks.org/find-depth-of-the-deepest-odd-level-node/
 """
@@ -546,6 +476,7 @@ if __name__ == '__main__':
     deepest_odd_level_node(root, 1)
     print DEEPEST_NODE
 
+
 """
 amzn
 
@@ -589,6 +520,7 @@ if __name__ == '__main__':
 
     print check_all_leaves_at_same_level(root, 0)
 
+
 """
 amzn
 
@@ -623,11 +555,13 @@ if __name__ == '__main__':
 
     print_left_view(root)
 
+
 """
 amzn
 
 http://www.geeksforgeeks.org/deepest-left-leaf-node-in-a-binary-tree/
 """
+
 
 DEEPEST_LEFT_LEAF = None
 DEEPEST_LEFT_LEAF_LEVEL = -1
@@ -668,6 +602,7 @@ if __name__ == '__main__':
     root.right.right.right.right = Node(10)
 
     print find_deepest_left_leaf(root)
+
 
 """
 http://www.geeksforgeeks.org/sum-numbers-formed-root-leaf-paths/
@@ -744,6 +679,9 @@ if __name__ == '__main__':
 amzn
 
 http://www.geeksforgeeks.org/check-two-nodes-cousins-binary-tree/
+
+Two nodes are cousins of each other if they are at same level and have
+different parents
 """
 
 

@@ -23,7 +23,7 @@ def convert(n):
     root.prev = left
     HEAD = HEAD.nxt
 
-    right = convert(n - n // 2 - 1)
+    right = convert(n - n // 2 - 1)  # important
     root.nxt = right
 
     return root

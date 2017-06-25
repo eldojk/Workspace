@@ -1,12 +1,14 @@
 """
-amzn
+amzn msft
 
 http://www.geeksforgeeks.org/trapping-rain-water/
 
-An element of array can store water if there are higher bars on left and right. We can find amount of water to be stored
-in every element by finding the heights of bars on left and right sides. The idea is to compute amount of water that can
-be stored in every element of array. For example, consider the array {3, 0, 0, 2, 0, 4}, we can store two units of water
-at indexes 1 and 2, and one unit of water at index 2.
+An element of array can store water if there are higher bars on left and right.
+We can find amount of water to be stored in every element by finding the heights
+of bars on left and right sides. The idea is to compute amount of water that can
+be stored in every element of array. For example, consider the array {
+3, 0, 0, 2, 0, 4}, we can store two units of water at indexes 1 and 2, and one
+unit of water at index 2.
 """
 
 

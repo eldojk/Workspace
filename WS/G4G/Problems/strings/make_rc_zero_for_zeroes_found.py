@@ -1,5 +1,6 @@
 """
-In an NxN matrix, set the all elements in row and column of an element to 0 if we find an element to be zero
+In an NxN matrix, set the all elements in row and column of an element to 0
+if we find an element to be zero
 CTIC 180 #1.7
 """
 

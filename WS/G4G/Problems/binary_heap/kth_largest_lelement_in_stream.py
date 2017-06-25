@@ -3,6 +3,7 @@ http://www.geeksforgeeks.org/kth-largest-element-in-a-stream/
 """
 from DS.algos.binary_heap.priority_queue import PriorityQueue, MIN_PQ
 
+
 class KthLargest(object):
     def __init__(self, k):
         self.k = k

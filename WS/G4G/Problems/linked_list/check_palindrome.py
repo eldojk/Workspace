@@ -40,6 +40,7 @@ def is_palindrome(node):
 amzn
 """
 
+
 def is_palindrome_2(node, complementary_node):
     isPal = True
     if node.nxt:

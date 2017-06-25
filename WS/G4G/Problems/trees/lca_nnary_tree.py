@@ -48,13 +48,17 @@ def lca(root, n1, n2):
         return
 
     if i1 == i2:
+        # both are same
         print euler[i1]
         return
 
     if abs(i1 - i2) == 1:
+        # one of them is the ancestor
         min_depth_i = i1 if depths[i1] < depths[i2] else i2
         print euler[min_depth_i]
+        return
 
+    # smallest depth value node between i1 and i2 will be the lca
     min_idx = i1 + 1
     for i in range(i1 + 1, i2):
         if euler[i] < euler[min_idx]:

@@ -3,6 +3,7 @@ msft
 
 http://www.geeksforgeeks.org/connect-leaves-doubly-linked-list/
 """
+from G4G.Problems.bst.merge_two_balanced_bst import get_inorder_array
 from G4G.Problems.bst.vertical_sum import Node
 
 HEAD = None
@@ -30,10 +31,19 @@ def convert_to_leaf_dll(root):
     if root:
         if is_leaf(root):
             add_to_dll(root)
-            return  # this return is very important, otherwise it goes to infinite loop
+            return True # this return is very important, otherwise it goes to infinite loop
 
-        convert_to_leaf_dll(root.left)
-        convert_to_leaf_dll(root.right)
+        should_detach_from_tree_left = convert_to_leaf_dll(root.left)
+
+        if should_detach_from_tree_left:
+            root.left = None
+
+        should_detach_from_tree_right = convert_to_leaf_dll(root.right)
+
+        if should_detach_from_tree_right:
+            root.right = None
+
+        return False
 
 
 if __name__ == '__main__':
@@ -54,3 +64,7 @@ if __name__ == '__main__':
     while h is not None:
         print h,
         h = h.right
+
+    print ''
+
+    print get_inorder_array(root, [])

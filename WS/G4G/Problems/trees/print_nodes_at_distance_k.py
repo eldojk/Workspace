@@ -1,18 +1,20 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/print-nodes-distance-k-given-node-binary-tree/
 """
 from G4G.Problems.bst.vertical_sum import Node
 
 
-def print_nodes(root, k):
+def print_child_nodes_at_dist_k(root, k):
     if root is None:
         return
 
     if k == 0:
         print root
 
-    print_nodes(root.left, k - 1)
-    print_nodes(root.right, k - 1)
+    print_child_nodes_at_dist_k(root.left, k - 1)
+    print_child_nodes_at_dist_k(root.right, k - 1)
 
 
 def print_at_dist_k(root, node, k):
@@ -20,7 +22,7 @@ def print_at_dist_k(root, node, k):
         return False, k
 
     if root == node:
-        print_nodes(root, k)
+        print_child_nodes_at_dist_k(root, k)
         return True, k
 
     is_found_left, l_dist = print_at_dist_k(root.left, node, k)
@@ -28,14 +30,14 @@ def print_at_dist_k(root, node, k):
         if l_dist == 1:
             print root
         elif l_dist > 1:
-            print_nodes(root.right, k - 2)
+            print_child_nodes_at_dist_k(root.right, k - 2)
 
     is_found_right, r_dist = print_at_dist_k(root.right, node, k)
     if is_found_right:
         if r_dist == 1:
             print root
         elif r_dist > 1:
-            print_nodes(root.left, k - 2)
+            print_child_nodes_at_dist_k(root.left, k - 2)
 
     return (is_found_left or is_found_right), k - 1
 

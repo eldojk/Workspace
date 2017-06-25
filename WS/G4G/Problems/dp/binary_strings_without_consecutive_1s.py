@@ -1,5 +1,7 @@
 # coding=utf-8
 """
+amzn msft
+
 http://www.geeksforgeeks.org/count-number-binary-strings-without-consecutive-1s/
 
 This problem can be solved using Dynamic Programming. Let a[i] be the number of binary strings of length i which do not
@@ -33,3 +35,7 @@ def num_strings(num):
 
 if __name__ == '__main__':
     print num_strings(3)
+    print num_strings(4)
+    print num_strings(5)
+    print num_strings(7)
+    print num_strings(8)

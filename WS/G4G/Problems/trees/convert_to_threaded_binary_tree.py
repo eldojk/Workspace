@@ -72,6 +72,24 @@ def in_order(root):
             curr = left_most(curr.right)
 
 
+def create_threaded_efficient(root):
+    if root is None:
+        return None
+
+    if root.left is None and root.right is None:
+        return root
+
+    if root.left is not None:
+        l = create_threaded_efficient(root.left)
+        l.threaded = True
+        l.right = root
+
+    if root.right is None:
+        return root
+
+    return create_threaded_efficient(root)
+
+
 if __name__ == '__main__':
     r = Node(1)
     r.left = Node(2)

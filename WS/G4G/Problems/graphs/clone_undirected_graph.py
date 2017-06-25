@@ -31,6 +31,6 @@ def clone_graph(source):
                     clone_neighbour = Node(neighbour.data)
                     hm.put(neighbour, clone_neighbour)
 
-                clone_node.neighnours.append(clone_neighbour)
+                clone_node.neighbours.append(clone_neighbour)
 
     return hm[source]

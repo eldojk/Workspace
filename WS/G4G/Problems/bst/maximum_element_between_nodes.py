@@ -2,6 +2,7 @@
 http://www.geeksforgeeks.org/maximum-element-two-nodes-bst/
 
 """
+# todo. what is this?
 from sys import maxint
 
 from G4G.Problems.bst.lca_and_dist import lca, Node

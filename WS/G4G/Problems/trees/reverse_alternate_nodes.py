@@ -1,4 +1,6 @@
 """
+more done down
+
 http://www.geeksforgeeks.org/reverse-alternate-levels-binary-tree/
 """
 from G4G.Problems.bst.vertical_sum import Node
@@ -27,41 +29,6 @@ def get_test_tree():
 
     return root
 
-
-def get_odd_level_in_order_array(root, array, level):
-    if root.left:
-        get_odd_level_in_order_array(root.left, array, level + 1)
-
-    if level % 2 != 0:
-        array.append(root.data)
-
-    if root.right:
-        get_odd_level_in_order_array(root.right, array, level + 1)
-
-    return array
-
-
-def rev_using_in_order(root, in_order, level):
-    if root:
-        rev_using_in_order(root.left, in_order, level + 1)
-
-        if level % 2 != 0:
-            # assigning from end of in order array
-            root.data = in_order.pop()
-
-        rev_using_in_order(root.right, in_order, level + 1)
-
-
-def reverse_alternate_levels_using_in_order(root):
-    in_order = get_odd_level_in_order_array(root, [], 0)
-    rev_using_in_order(root, in_order, 0)
-
-
-"""
-method 3 with one single pre order traversal
-"""
-
-
 def reverse_alternate_nodes_single_traversal(root1, root2, level):
     if root1 is None or root2 is None:
         return
@@ -76,14 +43,6 @@ def reverse_alternate_nodes_single_traversal(root1, root2, level):
 
 
 if __name__ == '__main__':
-    r = get_test_tree()
-
-    reverse_alternate_levels_using_in_order(r)
-    print_level_order(r)
-
-    print ''
-    print ''
-
     r = get_test_tree()
 
     reverse_alternate_nodes_single_traversal(r.left, r.right, 0)

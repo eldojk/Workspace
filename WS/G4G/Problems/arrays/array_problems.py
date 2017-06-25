@@ -8,6 +8,22 @@ from G4G.Problems.bst.vertical_sum import Node
 from sys import maxint
 
 
+def binary_search(array, l, h, key):
+    if h < l:
+        return -1
+
+    mid = (l + h) // 2
+
+    if array[mid] == key:
+        return mid
+
+    elif array[mid] < key:
+        return binary_search(array, mid + 1, h, key)
+
+    else:
+        return binary_search(array, l, mid - 1, key)
+
+
 def find_symmetric_pairs(array):
     hm = {key: value for (key, value) in array}
 
@@ -21,6 +37,7 @@ def find_symmetric_pairs(array):
 
 
 if __name__ == '__main__':
+    print 'symmetric pairs'
     find_symmetric_pairs([(11, 20), (30, 40), (5, 10), (40, 30), (10, 5)])
 
 """
@@ -46,6 +63,7 @@ def find_ab_cd_equal_sum(array):
 if __name__ == '__main__':
     print ''
     print ''
+    print 'find 4 elements a, b, c, d such that a + b = c + d'
     find_ab_cd_equal_sum([3, 4, 7, 1, 2, 9, 8])
 
 
@@ -58,6 +76,8 @@ def find_itinerary(hm):
     sources = set(hm.keys())
     destinations = set(hm.values())
 
+    # starting point will be in sources but not
+    # in destinations
     source = list(sources - destinations)[0]
 
     while hm.get(source):
@@ -82,7 +102,6 @@ http://www.geeksforgeeks.org/find-missing-elements-of-a-range/
 
 
 def print_missing_elements_in_range(array, hi, lo):
-    print ''
     _range = range(hi, lo + 1)
     hm = {el: True for el in array}
 
@@ -94,10 +113,47 @@ def print_missing_elements_in_range(array, hi, lo):
 
 
 if __name__ == "__main__":
+    print ''
+    print 'missing elements in range'
     print_missing_elements_in_range([10, 12, 11, 15], 10, 15)
     print ''
 
+
+def print_missing_elements_in_range_using_sort(array, lo, hi):
+    array.sort()
+    r = range(lo, hi + 1)
+    l = 0
+    h = len(array) - 1
+    i = 0
+
+    while i <= h:
+        idx = binary_search(array, l, h, r[i])
+        if idx == -1:
+            print r[i],
+        else:
+            break
+
+        i += 1
+
+    id = idx + 1
+    while id <= h:
+        if array[id] - array[id - 1] > 1:
+            for i in range(array[id - 1] + 1, array[id]):
+                print i,
+
+        id += 1
+
+
+if __name__ == "__main__":
+    print ''
+    print 'missing elements in range using sorting'
+    print_missing_elements_in_range_using_sort([10, 12, 11, 15], 10, 15)
+    print ''
+
+
 """
+amzn
+
 http://www.geeksforgeeks.org/pair-with-given-product-set-1-find-if-any-pair-exists/
 """
 
@@ -117,88 +173,12 @@ def find_pair_with_given_product(array, product):
 
 if __name__ == '__main__':
     print ''
-    print find_pair_with_given_product([10, 20, 9, 40], 400)
-    print find_pair_with_given_product([10, 20, 9, 40], 190)
-    print find_pair_with_given_product([-10, 20, 9, -40], 400)
-    print find_pair_with_given_product([-10, 20, 9, 40], -400)
+    print 'Pair with given product'
+    print find_pair_with_given_product([10, 20, 9, 40], 400),
+    print find_pair_with_given_product([10, 20, 9, 40], 190),
+    print find_pair_with_given_product([-10, 20, 9, -40], 400),
+    print find_pair_with_given_product([-10, 20, 9, 40], -400),
     print find_pair_with_given_product([0, 20, 9, 40], 0)
-
-"""
-amzn
-
-http://www.geeksforgeeks.org/find-subarray-with-given-sum/
-
-Initialize a variable curr_sum as first element. curr_sum indicates the
-sum of current subarray. Start from the second element and add all elements
-one by one to the curr_sum. If curr_sum becomes equal to sum, then print
-the solution. If curr_sum exceeds the sum, then remove trailing elements
-while curr_sum is greater than sum.
-
-note - this is o(n). check link for proof
-"""
-
-
-def subarray_with_sum(array, sm):
-    curr_sum = array[0]
-    start = 0
-
-    for i in range(1, len(array) + 1):
-
-        while curr_sum > sm and start < i - 1:
-            curr_sum = curr_sum - array[start]
-            start += 1
-
-        if curr_sum == sm:
-            print start, i - 1
-
-        if i < len(array):
-            curr_sum = curr_sum + array[i]
-
-
-if __name__ == '__main__':
-    print ''
-    subarray_with_sum([1, 4, 20, 3, 10, 5], 33)
-    subarray_with_sum([1, 4, 0, 0, 3, 10, 5], 7)
-    subarray_with_sum([1, 4], 0)
-
-
-"""
-msft
-
-http://www.geeksforgeeks.org/print-all-subarrays-with-0-sum/
-"""
-
-
-def sub_array_with_sum_hashmap(array, sm):
-    curr_sum = 0
-    hm = {}
-
-    for i in range(len(array)):
-        el = array[i]
-        curr_sum += el
-
-        if curr_sum == sm:
-            print 0, i
-
-        if hm.get(curr_sum - sm) is not None:
-            # ^ this means sm exists
-            indexes = hm[curr_sum - sm]
-            for idx in indexes:
-                print idx + 1, i
-
-        hm[curr_sum] = [i] if hm.get(curr_sum) is None else hm[curr_sum] + [i]
-
-
-if __name__ == '__main__':
-    print ''
-    sub_array_with_sum_hashmap([1, 4, 20, 3, 10, 5], 33)
-    sub_array_with_sum_hashmap([1, 4, 0, 0, 3, 10, 5], 7)
-    sub_array_with_sum_hashmap([1, 4], 0)
-
-
-if __name__ == '__main__':
-    print ''
-    sub_array_with_sum_hashmap([6, 3, -1, -3, 4, -2, 2, 4, 6, -12, -7], 0)
 
 
 """
@@ -230,6 +210,7 @@ def find_shifted_strings(array):
 
 if __name__ == '__main__':
     print ''
+    print 'Group shifted string together'
     find_shifted_strings(["acd", "dfg", "wyz", "yab", "mop", "bdfh", "a", "x", "moqs"])
 
 
@@ -238,7 +219,13 @@ amzn
 
 http://www.geeksforgeeks.org/count-maximum-points-on-same-line/
 """
-from fractions import gcd
+
+
+def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
 
 
 def compute_slope(p1, p2):
@@ -275,10 +262,13 @@ def find_max_pts_in_same_line(pts):
 if __name__ == '__main__':
     print ''
     print ''
+    print 'Max points on a line'
     print find_max_pts_in_same_line([(-1, 1), (0, 0), (1, 1), (2, 2), (3, 3), (3, 4)])
 
 
 """
+we can also sort the rows and find pairs
+
 http://www.geeksforgeeks.org/find-pairs-given-sum-elements-pair-different-rows/
 """
 
@@ -297,6 +287,7 @@ def find_pair_some_different_rows(matrix, k):
 
 if __name__ == '__main__':
     print ''
+    print 'Sum pairs in different rows'
     m = [[1, 3, 2, 4],
          [5, 8, 7, 6],
          [9, 10, 13, 11],
@@ -309,7 +300,7 @@ http://www.geeksforgeeks.org/distinct-strings-odd-even-changes-allowed/
 """
 
 
-def get_odd_even_swap_char_anagram(string):
+def get_encoding(string):
     od = []
     ev = []
     for i in range(len(string)):
@@ -318,7 +309,7 @@ def get_odd_even_swap_char_anagram(string):
         else:
             od.append(string[i])
 
-    od.sort()
+    od.sort()  #todo to much complexity. use freq count array instead of this
     ev.sort()
 
     return "".join(od) + "".join(ev)
@@ -329,7 +320,7 @@ def find_distinct_odd_even_swappable_strings(strings):
 
     count = 0
     for s in strings:
-        key = get_odd_even_swap_char_anagram(s)
+        key = get_encoding(s)
         if hm.get(key):
             continue
         else:
@@ -342,8 +333,10 @@ def find_distinct_odd_even_swappable_strings(strings):
 if __name__ == '__main__':
     print ''
     print ''
+    print 'Distinct strings'
     find_distinct_odd_even_swappable_strings(["abcd", "cbad", "bacd"])
     find_distinct_odd_even_swappable_strings(["abc", "cba"])
+
 
 """
 http://www.geeksforgeeks.org/maximum-distance-two-occurrences-element-array/
@@ -351,7 +344,12 @@ http://www.geeksforgeeks.org/maximum-distance-two-occurrences-element-array/
 
 
 def max_dist_of_two_elements(array):
+    # todo too much time complexity. redo
     hm = {}
+
+    # todo
+    # just store first occurrence and track max distances
+    # for subsequent occurrences
     for i in range(len(array)):
         if hm.get(array[i]) is not None:
             hm[array[i]].append(i)
@@ -369,7 +367,9 @@ def max_dist_of_two_elements(array):
 
 if __name__ == '__main__':
     print ''
+    print 'Max distance b/w two occurrences of some element'
     print max_dist_of_two_elements([3, 2, 1, 2, 1, 4, 5, 8, 6, 7, 4, 2])
+
 
 """
 http://www.geeksforgeeks.org/count-index-pairs-equal-elements-array/
@@ -379,14 +379,8 @@ http://www.geeksforgeeks.org/count-index-pairs-equal-elements-array/
 def nc2(n):
     if n == 1:
         return 1
-    elif n == 2:
-        return 1
 
-    nf = iterative_factorial(n)
-    cf = 2
-    nm2f = iterative_factorial(n - 2)
-
-    return nf / (cf * nm2f)
+    return (n * (n - 1)) / 2
 
 
 def count_index_pairs_equal_elements(array):
@@ -409,6 +403,7 @@ if __name__ == '__main__':
     print ''
     print count_index_pairs_equal_elements([1, 1, 2])
     print count_index_pairs_equal_elements([1, 1, 1])
+
 
 """
 http://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/
@@ -463,33 +458,9 @@ def sorted_array_intersection(array1, array2):
 
 if __name__ == '__main__':
     print ''
+    print 'union and intersection'
     print sorted_array_union([1, 3, 4, 5, 7], [2, 3, 5, 6])
     print sorted_array_intersection([1, 3, 4, 5, 7], [2, 3, 5, 6])
-
-"""
-Find a pair with sum 0 sorted array
-"""
-
-
-def find_pair_with_sum(array, sm):
-    i = 0
-    j = len(array) - 1
-
-    while i <= j:
-        if array[i] + array[j] == sm:
-            return i, j
-        elif array[i] + array[j] > sm:
-            j -= 1
-        else:
-            i += 1
-
-    return None
-
-
-if __name__ == '__main__':
-    print ''
-    a = [-3, 1, 2, 3, 4, 9, 10]
-    print find_pair_with_sum(a, 0)
 
 
 """
@@ -558,6 +529,7 @@ def missing_num(array):
 
 if __name__ == '__main__':
     print ''
+    print 'missing number: ',
     print missing_num([1, 2, 3, 4, 6, 7, 8])
 
 
@@ -618,6 +590,7 @@ def get_pair_with_given_product_two_arrays(array1, array2, product):
 
 if __name__ == '__main__':
     print ''
+    print 'pair with produc two arrays'
     print get_pair_with_given_product_two_arrays([1, 3, 5], [4, 5, 6], 15)
 
 
@@ -628,24 +601,9 @@ http://www.geeksforgeeks.org/find-position-element-sorted-array-infinite-numbers
 """
 
 
-def binary_search(array, l, h, key):
-    if h < l:
-        return -1
-
-    mid = (l + h) // 2
-
-    if array[mid] == key:
-        return mid
-
-    elif array[mid] < key:
-        return binary_search(array, mid + 1, h, key)
-
-    else:
-        return binary_search(array, l, mid - 1, key)
-
-
 def search_inf_array(array, key):
-    l, h = 0
+    l = 0
+    h = 1
     val = array[0]
 
     while val < key:
@@ -685,6 +643,7 @@ def segregate_odd_even(array):
 
 if __name__ == '__main__':
     print ''
+    print 'Segregate odd and even'
     print segregate_odd_even([12, 34, 45, 9, 8, 90, 3])
 
 
@@ -714,6 +673,33 @@ def push_zeroes_to_end(array):
 
 if __name__ == '__main__':
     print ''
+    print 'Push zeroes to end'
+    print push_zeroes_to_end([1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9])
+
+
+def push_zeroes_to_end_using_swapping(array):
+    l = 0
+    r = len(array) - 1
+
+    while l < r:
+
+        while array[l] != 0 and l < r:
+            l += 1
+
+        while array[r] == 0 and l < r:
+            r -= 1
+
+        if l < r:
+            array[l], array[r] = array[r], array[l]
+            l += 1
+            r -= 1
+
+    return array
+
+
+if __name__ == '__main__':
+    print ''
+    print 'Push zeroes to end using swapping'
     print push_zeroes_to_end([1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9])
 
 
@@ -740,6 +726,7 @@ def convert_sorted_array_to_bst(array, l, h):
 
 if __name__ == '__main__':
     print ''
+    print 'sorted array to bst'
     r = convert_sorted_array_to_bst([1, 2, 3, 4, 5], 0, 4)
     print get_inorder_array(r, [])
 
@@ -780,6 +767,7 @@ if __name__ == '__main__':
       [4,   5,  7,  8]
     ]
 
+    print 'Count negatives in row wise column wise sorted matrix'
     print count_negatives(m)
 
 
@@ -818,6 +806,7 @@ def pythagorean_triplet(array):
 
 if __name__ == '__main__':
     print ''
+    print 'Pythagorean triplet'
     print pythagorean_triplet([3, 1, 4, 6, 5])
 
 
@@ -833,11 +822,11 @@ def get_product_array(array):
     right_arr = [1 for i in array]
 
     for i in range(1, len(array)):
-        left_arr[i] = array[i] * left_arr[i - 1]
+        left_arr[i] = array[i - 1] * left_arr[i - 1]
 
     i = len(array) - 2
     while i >= 0:
-        right_arr[i] = array[i] * right_arr[i + 1]
+        right_arr[i] = array[i + 1] * right_arr[i + 1]
         i -= 1
 
     prod_arr = []
@@ -845,6 +834,12 @@ def get_product_array(array):
         prod_arr.append(left_arr[i] * right_arr[i])
 
     return prod_arr
+
+
+if __name__ == '__main__':
+    print ''
+    print 'Product array'
+    print get_product_array([10, 3, 5, 6, 2])
 
 
 """
@@ -868,13 +863,13 @@ def custom_comparator(a, b):
 
 def print_largest(array):
     array = map(str, array)
-    array.sort(cmp=custom_comparator)
-    array.reverse()
+    array.sort(cmp=custom_comparator, reverse=True)
     print ''.join(array)
 
 
 if __name__ == '__main__':
     print ''
+    print 'largest number by rearranging array of numbers'
     print_largest([54, 546, 548, 60])
 
 
@@ -928,6 +923,7 @@ def find_common_among_three_arrays(a, b, c):
 
 if __name__ == '__main__':
     print ''
+    print 'Common element in 3 sorted arrays'
     find_common_among_three_arrays(
         [1, 5, 10, 20, 40, 80],
         [6, 7, 20, 80, 100],
@@ -974,6 +970,7 @@ def get_common_elements_n_arrays(arrays):
 if __name__ == '__main__':
     print ''
     print ''
+    print 'Common elements in n sorted arrays'
     get_common_elements_n_arrays([
         [23, 34, 67, 89, 123, 566, 1000],
         [11, 22, 23, 24,33, 37, 185, 566, 987, 1223, 1234],
@@ -1033,7 +1030,7 @@ def count_occurrences(array, x):
     n = len(array)
     i = first_occurrence(array, 0, n - 1, x)
 
-    if i == -1:
+    if i == -1 or array[i] != x:
         return 0
 
     j = last_occurrence(array, 0, n - 1, x)
@@ -1043,12 +1040,14 @@ def count_occurrences(array, x):
 
 if __name__ == '__main__':
     print ''
+    print 'count occurrences in sorted array'
     print count_occurrences([1, 2, 2, 3, 3, 3, 3], 3)
 
 
 """
 amzn
 
+read for explanation
 http://www.geeksforgeeks.org/find-maximum-value-of-sum-iarri-with-only-rotations-on-given-array-allowed/
 """
 
@@ -1073,6 +1072,7 @@ def max_sum_rotations(array):
 
 if __name__ == '__main__':
     print ''
+    print 'max sum rotation of sum(i*arr[i])'
     print max_sum_rotations([10, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 
@@ -1106,8 +1106,9 @@ def min_dist(array, x, y):
 
 if __name__ == '__main__':
     print ''
-    print min_dist([3, 5, 4, 2, 6, 3, 0, 0, 5, 4, 8, 3], 3, 6)
-    print min_dist([3, 5, 4, 2, 6, 5, 6, 6, 5, 4, 8, 3], 3, 6)
+    print 'minimum distance between two elements in array'
+    print min_dist([3, 5, 4, 2, 6, 3, 0, 0, 5, 4, 8, 3], 3, 6),
+    print min_dist([3, 5, 4, 2, 6, 5, 6, 6, 5, 4, 8, 3], 3, 6),
     print min_dist([2, 5, 3, 5, 4, 4, 2, 3], 3, 2)
 
 
@@ -1141,6 +1142,7 @@ def third_largest(array):
 
 if __name__ == '__main__':
     print ''
+    print 'THird largest in array'
     print third_largest([12, 13, 1, 10, 34, 16])
 
 
@@ -1171,6 +1173,12 @@ def search_in_diff_1_adj_array(array, x):
     return -1
 
 
+if __name__ == '__main__':
+    print ''
+    print 'search in array with adjacent elements differing by 1'
+    print search_in_diff_1_adj_array([8, 7, 6, 7, 6, 5, 4, 3, 2, 3, 4, 3], 3)
+
+
 """
 amzn
 
@@ -1196,8 +1204,9 @@ def get_fixed_point(array, l, h):
 
 if __name__ == '__main__':
     print ''
-    print get_fixed_point([-10, -5, 0, 3, 7], 0, 4)
-    print get_fixed_point([0, 2, 5, 8, 17], 0, 4)
+    print 'getting fixed point in an array'
+    print get_fixed_point([-10, -5, 0, 3, 7], 0, 4),
+    print get_fixed_point([0, 2, 5, 8, 17], 0, 4),
     print get_fixed_point([-10, -5, 3, 4, 7, 9], 0, 5)
 
 
@@ -1227,6 +1236,12 @@ def find_pair_with_diff(array, diff):
             break
 
 
+if __name__ == '__main__':
+    print ''
+    print 'pair with the given difference'
+    find_pair_with_diff([5, 20, 3, 2, 50, 80], 78)
+
+
 """
 amzn
 
@@ -1234,13 +1249,13 @@ http://www.geeksforgeeks.org/replace-every-element-with-the-greatest-on-right-si
 """
 
 
-def replace_with_nge(array):
+def replace_with_ge_on_right(array):
     n = len(array)
     max_from_right = array[n - 1]
 
     array[n - 1] = -1
 
-    i = 0
+    i = n - 2
     while i >= 0:
         temp = array[i]
         array[i] = max_from_right
@@ -1248,9 +1263,15 @@ def replace_with_nge(array):
         if max_from_right < temp:
             max_from_right = temp
 
-        i -=1
+        i -= 1
 
     return array
+
+
+if __name__ == '__main__':
+    print ''
+    print 'greatest on the right'
+    print replace_with_ge_on_right([16, 17, 4, 3, 5, 2])
 
 
 """
@@ -1285,6 +1306,7 @@ def count_pairs_with_sum(array, s):
 
 if __name__ == '__main__':
     print ''
+    print 'count pairs with given sum'
     print count_pairs_with_sum([1, 5, 7, -1, 5], 6)
 
 
@@ -1297,8 +1319,9 @@ Suppose we have to divide a number ie 1279 by 3. we get 1279 as streams ..first 
 Now 2 comes, we do rem=(1*10+2)%3=0.Now 7 is in teh stream,
 rem=(rem*10+7)%3=1, when 9 comes rem=(1*10+9)%3=1. So we get at each step where the stream entered till that place
 is divisible by three or not.
-Same is the case when stream cotains 0 and 1. Instead of multiplying the rem by 10, multiply by 2.
+Same is the case when stream contains 0 and 1. Instead of multiplying the rem by 10, multiply by 2.
 """
+#todo
 
 
 """
@@ -1547,6 +1570,89 @@ if __name__ == '__main__':
     print 'majority element'
     print find_majority_element([1, 3, 3, 1, 2])
     print find_majority_element([3, 3, 4, 2, 4, 4, 2, 4, 4])
+
+
+"""
+msft
+
+(gonna use sorting)
+http://www.geeksforgeeks.org/given-n-appointments-find-conflicting-appointments/
+"""
+
+
+class Job(object):
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+
+    def __repr__(self):
+        return str(self.start) + ',' + str(self.end)
+
+    def __lt__(self, other):
+        return self.start < other.start
+
+    def __gt__(self, other):
+        return self.start > other.start
+
+    def __eq__(self, other):
+        return self.start == other.start
+
+
+def detect_conflicting_appts(array):
+    array.sort()
+
+    for i in range(len(array) - 1):
+        j = i + 1
+
+        while j < len(array) and array[j].start < array[i].end:
+            print array[i], 'and ', array[j]
+            j += 1
+
+
+if __name__ == '__main__':
+    print ''
+    print 'Conflicting appointments'
+    detect_conflicting_appts([Job(1, 5), Job(3, 7), Job(2, 6), Job(10, 15), Job(5, 6), Job(4, 100)])
+
+
+"""
+amzn msft
+
+Find pivoted entry in sorted rotated array
+"""
+
+
+def pivoted_element(array, l, h):
+    if l > h:
+        return -1
+
+    if l == h:
+        return l
+
+    mid = (l + h) // 2
+
+    if mid < h and array[mid] > array[mid + 1]:
+        return mid
+
+    if mid > l and array[mid - 1] > array[mid]:
+        return mid - 1
+
+    if array[l] <= array[mid]:
+        return pivoted_element(array, mid + 1, h)
+
+    return pivoted_element(array, l, mid - 1)
+
+
+if __name__ == '__main__':
+    print ''
+    print 'Search for pivot element'
+    print pivoted_element([5, 6, 7, 8, 9, 10, 1, 2, 3], 0, 8)
+    print pivoted_element([30, 40, 50, 10, 20], 0, 4)
+
+
+
+
+
 
 
 

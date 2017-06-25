@@ -6,6 +6,7 @@ http://www.geeksforgeeks.org/print-all-interleavings-of-given-two-strings/
 
 
 def print_inter_leavings(str1, str2, m, n, li):
+    print li
     if m == len(str1) and n == len(str2):
         print ''.join(li)
 

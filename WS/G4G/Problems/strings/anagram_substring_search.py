@@ -31,12 +31,12 @@ def anagram_sub_string_search(haystack, needle):
     i = 0
     j = len(needle) - 1
     ccn = compute_char_count(needle, i, j)
-    ccw = compute_char_count(haystack, i, j)
+    cch = compute_char_count(haystack, i, j)
     n = len(haystack)
 
     while True:
 
-        if is_char_count_same(ccn, ccw):
+        if is_char_count_same(ccn, cch):
             print i,
 
         i += 1
@@ -48,8 +48,8 @@ def anagram_sub_string_search(haystack, needle):
         idx_to_remove = ord(haystack[i - 1]) - ord('a')
         idx_to_add = ord(haystack[j]) - ord('a')
 
-        ccw[idx_to_remove] -= 1
-        ccw[idx_to_add] += 1
+        cch[idx_to_remove] -= 1
+        cch[idx_to_add] += 1
 
 
 if __name__ == '__main__':

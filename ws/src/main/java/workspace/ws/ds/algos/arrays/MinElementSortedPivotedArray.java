@@ -2,7 +2,7 @@ package workspace.ws.ds.algos.arrays;
 
 /**
  * http://www.geeksforgeeks.org/find-minimum-element-in-a-sorted-and-rotated-array/
- * smsg
+ * amzn, msft
  * 
  * @author eldo.joseph
  *

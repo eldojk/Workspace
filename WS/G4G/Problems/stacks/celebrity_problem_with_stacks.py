@@ -1,6 +1,6 @@
 # coding=utf-8
 """
-amzn
+amzn msft
 
 http://www.geeksforgeeks.org/the-celebrity-problem/
 

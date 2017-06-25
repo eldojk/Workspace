@@ -3,8 +3,7 @@ package workspace.ws.ds.algos.trees;
 import workspace.ws.ds.data.BinaryTreeNode;
 
 /**
- * http://www.geeksforgeeks.org/remove-all-nodes-which-lie-on-a-path-having-sum-
- * less-than-k/
+ * http://www.geeksforgeeks.org/remove-all-nodes-which-lie-on-a-path-having-sum-less-than-k/
  * 
  * Remove all nodes which don’t lie in any path with sum>= k, Given a binary
  * tree, a complete path is defined as a path from root to a leaf. The sum of

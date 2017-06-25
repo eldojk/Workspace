@@ -1,7 +1,7 @@
 """
 Is binary tree a BST
 We can use augumented dfs with range check
-CTIC 4.5 #228
+CTCI 4.5 #228
 """
 
 

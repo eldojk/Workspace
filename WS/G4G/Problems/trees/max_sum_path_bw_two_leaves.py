@@ -30,7 +30,7 @@ def max_leaf_to_root_paths(root):
     if curr_sum > MAX_SUM:
         MAX_SUM = curr_sum
 
-    return left_sum + root.data if left_sum > right_sum else right_sum + root.data
+    return max(left_sum, right_sum) + root.data
 
 
 if __name__ == '__main__':

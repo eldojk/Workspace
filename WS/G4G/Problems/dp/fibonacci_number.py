@@ -20,3 +20,11 @@ def fibonacci_number(n):
         p1 = fib
 
     return fib
+
+
+if __name__ == '__main__':
+    print fibonacci_number(6)
+    print fibonacci_number(7)
+    print fibonacci_number(8)
+    print fibonacci_number(9)
+    print fibonacci_number(10)

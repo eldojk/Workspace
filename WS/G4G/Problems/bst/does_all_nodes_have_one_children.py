@@ -26,7 +26,7 @@ def is_one_child_bst(array):
             RANGE[0] = array[i]
 
         # Checking range validity
-        if array[k] < RANGE[1] and array[k] > RANGE[0]:
+        if RANGE[0] < array[k] < RANGE[1]:
             i += 1
             j += 1
         else:

@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/check-binary-tree-contains-duplicate-subtrees-size-2/
 """
 from DS.algos.graphs.binary_tree import Node

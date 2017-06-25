@@ -119,6 +119,7 @@ if __name__ == '__main__':
     print lca_bst(r, 2.5, 7)
     print dist_from_root_bst(r, 7, 0)
 
+
 """
 amzn
 
@@ -155,6 +156,7 @@ def lca_with_parent_ptr(n1, n2):
 
     while diff != 0:
         b = b.parent
+        diff -= 1
 
     while a is not None and b is not None:
         if a == b:

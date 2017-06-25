@@ -32,14 +32,14 @@ def count_unique_chars(string):
     return uc
 
 
-def is_there_more_than_k_unique_chars(count, k):
+def is_there_less_than_k_unique_chars(count, k):
     u = 0
 
     for c in count:
         if c > 0:
             u += 1
 
-    return k >= u
+    return u <= k
 
 
 def longest_substr(string, k):
@@ -63,7 +63,7 @@ def longest_substr(string, k):
         count[idx] += 1
         end += 1
 
-        while not is_there_more_than_k_unique_chars(count, k):
+        while not is_there_less_than_k_unique_chars(count, k):
             idx = ord(string[start]) - ord('a')
             count[idx] -= 1
             start += 1

@@ -27,19 +27,20 @@ if __name__ == '__main__':
 
 
 """
-Print all combination of given length k possible with characters available in a given string "S" with repetition
+Print all combination of given length k possible with characters available in a
+given string "S" with repetition
 
 https://careercup.com/question?id=15203851
 """
 
 
-def print_k_length_combinations(letters, length, prefix):
+def print_k_length_combinations(letters, length, current):
     if length == 0:
-        print prefix,
+        print current,
         return
 
     for i in range(len(letters)):
-        new_prefix = prefix + letters[i]
+        new_prefix = current + letters[i]
         print_k_length_combinations(letters, length - 1, new_prefix)
 
 if __name__ == '__main__':
@@ -55,10 +56,15 @@ http://www.mytechinterviews.com/combinations-of-a-string
 
 
 def print_all_length_combinations(string, index, outer_string):
+
     for i in range(index, len(string)):
+
         outer_string.append(string[i])
+
         print ''.join(outer_string),
+
         print_all_length_combinations(string, i + 1, outer_string)
+
         outer_string.pop()
 
 
