@@ -14,5 +14,5 @@ msft
 
 http://www.geeksforgeeks.org/find-all-occurrences-of-the-word-in-a-matrix/
 
-to a dfs after finding each occurrence of first char. The dfs should print all possible combinations.
+do a dfs after finding each occurrence of first char. The dfs should print all possible combinations.
 """

@@ -1,7 +1,7 @@
 """
 amzn, msft
 
-http://www.geeksforgeeks.org/find-the-row-with-maximum-number-1s/\
+http://www.geeksforgeeks.org/find-the-row-with-maximum-number-1s/
 
 Given a boolean 2D array, where each row is sorted. Find the row with the maximum number of 1s.
 """
@@ -40,7 +40,7 @@ def row_with_max_ones(matrix):
     return index
 
 
-if  __name__ == '__main__':
+if __name__ == '__main__':
     m = [
         [0, 0, 0, 1],
         [0, 1, 1, 1],

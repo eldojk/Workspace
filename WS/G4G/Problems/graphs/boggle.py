@@ -37,19 +37,24 @@ def boggle(matrix, m, n, word):
     visited = [False for i in range(len(word))]
     visited[0] = True
 
-    wrdIndex = 1
-    while wrdIndex < len(word):
+    wrd_index = 1
+
+    while wrd_index < len(word):
+
         for neighbour in get_neighbours(m, n, source[0], source[1]):
-            if matrix[neighbour[0]][neighbour[1]] == word[wrdIndex] and neighbour not in used_cells:
-                visited[wrdIndex] = True
+
+            if matrix[neighbour[0]][neighbour[1]] == word[wrd_index] and neighbour not in used_cells:
+
+                visited[wrd_index] = True
                 used_cells.append(neighbour)
                 source = neighbour
+
                 break
 
-        if not visited[wrdIndex]:
+        if not visited[wrd_index]:
             return False
 
-        wrdIndex += 1
+        wrd_index += 1
 
     return True
 
