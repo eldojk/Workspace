@@ -30,8 +30,8 @@ def max_price(prices, n, k):
                 )
 
             dp[i][j] = max(
-                dp[i][j - 1],
-                max_so_far
+                dp[i][j - 1],  # not doing anything on jth day
+                max_so_far  # max by doing on jth day
             )
 
     return dp[k][n - 1]

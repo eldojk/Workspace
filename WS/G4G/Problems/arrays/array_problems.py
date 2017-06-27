@@ -874,7 +874,7 @@ if __name__ == '__main__':
 
 
 """
-amzn
+amzn, msft
 
 http://www.geeksforgeeks.org/find-two-rectangles-overlap/
 """

@@ -23,10 +23,6 @@ def longest_non_repeating_substring(string):
                 longest_substring_length = current_length
 
         else:
-            # update longest len before current len is changed ( this required?? )
-            if current_length > longest_substring_length:
-                longest_substring_length = current_length
-
             # ignore the current substring and start considering from right of last occurrence
             current_length = i - last_occurrence[idx]
 

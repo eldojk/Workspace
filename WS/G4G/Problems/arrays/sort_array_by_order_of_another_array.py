@@ -1,5 +1,5 @@
 """
-amzn
+amzn, msft
 
 http://www.geeksforgeeks.org/sort-array-according-order-defined-another-array/
 """

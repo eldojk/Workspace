@@ -1,4 +1,6 @@
 """
+amzn, msft
+
 http://www.geeksforgeeks.org/count-possible-paths-top-left-bottom-right-nxm-matrix/
 
 in an x, y grid, starting at 0,0 how many ways can u reach x,y if you can only move down and right

@@ -49,7 +49,7 @@ def longest_palindromic_substring(string):
                 if string[i] == string[j]:
                     dp[i][j] = 2 + dp[i + 1][j - 1]
                 else:
-                    dp[i][j] = max(dp[i][j - 1], dp[i - 1][j])
+                    dp[i][j] = max(dp[i][j - 1], dp[i + 1][j])
 
     # print_matrix(dp)
     return dp[0][max_index]

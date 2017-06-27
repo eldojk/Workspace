@@ -5,12 +5,14 @@ we will place abc at positions starting at 0 to 2. i.e,
 abcde   abcde   abcde
 abc      abc      abc
 
-and at every step we will try to find the length of the longest common substring with the last char as the ending
-character we are considering
+and at every step we will try to find the length of the longest common substring with the
+last char as the ending character we are considering
 
-dp(i, j) -> lcs of string 1 and string 2 when we try to match ith character of string1 to jth character of string 2
+dp(i, j) -> lcs of string 1 and string 2 when we try to match ith character of string1
+to jth character of string 2
 
-here we vary i through length of string 1 and for each of them we vary j through length of string 2
+here we vary i through length of string 1 and for each of them we vary j
+through length of string 2
 
 dp(i,j) = 1 + dp(i - 1, j -1) if string1[i] == string2[j]
         = dp(i - 1, j -1) otherwise

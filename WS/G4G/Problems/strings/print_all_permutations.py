@@ -49,6 +49,8 @@ if __name__ == '__main__':
 
 
 """
+msft
+
 print all combinations of characters in a string
 
 http://www.mytechinterviews.com/combinations-of-a-string
@@ -72,3 +74,38 @@ if __name__ == '__main__':
     print ''
     print ''
     print_all_length_combinations('abc', 0, [])
+
+
+"""
+msft
+
+http://qa.geeksforgeeks.org/3895/find-all-unique-combinations
+"""
+
+
+def _print_unique_combinations(array, result, k, index):
+    if k > 0:
+        for i in range(index, len(array)):
+            c = array[i]
+            result.append(c)
+            _print_unique_combinations(array, result, k - c, i)
+            result.pop()
+
+    elif k < 0:
+        return
+
+    else:
+        print result,
+
+
+def print_unique_combinations(array, k):
+    for i in range(len(array)):
+        _print_unique_combinations(array, [array[i]], k - array[i], i)
+
+
+if __name__ == '__main__':
+    print ''
+    print ''
+    print_unique_combinations([2, 3, 6, 7], 7)
+    print ''
+    print_unique_combinations([2, 4, 6, 8], 8)

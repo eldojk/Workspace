@@ -79,3 +79,49 @@ def print_squares(n):
 if __name__ == '__main__':
     print ''
     print_squares(5)
+
+
+"""
+msft
+
+convert to binary
+"""
+
+
+def binary_repr(num, arr):
+    if num > 1:
+        binary_repr(num // 2, arr)
+
+    arr.append(num % 2)
+    return arr
+
+
+if __name__ == '__main__':
+    print ''
+    print ''
+    print 'binary repr'
+    print binary_repr(8, [])
+
+
+"""
+msft
+
+https://www.careercup.com/question?id=11903257
+"""
+
+
+def is_multiple_of_n(number, multiple):
+    number = map(int, number)
+    rem = number[0] % multiple
+
+    for i in range(1, len(number)):
+        num = number[i]
+        rem = (rem * 10 + num) % multiple  # for binary use 2 here instead of 10
+
+    return rem == 0
+
+
+if __name__ == '__main__':
+    print ''
+    print 'is divisible'
+    print is_multiple_of_n('1281', 3)

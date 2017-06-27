@@ -35,11 +35,11 @@ def num_ways(operands, operators):
                         T[i][j] += T[i][k] * T[k + 1][j]
                         F[i][j] += total_ik * total_kj - T[i][k] * T[k + 1][j]
 
-                    if operators[k] == '|':
+                    elif operators[k] == '|':
                         F[i][j] += F[i][k] * F[k + 1][j]
                         T[i][j] += total_ik * total_kj - F[i][k] * F[k + 1][j]
 
-                    if operators[k] == '^':
+                    elif operators[k] == '^':
                         T[i][j] += F[i][k] * T[k + 1][j] + T[i][k] * F[k + 1][j]
                         F[i][j] += T[i][k] * T[k + 1][j] + F[i][k] * F[k + 1][j]
 
