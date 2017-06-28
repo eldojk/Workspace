@@ -1,4 +1,8 @@
 """
+amzn, msft
+
+or convert to dll, merge dlls and convert back result to bst for O(1) space
+
 http://www.geeksforgeeks.org/merge-two-balanced-binary-search-trees/
 """
 from G4G.Problems.bst.create_bst_from_sorted_array import create_bst

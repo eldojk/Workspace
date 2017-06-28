@@ -1,5 +1,6 @@
 """
-amzn
+amzn, msft
+
 http://algorithmsandme.in/2017/01/find-first-circular-tour-visits-petrol-pumps/
 http://www.geeksforgeeks.org/find-a-tour-that-visits-all-stations
 
