@@ -1,4 +1,6 @@
 """
+amzn, msft
+
 http://www.geeksforgeeks.org/flattening-a-linked-list/
 """
 
@@ -80,7 +82,6 @@ if __name__ == '__main__':
     l4.down.down.down = Node(45)
 
     l3.nxt = l4
-
 
     h = flatten_list(l1)
 

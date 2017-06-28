@@ -1,4 +1,6 @@
 """
+amzn, msft
+
 http://www.geeksforgeeks.org/construct-a-binary-tree-from-parent-array-representation/
 
 Input: parent[] = {1, 5, 5, 2, 2, -1, 3}

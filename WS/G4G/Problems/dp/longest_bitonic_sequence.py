@@ -1,4 +1,6 @@
 """
+msft, amzn
+
 http://www.geeksforgeeks.org/dynamic-programming-set-15-longest-bitonic-subsequence/
 """
 

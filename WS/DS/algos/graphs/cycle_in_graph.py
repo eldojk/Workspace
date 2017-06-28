@@ -1,4 +1,6 @@
 """
+amzn, msft
+
 Connected graph. Detect cycle
 """
 from DS.algos.graphs.graphs import Node
@@ -21,9 +23,12 @@ class CycleDetector(object):
             if not neighbour.is_visited:
                 neighbour.predecessor = node
                 self.dfs(neighbour)
-            # neighbour is already visited. If node's predecessor is neighbour, then it means neighbour was visited
-            # on the way to the node. If not it means there is some other way to visit the neighbour and adding the
-            # current edge will cause a cycle bcoz the neighbour which was visited on search is found yet again
+            # neighbour is already visited. If node's predecessor is neighbour,
+            # then it means neighbour was visited
+            # on the way to the node. If not it means there is some other way
+            # to visit the neighbour and adding the
+            # current edge will cause a cycle bcoz the neighbour which was visited
+            # on search is found yet again
             elif neighbour.is_visited and node.predecessor != neighbour:
                 self.cycle_detected = True
 

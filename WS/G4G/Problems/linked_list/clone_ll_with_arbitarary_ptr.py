@@ -46,6 +46,8 @@ Without extra space
 
 amzn
 
+http://www.geeksforgeeks.org/clone-linked-list-next-random-pointer-o1-space/
+
 1) Create the copy of node 1 and insert it between node 1 & node 2 in original Linked List, create the copy of 2 and
 insert it between 2 & 3.. Continue in this fashion, add the copy of N afte the Nth node
 2) Now copy the arbitrary link in this fashion

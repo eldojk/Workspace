@@ -50,6 +50,8 @@ def sum_ll(node1, node2):
 
 
 """
+amzn msft
+
 http://www.geeksforgeeks.org/sum-of-two-linked-lists/
 http://www.geeksforgeeks.org/add-two-numbers-represented-by-linked-lists/
 """

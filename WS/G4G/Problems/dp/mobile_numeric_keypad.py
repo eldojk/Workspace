@@ -24,6 +24,7 @@ total count = sum(count(i, n) for i in 0 to 9)
 """
 from G4G.Problems.dp.min_matrix_cost_path_to_mn import print_matrix
 
+
 KEY_PAD = [
     [1, 2, 3],
     [4, 5, 6],

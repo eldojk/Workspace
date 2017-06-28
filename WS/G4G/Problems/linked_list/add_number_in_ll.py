@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
 
 """
-amzn
+amzn, msft
 
 add num to ll or add 1 to ll
 """
