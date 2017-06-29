@@ -125,3 +125,34 @@ if __name__ == '__main__':
     print ''
     print 'is divisible'
     print is_multiple_of_n('1281', 3)
+
+
+"""
+msft
+validate ip address
+
+http://www.geeksforgeeks.org/program-to-validate-an-ip-address/
+"""
+
+
+def is_valid_ip(string):
+    arr = string.split('.')
+
+    if len(arr) != 4:
+        return False  # ip should have four terms
+
+    for s in arr:
+        i = int(s)
+        if i > 255 or i < 0:  # numbers should be in range(0, 256)
+            return False
+
+    return True
+
+
+if __name__ == '__main__':
+    print ''
+    print 'is valid ip address'
+    print is_valid_ip('128.0.0.1')
+    print is_valid_ip('125.16.100.1')
+    print is_valid_ip('125.512.100.1')
+    print is_valid_ip('125.512.100.abc')
