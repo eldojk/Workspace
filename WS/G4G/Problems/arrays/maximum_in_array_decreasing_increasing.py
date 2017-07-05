@@ -16,13 +16,9 @@ def find_maximum(array, lo, hi):
     if lo == hi:
         return array[lo]
 
-    #  If there are two elements and first is greater then the first element is maximum
-    if hi == lo + 1 and array[lo] >= array[hi]:
-        return array[lo]
-
-    #  If there are two elements and second is greater then the second element is maximum
-    if hi == lo + 1 and array[lo] < array[hi]:
-        return array[hi]
+    #  If there are two elements, one of them is pivot
+    if hi == lo + 1:
+        return max(array[lo], array[hi])
 
     mid = (lo + hi) // 2
 

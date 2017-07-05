@@ -14,11 +14,12 @@ def powr(x, y):
     elif y == 1:
         return x
 
-    elif y % 2 == 0:
-        return powr(x, y/2) * powr(x, y/2)
+    temp = power(x, y / 2)
+    if y % 2 == 0:
+        return temp * temp
 
     else:
-        return x * powr(x, y/2) * powr(x, y/2)
+        return x * temp * temp
 
 
 def power(x, y):

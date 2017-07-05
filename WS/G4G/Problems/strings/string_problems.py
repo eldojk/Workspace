@@ -11,6 +11,8 @@ Else check whether the given string of size
     If yes, then answer will be 'n-1'
 Else answer will be 'n'
 """
+from sys import maxint
+
 from G4G.Problems.dp.palindromic_partitioning import is_palindrome
 
 
@@ -36,3 +38,37 @@ def longest_non_palindromic_substring(string):
 
 if __name__ == '__main__':
     print longest_non_palindromic_substring('abba')
+
+
+"""
+msft
+
+minimum distance between two words
+"""
+
+
+def min_dist(array, w1, w2):
+    i1 = -1
+    i2 = -1
+    dist = maxint
+
+    for i in xrange(len(array)):
+        if w1 == array[i]:
+            i1 = i
+
+        if w2 == array[i]:
+            i2 = i
+
+        if i1 != -1 and i2 != -1:
+            dist = min(
+                dist,
+                abs(i1 - i2)
+            )
+
+    return dist
+
+
+if __name__ == '__main__':
+    print ''
+    print 'min dist b/w words'
+    print min_dist(['hello', 'how', 'are', 'hello', 'you'], 'hello', 'you')

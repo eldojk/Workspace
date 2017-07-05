@@ -1,6 +1,6 @@
 # coding=utf-8
 """
-http://www.geeksforgeeks.org/remove-bst-keys-outside-the-given-range/
+http://www.geeksforgeeks.org/nuts-bolts-problem-lock-key-problem/
 https://kartikkukreja.wordpress.com/2013/10/29/matching-nuts-and-bolts-problem/
 
 char nuts[] = {‘@’, ‘#’, ‘$’, ‘%’, ‘^’, ‘&’}

@@ -1,5 +1,5 @@
 """
-amzn!
+amzn msft
 
 http://www.geeksforgeeks.org/count-possible-decodings-given-digit-sequence/
 

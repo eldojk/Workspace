@@ -1,5 +1,5 @@
 """
-amzn
+amzn, msft
 
 http://www.geeksforgeeks.org/a-boolean-matrix-question/
 

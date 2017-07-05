@@ -1609,6 +1609,7 @@ def detect_conflicting_appts(array):
             j += 1
 
 
+
 if __name__ == '__main__':
     print ''
     print 'Conflicting appointments'

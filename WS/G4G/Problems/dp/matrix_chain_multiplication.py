@@ -1,4 +1,6 @@
 """
+amzn, msft
+
 Substring model:
 
 DP(i, j) = cost of multiplying matrices across i through j
