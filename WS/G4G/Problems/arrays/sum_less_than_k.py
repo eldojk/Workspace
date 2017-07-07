@@ -12,11 +12,11 @@ def pair_sum_less_than_k(array, k):
 
     while i < j:
         if array[i] + array[j] < k:
-            count += (k - j)
-            j += 1
+            count += (j - i)
+            i += 1
 
         else:
-            i += 1
+            j -= 1
 
     return count
 

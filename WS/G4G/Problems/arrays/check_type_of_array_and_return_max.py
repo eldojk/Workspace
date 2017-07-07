@@ -1,9 +1,10 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/type-array-maximum-element/
 
 43215
 """
-#todo
 
 
 def is_ascending(array, n):

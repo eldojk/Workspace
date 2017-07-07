@@ -4,7 +4,8 @@ amzn
 http://www.geeksforgeeks.org/find-the-smallest-positive-number-missing-from-an-unsorted-array/
 
 (Assuming array contains positive only. handling negatives is in the link)
-traverse from 0 to n - 1, let x be array[i]. To indicate that x is present make, array[x] = -array[x].
+traverse from 0 to n - 1, let x be array[i].
+To indicate that x is present make, array[x] = -array[x].
 One second traversal of array from left to right, find the first positive number index
 """
 

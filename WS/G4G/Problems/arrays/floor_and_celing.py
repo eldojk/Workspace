@@ -2,6 +2,9 @@
 amzn
 
 http://www.geeksforgeeks.org/ceiling-in-a-sorted-array/
+
+ceiling is the next element after floor. so just find floor and do
+floor + 1
 """
 
 

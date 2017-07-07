@@ -4,7 +4,8 @@ amzn
 
 http://www.geeksforgeeks.org/find-the-first-missing-number/
 
-Given a sorted array of n distinct integers where each integer is in the range from 0 to m-1 and m > n.
+Given a sorted array of n distinct integers where each integer is in the
+range from 0 to m-1 and m > n.
 Find the smallest number that is missing from the array.
 
 Examples
@@ -39,7 +40,7 @@ def find_missing(array, l, h):
     if array[mid] == mid:
         return find_missing(array, mid + 1, h)
 
-    return find_missing(array, l, h)
+    return find_missing(array, l, mid)
 
 
 if __name__ == '__main__':

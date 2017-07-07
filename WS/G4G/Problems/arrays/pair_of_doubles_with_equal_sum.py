@@ -11,7 +11,7 @@ def get_pairs_with_equal_sum(array):
     sum_dict = {}
 
     for i in range(len(array)):
-        for j in range(i, len(array)):
+        for j in range(i + 1, len(array)):
             num1 = array[i]
             num2 = array[j]
             _sum = num1 + num2
@@ -25,6 +25,8 @@ def get_pairs_with_equal_sum(array):
 
     return None
 
-# print get_pairs_with_equal_sum([3, 4, 7, 1, 2, 9, 8])
-# print get_pairs_with_equal_sum([3, 4, 7, 1, 12, 9])
-# print get_pairs_with_equal_sum([65, 30, 7, 90, 1, 9, 8])
+
+if __name__ == '__main__':
+    print get_pairs_with_equal_sum([3, 4, 7, 1, 2, 9, 8])
+    print get_pairs_with_equal_sum([3, 4, 7, 1, 12, 9])
+    print get_pairs_with_equal_sum([65, 30, 7, 90, 1, 9, 8])

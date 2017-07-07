@@ -23,7 +23,7 @@ class SubArrayFinder(object):
             self.max_r = self.r
 
     def shrink(self):
-        while self.array[self.l] != 0:
+        while self.array[self.l] == 1:
             self.l += 1
 
         if self.array[self.l] == 0:

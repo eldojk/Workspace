@@ -9,6 +9,13 @@ your program should be able to find that the subarray lies between the indexes 3
 
 
 def get_element_out_of_place_right(array):
+    """
+    Find index of the right most element which is
+    less than a previously seen element
+
+    :param array:
+    :return:
+    """
     i = 1
     n = len(array)
     max_seen_so_far = array[0]
@@ -27,6 +34,13 @@ def get_element_out_of_place_right(array):
 
 
 def get_element_out_of_place_left(array):
+    """
+    Find index of left most element which is greater
+    than an element on the right
+
+    :param array:
+    :return:
+    """
     n = len(array)
     i = n - 2
     min_seen_so_far = array[n - 1]

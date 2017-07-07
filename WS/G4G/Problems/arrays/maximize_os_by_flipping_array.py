@@ -4,8 +4,10 @@ amzn
 
 http://www.geeksforgeeks.org/maximize-number-0s-flipping-subarray/
 
-This problem can be reduced to largest sub array sum problem. The idea is to consider every 0 as -1 and every 1 as 1,
-find the sum of largest sub array sum in this modified array. This sum is our required max_diff ( count of 0s – count of
+This problem can be reduced to largest sub array sum problem. The idea is to consider
+every 0 as -1 and every 1 as 1,
+find the sum of largest sub array sum in this modified array. This sum is our required
+max_diff ( count of 0s – count of
 1s in any sub array). Finally we return the max_diff plus count of zeros in original array
 """
 from G4G.Problems.dp.max_contiguous_sum import find_max_contiguous_sum

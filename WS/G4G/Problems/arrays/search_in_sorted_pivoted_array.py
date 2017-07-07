@@ -3,7 +3,7 @@ amzn, smsg
 
 http://www.geeksforgeeks.org/search-an-element-in-a-sorted-and-pivoted-array/
 
-) Find middle point mid = (l + h)/2
+1) Find middle point mid = (l + h)/2
 2) If key is present at middle point, return mid.
 3) Else If arr[l..mid] is sorted
     a) If key to be searched lies in range from arr[l]

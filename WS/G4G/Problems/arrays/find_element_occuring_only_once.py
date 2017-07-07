@@ -18,7 +18,7 @@ else before mid.
 """
 
 
-def find_single_occuring_element(array, lo, hi):
+def find_single_occurring_element(array, lo, hi):
     if lo > hi:
         return None
 
@@ -29,19 +29,19 @@ def find_single_occuring_element(array, lo, hi):
 
     if mid % 2 == 0:
         if array[mid] == array[mid + 1]:
-            return find_single_occuring_element(array, mid + 2, hi)
+            return find_single_occurring_element(array, mid + 2, hi)
 
         else:
-            return find_single_occuring_element(array, lo, mid)
+            return find_single_occurring_element(array, lo, mid)
 
     else:
 
         if array[mid] == array[mid - 1]:
-            return find_single_occuring_element(array, mid + 1, hi)
+            return find_single_occurring_element(array, mid + 1, hi)
 
         else:
-            return find_single_occuring_element(array, lo, mid - 1)
+            return find_single_occurring_element(array, lo, mid - 1)
 
 
 if __name__ == '__main__':
-    print find_single_occuring_element([1, 1, 2, 4, 4, 5, 5, 6, 6], 0, 8)
+    print find_single_occurring_element([1, 1, 2, 4, 4, 5, 5, 6, 6], 0, 8)

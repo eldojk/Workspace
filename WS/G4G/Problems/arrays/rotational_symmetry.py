@@ -6,7 +6,8 @@ http://qa.geeksforgeeks.org/861/given-number-integer-return-true-its-rotationall
 
 Rotational Symmetry means, if we write that number on a page and rotate that page by 180º,
 the number remains same.
-For Example: 88 is rotationally symmetric. 108801 is rotationally symmetric. 69 is rotationally symmetric.
+For Example: 88 is rotationally symmetric. 108801 is rotationally symmetric.
+69 is rotationally symmetric.
 6996 is NOT rotationally symmetric. 169 is NOT rotationally symmetric.
 """
 

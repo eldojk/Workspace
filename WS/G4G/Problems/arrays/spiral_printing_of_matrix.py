@@ -7,19 +7,19 @@ http://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/
 
 
 def _print_sprl(matrix, i, j, m, n):
-    for k in range(m, n + 1):
+    for k in range(j, n + 1):
         print matrix[i][k],
 
-    for k in range(i + 1, j + 1):
+    for k in range(i + 1, m + 1):
         print matrix[k][n],
 
-    if i < j:
-        for k in reversed(range(m, n)):
-            print matrix[j][k],
+    if i < m:
+        for k in reversed(range(j, n)):
+            print matrix[m][k],
 
-    if m < n:
-        for k in reversed(range(i + 1, j)):
-            print matrix[k][m],
+    if j < n:
+        for k in reversed(range(i + 1, m)):
+            print matrix[k][j],
 
 
 def print_spiral_matrix_repr(matrix):

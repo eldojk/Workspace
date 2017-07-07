@@ -3,7 +3,8 @@ amzn
 
 http://www.geeksforgeeks.org/largest-subarray-with-equal-number-of-0s-and-1s/
 
-consider 0s as -1 so when we find a sum of zero for all elements we know there is equal number of zeros and ones
+consider 0s as -1 so when we find a sum of zero for all elements we know
+there is equal number of zeros and ones
 """
 
 
@@ -25,6 +26,7 @@ def compute_left_sum_array(array):
 
 def store_first_occuring_sums_in_hash(sum_arr):
     _dict = {}
+
     for i in range(len(sum_arr)):
         el = sum_arr[i]
         if _dict.get(el) is None:
@@ -50,8 +52,10 @@ def find_max_subarray_of_equal_0_and_1(array):
             n = i
 
     # for index starting after zero
-    # if we find a sum k in array at index j, and assume we found this same k in index i, where i < j
-    # that means adding elements from i + 1 to j hasn't changed the sum, this means the subarray[i+1, j]
+    # if we find a sum k in array at index j, and
+    # assume we found this same k in index i, where i < j
+    # that means adding elements from i + 1 to j hasn't
+    # changed the sum, this means the subarray[i+1, j]
     # could be a potential candidate for what we are searching for
     for i in range(len(left_sum_arr)):
         val = left_sum_arr[i]

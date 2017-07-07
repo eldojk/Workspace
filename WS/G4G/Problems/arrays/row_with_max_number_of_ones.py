@@ -61,7 +61,8 @@ Step1: Get the index of first (or leftmost) 1 in the first row.
 
 Step2: Do following for every row after the first row
 …IF the element on left of previous leftmost 1 is 0, ignore this row.
-…ELSE Move left until a 0 is found. Update the leftmost index to this index and max_row_index to be the current row.
+…ELSE Move left until a 0 is found. Update the leftmost index to this index and
+ max_row_index to be the current row.
 """
 
 
