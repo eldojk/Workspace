@@ -1,6 +1,7 @@
 """
 amzn, msft
 
+http://www.geeksforgeeks.org/given-n-appointments-find-conflicting-appointments/
 https://www.careercup.com/question?id=11515910
 
 worst algorithm is n2. If you sort by start times (nlogn)

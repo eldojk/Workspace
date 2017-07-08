@@ -75,7 +75,7 @@ print current_index == len(array)
 """
 http://www.geeksforgeeks.org/in-place-convert-bst-into-a-min-heap/
 
-Check sol. -> this one cobnverts bst to sorted ll
+Check sol. -> this one converts bst to sorted ll
 """
 
 

@@ -40,6 +40,7 @@ if __name__ == '__main__':
     print 'symmetric pairs'
     find_symmetric_pairs([(11, 20), (30, 40), (5, 10), (40, 30), (10, 5)])
 
+
 """
 amzn
 
@@ -784,7 +785,7 @@ def pythagorean_triplet(array):
     sq_arr.sort()
 
     n = len(array)
-    i = n - 2
+    i = n - 1
 
     while i >= 2:
         l = 0
@@ -1142,7 +1143,7 @@ def third_largest(array):
 
 if __name__ == '__main__':
     print ''
-    print 'THird largest in array'
+    print 'Third largest in array'
     print third_largest([12, 13, 1, 10, 34, 16])
 
 
@@ -1229,6 +1230,8 @@ def find_pair_with_diff(array, diff):
             print 'not found'
             break
 
+        # todo need to check if pair == key
+        # ^ this can arise when diff = 0
         pair = binary_search(array, 0, n - 1, key)
 
         if pair != -1:
@@ -1510,7 +1513,7 @@ def simplify_linux_dir_path(path):
     s = Stack()
 
     for p in places:
-        if p == "..":
+        if p == ".." and not s.is_empty():
             s.pop()
 
         else:
@@ -1570,50 +1573,6 @@ if __name__ == '__main__':
     print 'majority element'
     print find_majority_element([1, 3, 3, 1, 2])
     print find_majority_element([3, 3, 4, 2, 4, 4, 2, 4, 4])
-
-
-"""
-msft
-
-(gonna use sorting)
-http://www.geeksforgeeks.org/given-n-appointments-find-conflicting-appointments/
-"""
-
-
-class Job(object):
-    def __init__(self, start, end):
-        self.start = start
-        self.end = end
-
-    def __repr__(self):
-        return str(self.start) + ',' + str(self.end)
-
-    def __lt__(self, other):
-        return self.start < other.start
-
-    def __gt__(self, other):
-        return self.start > other.start
-
-    def __eq__(self, other):
-        return self.start == other.start
-
-
-def detect_conflicting_appts(array):
-    array.sort()
-
-    for i in range(len(array) - 1):
-        j = i + 1
-
-        while j < len(array) and array[j].start < array[i].end:
-            print array[i], 'and ', array[j]
-            j += 1
-
-
-
-if __name__ == '__main__':
-    print ''
-    print 'Conflicting appointments'
-    detect_conflicting_appts([Job(1, 5), Job(3, 7), Job(2, 6), Job(10, 15), Job(5, 6), Job(4, 100)])
 
 
 """

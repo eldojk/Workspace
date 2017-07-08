@@ -3,6 +3,7 @@ If a sum from root to leaf is found, print that path
 """
 from vertical_sum import Node
 
+
 def printsum(root, sum):
     if root is None:
         return sum == 0

@@ -18,8 +18,8 @@ def is_one_child_bst(array):
         return True
 
     for k in range(2, n):
-        # Checking the relation of 1st and 2nd and updating the valid range for third by placing the first as either
-        # upper limit or lower limit
+        # Checking the relation of 1st and 2nd and updating the valid range
+        # for third by placing the first as either upper limit or lower limit
         if array[i] > array[j]:
             RANGE[1] = array[i]
         else:

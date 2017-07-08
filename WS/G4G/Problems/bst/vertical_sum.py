@@ -15,39 +15,39 @@ class Node(object):
         return str(self.data)
 
 
-def vsum(root, hd, dict):
+def v_sum(root, hd, dict):
     if root:
-        vsum(root.left, hd - 1, dict)
+        v_sum(root.left, hd - 1, dict)
 
         dict[hd] = root.data if dict.get(hd) is None else dict[hd] + root.data
 
-        vsum(root.right, hd + 1, dict)
+        v_sum(root.right, hd + 1, dict)
 
 
 def vertical_sum(root):
     dict = {}
-    vsum(root, 0, dict)
+    v_sum(root, 0, dict)
 
     print dict
 
 
-def vprint(root, hd, dict):
+def v_print(root, hd, dict):
     if root:
         dict[hd] = [root.data] if dict.get(hd) is None else dict[hd] + [root.data]
 
-        vprint(root.left, hd - 1, dict)
-        vprint(root.right, hd + 1, dict)
+        v_print(root.left, hd - 1, dict)
+        v_print(root.right, hd + 1, dict)
 
 
 def vertical_print(root):
-    dict = {}
-    vprint(root, 0, dict)
+    _dict = {}
+    v_print(root, 0, _dict)
 
-    keys = dict.keys()
-    keys.sort()
+    dict_keys = _dict.keys()
+    dict_keys.sort()
 
-    for key in keys:
-        print dict[key]
+    for k in dict_keys:
+        print _dict[k]
 
 
 if __name__  == '__main__':

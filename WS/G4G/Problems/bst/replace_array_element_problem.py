@@ -11,8 +11,10 @@ O/p: [18, 63, 80, 25, 32, 43, 80, 93, 80, 25, 93, -1, 28, -1, -1]
 
 from DS.algos.graphs.bst import BST
 
-def _replace_None(element):
+
+def _replace_none(element):
     return element.key if element else -1
+
 
 def replace_inorder_successor(array):
     bst = BST()
@@ -20,4 +22,4 @@ def replace_inorder_successor(array):
         bst.add(num)
 
     output = [bst.search(num).in_order_successor() for num in array]
-    return [_replace_None(node) for node in output]
+    return [_replace_none(node) for node in output]

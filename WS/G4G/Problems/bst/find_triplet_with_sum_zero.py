@@ -21,11 +21,11 @@ def get_doubles_with_sum(array, start, end, _sum):
 
 def triplets_adding_to_zero(array):
     for i in range(len(array) - 2):
-        expected_doublet_sum = array[i] * -1
+        expected_pair_sum = array[i] * -1
         start = i + 1
         end = len(array) - 1
 
-        m, n = get_doubles_with_sum(array, start, end, expected_doublet_sum)
+        m, n = get_doubles_with_sum(array, start, end, expected_pair_sum)
 
         if m is None:
             continue
