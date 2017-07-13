@@ -44,11 +44,14 @@ amzn
 
 http://www.geeksforgeeks.org/dynamic-programming-set-7-coin-change/
 
-Given a value N, if we want to make change for N cents, and we have infinite supply of each of S = { S1, S2, .. , Sm}
+Given a value N, if we want to make change for N cents,
+and we have infinite supply of each of S = { S1, S2, .. , Sm}
 valued coins, how many ways can we make the change? The order of coins doesn’t matter.
 
-For example, for N = 4 and S = {1,2,3}, there are four solutions: {1,1,1,1},{1,1,2},{2,2},{1,3}. So output should be 4.
-For N = 10 and S = {2, 5, 3, 6}, there are five solutions: {2,2,2,2,2}, {2,2,3,3}, {2,2,6}, {2,3,5} and {5,5}.
+For example, for N = 4 and S = {1,2,3}, there are four solutions:
+{1,1,1,1},{1,1,2},{2,2},{1,3}. So output should be 4.
+For N = 10 and S = {2, 5, 3, 6}, there are five solutions:
+{2,2,2,2,2}, {2,2,3,3}, {2,2,6}, {2,3,5} and {5,5}.
 So the output should be 5.
 
             Amount
@@ -91,3 +94,39 @@ if __name__ == '__main__':
     print ''
     print number_of_ways_to_make_change(4, [1, 2, 3])
     print number_of_ways_to_make_change(10, [2, 5, 3, 6])
+
+
+"""
+using memoization
+"""
+
+
+def num_ways(n, coins, i, dp):
+    if i == -1:
+        return 1 if n == 0 else 0
+
+    if dp[n][i] != -1:
+        return dp[n][i]
+
+    coin_val = coins[i]
+
+    if coin_val <= n:
+        dp[n][i] = num_ways(n - coin_val, coins, i, dp) + num_ways(n, coins, i - 1, dp)
+
+    else:
+        dp[n][i] = num_ways(n, coins, i - 1, dp)
+
+    return dp[n][i]
+
+
+def num_ways_memo(n, coins):
+    dp = [[-1 for c in coins] for i in range(n + 1)]
+    i = len(coins) - 1
+    return num_ways(n, coins, i, dp)
+
+
+if __name__ == '__main__':
+    print ''
+    print 'memo'
+    print num_ways_memo(4, [1, 2, 3])
+    print num_ways_memo(10, [2, 5, 3, 6])

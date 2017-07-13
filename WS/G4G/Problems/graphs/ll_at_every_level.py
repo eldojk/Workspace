@@ -3,6 +3,16 @@ Given a binary tree, output a linked list containing nodes at each level
 """
 
 
+class Node(object):
+    def __init__(self, data):
+        self.data = data
+        self.right = None
+        self.left = None
+
+    def __repr__(self):
+        return str(self.data)
+
+
 class LevelLL(object):
     def __init__(self, root):
         self.root = root
@@ -27,14 +37,14 @@ class LevelLL(object):
         return self.dict
 
 
-# if __name__=='__main__':
-#     root = Node(0)
-#     root.left = Node(1)
-#     root.right = Node(2)
-#     root.left.left = Node(3)
-#     root.left.right = Node(4)
-#     root.right.left = Node(5)
-#     root.right.right = Node(6)
-#
-#     ll_maker = LevelLL(root)
-#     print ll_maker.get_ll()
+if __name__=='__main__':
+    root = Node(0)
+    root.left = Node(1)
+    root.right = Node(2)
+    root.left.left = Node(3)
+    root.left.right = Node(4)
+    root.right.left = Node(5)
+    root.right.right = Node(6)
+
+    ll_maker = LevelLL(root)
+    print ll_maker.get_ll()

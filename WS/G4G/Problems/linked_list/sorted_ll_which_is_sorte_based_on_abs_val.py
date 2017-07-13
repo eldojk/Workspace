@@ -3,8 +3,9 @@ amzn
 
 http://www.geeksforgeeks.org/sort-linked-list-already-sorted-absolute-values/
 
-An important observation is, all negative elements are present in reverse order. So we traverse the list, whenever we
-find an element that is out of order, we move it to the front of linked list.
+An important observation is, all negative elements are present in reverse order.
+So we traverse the list, whenever we find an element that is out of order,
+we move it to the front of linked list.
 
 Input : 1 -> -2 -> -3 -> 4 -> -5
 output: -5 -> -3 -> -2 -> 1 -> 4

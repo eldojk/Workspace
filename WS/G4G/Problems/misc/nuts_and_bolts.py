@@ -1,10 +1,14 @@
 # coding=utf-8
 """
+msft
+
 http://www.geeksforgeeks.org/nuts-bolts-problem-lock-key-problem/
 https://kartikkukreja.wordpress.com/2013/10/29/matching-nuts-and-bolts-problem/
 
 char nuts[] = {‘@’, ‘#’, ‘$’, ‘%’, ‘^’, ‘&’}
 char bolts[] = {‘$’, ‘%’, ‘&’, ‘^’, ‘@’, ‘#’}
+
+nuts can be compared to bolts only and bolts can be compared to nuts
 """
 
 

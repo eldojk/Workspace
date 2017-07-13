@@ -1,5 +1,7 @@
 # coding=utf-8
 """
+amzn
+
 http://www.geeksforgeeks.org/how-to-print-maximum-number-of-a-using-given-four-keys/
 
 Imagine you have a special keyboard with the following keys:
@@ -55,21 +57,21 @@ def find_optimal(N):
     for i in range(6):
         screen[i] = i + 1
 
-    i = 7
-    while i <= N:
-        screen[i - 1] = 0
+    n = 7
+    while n <= N:
+        screen[n - 1] = 0
 
-        b = i - 3
+        b = n - 3
         while b >= 1:
 
-            curr = (i - b - 1) * screen[b - 1]
+            curr = (n - b - 1) * screen[b - 1]
 
-            if curr > screen[i - 1]:
-                screen[i - 1] = curr
+            if curr > screen[n - 1]:
+                screen[n - 1] = curr
 
             b -= 1
 
-        i += 1
+        n += 1
 
     return screen[N - 1]
 

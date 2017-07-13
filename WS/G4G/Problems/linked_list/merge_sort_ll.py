@@ -11,6 +11,12 @@ from G4G.Problems.linked_list.merge_sorted_ll import sorted_merge
 
 
 def split(head):
+    """
+    split lists into two halves
+
+    :param head:
+    :return:
+    """
     front = head
 
     if head is None or head.nxt is None:

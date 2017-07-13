@@ -26,7 +26,7 @@ def longest_non_repeating_substring(string):
             # ignore the current substring and start considering from right of last occurrence
             current_length = i - last_occurrence[idx]
 
-            # update ast occurrence every time
+            # update last occurrence every time
         last_occurrence[idx] = i
 
     return longest_substring_length

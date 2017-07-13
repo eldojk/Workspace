@@ -2,8 +2,9 @@
 """
 http://www.geeksforgeeks.org/find-maximum-length-snake-sequence/
 
-A snake sequence is made up of adjacent numbers in the grid such that for each number, the number on the right or the
-number below it is +1 or -1 its value. For example, if you are at location (x, y) in the grid, you can either move right
+A snake sequence is made up of adjacent numbers in the grid such that for each number,
+the number on the right or the number below it is +1 or -1 its value.
+For example, if you are at location (x, y) in the grid, you can either move right
 i.e. (x, y+1) if that number is ± 1 or move down i.e. (x+1, y) if that number is ± 1.
 
 For example,

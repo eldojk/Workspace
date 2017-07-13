@@ -2,6 +2,7 @@
 amzn
 
 http://www.geeksforgeeks.org/given-a-string-find-its-first-non-repeating-character/
+also check find_non_repeating_char_in_stream.py
 """
 
 

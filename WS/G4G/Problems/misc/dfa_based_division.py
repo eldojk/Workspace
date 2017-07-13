@@ -4,11 +4,16 @@ msft
 http://www.geeksforgeeks.org/dfa-based-division/
 
 1. When we are at state 0 and read 0, we remain at state 0.
-2. When we are at state 0 and read 1, we move to state 1, why? The number so formed(1) in decimal gives remainder 1.
-3. When we are at state 1 and read 0, we move to state 2, why? The number so formed(10) in decimal gives remainder 2.
-4. When we are at state 1 and read 1, we move to state 0, why? The number so formed(11) in decimal gives remainder 0.
-5. When we are at state 2 and read 0, we move to state 1, why? The number so formed(100) in decimal gives remainder 1.
-6. When we are at state 2 and read 1, we remain at state 2, why? The number so formed(101) in decimal gves remainder 2.
+2. When we are at state 0 and read 1, we move to state 1,
+why? The number so formed(1) in decimal gives remainder 1.
+3. When we are at state 1 and read 0, we move to state 2,
+why? The number so formed(10) in decimal gives remainder 2.
+4. When we are at state 1 and read 1, we move to state 0,
+why? The number so formed(11) in decimal gives remainder 0.
+5. When we are at state 2 and read 0, we move to state 1,
+why? The number so formed(100) in decimal gives remainder 1.
+6. When we are at state 2 and read 1, we remain at state 2,
+why? The number so formed(101) in decimal gves remainder 2.
 
 The transition table looks like following:
 

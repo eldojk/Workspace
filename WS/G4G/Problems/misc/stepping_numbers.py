@@ -2,7 +2,8 @@
 """
 http://www.geeksforgeeks.org/stepping-numbers/
 
-Given two integers ‘n’ and ‘m’, find all the stepping numbers in range [n, m]. A number is called stepping number if all
+Given two integers ‘n’ and ‘m’, find all the stepping numbers in range [n, m]. A
+number is called stepping number if all
 adjacent digits have an absolute difference of 1. 321 is a Stepping Number while 421 is not.
 
 Examples:

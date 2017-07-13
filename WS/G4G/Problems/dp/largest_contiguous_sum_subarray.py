@@ -1,5 +1,5 @@
 """
-msft
+msft, amzn
 
 http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
 """

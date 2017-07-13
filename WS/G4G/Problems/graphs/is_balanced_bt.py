@@ -9,9 +9,10 @@ from G4G.Problems.bst.vertical_sum import Node
 
 def check_height(root):
     """
-    At every node we check the left and right height and return the height. If at any point we find an unbalanced
-    subtree we return -1 instead of the height. In a node, if one of the subtrees has returned a -1, we stop computing
-    the height of that node and return -1 upwards
+    At every node we check the left and right height and return the height.
+    If at any point we find an unbalanced subtree we return -1 instead of
+    the height. In a node, if one of the subtrees has returned a -1, we
+    stop computing the height of that node and return -1 upwards
 
     :param root:
     :return:

@@ -67,4 +67,3 @@ def get_nxt_digit(digit):
 if __name__ == '__main__':
     get_nxt_digit('534976')
     get_nxt_digit('98765')
-

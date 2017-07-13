@@ -1,6 +1,6 @@
 """
-Given certain jobs with start and end time and amount you make on finishing the job, find the maximum value you can make
-by scheduling jobs in non-overlapping way.
+Given certain jobs with start and end time and amount you make on finishing the job,
+find the maximum value you can make by scheduling jobs in non-overlapping way.
 
 Jobs can be done serially only, hence maximize the value
 

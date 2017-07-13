@@ -9,7 +9,8 @@ http://www.geeksforgeeks.org/given-a-number-find-next-smallest-palindrome-larger
 There can be three different types of inputs that need to be handled separately.
 1) The input number is palindrome and has all 9s. For example “9 9 9”. Output should be “1 0 0 1”
 2) The input number is not palindrome. For example “1 2 3 4”. Output should be “1 3 3 1”
-3) The input number is palindrome and doesn’t have all 9s. For example “1 2 2 1”. Output should be “1 3 3 1”.
+3) The input number is palindrome and doesn’t have all 9s. For example “1 2 2 1”.
+Output should be “1 3 3 1”.
 """
 
 
@@ -38,7 +39,8 @@ def gen_next_pal(array):
         i -= 1
         j += 1
 
-    # Find if the middle digit(s) need to be incremented or not (or copying left side is not sufficient)
+    # Find if the middle digit(s) need to be incremented or not
+    # (or copying left side is not sufficient)
     if i < 0 or array[i] < array[j]:
         left_smaller = True
 
@@ -87,4 +89,3 @@ if __name__ == '__main__':
     arr = [9, 4, 1, 8, 7, 9, 7, 8, 3, 2, 2]
 
     generate_next_palindrome(arr)
-

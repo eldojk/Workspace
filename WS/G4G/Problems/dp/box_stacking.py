@@ -4,7 +4,8 @@ amzn, msft
 
 http://www.geeksforgeeks.org/dynamic-programming-set-21-box-stacking-problem/
 
-https://www.youtube.com/watch?v=9mod_xRB-O0 tushar ( this code is giving different output. tushar may be wrong in
+https://www.youtube.com/watch?v=9mod_xRB-O0 tushar
+( this code is giving different output. tushar may be wrong in
 finding box combinations)
 
 The Box Stacking problem is a variation of LIS problem. We need to build a maximum height stack.

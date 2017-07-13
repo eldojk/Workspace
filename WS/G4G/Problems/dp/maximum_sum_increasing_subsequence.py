@@ -5,8 +5,8 @@ http://www.geeksforgeeks.org/dynamic-programming-set-14-maximum-sum-increasing-s
 
 if input is {1, 101, 2, 3, 100, 4, 5}, then output should be 106 (1 + 2 + 3 + 100)
 
-same approach as longest increasing sub sequence, here instead of tracking the lengths of the sub sequence,
-we will track the sum of elements in it
+same approach as longest increasing sub sequence, here instead of tracking the
+lengths of the sub sequence, we will track the sum of elements in it
 """
 from copy import copy
 

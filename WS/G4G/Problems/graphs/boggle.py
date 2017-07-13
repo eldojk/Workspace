@@ -10,8 +10,9 @@ def is_valid(m, n, i, j):
 
 
 def get_neighbours(m, n, i, j):
-    valid_candidates = [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1), (i - 1, j - 1), (i + 1, j - 1), (i - 1, j + 1),
-                        (i + 1, j + 1)]
+    valid_candidates = [(i - 1, j), (i + 1, j), (i, j - 1),
+                        (i, j + 1), (i - 1, j - 1), (i + 1, j - 1),
+                        (i - 1, j + 1), (i + 1, j + 1)]
     valid_neighbours = [tup for tup in valid_candidates if is_valid(m, n, tup[0], tup[1])]
     return valid_neighbours
 

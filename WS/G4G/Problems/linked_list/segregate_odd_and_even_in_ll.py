@@ -2,6 +2,9 @@
 amzn, msft
 
 http://www.geeksforgeeks.org/segregate-even-and-odd-elements-in-a-linked-list/
+
+
+another way: just append odd to one list and even to another and merge them
 """
 from G4G.Problems.linked_list.linked_list import create_linked_list, print_ll
 

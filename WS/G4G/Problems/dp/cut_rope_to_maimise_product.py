@@ -37,3 +37,25 @@ def cut_rope(num):
 
 if __name__ == '__main__':
     print cut_rope(10)
+
+
+def cut_rope_memoized(num, dp):
+    if dp[num] != -1:
+        return dp[num]
+
+    dp[num] = max(
+        [cut_rope_memoized(num - i, dp) * i for i in range(1, num)]
+    )
+
+    return dp[num]
+
+
+if __name__ == '__main__':
+    _dp = [-1 for i in range(10 + 1)]
+    _dp[0] = 1
+    _dp[1] = 1
+    _dp[2] = 1
+    _dp[3] = 3
+
+    print cut_rope_memoized(10, _dp)
+    print _dp

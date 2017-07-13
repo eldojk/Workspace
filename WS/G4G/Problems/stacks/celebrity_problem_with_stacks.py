@@ -32,7 +32,6 @@ def find_celebrity(array):
         else:
             b = s.pop()
 
-    c = None
     if does_a_know_b(a, b):
         c = b
     else:

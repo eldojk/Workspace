@@ -4,7 +4,8 @@ amzn
 
 http://www.geeksforgeeks.org/check-whether-a-given-point-lies-inside-a-triangle-or-not/
 
-Let the coordinates of three corners be (x1, y1), (x2, y2) and (x3, y3). And coordinates of the given point P be (x, y)
+Let the coordinates of three corners be (x1, y1), (x2, y2) and (x3, y3).
+And coordinates of the given point P be (x, y)
 
 1) Calculate area of the given triangle, i.e., area of the triangle ABC in the above diagram. Area A = [ x1(y2 – y3) + x2(y3 – y1) + x3(y1-y2)]/2
 2) Calculate area of the triangle PAB. We can use the same formula for this. Let this area be A1.

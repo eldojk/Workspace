@@ -28,10 +28,12 @@ Output:
   0 -1 -1 -1  1
   1  2  2  1  0
 
-The idea is to do BFS. We first enqueue all cells containing the guards and loop till queue is not empty. For each
-iteration of the loop, we dequeue the front cell from the queue and for each of its four adjacent cells, if cell is an
-open area and its distance from guard is not calculated yet, we update its distance and enqueue it.
-Finally after BFS procedure is over, we print the distance matrix.
+The idea is to do BFS. We first enqueue all cells containing the guards and
+loop till queue is not empty. For each iteration of the loop, we dequeue the
+front cell from the queue and for each of its four adjacent cells,
+if cell is an open area and its distance from guard is not calculated yet,
+we update its distance and enqueue it. Finally after BFS procedure is over,
+we print the distance matrix.
 """
 from Queue import Queue
 

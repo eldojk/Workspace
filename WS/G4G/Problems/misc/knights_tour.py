@@ -20,7 +20,7 @@ def solve_recur(x, y, curr_move, x_move, y_move, solution):
         next_y = y + y_move[i]
 
         if is_safe_move(next_x, next_y, solution, 8):
-            solution[next_y][next_y] = curr_move
+            solution[next_x][next_y] = curr_move
 
             if solve_recur(next_y, next_y, curr_move + 1, x_move, y_move, solution):
                 return True

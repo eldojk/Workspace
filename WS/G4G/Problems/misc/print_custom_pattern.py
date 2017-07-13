@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/amazon-interview-experience-set-331-1-year-experienced-se-1/
 
 last pattern question

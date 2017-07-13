@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/minimize-cash-flow-among-given-set-friends-borrowed-money/
 
 {0, 1000, 2000},
@@ -11,7 +13,7 @@ from sys import maxint
 def fill_credit_and_debits(graph):
     amounts = [0 for i in graph]
 
-    for i in range(len(graph[0])):
+    for i in range(len(graph)):
         for j in range(len(graph[0])):
 
             # amount for i += amount i have to get from j - amount i has to give j

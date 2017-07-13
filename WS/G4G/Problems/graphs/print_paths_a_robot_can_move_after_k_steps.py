@@ -1,7 +1,8 @@
 # coding=utf-8
 """
-Given a 2-D grid, number of steps to take, say k and intial position of a Robot. print the paths possible from initial
-position after k steps. Robot can move in top, right, left, bottom. In one path, robot can’t move to the location it has
+Given a 2-D grid, number of steps to take, say k and intial position of a Robot.
+print the paths possible from initial position after k steps. Robot can move in
+top, right, left, bottom. In one path, robot can’t move to the location it has
 previously visited.
 """
 
