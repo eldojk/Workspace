@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/minimum-time-required-so-that-all-oranges-become-rotten/
 """
 from Queue import Queue

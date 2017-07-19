@@ -47,10 +47,12 @@ if __name__ == '__main__':
     print root.left.right,
     print root.right.left
 
+
 """
 amzn
 
-Given preorder and inorder traversal of a binary tree, print preoder and inorder of the tree after modifying it such
+Given preorder and inorder traversal of a binary tree, print preoder and inorder of the tree
+after modifying it such
 that each node stores the sum of its left and right subtree. (without building tree)
 """
 

@@ -2,9 +2,10 @@
 """
 http://www.geeksforgeeks.org/mobile-numeric-keypad-problem/
 
-Given the mobile numeric keypad. You can only press buttons that are up, left, right or down to the current button. You
-are not allowed to press bottom row corner buttons (i.e. * and # ).
-Given a number N, find out the number of possible numbers of given length.
+Given the mobile numeric keypad. You can only press buttons that are up,
+left, right or down to the current button. You are not allowed to press
+bottom row corner buttons (i.e. * and # ). Given a number N, find out the
+number of possible numbers of given length.
 
 Examples:
 For N=1, number of possible numbers would be 10 (0, 1, 2, 3, …., 9)
@@ -12,13 +13,14 @@ For N=2, number of possible numbers would be 36
 Possible numbers: 00,08 11,12,14 22,21,23,25 and so on.
 
 N = 1 is trivial case, number of possible numbers would be 10 (0, 1, 2, 3, …., 9)
-For N > 1, we need to start from some button, then move to any of the four direction (up, left, right or down) which
-takes to a valid button (should not go to *, #). Keep doing this until N length number is obtained
-(depth first traversal).
+For N > 1, we need to start from some button, then move to any of the four direction
+(up, left, right or down) which takes to a valid button (should not go to *, #).
+Keep doing this until N length number is obtained (depth first traversal).
 
 count(i, N) -> number of possible combinations of len N starting with digit i
 
-count(i, N) = sum (count(j, N-1) ) where j is all the positions from which i can be reached in one move
+count(i, N) = sum (count(j, N-1) ) where j is all the positions from which i can
+be reached in one move
 
 total count = sum(count(i, n) for i in 0 to 9)
 """
@@ -67,7 +69,8 @@ def get_count(n):
 
                 if KEY_PAD[i][j] is not None:
 
-                    # the valid moves I can make from i j are same as those places from where i can reach back i j from
+                    # the valid moves I can make from i j are same as those
+                    # places from where i can reach back i j from
                     moves = get_moves(i, j)
 
                     # sum over all such places from where i, j can be reached

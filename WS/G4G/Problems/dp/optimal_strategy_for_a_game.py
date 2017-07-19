@@ -6,7 +6,7 @@ https://people.cs.clemson.edu/~bcdean/dp_practice/dp_10.swf
 F(i, j)  represents the maximum value the user can collect from
          i'th coin to j'th coin.
 
-if i choose ith coin, from remaining i + 1 to j the opponent with either choose i + 1 th or j th coin
+if I choose ith coin, from remaining i + 1 to j the opponent with either choose i + 1 th or j th coin
 if she chooses i + 1 th coin, i get ro choose from i + 2, j coin, else she chooses j, I get to choose
 from i + 1, j - 1. Assuming opponent is as smart as we are, she is going to choose a coin such that
 the value we get after her choice is made is the minimum. So the best we can hope for is to guarantee

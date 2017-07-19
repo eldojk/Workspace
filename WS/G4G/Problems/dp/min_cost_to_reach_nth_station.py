@@ -1,7 +1,9 @@
 """
 http://www.geeksforgeeks.org/find-the-minimum-cost-to-reach-a-destination-where-every-station-is-connected-in-one-direction/
 
-There are N stations on route of a train. The train goes from station 0 to N-1. The ticket cost for all pair of stations (i, j) is given where j is greater than i. Find the minimum cost to reach the destination.
+There are N stations on route of a train. The train goes from station 0 to N-1.
+The ticket cost for all pair of stations (i, j) is given where j is greater than i.
+Find the minimum cost to reach the destination.
 
 Consider the following example:
 

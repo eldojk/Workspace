@@ -1,5 +1,5 @@
 """
-http://www.geeksforgeeks.org/minimum-cost-polygon-triangulation/'
+http://www.geeksforgeeks.org/minimum-cost-polygon-triangulation/
 
 
 Let Minimum Cost of triangulation of vertices from i to j be minCost(i, j)

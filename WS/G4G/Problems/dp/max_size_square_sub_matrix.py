@@ -3,13 +3,13 @@ amzn
 
 http://www.geeksforgeeks.org/maximum-size-sub-matrix-with-all-1s-in-a-binary-matrix/
 
-sum_matrix[i][j] represents the size of matrix with i, j and the bottom right cell
+size_matrix[i][j] represents the size of matrix with i, j and the bottom right cell
 """
 from copy import copy
 
 
 def max_size_sub_matrix(matrix, m, n):
-    sum_matrix = copy(matrix)
+    size_matrix = copy(matrix)
 
     for i in range(1, m):
         for j in range(1, n):
@@ -19,17 +19,17 @@ def max_size_sub_matrix(matrix, m, n):
             # if all three are 1 we get 1, if one is zero, it has to be
             # at most the size of minimum + 1
             if matrix[i][j] == 1:
-                sum_matrix[i][j] = min(
-                    sum_matrix[i - 1][j],
-                    sum_matrix[i][j - 1],
-                    sum_matrix[i - 1][j - 1]
+                size_matrix[i][j] = min(
+                    size_matrix[i - 1][j],
+                    size_matrix[i][j - 1],
+                    size_matrix[i - 1][j - 1]
                 ) + 1
 
             # can't include the cell if its 0
             else:
-                sum_matrix[i][j] = 0
+                size_matrix[i][j] = 0
 
-    return max([max(row) for row in sum_matrix])
+    return max([max(row) for row in size_matrix])
 
 
 if __name__ == '__main__':

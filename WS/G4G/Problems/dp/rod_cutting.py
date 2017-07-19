@@ -29,12 +29,12 @@ def maximum_profit(rods, profits, length):
         # for every possible rod cuttings
         for j in range(len(rods)):
 
-            len_rod = rods[j]
+            rod_length = rods[j]
             profit_rod = profits[j]
 
             # check if the length can be used
-            if len_rod <= i:
-                result = profit_rod + max_values[i - len_rod]
+            if rod_length <= i:
+                result = profit_rod + max_values[i - rod_length]
 
                 # update as an when we find a higher value
                 if result > max_values[i]:

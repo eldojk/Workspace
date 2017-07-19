@@ -39,9 +39,9 @@ def is_subset_sum_possible(array, sm):
         for j in range(1, len(array) + 1):
 
             if array[j - 1] > i:
-                dp[i][j] = dp[i][j - 1]
+                dp[i][j] = dp[i][j - 1]  # without including nth element
             else:
-                dp[i][j] = dp[i][j - 1] or dp[i - array[j - 1]][j - 1]
+                dp[i][j] = dp[i][j - 1] or dp[i - array[j - 1]][j - 1]  # include and not include
 
     print_matrix(dp)
     return dp[sm][len(array)]

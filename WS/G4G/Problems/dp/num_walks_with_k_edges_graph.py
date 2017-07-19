@@ -3,11 +3,13 @@
 http://www.geeksforgeeks.org/count-possible-paths-source-destination-exactly-k-edges/ (READ RECURSIVE IMPLEMENTATION
 HERE)
 
-Given a directed graph and two vertices ‘u’ and ‘v’ in it, count all possible walks from ‘u’ to ‘v’ with exactly k edges
+Given a directed graph and two vertices ‘u’ and ‘v’ in it,
+count all possible walks from ‘u’ to ‘v’ with exactly k edges
 on the walk.
 
-The graph is given as adjacency matrix representation where value of graph[i][j] as 1 indicates that there is an edge
-from vertex i to vertex j and a value 0 indicates no edge from i to j.
+The graph is given as adjacency matrix representation where value of graph[i][j] as 1
+indicates that there is an edge from vertex i to vertex j and a value 0 indicates
+no edge from i to j.
 
 recursive
 // Go to all adjacents of u and recur
@@ -16,7 +18,8 @@ recursive
                 count += countwalks(graph, i, v, k-1);
 
 The idea is:
-num walks from u to v using k edges = sum ( num walks using i to v using k - 1 edges, for all i adjacent to u)
+num walks from u to v using k edges =
+sum ( num walks using i to v using k - 1 edges, for all i adjacent to u)
 """
 from G4G.Problems.dp.min_matrix_cost_path_to_mn import print_matrix
 

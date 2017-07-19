@@ -1610,12 +1610,75 @@ if __name__ == '__main__':
     print pivoted_element([30, 40, 50, 10, 20], 0, 4)
 
 
+"""
+amzn
+
+http://www.geeksforgeeks.org/find-index-first-1-sorted-array-0s-1s/
+
+Input : arr[] = {0, 0, 0, 0, 0, 0, 1, 1, 1, 1}
+Output : 6
+The index of first 1 in the array is 6.
+"""
 
 
+def first_index(array, start, end):
+    if start > end:
+        return -1
+
+    mid = (start + end) // 2
+
+    if array[mid] == 1 and (mid == 0 or array[mid - 1] == 0):
+        return mid
+
+    if array[mid] == 1:
+        return first_index(array, start, mid - 1)
+
+    return first_index(array, mid + 1, end)
 
 
+if __name__ == '__main__':
+    print ''
+    print 'Find the index of first 1 in a sorted array of 0’s and 1’s'
+    print first_index([0, 0, 0, 0, 0, 0, 1, 1, 1, 1], 0, 9)
 
 
+"""
+amzn
+
+Given 2 array of size m , n , find the pairs with minimum difference
+"""
+
+
+def get_min_diff_pair(array1, array2):
+    min_diff = maxint
+    i = j = 0
+    m = len(array1)
+    n = len(array2)
+
+    while i < m and j < n:
+        diff = abs(array1[i] - array2[j])
+
+        min_diff = min(
+            min_diff,
+            diff
+        )
+
+        if array1[i] < array2[j]:
+            i += 1
+
+        else:
+            j += 1
+
+    return min_diff
+
+
+if __name__ == '__main__':
+    print ''
+    print 'min diff pair in 2 arrays'
+    print get_min_diff_pair(
+        [1, 3, 4, 5, 6],
+        [9, 10, 11]
+    )
 
 
 

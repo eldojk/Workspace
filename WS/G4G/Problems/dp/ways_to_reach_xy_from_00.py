@@ -16,6 +16,7 @@ CITC 9.2 #317
 2	0	1	3	6	10
 3	0	1	4	10	20
 """
+from G4G.Problems.dp.min_matrix_cost_path_to_mn import print_matrix
 
 
 def get_number_of_ways(x, y):
@@ -34,6 +35,7 @@ def get_number_of_ways(x, y):
         for j in range(2, y + 2):
             matrix[i][j] = matrix[i - 1][j] + matrix[i][j - 1]
 
+    print_matrix(matrix)
     return matrix[x + 1][y + 1]
 
 

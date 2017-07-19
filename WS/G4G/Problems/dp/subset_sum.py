@@ -31,7 +31,7 @@ def print_matrix_boolean(m):
     r_size = len(m[0])
     for i in range(len(m)):
         for j in range(r_size):
-            if m[i][j] == True:
+            if m[i][j]:
                 print 't',
             else:
                 print 'f',
@@ -52,7 +52,7 @@ def is_exists_valid_sum(elements, sm):
             else:
                 dp[i][j] = dp[i][j - 1] or dp[i - elements[j - 1]][j - 1]
 
-    # print_matrix_boolean(dp)
+    print_matrix_boolean(dp)
     return dp[sm][len(elements)]
 
 

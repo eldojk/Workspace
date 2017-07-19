@@ -4,8 +4,8 @@ amzn
 (more downstairs. scroll down)
 Given a binary tree, write a function that returns true if the tree satisfies below property.
 
-For every node, data value must be equal to sum of data values in left and right children. Consider data value as 0 for
-NULL children.
+For every node, data value must be equal to sum of data values in left and right children.
+Consider data value as 0 for NULL children.
 
 http://www.geeksforgeeks.org/check-for-children-sum-property-in-a-binary-tree/
 """

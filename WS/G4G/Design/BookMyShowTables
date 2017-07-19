@@ -1,0 +1,38 @@
+Design bookmyshow tables
+
+
+Cities
+    -   id
+    -   name
+
+Shows
+    -   id
+    -   name
+    -   details
+
+Theatres
+    -   id
+    -   name
+    -   city
+
+Seats
+    -   id
+    -   theatre
+    -   status: (enum: available, unavailable)
+
+Screening
+    -   id
+    -   show
+    -   theatre
+    -   showtime
+
+Tickets
+    -   id
+    -   seats
+    -   price
+    -   screening
+
+SeatsReserved
+    -   id
+    -   seatId
+    -   ticketId

@@ -17,7 +17,7 @@ def get_next_moves(x, y):
 
 def probablity(x, y, moves, memo):
     if not is_in_board(x, y):
-        return False
+        return 0
 
     if moves == 0:
         return 1

@@ -6,7 +6,7 @@ http://www.geeksforgeeks.org/dynamic-programming-set-17-palindrome-partitioning/
 similar to matrix chain multiplication
 We try making cuts at all possible places, recursively calculate the cost for each cut and return the minimum value.
 if str(m, n) is pal, then 0
-else cost[m,n] = MIN( 1 + cost[m, i] + cost[i+1, j] for all i in range(m, n) )
+else cost[m,n] = MIN( 1 + cost[m, i] + cost[i+1, n] for all i in range(m, n) )
 
 b b	a b	a b	a
 0 0 1 0 1 0 1
@@ -31,7 +31,6 @@ def is_palindrome(string, i, j):
 
 
 def min_cost(string):
-    m = 0
     n = len(string) - 1
 
     cost = [[0 for i in string] for j in string]
