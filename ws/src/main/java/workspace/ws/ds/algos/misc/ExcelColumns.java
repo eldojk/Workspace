@@ -1,7 +1,7 @@
 package workspace.ws.ds.algos.misc;
 
 /**
- * smsg
+ * smsg msft amzn
  * http://www.geeksforgeeks.org/find-excel-column-name-given-number/
  * 
  * @author eldo.joseph

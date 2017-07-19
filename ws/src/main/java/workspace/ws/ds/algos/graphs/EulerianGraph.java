@@ -4,6 +4,7 @@ import workspace.ws.ds.data.Graph;
 
 /**
  * http://www.geeksforgeeks.org/eulerian-path-and-circuit/
+ * THIS IS FOR UNDIRECTED GRAPHS ONLY
  * 
  * @author eldo.joseph
  */
