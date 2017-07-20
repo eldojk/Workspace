@@ -3,6 +3,12 @@ package workspace.ws.ds.algos.misc;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * msft
+ * 
+ * @author eldo.joseph
+ *
+ */
 class PC {
 	private final int CAPACITY = 5;
 	private List<Integer> list = new ArrayList<Integer>();
