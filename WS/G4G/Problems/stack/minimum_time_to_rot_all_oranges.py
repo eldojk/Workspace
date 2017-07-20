@@ -6,79 +6,97 @@ http://www.geeksforgeeks.org/minimum-time-required-so-that-all-oranges-become-ro
 from Queue import Queue
 
 
-def is_valid_index(m, n, i, j):
-    return (i < m and j < n) and (i >= 0 and j>=0)
+DELIMITER = 'T'
 
 
-def get_rotten_indices(array, m, n):
-    indices = []
+def get_rotten_oranges(matrix, m, n):
+    q = Queue()
     for i in range(m):
         for j in range(n):
-            if array[i][j] == 2:
-                indices.append((i, j))
+            if matrix[i][j] == 2:
+                q.put((i, j))
 
-    return indices
+    return q
 
 
-def is_all_rotten(array, m, n):
+def is_valid(i, j, m, n):
+    return (0 <= i < m) and (0 <= j < n)
+
+
+def rot_neighbouring_oranges(matrix, i, j, q, m, n):
+    a = [1, -1, 0, 0]
+    b = [0, 0, 1, -1]
+    rotten_now = []
+
+    for k in range(4):
+        x = i + a[k]
+        y = j + b[k]
+
+        if is_valid(x, y, m, n) and matrix[x][y] == 1:
+            rotten_now.append((x, y))
+            q.put((x, y))
+
+    for r in rotten_now:
+        c = r[0]
+        d = r[1]
+        matrix[c][d] = 2
+
+
+def is_all_rotten(matrix, m, n):
     for i in range(m):
         for j in range(n):
-            if array[i][j] == 1:
+            if matrix[i][j] == 1:
                 return False
 
     return True
 
 
-def rot_oranges(array, m, n):
-    for i in range(m):
-        for j in range(n):
-            if array[i][j] == 2:
-                if is_valid_index(m, n, i-1,j) and array[i-1][j] == 1:
-                    array[i-1][j] = 2
-                if is_valid_index(m, n, i+1, j) and array[i+1][j] == 1:
-                    array[i+1][j] = 2
-                if is_valid_index(m, n, i, j+1) and array[i][j+1] == 1:
-                    array[i][j+1] = 2
-                if is_valid_index(m, n, i, j-1) and array[i][j-1] == 1:
-                    array[i][j-1] = 2
-
-
-def time_to_rot(array, m, n):
-    q = Queue()
-    time = 0
-    delim = 'T'
-    considered = {}
-
-    indices = get_rotten_indices(array, m, n)
-    for index in indices:
-        considered[index] = True
-        q.put(index)
-
-    q.put(delim)
+def time_to_rot(matrix, m, n):
+    t = -1
+    q = get_rotten_oranges(matrix, m, n)
+    q.put(DELIMITER)
+    prev_is_delimiter = False
 
     while not q.empty():
-        element = q.get()
+        el = q.get()
 
-        if element == delim:
-            time += 1
-            rot_oranges(array, m, n)
-            indices = get_rotten_indices(array, m, n)
+        if el != DELIMITER:
+            x = el[0]
+            y = el[1]
+            rot_neighbouring_oranges(matrix, x, y, q, m, n)
 
-            new_element_added = False
+        else:
+            t += 1
 
-            for index in indices:
-                if considered.get(index) is None:
-                    q.put(index)
-                    considered[index] = True
-                    new_element_added = True
+            if is_all_rotten(matrix, m, n):
+                t += 1
+                break
 
-            if new_element_added:
-                q.put(delim)
+            elif prev_is_delimiter:
+                print 'Nope'
+                return None
 
-    return time if is_all_rotten(array, m, n) else None
+            else:
+                q.put(DELIMITER)
+
+        prev_is_delimiter = (el == DELIMITER)
+
+    return t
 
 
-t1 = [[2, 1, 0, 2, 1], [1, 0, 1, 2, 1], [1, 0, 0, 2, 1]]
-t2 = [[2, 1, 0, 2, 1], [0, 0, 1, 2, 1], [1, 0, 0, 2, 1]]
-print time_to_rot(t1, 3, 5)
-print time_to_rot(t2, 3, 5)
+if __name__ == '__main__':
+    t1 = [
+        [2, 1, 0, 2, 1],
+        [1, 0, 1, 2, 1],
+        [1, 0, 0, 2, 1]
+    ]
+
+    t2 = [
+        [2, 1, 0, 2, 1],
+        [0, 0, 1, 2, 1],
+        [1, 0, 0, 2, 1]
+    ]
+
+    print time_to_rot(t1, 3, 5)
+    print '---------------------'
+    print time_to_rot(t2, 3, 5)
