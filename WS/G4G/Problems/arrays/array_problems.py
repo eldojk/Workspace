@@ -1608,6 +1608,7 @@ if __name__ == '__main__':
     print 'Search for pivot element'
     print pivoted_element([5, 6, 7, 8, 9, 10, 1, 2, 3], 0, 8)
     print pivoted_element([30, 40, 50, 10, 20], 0, 4)
+    print pivoted_element([1, 2, 3, 4, 5], 0, 4)
 
 
 """
