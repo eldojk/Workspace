@@ -7,39 +7,37 @@ from G4G.Problems.bst.vertical_sum import Node
 
 
 def print_child_nodes_at_dist_k(root, k):
-    if root is None:
+    if root is None or k < 0:
         return
 
     if k == 0:
         print root
+        return
 
     print_child_nodes_at_dist_k(root.left, k - 1)
     print_child_nodes_at_dist_k(root.right, k - 1)
 
 
 def print_at_dist_k(root, node, k):
-    if root is None:
-        return False, k
+    if root is None or node is None:
+        return -1
 
     if root == node:
         print_child_nodes_at_dist_k(root, k)
-        return True, k
+        return 1
 
-    is_found_left, l_dist = print_at_dist_k(root.left, node, k)
-    if is_found_left:
-        if l_dist == 1:
-            print root
-        elif l_dist > 1:
-            print_child_nodes_at_dist_k(root.right, k - 2)
+    left_dist = print_at_dist_k(root.left, node, k)
+    right_dist = print_at_dist_k(root.right, node, k)
 
-    is_found_right, r_dist = print_at_dist_k(root.right, node, k)
-    if is_found_right:
-        if r_dist == 1:
-            print root
-        elif r_dist > 1:
-            print_child_nodes_at_dist_k(root.left, k - 2)
+    if left_dist > 0:
+        print_child_nodes_at_dist_k(root.right, k - (left_dist + 1))
+        return left_dist + 1
 
-    return (is_found_left or is_found_right), k - 1
+    if right_dist > 0:
+        print_child_nodes_at_dist_k(root.left, k - (right_dist + 1))
+        return right_dist + 1
+
+    return -1
 
 
 if __name__ == '__main__':

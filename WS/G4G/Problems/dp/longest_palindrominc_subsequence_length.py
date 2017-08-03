@@ -1,4 +1,6 @@
 """
+amzn
+
 https://www.youtube.com/watch?v=_nCsPn7_OgI&index=9&list=PLrmLmBdmIlpsHaNTPP_jHHDx_os9ItYXr
 
 http://algorithms.tutorialhorizon.com/longest-palindromic-subsequence/ - explanation of substructure and sub problems
@@ -64,3 +66,49 @@ def longest_palindromic_sub_sequence_length(string):
 
 if __name__ == '__main__':
     print longest_palindromic_sub_sequence_length('agbdba')
+
+
+def lps_memo(string, i, j, dp):
+    if i == j:
+        return 1
+
+    if dp[i][j] != -1:
+        return dp[i][j]
+
+    if string[i] == string[j]:
+        dp[i][j] = 2 + lps_memo(string, i + 1, j - 1, dp)
+
+    else:
+        dp[i][j] = max(
+            lps_memo(string, i + 1, j, dp),
+            lps_memo(string, i, j - 1, dp)
+        )
+
+    return dp[i][j]
+
+
+def longest_palindromic_sub_sequence_length_memo(string):
+    n = len(string)
+
+    if n < 1:
+        return n
+
+    if n == 2:
+        return 2 if string[0] == string[1] else 1
+
+    dp = [[-1 for c in string] for c in string]
+
+    for i in range(n):
+        dp[i][i] = 1
+
+        j = i + 1
+        if j < n:
+            dp[i][j] = 2 if string[i] == string[j] else 1
+
+    return lps_memo(string, 0, n - 1, dp)
+
+
+if __name__ == '__main__':
+    print longest_palindromic_sub_sequence_length_memo('agbdba')
+    print longest_palindromic_sub_sequence_length_memo('BBABCBCAB')
+    print longest_palindromic_sub_sequence_length_memo('BBBBB')

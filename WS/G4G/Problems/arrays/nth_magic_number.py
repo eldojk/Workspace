@@ -32,4 +32,5 @@ def nth_magic_number(n):
 
 
 if __name__ == '__main__':
+    print nth_magic_number(3)
     print nth_magic_number(15)

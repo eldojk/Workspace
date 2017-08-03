@@ -43,3 +43,29 @@ def get_max_decodings(number):
 
 if __name__ == '__main__':
     print get_max_decodings('1234')
+
+
+def print_all_decodings(string, i, suffix):
+    if i < 0:
+        print suffix
+        return
+
+    num = int(string[i])
+    ascii = num + ord('a') - 1
+    if 0 < num <= 9:
+        c = chr(ascii)
+        print_all_decodings(string, i - 1, c + suffix)
+
+    if i - 1 >= 0:
+        n2 = int(string[i - 1])
+        num2 = n2 * 10 + num
+
+        if 10 <= num2 < 26:
+            ascii = num2 + ord('a') - 1
+            c = chr(ascii)
+            print_all_decodings(string, i - 2, c + suffix)
+
+
+if __name__ == '__main__':
+    print ''
+    print_all_decodings('1234', 3, '')

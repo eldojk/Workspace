@@ -11,30 +11,19 @@ Elements for which no greater element exist, consider next greater element as -1
 from G4G.Problems.stacks.stack import Stack
 
 
-def next_greater_element(array):
+def nge(array):
     s = Stack()
-    s.push(array[0])
 
-    for i in range(1, len(array)):
-        element = s.pop()
-        nxt = array[i]
+    for num in array:
+        while not s.is_empty() and s.peek() < num:
+            print s.pop(), '-', num
 
-        while element < nxt:
-            print "{0} - {1}".format(str(element), str(nxt))
-
-            if s.is_empty():
-                break
-
-            element = s.pop()
-
-        if element >= nxt:
-            s.push(element)
-
-        s.push(nxt)
+        s.push(num)
 
     while not s.is_empty():
-        print "{0} - {1}".format(str(s.pop()), '-1')
+        print s.pop(), '-', -1
 
 
-print next_greater_element([11, 13, 21, 3])
-print next_greater_element([4, 5, 2, 25])
+if __name__ == '__main__':
+    print nge([11, 13, 21, 3])
+    print nge([4, 5, 2, 25])

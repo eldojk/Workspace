@@ -1,5 +1,6 @@
 """
 http://www.geeksforgeeks.org/print-matrix-diagonal-pattern/
+http://www.geeksforgeeks.org/zigzag-or-diagonal-traversal-of-matrix/
 
 print indices in this order
 00
@@ -10,45 +11,44 @@ print indices in this order
 """
 
 
-def get_indices(i, j, rev=False):
-    indices = []
-    limit = j - i
-    k = 0
+def print_diag(matrix, m, i, j, is_rev):
+    limit = max(i, j) + 1
 
-    while k <= limit:
-        indices.append((i + k, j - k))
-        k += 1
+    if is_rev:
+        a = j
+        b = i
+        while a < limit and b >= 0:
+            print matrix[a][b],
+            a += 1
+            b -= 1
 
-    if rev:
-        indices.reverse()
+        return
 
-    return indices
+    while i >= 0 and j < limit:
+        print matrix[i][j],
+        i -= 1
+        j += 1
 
 
 def print_diagonal(matrix, m):
-    flag = False
+    if m <= 0:
+        return
 
-    print matrix[0][0],
+    i = 0
+    j = 0
 
-    for j in range(1, m):
-
-        for tup in get_indices(0, j, rev=flag):
-            p = tup[0]
-            q = tup[1]
-            print matrix[p][q],
-
+    flag = True
+    while i < m:
         flag = not flag
+        print_diag(matrix, m, i, j, flag)
+        i += 1
 
-    for i in range(1, m - 1):
-
-        for tup in get_indices(i, m - 1, rev=flag):
-            p = tup[0]
-            q = tup[1]
-            print matrix[p][q],
-
+    i -= 1
+    j += 1
+    while j < m:
         flag = not flag
-
-    print matrix[m - 1][m - 1]
+        print_diag(matrix, m, i, j, flag)
+        j += 1
 
 
 if __name__ == '__main__':
@@ -59,6 +59,8 @@ if __name__ == '__main__':
     ]
 
     print_diagonal(mt, 3)
+
+    print ''
 
     mt = [
         [1,  2,  3,  10],
