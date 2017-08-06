@@ -25,5 +25,6 @@ def nge(array):
 
 
 if __name__ == '__main__':
-    print nge([11, 13, 21, 3])
-    print nge([4, 5, 2, 25])
+    nge([11, 13, 21, 3])
+    nge([4, 5, 2, 25])
+
