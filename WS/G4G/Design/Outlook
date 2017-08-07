@@ -1,0 +1,51 @@
+Implement meeting booking system like outlook
+
+DB
+------------------
+Event
+    - id
+    - startDate
+    - time
+    - duration
+    - subject
+    - content
+    - isRecurring
+    - nextOccurence
+    - unitOfTime
+    - expireDate
+
+User
+    - id
+    - name
+    - email
+
+EventUser
+    - id
+    - userId
+    - eventId
+    - status - (accepted, rejected, tentative, undecided)
+
+
+SERVICE
+--------------
+USER EVENTS
+/api/userEvents?user=<id>&start=<d1>&end=<d2>
+    getEvents(id, date1, date2)
+    - all active recurring events of the user
+    - all non recurring within date range
+    - recurring events can be cached
+
+/api/userEvents POST
+    createEvent(Event, List<String> userIds)
+
+USER
+/api/user
+    - details
+    - can be cached easily
+
+
+CLIENT
+-----------------------
+    Plotting events for a user on UI
+    - plot non recurring events on the date range
+    - Figure out which of the recurring events fall on the date range and plot them

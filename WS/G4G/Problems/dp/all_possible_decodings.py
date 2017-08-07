@@ -46,6 +46,14 @@ if __name__ == '__main__':
 
 
 def print_all_decodings(string, i, suffix):
+    """
+    memoization version
+
+    :param string:
+    :param i:
+    :param suffix:
+    :return:
+    """
     if i < 0:
         print suffix
         return

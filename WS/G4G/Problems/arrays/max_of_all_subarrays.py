@@ -63,4 +63,3 @@ def print_maximums(array, k):
 
 if __name__ == '__main__':
     print_maximums([12, 1, 78, 90, 57, 89, 56], 3)
-
