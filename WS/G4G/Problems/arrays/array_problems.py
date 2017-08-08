@@ -44,7 +44,9 @@ if __name__ == '__main__':
 """
 amzn
 
-find 4 elements a, b, c, d such that a + b = c + d
+find 4 elements a, b, c, d such that a + b = c + d.
+If there are multiple answers, then print any of them.
+
 http://www.geeksforgeeks.org/find-four-elements-a-b-c-and-d-in-an-array-such-that-ab-cd/
 """
 

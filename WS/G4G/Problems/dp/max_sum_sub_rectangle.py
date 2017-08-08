@@ -1,11 +1,15 @@
 """
+amzn
+
 https://www.youtube.com/watch?v=yCQN096CwWM
 
-columns in rectangle are arrays. starting at first column, the max contiguous sum, would've been the max rectangular
-sum if we had only that column. Adding the second column means we add the values in columns 1 and 2 and find their
-max contiguous sum -> also ignoring first column, start and the second one and find the same, -> max will be max of
-these ... this is the approach. from columns one to n, add and find max contiguous sums, start at column 2 and do same,
-keep track of left and right and up and down while doing this... Basically this is brute force, theonly way to optimise
+columns in rectangle are arrays. starting at first column, the max contiguous sum,
+would've been the max rectangular sum if we had only that column. Adding the second
+column means we add the values in columns 1 and 2 and find their max contiguous sum ->
+also ignoring first column, start and the second one and find the same, -> max will
+be max of these ... this is the approach. from columns one to n, add and find max
+contiguous sums, start at column 2 and do same, keep track of left and right and
+up and down while doing this... Basically this is brute force, theonly way to optimise
 is to optimise the max contiguous sum finding step, make it o(n)
 """
 from sys import maxint

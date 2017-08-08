@@ -10,7 +10,7 @@ todo
 
 http://www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/
 """
-from  G4G.Problems.linked_list.linked_list import create_linked_list
+from  G4G.Problems.linked_list.linked_list import create_linked_list, print_ll
 
 
 def is_palindrome(node):
@@ -63,3 +63,80 @@ def is_palindrome_2(node, complementary_node):
 if __name__ == '__main__':
     l = create_linked_list([1, 2, 2, 3, 4, 4, 2, 2, 1])
     print is_palindrome_2(l, l)
+
+
+"""
+Without extra space. using reversal
+"""
+
+
+def reverse_at_mid(head):
+    node = head
+    next_node = head.nxt
+    node.nxt = None
+
+    while next_node is not None:
+        next_next = next_node.nxt
+        next_node.nxt = node
+        node = next_node
+        next_node = next_next
+
+    return node
+
+
+def get_mid(head):
+    fp = sp = head
+
+    while fp is not None:
+
+        if fp.nxt:
+            fp = fp.nxt
+
+        else:
+            break
+
+        if fp.nxt:
+            fp = fp.nxt
+
+        else:
+            break
+
+        sp = sp.nxt
+
+    sp = sp.nxt
+    return sp
+
+
+def is_pal_sans_extra_space(head):
+    if head.nxt is None:
+        return True
+
+    curr = head
+    mid = get_mid(head)
+    mid = reverse_at_mid(mid)
+
+    while mid is not None:
+        if mid.data != curr.data:
+            return False
+
+        mid = mid.nxt
+        curr = curr.nxt
+
+    return True
+
+
+if __name__ == '__main__':
+    h = create_linked_list([1, 2, 3, 3, 2, 1])
+    print is_pal_sans_extra_space(h)
+
+    h = create_linked_list([1, 2, 3, 2, 1])
+    print is_pal_sans_extra_space(h)
+
+    h = create_linked_list([1, 2, 3, 4, 2, 1])
+    print is_pal_sans_extra_space(h)
+
+    h = create_linked_list([1, 2, 3, 4, 1])
+    print is_pal_sans_extra_space(h)
+
+    h = create_linked_list([1, 1])
+    print is_pal_sans_extra_space(h)
