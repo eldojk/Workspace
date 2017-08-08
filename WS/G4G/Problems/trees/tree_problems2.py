@@ -921,3 +921,38 @@ if __name__ == '__main__':
     r = get_std_tree()
     print left_most_node_at_level(r, 2)
     print left_most_node_at_level(r, 1)
+
+
+"""
+Find the maximum difference between any combination of child and parent node in a given binary tree
+"""
+
+
+def max_diff_between_child_and_parent(root, diff):
+    if root is None:
+        return
+
+    if root.left:
+        l_diff = abs(root.data - root.left.data)
+
+        if l_diff > diff[0]:
+            diff[0] = l_diff
+
+        max_diff_between_child_and_parent(root.left, diff)
+
+    if root.right:
+        r_diff = abs(root.data - root.right.data)
+
+        if r_diff > diff[0]:
+            diff[0] = r_diff
+
+        max_diff_between_child_and_parent(root.right, diff)
+
+
+if __name__ == '__main__':
+    print ''
+    print 'max_diff_between_child_and_parent'
+    r = get_std_tree()
+    dif = [-maxint]
+    max_diff_between_child_and_parent(r, dif)
+    print dif[0]
