@@ -28,21 +28,9 @@ def precedence(ch):
         return -1
 
 
-def count_brackets(exp):
-    c = 0
-    for ch in exp:
-        if ch == '(' or ch == ')':
-            c += 1
-
-    return c
-
-
 def convert(exp):
     k = -1
     exp = list(exp)
-
-    r = count_brackets(exp)
-    l = len(exp) - r
 
     s = Stack()
 
@@ -77,7 +65,7 @@ def convert(exp):
         k += 1
         exp[k] = s.pop()
 
-    return ''.join(exp)[0: l]
+    return ''.join(exp)[0: k + 1]
 
 
 if __name__ == '__main__':

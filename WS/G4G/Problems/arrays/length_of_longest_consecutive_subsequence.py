@@ -1,7 +1,6 @@
 """
 http://www.geeksforgeeks.org/longest-consecutive-subsequence/
 """
-# todo - is dis correct?
 
 
 def len_of_longest_consecutive_sub_sequence(array):
