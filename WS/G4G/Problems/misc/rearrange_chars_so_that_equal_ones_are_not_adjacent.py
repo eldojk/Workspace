@@ -16,6 +16,10 @@ Input: aaaabc
 Output: No valid output
 """
 
+"""
+or just use heaps
+"""
+
 
 def cmpr(tup1, tup2):
     if tup1[1] < tup2[1]:

@@ -12,7 +12,8 @@ class PriorityQueue(object):
         if j >= len(self.array) or self.array[j] is None:
             return False
 
-        return self.array[i] < self.array[j] if self.type == MAX_PQ else self.array[i] > self.array[j]
+        return self.array[i] < self.array[j] if self.type == MAX_PQ \
+            else self.array[i] > self.array[j]
 
     def exchange(self, i, j):
         temp = self.array[i]
