@@ -2,6 +2,8 @@ package workspace.ws.ds.algos.arrays;
 
 import workspace.ws.ds.algos.heaps.MinPriorityQueue;
 
+// amzn
+// http://www.geeksforgeeks.org/kth-smallest-element-in-a-row-wise-and-column-wise-sorted-2d-array-set-1/
 class Node implements Comparable<Node> {
 	public int value;
 	public int i;
