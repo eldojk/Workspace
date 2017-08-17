@@ -1,19 +1,21 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/maximum-sum-nodes-binary-tree-no-two-adjacent/
 """
 from G4G.Problems.bst.vertical_sum import Node
 
 
 def get_sum_of_grand_children(root, hm):
-    curr_sum = 0
+    total = 0
 
     if root.left:
-        curr_sum += get_sum(root.left.left, hm) + get_sum(root.left.right, hm)
+        total += get_sum(root.left.left, hm) + get_sum(root.left.right, hm)
 
     if root.right:
-        curr_sum += get_sum(root.right.left, hm) + get_sum(root.right.right, hm)
+        total += get_sum(root.right.left, hm) + get_sum(root.right.right, hm)
 
-    return curr_sum
+    return total
 
 
 def get_sum(root, hm):

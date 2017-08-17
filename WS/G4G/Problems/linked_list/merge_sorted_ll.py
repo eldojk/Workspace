@@ -4,11 +4,6 @@ merge two sorted linked lists
 from G4G.Problems.linked_list.linked_list import create_linked_list, print_ll
 
 
-"""
-todo http://www.geeksforgeeks.org/efficiently-implement-k-stacks-single-array/
-"""
-
-
 def sorted_merge(a, b):
     if a is None:
         return b

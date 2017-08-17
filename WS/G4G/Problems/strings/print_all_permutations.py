@@ -3,6 +3,8 @@ amzn
 
 Print all permutations of a string
 
+(more down)
+
 http://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
 """
 
@@ -109,3 +111,87 @@ if __name__ == '__main__':
     print_unique_combinations([2, 3, 6, 7], 7)
     print ''
     print_unique_combinations([2, 4, 6, 8], 8)
+
+
+"""
+amzn
+
+http://www.geeksforgeeks.org/generate-palindromic-numbers-less-n/
+
+We start from 1 and create palindromes of odd digit and even digits up to n.
+For every number (starting from 1), we append its reverse at end if we need even
+length palindrome numbers. For odd length palindrome, we append reverse of all digits
+except last one
+"""
+
+
+def get_palindromic_number(n, is_odd):
+    p = n
+
+    if is_odd:
+        n /= 10
+
+    while n > 0:
+        p = p * 10 + (n % 10)
+        n /= 10
+
+    return p
+
+
+def print_pals_less_than_n(n):
+    k = 2
+    while k > 0:
+
+        i = 1
+        while True:
+            pal = get_palindromic_number(i, k % 2 == 0)
+
+            if pal >= n:
+                break
+
+            print pal,
+            i += 1
+
+        k -= 1
+
+
+if __name__ == '__main__':
+    print ''
+    print ''
+    print 'print pals less than n'
+    print_pals_less_than_n(250)
+
+
+"""
+amzn
+
+https://stackoverflow.com/questions/12667551/permutations-with-duplicates
+http://www.geeksforgeeks.org/print-all-permutations-of-a-string-with-duplicates-allowed-in-input-string/
+"""
+
+
+def permute_wo_dupes(string, prefix):
+    if len(string) == 0:
+        print ''.join(prefix),
+
+    else:
+        for i in range(len(string)):
+            if i > 0:
+                if string[i] == string[i - 1]:
+                    continue
+
+            permute_wo_dupes(string[0: i] + string[i + 1: len(string)], prefix + [string[i]])
+
+
+def print_permutations_without_duplicates(string):
+    s = list(string)
+    p = []
+    s.sort()
+    permute_wo_dupes(s, p)
+
+
+if __name__ == '__main__':
+    print ''
+    print ''
+    print 'permute wo dupes'
+    print_permutations_without_duplicates('asdaa')
