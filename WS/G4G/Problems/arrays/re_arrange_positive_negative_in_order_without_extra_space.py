@@ -4,6 +4,10 @@ amzn, msft
 http://www.geeksforgeeks.org/rearrange-positive-and-negative-numbers/
 
 using merge sort without extra space
+we are using this approach, because quick sort changes the relative order
+of elements
+
+more down
 """
 
 
@@ -50,3 +54,46 @@ if __name__ == '__main__':
     arr = [-12, 11, -13, -5, 6, -7, 5, -3, -6]
     segregate_positive_and_negative(arr, 0, 8)
     print arr
+
+
+"""
+Just re arrange alternately positive and negative
+
+find first positive element with even index and first negative with odd
+index and swap them and continue that
+"""
+
+
+def re_arrange_positive_and_negative(array):
+    n = len(array)
+
+    if n <= 1:
+        return array
+
+    i = 0
+    j = 1
+
+    while i < n and j < n:
+
+        while i < n:
+            if array[i] > 0:
+                break
+
+            i += 2
+
+        while j < n:
+            if array[j] < 0:
+                break
+
+            j += 2
+
+        if i < n and j < n:
+            array[i], array[j] = array[j], array[i]
+
+    return array
+
+
+if __name__ == '__main__':
+    print ''
+    print 're arrange +ve -ve in array containing equal nums of +ves and -ves'
+    print re_arrange_positive_and_negative([12, 11, -13, -5, 6, -7, -5, 3, -6, 8])

@@ -1,0 +1,84 @@
+Admin can write events for a game, There are multiple admins -> One scorer, multiple commentators etc
+in a game.
+Score Card shows, current runs, overs, batsmen, runrate
+Scorer updates the score card
+Commentators write events
+
+Interface Admin
+    + writeEvent(Event event)
+
+GenericCommentator implements Admin
+    - writerId
+    - name
+    - Game game
+    + writeEvent(Event event)
+
+EventCommentator implements Admin
+    - writerId
+    - name
+    - Game game
+    + writeEvent(Event event)
+
+Scorer implements Admin
+    - id
+    - name
+    - Game game
+    + writeEvent(Event event)
+
+class Game
+    - gameId
+    - ScoreCard card
+    - List<Events> events
+
+    + addEvent(Event event)
+
+class ScoreCard
+    - runs
+    - balls
+    - runRate
+    - wickets
+    + processEvent(Event event)
+
+class Event
+    - id
+    - writtenBy
+    - timeStamp
+    - eventType (SCORE_CHANGE, COMMENT)
+    - runsToAdd
+    - wicketsToReduce
+    - ballsToDecrement
+    - comment
+
+
+-----------------
+
+Game
+    - id
+    - team1
+    - team2
+    - date
+    - venue
+    - type (odi, t20, test)
+
+ScoreCard
+    - id
+    - gameId
+    - runs
+    - balls
+    - wickets
+
+GameStatus
+    - id
+    - gameId
+    - battingTeam
+    - battingPlayer
+    - runningPlayer
+    - bowler
+
+Event
+    - id
+    - gameId
+    - writtenBy
+    - timeStamp
+    - eventType (SCORE_CHANGE, COMMENT)
+    - comment

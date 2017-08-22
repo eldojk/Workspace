@@ -18,8 +18,8 @@ where j varies from 0 to i-1. Here profit[t-1][j] is best we could have done
 with one less transaction till jth day.
 
 profit[t][i] = max(
-                    profit[t][i-1],
-                    max(price[i] – price[j] + profit[t-1][j]   for all j in range [0, i-1])
+                    profit[t][i-1],  # not selling on ith day
+                    max(price[i] – price[j] + profit[t-1][j]   for all j in range [0, i-1])  # selling on ith day
                     )
 
 """
@@ -55,4 +55,3 @@ def max_price(prices, n, k):
 
 if __name__ == '__main__':
     print max_price([10, 22, 5, 75, 65, 80], 6, 2)
-

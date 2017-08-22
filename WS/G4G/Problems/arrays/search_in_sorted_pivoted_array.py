@@ -3,42 +3,40 @@ amzn, smsg
 
 http://www.geeksforgeeks.org/search-an-element-in-a-sorted-and-pivoted-array/
 
-1) Find middle point mid = (l + h)/2
-2) If key is present at middle point, return mid.
-3) Else If arr[l..mid] is sorted
-    a) If key to be searched lies in range from arr[l]
-       to arr[mid], recur for arr[l..mid].
-    b) Else recur for arr[mid+1..r]
-4) Else (arr[mid+1..r] must be sorted)
-    a) If key to be searched lies in range from arr[mid+1]
-       to arr[r], recur for arr[mid+1..r].
-    b) Else recur for arr[l..mid]
 """
+from G4G.Problems.arrays.array_problems import pivoted_element
 
-#todo or just find the pivot element and proceed using that info
 
+def binary_search(array, l, h, key):
+    if h < l:
+        return -1
 
-def search_in_sorted_rotated_array(array, low, high, key):
-    if low > high:
-        return None
-
-    mid = (low + high) // 2
+    mid = (l + h) // 2
 
     if array[mid] == key:
         return mid
 
-    # if array low to mid is sorted
-    if array[low] <= array[mid]:
-        if array[low] <= key <= array[mid]:
-            return search_in_sorted_rotated_array(array, low, mid - 1, key)
-
-        return search_in_sorted_rotated_array(array, mid + 1, high, key)
+    elif array[mid] < key:
+        return binary_search(array, mid + 1, h, key)
 
     else:
-        if array[mid] <= key <= array[high]:
-            return search_in_sorted_rotated_array(array, mid + 1, high, key)
+        return binary_search(array, l, mid - 1, key)
 
-        return search_in_sorted_rotated_array(array, low, mid - 1, key)
+
+def search_in_sorted_rotated_array(array, low, high, key):
+    piv = pivoted_element(array, low, high)
+
+    if piv == -1:
+        # sorted array
+        return binary_search(array, low, high, key)
+
+    elif piv == 0:
+        return 0 if array[0] == key else binary_search(array, 1, high, key)
+
+    if array[0] <= key <= array[piv]:
+        return binary_search(array, 0, piv, key)
+
+    return binary_search(array, piv + 1, high, key)
 
 
 if __name__ == '__main__':

@@ -3,6 +3,7 @@ amzn, msft
 
 http://www.geeksforgeeks.org/flattening-a-linked-list/
 """
+from G4G.Problems.linked_list.linked_list import print_ll, create_linked_list
 
 
 class Node(object):
@@ -90,4 +91,57 @@ if __name__ == '__main__':
         h = h.down
 
 
+"""
+orcl
 
+http://www.geeksforgeeks.org/flatten-a-multi-level-linked-list-set-2-depth-wise/
+"""
+
+
+HEAD = TAIL = None
+
+
+def add_to_list(node):
+    global HEAD, TAIL
+
+    if HEAD is None:
+        HEAD = TAIL = node
+
+    else:
+        TAIL.nxt = node
+        TAIL = TAIL.nxt
+
+
+def flatten_depth_wise(head):
+    if head is None:
+        return
+
+    add_to_list(head)
+
+    nxt = head.nxt
+    flatten_depth_wise(head.down)
+    flatten_depth_wise(nxt)
+
+
+if __name__ == '__main__':
+    l1 = create_linked_list([1, 2, 3, 4], node=Node)
+    n2 = l1.nxt
+    n2.down = create_linked_list([7, 8, 10, 12], node=Node)
+
+    l2 = n2.down
+    l2.down = Node(9)
+    l2.down.down = Node(14)
+    l2.down.down.down = Node(15)
+    l2.down.down.down.nxt = Node(23)
+    l2.down.down.down.nxt.down = Node(24)
+
+    l2n2 = l2.nxt
+    l2n2.down = Node(16)
+    l2n2.down.down = create_linked_list([17, 18, 19, 20], node=Node)
+    l2n2.down.down.nxt.nxt.nxt.down = Node(21)
+
+    l2.nxt.nxt.down = Node(11)
+
+    flatten_depth_wise(l1)
+    print ''
+    print_ll(HEAD)
