@@ -96,6 +96,8 @@ if __name__ == '__main__':
 
 
 """
+amzn
+
 http://www.geeksforgeeks.org/given-a-binary-tree-how-do-you-remove-all-the-half-nodes/
 """
 
