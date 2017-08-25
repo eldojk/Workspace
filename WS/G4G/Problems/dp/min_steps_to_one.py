@@ -1,4 +1,7 @@
 """
+amzn
+
+http://qa.geeksforgeeks.org/5597/reduce-the-given-number-to-1-in-minimum-steps
 Given a number n, we can do any of these three ops:
 - subtract 1
 - divide by 2
@@ -11,7 +14,7 @@ min_steps(i) = 1 + min_steps(j)
 from sys import maxint
 
 
-def min_steps_to_n(n):
+def min_steps_to_1(n):
     if n == 1:
         return 0
 
@@ -27,3 +30,41 @@ def min_steps_to_n(n):
             min_steps_arr[i] = min(min_steps_arr[i], 1 + min_steps_arr[i / 3])
 
     return min_steps_arr[n]
+
+
+if __name__ == '__main__':
+    print min_steps_to_1(5)
+
+
+def min_steps_memoized(n, dp):
+    if n == 1:
+        return 0
+
+    if dp[n] != -1:
+        return dp[n]
+
+    res = 1 + min_steps_memoized(n - 1, dp)
+
+    if n % 2 == 0:
+        res = min(
+            res,
+            1 + min_steps_memoized(n / 2, dp)
+        )
+
+    if n % 3 == 0:
+        res = min(
+            res,
+            1 + min_steps_memoized(n / 3, dp)
+        )
+
+    dp[n] = res
+    return res
+
+
+def min_steps_to_1_memo(n):
+    dp = [-1 for i in range(n + 1)]
+    return min_steps_memoized(n, dp)
+
+
+if __name__ == '__main__':
+    print min_steps_to_1_memo(5)
