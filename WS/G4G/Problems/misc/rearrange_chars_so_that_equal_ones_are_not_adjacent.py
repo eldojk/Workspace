@@ -18,6 +18,8 @@ Output: No valid output
 
 """
 or just use heaps
+
+check impl and not possible case
 """
 
 

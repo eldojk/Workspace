@@ -41,16 +41,15 @@ def max_path_sum(array1, array2):
 
         else:
             # we reached a common point
+            sum1 += array1[i]
+            sum2 += array2[j]
+
             result += max(sum1, sum2)
 
+            i += 1
+            j += 1
             sum1 = 0
             sum2 = 0
-
-            # Keep updating result while there are more common elements
-            while i < m and j < n and array1[i] == array2[j]:
-                result += array1[i]
-                i += 1
-                j += 1
 
     # Add remaining elements of array1[]
     while i < m:
@@ -62,7 +61,6 @@ def max_path_sum(array1, array2):
         j += 1
 
     result += max(sum1, sum2)
-
     return result
 
 
