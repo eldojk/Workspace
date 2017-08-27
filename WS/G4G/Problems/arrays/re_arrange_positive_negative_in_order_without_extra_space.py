@@ -57,7 +57,8 @@ if __name__ == '__main__':
 
 
 """
-Just re arrange alternately positive and negative
+Just re arrange alternately positive and negative (works only when
+equal nums of positive and negatives present)
 
 find first positive element with even index and first negative with odd
 index and swap them and continue that
