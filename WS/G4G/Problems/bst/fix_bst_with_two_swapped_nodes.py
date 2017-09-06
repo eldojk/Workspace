@@ -1,6 +1,8 @@
 """
 amzn, msft
 
+instead of storing it in array, just traverse and find the mismatch indexes
+
 http://www.geeksforgeeks.org/fix-two-swapped-nodes-of-bst/
 http://www.geeksforgeeks.org/sort-an-almost-sorted-array-where-only-two-elements-are-swapped/
 

@@ -1,6 +1,7 @@
 """
 amzn
 
+http://www.geeksforgeeks.org/count-pairs-array-whose-sum-less-x/
 http://www.geeksforgeeks.org/count-triplets-with-sum-smaller-that-a-given-value/
 """
 

@@ -29,10 +29,13 @@ if __name__ == '__main__':
 
 
 """
+amzn
+
 Print all combination of given length k possible with characters available in a
 given string "S" with repetition
 
 https://careercup.com/question?id=15203851
+http://www.geeksforgeeks.org/print-all-combinations-of-given-length/
 """
 
 

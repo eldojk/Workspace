@@ -107,3 +107,62 @@ if __name__ == '__main__':
     keys.sort()
     for key in keys:
         print dict[key][0],
+
+
+"""
+vertical sum without hashmap
+
+(use a dll instead)
+"""
+
+
+class DLLNode:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+
+def vertical_sum(root, node):
+    if root is None:
+        return node
+
+    node.data += root.data
+
+    if root.left:
+        if node.left is None:
+            node.left = DLLNode(0)
+            node.left.right = node
+
+        vertical_sum(root.left, node.left)
+
+    if root.right:
+        if node.right is None:
+            node.right = DLLNode(0)
+            node.right.left = node
+
+        vertical_sum(root.right, node.right)
+
+    return node
+
+
+if __name__ == '__main__':
+    print ''
+    print ''
+    print 'v sum using dll'
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
+    root.right.left = Node(6)
+    root.right.right = Node(7)
+
+    hd = vertical_sum(root, DLLNode(0))
+
+    while hd.left is not None:
+        hd = hd.left
+
+    while hd is not None:
+        print hd.data,
+        hd = hd.right

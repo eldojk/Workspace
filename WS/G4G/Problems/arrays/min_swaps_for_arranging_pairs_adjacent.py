@@ -84,17 +84,3 @@ if __name__ == '__main__':
     populate_indices(arr, idx)
 
     print min_swaps(arr, _pairs, idx, 1, len(arr) - 1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-

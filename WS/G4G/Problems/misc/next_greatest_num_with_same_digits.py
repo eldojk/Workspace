@@ -4,6 +4,9 @@ amzn msft
 
 http://www.geeksforgeeks.org/find-next-greater-number-set-digits/
 
+(this one is also similar:
+    http://www.geeksforgeeks.org/find-the-next-lexicographically-greater-word-than-a-given-word/)
+
 Following are few observations about the next greater number.
 1) If all digits sorted in descending order, then output is always “Not Possible”. For example, 4321.
 2) If all digits are sorted in ascending order, then we need to swap last two digits. For example, 1234.

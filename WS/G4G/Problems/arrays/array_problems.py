@@ -545,10 +545,10 @@ http://www.geeksforgeeks.org/count-substrings-with-same-first-and-last-character
 
 def find_num_substrings_with_same_first_and_last_char(string):
     """
-     each char is a substring with same first and last char
+    each char is a substring with same first and last char
 
-     also for a string ending at char at i, if the same char
-     occured before, then that occurrence to this will be a substring
+    also for a string ending at char at i, if the same char
+    occured before, then that occurrence to this will be a substring
 
     :param string:
     :return:

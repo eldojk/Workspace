@@ -1,5 +1,7 @@
 # coding=utf-8
 """
+amzn
+
 http://www.geeksforgeeks.org/stepping-numbers/
 
 Given two integers ‘n’ and ‘m’, find all the stepping numbers in range [n, m]. A

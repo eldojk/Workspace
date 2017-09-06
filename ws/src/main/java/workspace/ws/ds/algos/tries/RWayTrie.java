@@ -1,5 +1,6 @@
 package workspace.ws.ds.algos.tries;
 
+// http://www.geeksforgeeks.org/implement-a-phone-directory/ amzn
 public class RWayTrie<Value> {
 
 	private static final int R = 256;
