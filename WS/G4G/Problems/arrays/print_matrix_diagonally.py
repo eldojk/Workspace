@@ -11,62 +11,65 @@ print indices in this order
 """
 
 
-def print_diag(matrix, m, i, j, is_rev):
-    limit = max(i, j) + 1
-
-    if is_rev:
-        a = j
-        b = i
-        while a < limit and b >= 0:
-            print matrix[a][b],
-            a += 1
-            b -= 1
-
-        return
-
-    while i >= 0 and j < limit:
+def print_single_diagonal(matrix, i, j, flag=True):
+    if i == j:
         print matrix[i][j],
-        i -= 1
-        j += 1
-
-
-def print_diagonal(matrix, m):
-    if m <= 0:
         return
 
+    mi = s = min(i, j)
+    mx = l = max(i, j)
+
+    while s <= mx and l >= mi:
+
+        if flag:
+            print matrix[s][l],
+
+        else:
+            print matrix[l][s],
+
+        s += 1
+        l -= 1
+
+
+def print_diagonally(matrix):
+    n = len(matrix) - 1
     i = 0
     j = 0
-
     flag = True
-    while i < m:
-        flag = not flag
-        print_diag(matrix, m, i, j, flag)
-        i += 1
 
-    i -= 1
-    j += 1
-    while j < m:
-        flag = not flag
-        print_diag(matrix, m, i, j, flag)
+    while j <= n:
+        print_single_diagonal(matrix, i, j, flag)
         j += 1
+        flag = not flag
+
+    j = n
+    i = 1
+
+    while i <= n:
+        print_single_diagonal(matrix, i, j, flag)
+        i += 1
+        flag = not flag
 
 
 if __name__ == '__main__':
+    print ''
     mt = [
         [1, 2, 3],
         [4, 5, 6],
         [7, 8, 9]
     ]
 
-    print_diagonal(mt, 3)
+    print_diagonally(mt)
 
     print ''
 
     mt = [
-        [1,  2,  3,  10],
-        [4,  5,  6,  11],
-        [7,  8,  9,  12],
+        [1, 2, 3, 10],
+        [4, 5, 6, 11],
+        [7, 8, 9, 12],
         [13, 14, 15, 16]
     ]
 
-    print_diagonal(mt, 4)
+    print_diagonally(mt)
+
+

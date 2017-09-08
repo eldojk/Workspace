@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/sort-numbers-stored-on-different-machines/
 """
 from DS.algos.binary_heap.priority_queue import MIN_PQ, PriorityQueue
