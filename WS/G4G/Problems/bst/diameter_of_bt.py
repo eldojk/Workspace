@@ -5,6 +5,7 @@ http://www.geeksforgeeks.org/diameter-of-a-binary-tree/
 
 diameter is also the longest path between two nodes in a tree
 """
+from G4G.Problems.bst.vertical_sum import Node
 
 
 def calculate_diameter(root):
@@ -19,10 +20,12 @@ def calculate_diameter(root):
 
     return diameter, height
 
-# root = Node(1)
-# root.left = Node(2)
-# root.right = Node(5)
-# root.left.left = Node(3)
-# root.left.right = Node(4)
-#
-# print calculate_diameter(root)
+
+if __name__ == '__main__':
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(5)
+    root.left.left = Node(3)
+    root.left.right = Node(4)
+
+    print calculate_diameter(root)

@@ -1,6 +1,8 @@
 """
 amzn, msft
 
+(more done down)
+
 http://www.geeksforgeeks.org/count-possible-paths-top-left-bottom-right-nxm-matrix/
 
 in an x, y grid, starting at 0,0 how many ways can u reach x,y if you can only move down and right
@@ -41,3 +43,34 @@ def get_number_of_ways(x, y):
 
 if __name__ == '__main__':
     print get_number_of_ways(3, 3)
+
+
+"""
+amzn
+
+print all paths
+"""
+
+
+def print_all_paths_to_xy(i, j, x, y, path):
+    if i > x or j > y:
+        return
+
+    if i == x and j == y:
+        print path
+        return
+
+    path.append((i + 1, j))
+    print_all_paths_to_xy(i + 1, j, x, y, path)
+    path.pop()
+
+    path.append((i, j + 1))
+    print_all_paths_to_xy(i, j + 1, x, y, path)
+    path.pop()
+
+
+if __name__ == '__main__':
+    print ''
+    _path = [(0, 0)]
+
+    print_all_paths_to_xy(0, 0, 3, 3, _path)

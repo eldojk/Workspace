@@ -1,6 +1,8 @@
 """
 amzn
 
+(more done down)
+
 http://www.geeksforgeeks.org/minimum-number-of-jumps-to-reach-end-of-a-given-array/
 
 Given an array of integers where each element represents the max number of steps
@@ -46,3 +48,46 @@ def min_steps_to_n(array):
 if __name__ == '__main__':
     print min_steps_to_n([1, 3, 6, 1, 0, 9])
 
+
+"""
+amzn
+
+in O(n)
+http://ide.geeksforgeeks.org/JuWqMj
+"""
+
+
+def find_max(array, start, end):
+    mx = start
+
+    while start <= end:
+        if array[start] > array[mx]:
+            mx = start
+
+        start += 1
+
+    return mx
+
+
+def min_steps_to_end(array):
+    start = 0
+    end = start
+    n = len(array)
+    jumps = 0
+
+    while end < n - 1:
+
+        if array[start] == 0:
+            return -1
+
+        end = start + array[start]
+
+        if end >= n - 1:
+            return jumps + 1
+
+        start = find_max(array, start + 1, end)
+        jumps += 1
+
+
+if __name__ == '__main__':
+    print min_steps_to_end([1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9])

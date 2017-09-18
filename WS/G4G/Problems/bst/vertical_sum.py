@@ -1,6 +1,6 @@
 """
 amzn
-
+(more done down)
 http://www.geeksforgeeks.org/vertical-sum-in-a-given-binary-tree/
 """
 
@@ -110,6 +110,9 @@ if __name__ == '__main__':
 
 
 """
+amzn
+
+http://www.geeksforgeeks.org/vertical-sum-in-binary-tree-set-space-optimized/
 vertical sum without hashmap
 
 (use a dll instead)

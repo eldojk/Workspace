@@ -1250,6 +1250,39 @@ if __name__ == '__main__':
 """
 amzn
 
+(another approach)
+http://www.geeksforgeeks.org/find-a-pair-with-the-given-difference/
+"""
+
+
+def find_pair_with_given_diff(array, diff):
+    array.sort()
+    n = len(array)
+
+    i = 0
+    j = 1
+
+    while i < n and j < n:
+        if array[j] - array[i] == diff and i != j:
+            print array[i], array[j]
+            break
+
+        elif array[j] - array[i] < diff:
+            j += 1
+
+        else:
+            i += 1
+
+
+if __name__ == '__main__':
+    print ''
+    print 'pair with the given difference'
+    find_pair_with_given_diff([5, 20, 3, 2, 50, 80], 78)
+
+
+"""
+amzn
+
 http://www.geeksforgeeks.org/replace-every-element-with-the-greatest-on-right-side/
 """
 
