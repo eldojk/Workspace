@@ -1,7 +1,7 @@
 """
 amzn
 
-http://quiz.geeksforgeeks.org/stack-set-2-infix-to-postfix/
+http://www.geeksforgeeks.org/stack-set-2-infix-to-postfix/
 """
 from G4G.Problems.stacks.stack import Stack
 
