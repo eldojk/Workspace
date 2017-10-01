@@ -3,7 +3,7 @@ amzn
 
 http://www.geeksforgeeks.org/the-stock-span-problem/
 """
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def calculate_span(stocks):

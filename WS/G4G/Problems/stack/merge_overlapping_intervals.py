@@ -3,7 +3,7 @@ amzn
 
 http://www.geeksforgeeks.org/merging-intervals/
 """
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 class Interval(object):

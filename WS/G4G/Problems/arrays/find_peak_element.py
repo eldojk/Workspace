@@ -1,6 +1,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/find-a-peak-in-a-given-array/
 
 We can use Divide and Conquer to find a peak in O(Logn) time. The idea is Binary Search based, we compare middle element

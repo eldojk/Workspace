@@ -1,8 +1,9 @@
 from copy import copy
 from unittest import TestCase
 
-from G4G.Problems.stacks.recursive_stack_sort import sort_stack
 from G4G.Problems.stacks.stack import Stack
+
+from G4G.Problems.stack.recursive_stack_sort import sort_stack
 
 
 class StackTestCase(TestCase):

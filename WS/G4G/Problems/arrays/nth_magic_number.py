@@ -3,6 +3,8 @@ amzn
 
 this solution takes extra space
 http://www.geeksforgeeks.org/find-nth-magic-number/
+
+todo this is wrong
 """
 
 
@@ -28,6 +30,7 @@ def nth_magic_number(n):
             k += 1
             i = 0
 
+    print nums
     return nums[n - 1]
 
 

@@ -8,7 +8,8 @@ Here we find next greater element and after finding next greater,
 if we find a smaller element, then return false.
 """
 from sys import maxint
-from G4G.Problems.stacks.stack import Stack
+
+from G4G.Problems.stack.stack import Stack
 
 
 def is_pre_order(array):

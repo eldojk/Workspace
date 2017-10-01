@@ -1,4 +1,8 @@
 """
+amzn
+
+http://www.geeksforgeeks.org/count-ways-reach-nth-stair/
+
 A child running up a staircase with n steps can hop either 1 step, 2 steps or 3 steps. How many possible ways can the
 child run up n stairs
 

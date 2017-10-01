@@ -3,7 +3,7 @@ msft
 
 http://www.geeksforgeeks.org/maximum-size-rectangle-binary-sub-matrix-1s/
 """
-from G4G.Problems.stacks.largest_area_under_histogram import find_largest_area
+from G4G.Problems.stack.largest_area_under_histogram import find_largest_area
 
 
 def find_largest_rectangle(matrix):

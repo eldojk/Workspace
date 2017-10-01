@@ -2,6 +2,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/maximize-number-0s-flipping-subarray/
 
 This problem can be reduced to largest sub array sum problem. The idea is to consider

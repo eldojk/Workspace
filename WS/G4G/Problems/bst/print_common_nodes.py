@@ -4,7 +4,7 @@ amzn
 http://www.geeksforgeeks.org/print-common-nodes-in-two-binary-search-trees/
 """
 from G4G.Problems.bst.vertical_sum import Node
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def print_common_nodes(root1, root2):

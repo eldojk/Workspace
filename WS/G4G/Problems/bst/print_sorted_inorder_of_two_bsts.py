@@ -4,7 +4,7 @@ amzn, msft
 http://www.geeksforgeeks.org/merge-two-bsts-with-limited-extra-space/
 """
 from G4G.Problems.bst.vertical_sum import Node
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def print_merged(root1, root2):

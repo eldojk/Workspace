@@ -15,7 +15,7 @@ and try to make number whose digits are in increasing order and the first digit 
 To make such numbers, the second digit can be from topel%10 to 9. If this number is less than n,
 increment the count and push the number in the stack, else ignore.
 """
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def print_num(n):

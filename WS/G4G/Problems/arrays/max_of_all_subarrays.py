@@ -72,7 +72,7 @@ if __name__ == '__main__':
 
 
 """
-print minimums? keep minimum elememts in DeQueue
+print minimums? keep minimum elements in DeQueue
 
 to find max of all minimums, instead of printing keep track of it
 http://www.geeksforgeeks.org/find-the-maximum-of-minimums-for-every-window-size-in-a-given-array/

@@ -24,8 +24,12 @@ http://www.geeksforgeeks.org/median-of-two-sorted-arrays/
 
 
 def get_median(array1, array2, l1, h1, l2, h2):
+    """
+    Since arrays are of same length, the merged array has
+    always even elements, Hence median will always be
+    average of some elements
+    """
     if h1 - l1 == 1 or h2 - l2 == 1:
-        print l1, h1, l2, h2
         return (max(array1[l1], array2[l2]) + min(array1[h1], array2[h2])) / 2.0
 
     if h1 == l1 or h2 == l2:
@@ -53,11 +57,13 @@ http://www.geeksforgeeks.org/median-of-two-sorted-arrays-of-different-sizes/
 """
 
 
-
 """
+simply counting while merging
+
 my method. but complexity is O(m + n / 2) :(
-
 """
+
+
 def my_median(array1, array2):
     n1 = len(array1)
     n2 = len(array2)

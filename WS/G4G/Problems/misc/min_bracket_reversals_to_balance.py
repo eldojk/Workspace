@@ -5,7 +5,7 @@ http://www.geeksforgeeks.org/minimum-number-of-bracket-reversals-needed-to-make-
 
 read comments to understand
 """
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def get_balanced_stack(string):

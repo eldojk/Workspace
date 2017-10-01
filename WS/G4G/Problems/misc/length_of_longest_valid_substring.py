@@ -3,7 +3,7 @@ amzn
 
 http://www.geeksforgeeks.org/length-of-the-longest-valid-substring/
 """
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def find_max_len(string):

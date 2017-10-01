@@ -3,7 +3,7 @@ amzn, msft
 
 http://www.geeksforgeeks.org/stack-set-4-evaluation-postfix-expression/
 """
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def is_operator(ch):

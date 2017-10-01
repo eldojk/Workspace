@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/print-matrix-diagonal-pattern/
 http://www.geeksforgeeks.org/zigzag-or-diagonal-traversal-of-matrix/
 

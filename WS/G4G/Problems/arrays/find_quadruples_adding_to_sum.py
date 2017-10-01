@@ -3,6 +3,7 @@ amzn, msft
 
 more done down
 
+#tricky
 http://www.geeksforgeeks.org/find-four-elements-that-sum-to-a-given-value-set-2/
 
 1) Create an auxiliary array aux[] and store sum of all possible pairs in aux[].
@@ -82,7 +83,7 @@ if __name__ == '__main__':
 amzn, msft
 http://www.geeksforgeeks.org/find-four-numbers-with-sum-equal-to-given-sum/
 
-Another solution with n3 coplexity but less extra space
+Another solution with n3 complexity but less extra space
 """
 
 

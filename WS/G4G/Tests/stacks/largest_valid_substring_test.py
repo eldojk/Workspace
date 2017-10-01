@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from G4G.Problems.stacks.largest_valid_substring import largest_valid_substring
+from G4G.Problems.stack.largest_valid_substring import largest_valid_substring
 
 
 class LVSTestCase(TestCase):

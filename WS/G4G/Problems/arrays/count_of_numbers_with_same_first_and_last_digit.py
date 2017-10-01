@@ -1,6 +1,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/count-numbers-first-last-digits/
 
 From 120 to 130, only 121 has same starting and ending digit

@@ -4,7 +4,6 @@ http://www.geeksforgeeks.org/perfect-binary-tree-specific-level-order-traversal/
 more ques underneath
 """
 from Queue import Queue
-from G4G.Problems.stacks.stack import Stack
 
 
 def get_tree():

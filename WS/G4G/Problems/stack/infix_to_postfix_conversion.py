@@ -3,7 +3,7 @@ amzn
 
 http://www.geeksforgeeks.org/stack-set-2-infix-to-postfix/
 """
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 CAPS_RANGE = range(ord('A'), ord('Z') + 1)
 SMALL_RANGE = range(ord('a'), ord('z') + 1)

@@ -8,7 +8,7 @@ The Next greater Element for an element x is the first greater element on the ri
 Elements for which no greater element exist, consider next greater element as -1.
 """
 
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def nge(array):

@@ -1,4 +1,7 @@
 """
+amzn
+
+#tricky
 http://www.geeksforgeeks.org/longest-consecutive-subsequence/
 """
 

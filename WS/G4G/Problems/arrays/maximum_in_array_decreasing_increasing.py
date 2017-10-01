@@ -16,10 +16,6 @@ def find_maximum(array, lo, hi):
     if lo == hi:
         return array[lo]
 
-    #  If there are two elements, one of them is pivot
-    if hi == lo + 1:
-        return max(array[lo], array[hi])
-
     mid = (lo + hi) // 2
 
     if array[mid - 1] < array[mid] > array[mid + 1]:
@@ -34,3 +30,5 @@ def find_maximum(array, lo, hi):
 
 if __name__ == '__main__':
     print find_maximum([1, 3, 50, 10, 9, 7, 6], 0, 6)
+    print find_maximum([1, 3, 50, 60, 10, 9, 7, 6], 0, 7)
+    print find_maximum([1, 3, 50, 60, 11, 10, 9, 7, 6], 0, 8)

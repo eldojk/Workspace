@@ -3,7 +3,7 @@ http://www.geeksforgeeks.org/find-next-smaller-next-greater-array/
 
 [4, 5, 2, 25]
 """
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def nge(array):

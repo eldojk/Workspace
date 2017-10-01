@@ -10,7 +10,7 @@ Find the stranger (celebrity) in minimum number of questions.
 """
 
 
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def does_a_know_b(a, b):

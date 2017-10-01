@@ -6,7 +6,7 @@ Write a function to print spiral order traversal of a tree
 http://www.geeksforgeeks.org/level-order-traversal-in-spiral-form/
 """
 from DS.algos.graphs.binary_tree import Node
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def spiral_print(root):

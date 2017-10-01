@@ -8,7 +8,7 @@ match. The difference between this last popped index and its corresponding ')'
 is its length. Keep track of this length and thereby get the largest valid
 substring
 """
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def largest_valid_substring(string):

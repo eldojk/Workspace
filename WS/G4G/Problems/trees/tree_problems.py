@@ -1,7 +1,7 @@
 from Queue import Queue
 
 from DS.algos.graphs.binary_tree import Node
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def is_leaf(node):

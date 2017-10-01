@@ -17,7 +17,7 @@ Input : arr[] = {5, 1, 9, 2, 5, 1, 7}
 Output : 1
 """
 
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def compute_left_smaller_diffs(array):

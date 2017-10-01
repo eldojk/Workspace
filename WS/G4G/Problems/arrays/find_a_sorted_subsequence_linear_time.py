@@ -1,6 +1,7 @@
 """
 amzn
 
+#tricky (size '3' is important)
 http://www.geeksforgeeks.org/find-a-sorted-subsequence-of-size-3-in-linear-time/
 
 Input:  arr[] = {12, 11, 10, 5, 6, 2, 30}

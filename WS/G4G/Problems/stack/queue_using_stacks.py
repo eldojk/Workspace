@@ -2,7 +2,7 @@
 amzn, msft
 """
 
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 """
 Awesome!!!

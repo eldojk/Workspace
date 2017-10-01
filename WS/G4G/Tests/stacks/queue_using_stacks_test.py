@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from G4G.Problems.stacks.queue_using_stacks import Queue
+from G4G.Problems.stack.queue_using_stacks import Queue
 
 
 class QueueUsingStackTestCase(TestCase):

@@ -1,7 +1,7 @@
 """
 http://www.geeksforgeeks.org/find-expression-duplicate-parenthesis-not/
 """
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def is_exp(s):

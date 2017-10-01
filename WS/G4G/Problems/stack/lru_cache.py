@@ -2,9 +2,8 @@
 amzn, msft
 
 http://www.geeksforgeeks.org/implement-lru-cache/
+http://www.geeksforgeeks.org/lru-cache-implementation/
 """
-# todo not lru yet. fix
-
 from G4G.Problems.linked_list.linked_list import DNode, print_ll
 
 

@@ -3,7 +3,7 @@ amzn
 
 http://www.geeksforgeeks.org/largest-rectangle-under-histogram/
 """
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def find_largest_area(hist):

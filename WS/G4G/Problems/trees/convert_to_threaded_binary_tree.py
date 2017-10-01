@@ -1,7 +1,7 @@
 """
 http://www.geeksforgeeks.org/convert-binary-tree-threaded-binary-tree/
 """
-from G4G.Problems.stacks.queue_using_stacks import Queue2
+from G4G.Problems.stack.queue_using_stacks import Queue2
 
 
 class Node(object):

@@ -1,7 +1,7 @@
 """
 http://www.geeksforgeeks.org/iterative-depth-first-traversal/
 """
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def iterative_dfs(graph, source):

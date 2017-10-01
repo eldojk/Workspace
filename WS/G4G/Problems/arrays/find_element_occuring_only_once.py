@@ -2,6 +2,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/find-the-element-that-appears-once-in-a-sorted-array/
 
 All elements before the required have first occurrence at even index (0, 2, ..) and next occurrence at odd index

@@ -21,6 +21,7 @@ def min_length_sub_array_sum(array, x):
 
         while curr_sum <= x and end < n:
 
+            # handling -ve numbers
             if curr_sum <= 0 and x > 0:
                 start = end
                 curr_sum = 0

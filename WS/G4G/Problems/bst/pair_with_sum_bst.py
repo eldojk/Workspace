@@ -4,7 +4,7 @@ amzn
 http://www.geeksforgeeks.org/find-a-pair-with-given-sum-in-bst/
 """
 from G4G.Problems.bst.vertical_sum import Node
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def is_sum_pair_present(root, target):

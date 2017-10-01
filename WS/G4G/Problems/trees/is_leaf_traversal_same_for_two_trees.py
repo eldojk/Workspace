@@ -2,7 +2,7 @@
 http://www.geeksforgeeks.org/check-if-leaf-traversal-of-two-binary-trees-is-same/
 """
 from G4G.Problems.bst.vertical_sum import Node
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def is_leaf(node):

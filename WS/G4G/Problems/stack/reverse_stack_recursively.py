@@ -3,7 +3,7 @@ amzn
 
 http://www.geeksforgeeks.org/reverse-a-stack-using-recursion/
 """
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def insert_at_bottom(stack, element):

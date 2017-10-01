@@ -13,7 +13,7 @@ Output: valid
 Input: abbaab
 output: Invalid
 """
-from G4G.Problems.stacks.stack import Stack
+from G4G.Problems.stack.stack import Stack
 
 
 def is_valid(string):

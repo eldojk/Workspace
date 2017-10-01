@@ -30,7 +30,7 @@ class Appointment(object):
         return str(self.start) + ' - ' + str(self.end)
 
 
-def search_floor(array, i, j, time):
+def search_floor_start_time(array, i, j, time):
     if i > j:
         return -1
 
@@ -46,9 +46,9 @@ def search_floor(array, i, j, time):
         return mid - 1
 
     if array[mid].start < time:
-        return search_floor(array, mid + 1, j, time)
+        return search_floor_start_time(array, mid + 1, j, time)
 
-    return search_floor(array, i, mid - 1, time)
+    return search_floor_start_time(array, i, mid - 1, time)
 
 
 def find_conflicting_appointments(appointments):
@@ -58,7 +58,7 @@ def find_conflicting_appointments(appointments):
     for i in range(n):
         app = appointments[i]
         time = app.end
-        f_index = search_floor(appointments, i, n - 1, time)
+        f_index = search_floor_start_time(appointments, i, n - 1, time)
 
         if f_index > i:
             for j in range(i + 1, f_index + 1):
