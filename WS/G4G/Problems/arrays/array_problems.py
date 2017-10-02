@@ -40,6 +40,7 @@ if __name__ == '__main__':
     print 'symmetric pairs'
     find_symmetric_pairs([(11, 20), (30, 40), (5, 10), (40, 30), (10, 5)])
 
+
 """
 amzn
 
@@ -68,6 +69,7 @@ if __name__ == '__main__':
     print 'find 4 elements a, b, c, d such that a + b = c + d'
     find_ab_cd_equal_sum([3, 4, 7, 1, 2, 9, 8])
 
+
 """
 http://www.geeksforgeeks.org/find-itinerary-from-a-given-list-of-tickets/
 """
@@ -95,6 +97,7 @@ if __name__ == "__main__":
         "Delhi": "Goa"
     }
     find_itinerary(itinerary)
+
 
 """
 http://www.geeksforgeeks.org/find-missing-elements-of-a-range/
@@ -142,6 +145,7 @@ if __name__ == "__main__":
     print_missing_elements_in_range_using_sort([10, 12, 11, 15], 10, 15)
     print ''
 
+
 """
 amzn
 
@@ -170,6 +174,7 @@ if __name__ == '__main__':
     print find_pair_with_given_product([-10, 20, 9, -40], 400),
     print find_pair_with_given_product([-10, 20, 9, 40], -400),
     print find_pair_with_given_product([0, 20, 9, 40], 0)
+
 
 """
 http://www.geeksforgeeks.org/group-shifted-string/
@@ -202,6 +207,7 @@ if __name__ == '__main__':
     print ''
     print 'Group shifted string together'
     find_shifted_strings(["acd", "dfg", "wyz", "yab", "mop", "bdfh", "a", "x", "moqs"])
+
 
 """
 amzn
@@ -254,6 +260,7 @@ if __name__ == '__main__':
     print 'Max points on a line'
     print find_max_pts_in_same_line([(-1, 1), (0, 0), (1, 1), (2, 2), (3, 3), (3, 4)])
 
+
 """
 we can also sort the rows and find pairs
 
@@ -281,6 +288,7 @@ if __name__ == '__main__':
          [9, 10, 13, 11],
          [12, 0, 14, 15]]
     find_pair_some_different_rows(m, 11)
+
 
 """
 http://www.geeksforgeeks.org/distinct-strings-odd-even-changes-allowed/
@@ -324,6 +332,7 @@ if __name__ == '__main__':
     find_distinct_odd_even_swappable_strings(["abcd", "cbad", "bacd"])
     find_distinct_odd_even_swappable_strings(["abc", "cba"])
 
+
 """
 http://www.geeksforgeeks.org/maximum-distance-two-occurrences-element-array/
 """
@@ -349,6 +358,7 @@ if __name__ == '__main__':
     print ''
     print 'Max distance b/w two occurrences of some element'
     print max_dist_of_two_elements([3, 2, 1, 2, 1, 4, 5, 8, 6, 7, 4, 2])
+
 
 """
 http://www.geeksforgeeks.org/count-index-pairs-equal-elements-array/
@@ -382,6 +392,7 @@ if __name__ == '__main__':
     print ''
     print count_index_pairs_equal_elements([1, 1, 2])
     print count_index_pairs_equal_elements([1, 1, 1])
+
 
 """
 http://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/
@@ -440,6 +451,7 @@ if __name__ == '__main__':
     print sorted_array_union([1, 3, 4, 5, 7], [2, 3, 5, 6])
     print sorted_array_intersection([1, 3, 4, 5, 7], [2, 3, 5, 6])
 
+
 """
 amzn
 
@@ -487,6 +499,7 @@ if __name__ == '__main__':
     print ''
     find_second_smallest_and_largest([12, 13, 1, 10, 34, 1])
 
+
 """
 http://www.geeksforgeeks.org/find-the-missing-number/
 """
@@ -507,6 +520,7 @@ if __name__ == '__main__':
     print ''
     print 'missing number: ',
     print missing_num([1, 2, 3, 4, 6, 7, 8])
+
 
 """
 amzn
@@ -547,6 +561,7 @@ if __name__ == '__main__':
     print find_num_substrings_with_same_first_and_last_char('abcab')
     print find_num_substrings_with_same_first_and_last_char('aba')
 
+
 """
 amzn
 """
@@ -568,6 +583,7 @@ if __name__ == '__main__':
     print ''
     print 'pair with product two arrays'
     print get_pair_with_given_product_two_arrays([1, 3, 5], [4, 5, 6], 15)
+
 
 """
 amzn
@@ -620,6 +636,7 @@ if __name__ == '__main__':
     print ''
     print 'Segregate odd and even'
     print segregate_odd_even([12, 34, 45, 9, 8, 90, 3])
+
 
 """
 amzn
@@ -675,6 +692,7 @@ if __name__ == '__main__':
     print 'Push zeroes to end using swapping'
     print push_zeroes_to_end([1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9])
 
+
 """
 amzn
 
@@ -703,6 +721,7 @@ if __name__ == '__main__':
     print 'sorted array to bst'
     r = convert_sorted_array_to_bst([1, 2, 3, 4, 5], 0, 4)
     print get_inorder_array(r, [])
+
 
 """
 amzn
@@ -743,6 +762,7 @@ if __name__ == '__main__':
     print 'Count negatives in row wise column wise sorted matrix'
     print count_negatives(m)
 
+
 """
 amzn
 
@@ -781,6 +801,7 @@ if __name__ == '__main__':
     print 'Pythagorean triplet'
     print pythagorean_triplet([3, 1, 4, 6, 5])
 
+
 """
 amzn
 
@@ -812,6 +833,7 @@ if __name__ == '__main__':
     print 'Product array'
     print get_product_array([10, 3, 5, 6, 2])
 
+
 """
 amzn, msft
 
@@ -841,6 +863,7 @@ if __name__ == '__main__':
     print ''
     print 'largest number by rearranging array of numbers'
     print_largest([54, 546, 548, 60])
+
 
 """
 amzn, msft
@@ -899,6 +922,7 @@ if __name__ == '__main__':
         [3, 4, 15, 20, 30, 70, 80, 120]
     )
 
+
 """
 amzn
 
@@ -947,6 +971,7 @@ if __name__ == '__main__':
         [1, 2, 3, 23, 24, 344, 566]
     ])
     print ''
+
 
 """
 amzn
@@ -1010,6 +1035,7 @@ if __name__ == '__main__':
     print 'count occurrences in sorted array'
     print count_occurrences([1, 2, 2, 3, 3, 3, 3], 3)
 
+
 """
 amzn
 
@@ -1040,6 +1066,7 @@ if __name__ == '__main__':
     print ''
     print 'max sum rotation of sum(i*arr[i])'
     print max_sum_rotations([10, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+
 
 """
 amzn
@@ -1076,6 +1103,7 @@ if __name__ == '__main__':
     print min_dist([3, 5, 4, 2, 6, 5, 6, 6, 5, 4, 8, 3], 3, 6),
     print min_dist([2, 5, 3, 5, 4, 4, 2, 3], 3, 2)
 
+
 """
 amzn
 
@@ -1108,6 +1136,7 @@ if __name__ == '__main__':
     print ''
     print 'Third largest in array'
     print third_largest([12, 13, 1, 10, 34, 16])
+
 
 """
 amzn
@@ -1142,6 +1171,7 @@ if __name__ == '__main__':
     print 'search in array with adjacent elements differing by 1'
     print search_in_diff_1_adj_array([8, 7, 6, 7, 6, 5, 4, 3, 2, 3, 4, 3], 3)
 
+
 """
 amzn
 
@@ -1171,6 +1201,7 @@ if __name__ == '__main__':
     print get_fixed_point([-10, -5, 0, 3, 7], 0, 4),
     print get_fixed_point([0, 2, 5, 8, 17], 0, 4),
     print get_fixed_point([-10, -5, 3, 4, 7, 9], 0, 5)
+
 
 """
 amzn
@@ -1205,6 +1236,7 @@ if __name__ == '__main__':
     print 'pair with the given difference'
     find_pair_with_diff([5, 20, 3, 2, 50, 80], 78)
 
+
 """
 amzn
 
@@ -1238,6 +1270,7 @@ if __name__ == '__main__':
     print 'pair with the given difference'
     find_pair_with_given_diff([5, 20, 3, 2, 50, 80], 78)
 
+
 """
 amzn
 
@@ -1268,6 +1301,7 @@ if __name__ == '__main__':
     print ''
     print 'greatest on the right'
     print replace_with_ge_on_right([16, 17, 4, 3, 5, 2])
+
 
 """
 amzn
@@ -1305,6 +1339,7 @@ if __name__ == '__main__':
     print 'count pairs with given sum'
     print count_pairs_with_sum([1, 5, 7, -1, 5], 6)
 
+
 """
 msft
 
@@ -1319,11 +1354,13 @@ Same is the case when stream contains 0 and 1. Instead of multiplying the rem by
 multiply by 2.
 """
 
+
 """
 msft
 
 http://www.geeksforgeeks.org/build-lowest-number-by-removing-n-digits-from-a-given-number/
 """
+
 
 from G4G.Problems.stack.stack import Stack
 
@@ -1393,6 +1430,7 @@ if __name__ == '__main__':
     ar = [1, 60, -10, 70, -80, 85]
     ar.sort()
     get_closest_pair(ar, 0)
+
 
 """
 msft

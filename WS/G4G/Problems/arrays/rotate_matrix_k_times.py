@@ -1,6 +1,7 @@
 """
 amzn
 
+Only works with square matrices - this is O(1) extra space
 http://www.geeksforgeeks.org/rotate-ring-matrix-anticlockwise-k-elements/
 """
 

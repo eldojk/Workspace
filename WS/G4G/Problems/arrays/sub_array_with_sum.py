@@ -6,7 +6,7 @@ more questions down **
 http://www.geeksforgeeks.org/find-subarray-with-given-sum/
 
 Initialize a variable curr_sum as first element. curr_sum indicates the
-sum of current subarray. Start from the second element and add all elements
+sum of current sub array. Start from the second element and add all elements
 one by one to the curr_sum. If curr_sum becomes equal to sum, then print
 the solution. If curr_sum exceeds the sum, then remove trailing elements
 while curr_sum is greater than sum.
@@ -15,7 +15,7 @@ note - this is o(n). check link for proof
 """
 
 
-def subarray_with_sum(array, sm):
+def sub_array_with_sum(array, sm):
     curr_sum = array[0]
     start = 0
 
@@ -35,9 +35,9 @@ def subarray_with_sum(array, sm):
 if __name__ == '__main__':
     print ''
     print 'find sub array with given sum'
-    subarray_with_sum([1, 4, 20, 3, 10, 5], 33)
-    subarray_with_sum([1, 4, 0, 0, 3, 10, 5], 7)
-    subarray_with_sum([1, 4], 0)
+    sub_array_with_sum([1, 4, 20, 3, 10, 5], 33)
+    sub_array_with_sum([1, 4, 0, 0, 3, 10, 5], 7)
+    sub_array_with_sum([1, 4], 0)
 
 
 """

@@ -1,9 +1,13 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/find-the-smallest-positive-number-missing-from-an-unsorted-array/
 
-(Assuming array contains positive only. handling negatives is in the link)
+(Assuming array contains positive only. handling negatives is in the link
+To handle negatives, just segregate +ve and -ve nums in O(n) and consider only
+the positive section in the segregated array)
+
 traverse from 0 to n - 1, let x be array[i].
 To indicate that x is present make, array[x] = -array[x].
 One second traversal of array from left to right, find the first positive number index

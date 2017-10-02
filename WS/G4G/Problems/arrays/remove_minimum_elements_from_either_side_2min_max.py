@@ -26,7 +26,7 @@ We need to remove any three elements from ends
 like 20, 4, 1 or 4, 1, 3 or 20, 3, 1 or 20, 4, 1
 
 INSTEAD OF DP -> this can be used
-The idea is to find the maximum sized subarray such that 2*min > max.
+he idea is to find the maximum sized subarray such that 2*min > max.
 We run two nested loops, the outer loop chooses a
 starting point and the inner loop chooses ending point for the current starting point.
 We keep track of longest sub array with the given property.

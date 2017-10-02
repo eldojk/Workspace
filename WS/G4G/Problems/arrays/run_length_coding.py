@@ -27,7 +27,11 @@ def run_length_encoding(string):
 if __name__ == '__main__':
     print run_length_encoding('geeksforgeeks')
 
+
 """
+amzn
+
+#tricky
 wo extra space
 """
 

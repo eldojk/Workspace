@@ -2,6 +2,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/find-the-first-missing-number/
 
 Given a sorted array of n distinct integers where each integer is in the
