@@ -22,18 +22,16 @@ def partition(array, low, high):
 def selection(array, left, right, k):
     while True:
         pivot = partition(array, left, right)
-        ln = pivot - left + 1
 
-        if k == ln:
+        if k == pivot:
             return array[pivot]
 
-        elif k < ln:
+        elif k < pivot:
             right = pivot - 1
 
         else:
-            k -= ln
             left = pivot + 1
 
 
 if __name__ == '__main__':
-    print selection([6, 7, 8, 1, 2, 3, 4, 5, 9, 10], 0, 9, 5)
+    print selection([6, 7, 8, 1, 2, 3, 4, 5, 9], 0, 8, 4)

@@ -1,6 +1,7 @@
 """
 amzn, msft
 
+#tricky
 http://www.geeksforgeeks.org/inplace-rotate-square-matrix-by-90-degrees/
 """
 from G4G.Problems.dp.min_matrix_cost_path_to_mn import print_matrix

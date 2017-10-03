@@ -1340,6 +1340,29 @@ if __name__ == '__main__':
     print count_pairs_with_sum([1, 5, 7, -1, 5], 6)
 
 
+def count_pairs_with_sum_another_approach(array, sm):
+    hm = {}
+    count = 0
+
+    for el in array:
+        expected_sum = sm - el
+        if expected_sum in hm:
+            count += hm[expected_sum]
+
+        if el in hm:
+            hm[el] += 1
+        else:
+            hm[el] = 1
+
+    return count
+
+
+if __name__ == '__main__':
+    print ''
+    print 'count pairs with given sum another approach'
+    print count_pairs_with_sum_another_approach([1, 5, 7, -1, 5], 6)
+
+
 """
 msft
 
@@ -1501,6 +1524,7 @@ if __name__ == '__main__':
 """
 msft
 
+#tricky
 http://www.geeksforgeeks.org/count-frequencies-elements-array-o1-extra-space-time/
 """
 
@@ -1612,6 +1636,7 @@ if __name__ == '__main__':
 """
 amzn msft
 
+#tricky
 Find pivoted entry in sorted rotated array
 """
 
@@ -1680,6 +1705,7 @@ if __name__ == '__main__':
 """
 amzn
 
+#tricky
 Given 2 sorted arrays of size m & n, find the pairs with minimum difference
 """
 

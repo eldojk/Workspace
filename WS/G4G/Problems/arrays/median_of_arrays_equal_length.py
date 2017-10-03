@@ -1,6 +1,7 @@
 """
 amzn, msft
 
+#tricky
 http://www.geeksforgeeks.org/median-of-two-sorted-arrays/
 
 1) Calculate the medians m1 and m2 of the input arrays ar1[]
@@ -29,26 +30,21 @@ def get_median(array1, array2, l1, h1, l2, h2):
     always even elements, Hence median will always be
     average of some elements
     """
-    if h1 - l1 == 1 or h2 - l2 == 1:
-        return (max(array1[l1], array2[l2]) + min(array1[h1], array2[h2])) / 2.0
-
-    if h1 == l1 or h2 == l2:
+    if h1 == l1 and h2 == l2:
         return (array1[l1] + array2[l2]) / 2.0
 
     mid1 = (l1 + h1) // 2
     mid2 = (l2 + h2) // 2
 
-    if array1[mid1] == array2[mid2]:
-        return array1[mid1]
-
     if array1[mid1] < array2[mid2]:
-        return get_median(array1, array2, mid1 + 1, h1, l2, mid2 - 1)
+        return get_median(array1, array2, min(h1, mid1 + 1), h1, l2, max(l2, mid2 - 1))
 
-    return get_median(array1, array2, l1, mid1 - 1, mid2 + 1, h2)
+    return get_median(array1, array2, l1, max(l1, mid1 - 1), min(h2, mid2 + 1), h2)
 
 
 if __name__ == '__main__':
     print get_median([1, 2, 3, 6, 7], [4, 5, 8, 9, 10], 0, 4, 0, 4)
+    print get_median([1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12], 0, 5, 0, 5)
 
 
 """

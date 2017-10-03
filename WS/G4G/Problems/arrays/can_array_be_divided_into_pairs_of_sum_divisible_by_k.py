@@ -5,7 +5,7 @@ http://www.geeksforgeeks.org/check-if-an-array-can-be-divided-into-pairs-whose-s
 """
 
 
-def count_freq(array, k):
+def count_remainder_freq(array, k):
     freq = [0 for i in range(k)]
 
     for el in array:
@@ -15,7 +15,7 @@ def count_freq(array, k):
 
 
 def can_be_divided(array, k):
-    freq = count_freq(array, k)
+    freq = count_remainder_freq(array, k)
 
     for el in array:
         rem = el % k

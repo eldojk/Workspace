@@ -37,13 +37,13 @@ def search_floor_start_time(array, i, j, time):
     if array[j].start <= time:
         return j
 
+    if i == j:
+        return i
+
     mid = (i + j) // 2
 
-    if array[mid].start == time:
+    if array[mid].start <= time < array[mid + 1].start:
         return mid
-
-    if mid > 0 and array[mid - 1].start <= time and array[mid].start > time:
-        return mid - 1
 
     if array[mid].start < time:
         return search_floor_start_time(array, mid + 1, j, time)
@@ -59,6 +59,10 @@ def find_conflicting_appointments(appointments):
         app = appointments[i]
         time = app.end
         f_index = search_floor_start_time(appointments, i, n - 1, time)
+
+        if appointments[f_index].start == time:
+            # even in this case, there are no conflicts
+            f_index -= 1
 
         if f_index > i:
             for j in range(i + 1, f_index + 1):
