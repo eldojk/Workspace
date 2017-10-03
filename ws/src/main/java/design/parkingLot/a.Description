@@ -1,0 +1,7 @@
+Sizes: S, M, L, XL for vehicles and slots
+
+Smaller vehicles can be allotted larger spots
+
+Design goals:
+1. Searching a vehicle should be fast
+2. Optimize for faster parking
