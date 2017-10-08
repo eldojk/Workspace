@@ -3,7 +3,7 @@
 
 
 to balance a bst we can use this right. go inorder and store in array - o(n)
-convert to bst - O(n)
+convert to bst - O(n);
 """
 
 

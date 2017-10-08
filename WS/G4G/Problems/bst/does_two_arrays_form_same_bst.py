@@ -30,7 +30,7 @@ def is_same_bst_check(array1, array2, n, i, j, _min, _max):
     if (i == n or j == n) or (array1[i] != array2[j]):
         return False
 
-    # recurse for left and right subtrees adjuisting range
+    # recurse for left and right subtrees adjusting range
     return is_same_bst_check(array1, array2, n, i + 1, j + 1, _min, array1[i]) \
            and is_same_bst_check(array1, array2, n, i + 1, j + 1, array2[j], _max)
 

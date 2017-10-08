@@ -2,7 +2,8 @@
 http://www.geeksforgeeks.org/check-if-each-internal-node-of-a-bst-has-exactly-one-child/
 pre-order traversal is given
 
-if we go left from root as we see the next element, all subsequent elements must be on the left of root
+if we go left from root as we see the next element,
+all subsequent elements must be on the left of root
 """
 from sys import maxint
 

@@ -97,17 +97,18 @@ def convert_to_sorted_linked_list(root, head):
     return head
 
 
-root = Node(5)
-root.left = Node(3)
-root.right = Node(7)
-root.left.left = Node(1)
-root.left.right = Node(4)
-root.right.right = Node(8)
+if __name__ == '__main__':
+    root = Node(5)
+    root.left = Node(3)
+    root.right = Node(7)
+    root.left.left = Node(1)
+    root.left.right = Node(4)
+    root.right.right = Node(8)
 
-h = convert_to_sorted_linked_list(root, None)
-while h is not None:
-    print h,
-    h = h.right
+    h = convert_to_sorted_linked_list(root, None)
+    while h is not None:
+        print h,
+        h = h.right
 
 
 """

@@ -19,9 +19,9 @@ def get_doubles_with_sum(array, start, end, _sum):
     return None, None
 
 
-def triplets_adding_to_zero(array):
+def triplets_adding_to_zero(array, sm):
     for i in range(len(array) - 2):
-        expected_pair_sum = array[i] * -1
+        expected_pair_sum = sm - array[i]
         start = i + 1
         end = len(array) - 1
 
@@ -45,4 +45,4 @@ if __name__ == '__main__':
     r.right.left.left = Node(7)
 
     in_order = get_inorder_array(r, [])
-    print triplets_adding_to_zero(in_order)
+    print triplets_adding_to_zero(in_order, 0)

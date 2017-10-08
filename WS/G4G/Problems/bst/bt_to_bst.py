@@ -1,4 +1,5 @@
 """
+#tricky - no need to recreate, just sort and overwrite
 http://www.geeksforgeeks.org/binary-tree-to-binary-search-tree-conversion/
 get_inorder, sort it, do inorder of original tree and write values
 """

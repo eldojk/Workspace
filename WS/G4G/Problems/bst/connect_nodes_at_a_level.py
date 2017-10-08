@@ -73,7 +73,7 @@ def connect_nodes(root):
     connect_nodes_at_levels(queue)
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     root = Node('A')
     root.left = Node('B')
     root.right = Node('C')
@@ -146,7 +146,7 @@ def connect_with_constant_space(root):
             p = get_next_right(p)
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     root = Node('A')
     root.left = Node('B')
     root.right = Node('C')

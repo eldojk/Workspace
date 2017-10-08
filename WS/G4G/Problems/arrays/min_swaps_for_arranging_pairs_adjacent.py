@@ -34,7 +34,6 @@ def min_swaps(array, pairs, index, i, n):
     # swap second with pair of first
     first = array[i]
     second = array[i + 1]
-    first_idx = index[first]
     second_idx = index[second]
     pair_first = pairs[first]
     pair_first_idx = index[pair_first]
@@ -53,7 +52,6 @@ def min_swaps(array, pairs, index, i, n):
     first = array[i]
     second = array[i + 1]
     first_idx = index[first]
-    second_idx = index[second]
     pair_second = pairs[second]
     pair_second_idx = index[pair_second]
 

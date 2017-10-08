@@ -3,6 +3,7 @@ amzn msft
 
 more questions down **
 
+#tricky
 http://www.geeksforgeeks.org/find-subarray-with-given-sum/
 
 Initialize a variable curr_sum as first element. curr_sum indicates the
@@ -16,6 +17,15 @@ note - this is o(n). check link for proof
 
 
 def sub_array_with_sum(array, sm):
+    """
+    Another sliding window approach, here we are increasing window size
+    if curr_sum < expected_sum else we decrease. In the end we find a window
+    with sum
+
+    :param array:
+    :param sm:
+    :return:
+    """
     curr_sum = array[0]
     start = 0
 

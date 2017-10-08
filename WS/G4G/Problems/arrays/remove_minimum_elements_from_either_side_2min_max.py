@@ -35,6 +35,14 @@ from sys import maxint
 
 
 def remove_min(array):
+    """
+    There are n^2 possible sub arrays, we consider each of them to
+    see if they satisfy the condition. The largest sub array that
+    satisfies is the result
+
+    :param array:
+    :return:
+    """
     start = 0
     end = 0
 
