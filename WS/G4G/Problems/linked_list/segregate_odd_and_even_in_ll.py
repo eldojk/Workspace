@@ -17,7 +17,6 @@ def get_tail_ll(head):
 
 
 def move_node_to_end(prev, h, nxt, is_head, tail):
-    head = h
     if is_head:
         prev = None
     else:
@@ -68,6 +67,7 @@ def segregate_odd_and_even(head):
 
     return head
 
+
 if __name__ == '__main__':
-    h = create_linked_list([17, 15, 8, 12, 10, 5, 4, 1, 7, 6])
-    print_ll(segregate_odd_and_even(h))
+    _h = create_linked_list([17, 15, 8, 12, 10, 5, 4, 1, 7, 6])
+    print_ll(segregate_odd_and_even(_h))

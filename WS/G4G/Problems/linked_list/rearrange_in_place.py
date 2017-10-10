@@ -23,6 +23,7 @@ def rearrange(node, head):
     if head is None:
         return None
 
+    # reaching list mid
     if node == head or head.nxt == node:
         node.nxt = None
         return None

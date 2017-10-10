@@ -1,6 +1,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/minimum-number-of-bracket-reversals-needed-to-make-an-expression-balanced/
 
 read comments to understand
@@ -54,6 +55,8 @@ def min_brackets_to_rev(s):
     stack = get_balanced_stack(s)
     m, n = get_open_and_closed_count(stack)
 
+    # if the number of unbalanced brackets are odd,
+    # no can do
     if (m + n) % 2 != 0:
         return -1
 

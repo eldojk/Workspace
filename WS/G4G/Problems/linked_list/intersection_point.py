@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists/
 """
 from G4G.Problems.linked_list.linked_list import create_linked_list, print_ll

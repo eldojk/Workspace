@@ -17,25 +17,24 @@ def in_order_successor(node):
     if node.right:
         return minimum_node(node.right)
 
-    else:
-        q = node
-        p = node.parent
-        while p is not None and p.left != q:
-            q = p
-            p = p.parent
+    p = node.parent
 
-        return p
+    while p is not None and p.right == node:
+        node = p
+        p = node.parent
+
+    return p
 
 
 def in_order_successor_wo_parent(node, root):
     if node.right:
         return minimum_node(node.right)
 
-    succ = None
+    successor = None
 
     while root is not None:
         if node.data < root.data:
-            succ = root
+            successor = root
             root = root.left
 
         elif node.data > root.data:
@@ -44,4 +43,4 @@ def in_order_successor_wo_parent(node, root):
         else:
             break
 
-    return succ
+    return successor

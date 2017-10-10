@@ -3,7 +3,8 @@ amzn
 
 backtracking
 
-Given a equi-weighted uni directed graph and need to find the max distance possible from a given node
+Given a graph and need to find the max distance possible
+from a given node
 """
 from sys import maxint
 

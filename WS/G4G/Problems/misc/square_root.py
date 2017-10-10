@@ -37,3 +37,5 @@ def sqrt(num):
 
 if __name__ == '__main__':
     print sqrt(3)
+    print sqrt(2)
+    print sqrt(4)

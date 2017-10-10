@@ -1,4 +1,5 @@
 """
+(more done down)
 http://www.geeksforgeeks.org/add-two-numbers-represented-by-linked-lists/
 """
 from G4G.Problems.linked_list.linked_list import create_linked_list, print_ll
@@ -45,8 +46,10 @@ if __name__ == '__main__':
 """
 amzn, msft
 
+#tricky but good :)
 add num to ll or add 1 to ll
 """
+
 
 def _add_num_to_linked_list(head, num):
     if head is not None:

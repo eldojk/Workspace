@@ -6,6 +6,10 @@ http://www.geeksforgeeks.org/reverse-a-list-in-groups-of-given-size/
 a generic solution for this is implemented:
 http://www.geeksforgeeks.org/pairwise-swap-elements-of-a-given-linked-list/
 
+also this
+http://www.geeksforgeeks.org/reverse-alternate-k-nodes-in-a-singly-linked-list/
+^ for this, just put a flag alternately and skip reverse
+
 different implementation :)
 """
 from G4G.Problems.linked_list.linked_list import create_linked_list, print_ll

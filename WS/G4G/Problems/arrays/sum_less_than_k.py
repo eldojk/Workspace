@@ -45,4 +45,5 @@ def triplet_with_sum_less_than_num(array, num):
 
 if __name__ == '__main__':
     print triplet_with_sum_less_than_num([-2, 0, 1, 3], 2)
-    print triplet_with_sum_less_than_num([5, 1, 3, 4, 7], 12)
+    print triplet_with_sum_less_than_num([1, 3, 4, 5, 7], 12)
+

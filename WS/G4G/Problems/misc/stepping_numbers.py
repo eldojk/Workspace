@@ -61,3 +61,4 @@ def stepping_numbers(n):
 
 if __name__ == '__main__':
     print stepping_numbers(144)
+

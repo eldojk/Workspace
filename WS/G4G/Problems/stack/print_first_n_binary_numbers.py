@@ -1,5 +1,6 @@
 from Queue import Queue
 
+
 def print_binary_nums(n):
     q = Queue()
     q.put('1')

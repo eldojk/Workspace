@@ -64,7 +64,3 @@ if __name__ == '__main__':
     print q.get_sum(2, 2, 3, 4)
     print q.get_sum(0, 0, 1, 1)
     print q.get_sum(1, 2, 3, 3)
-
-
-
-

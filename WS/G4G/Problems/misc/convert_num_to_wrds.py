@@ -1,6 +1,7 @@
 """
 amzn, msft
 
+#tricky
 http://www.geeksforgeeks.org/program-to-convert-a-given-number-to-words-set-2/
 http://www.geeksforgeeks.org/convert-number-to-words/
 """

@@ -17,56 +17,55 @@ def get_neighbours(m, n, i, j):
     return valid_neighbours
 
 
-def find_char(matrix, m, n, char):
-    for i in range(m):
-        for j in range(n):
-            if matrix[i][j] == char:
-                return (i, j)
+def boggle_using_bt(matrix, i, j, m, n, word, w_idx, used):
+    if w_idx == len(word):
+        return True
 
-    return None
+    for neighbour in get_neighbours(m, n, i, j):
+        x = neighbour[0]
+        y = neighbour[1]
+
+        if matrix[x][y] != word[w_idx] or used.get(x) == y:
+            continue
+
+        used[x] = y
+        result = boggle_using_bt(matrix, x, y, m, n, word, w_idx + 1, used)
+
+        if result:
+            return True
+
+        if used.get(x) == y:
+            used.pop(x)
+
+    return False
 
 
-def boggle(matrix, m, n, word):
-    ch1 = word[0]
-    used_cells = []
-    source = find_char(matrix, m, n, ch1)
-    used_cells.append(source)
+def boggle_using_back_tracking(matrix, m, n, word):
+    used = {}
 
-    if source is None:
-        return False
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+            if matrix[i][j] == word[0]:
+                used[i] = j
+                result = boggle_using_bt(matrix, i, j, m, n, word, 1, used)
 
-    visited = [False for i in range(len(word))]
-    visited[0] = True
+                if result:
+                    return True
 
-    wrd_index = 1
+                if used.get(i) == j:
+                    used.pop(i)
 
-    while wrd_index < len(word):
-
-        for neighbour in get_neighbours(m, n, source[0], source[1]):
-
-            if matrix[neighbour[0]][neighbour[1]] == word[wrd_index] and neighbour not in used_cells:
-
-                visited[wrd_index] = True
-                used_cells.append(neighbour)
-                source = neighbour
-
-                break
-
-        if not visited[wrd_index]:
-            return False
-
-        wrd_index += 1
-
-    return True
+    return False
 
 
 if __name__ == '__main__':
-    m = [
+    print ''
+    _m = [
         ['G', 'I', 'Z'],
         ['U', 'E', 'K'],
         ['Q', 'S', 'E']
     ]
-    print boggle(m, 3, 3, 'GEEKS')
-    print boggle(m, 3, 3, 'FOR')
-    print boggle(m, 3, 3, 'QUIZ')
-    print boggle(m, 3, 3, 'GO')
+    print boggle_using_back_tracking(_m, 3, 3, 'GEEKS')
+    print boggle_using_back_tracking(_m, 3, 3, 'FOR')
+    print boggle_using_back_tracking(_m, 3, 3, 'QUIZ')
+    print boggle_using_back_tracking(_m, 3, 3, 'GO')

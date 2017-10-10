@@ -49,6 +49,8 @@ def get_min_steps_to_target(m, n, x, y, p, q):
             if not visited[a][b]:
                 queue.put((a, b, dist + 1))
 
+    return "infinity"
+
 
 if __name__ == '__main__':
     print get_min_steps_to_target(6, 6, 4, 5, 1, 1)

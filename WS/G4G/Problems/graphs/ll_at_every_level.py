@@ -37,7 +37,7 @@ class LevelLL(object):
         return self.dict
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     root = Node(0)
     root.left = Node(1)
     root.right = Node(2)

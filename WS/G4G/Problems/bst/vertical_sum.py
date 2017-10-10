@@ -127,9 +127,6 @@ class DLLNode:
 
 
 def vertical_sum(root, node):
-    if root is None:
-        return node
-
     node.data += root.data
 
     if root.left:
@@ -146,8 +143,6 @@ def vertical_sum(root, node):
 
         vertical_sum(root.right, node.right)
 
-    return node
-
 
 if __name__ == '__main__':
     print ''
@@ -161,7 +156,8 @@ if __name__ == '__main__':
     root.right.left = Node(6)
     root.right.right = Node(7)
 
-    hd = vertical_sum(root, DLLNode(0))
+    hd = DLLNode(0)
+    vertical_sum(root, hd)
 
     while hd.left is not None:
         hd = hd.left

@@ -29,9 +29,9 @@ def max_sum(array):
     for i in range(1, n):
         next_val = curr_val - (cum_sum - array[i - 1]) + (array[i - 1] * (n - 1))
 
-        curr_val = next_val
-
         result = max(result, next_val)
+
+        curr_val = next_val
 
     return result
 

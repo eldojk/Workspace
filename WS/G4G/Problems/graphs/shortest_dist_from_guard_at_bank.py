@@ -2,9 +2,10 @@
 """
 http://www.geeksforgeeks.org/find-shortest-distance-guard-bank/
 
-Given a matrix that is filled with ‘O’, ‘G’, and ‘W’ where ‘O’ represents open space, ‘G’ represents guards and ‘W’
-represents walls in a Bank. Replace all of the O’s in the matrix with their shortest distance from a guard, without
-being able to go through any walls. Also, replace the guards with 0 and walls with -1 in output matrix.
+Given a matrix that is filled with ‘O’, ‘G’, and ‘W’ where ‘O’ represents open space,
+‘G’ represents guards and ‘W’ represents walls in a Bank. Replace all of the O’s
+in the matrix with their shortest distance from a guard, without being able to go
+through any walls. Also, replace the guards with 0 and walls with -1 in output matrix.
 
 Expected Time complexity is O(MN) for a M x N matrix.
 
@@ -29,7 +30,7 @@ Output:
   1  2  2  1  0
 
 The idea is to do BFS. We first enqueue all cells containing the guards and
-loop till queue is not empty. For each iteration of the loop, we dequeue the
+loop till queue is not empty. For each iteration of the loop, we de-queue the
 front cell from the queue and for each of its four adjacent cells,
 if cell is an open area and its distance from guard is not calculated yet,
 we update its distance and enqueue it. Finally after BFS procedure is over,

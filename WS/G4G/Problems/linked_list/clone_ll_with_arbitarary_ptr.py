@@ -5,8 +5,9 @@ CHECK THESE TWO PROBLEMS. ALL 3 SOLUTIONS ARE AWESOME
 http://www.geeksforgeeks.org/a-linked-list-with-next-and-arbit-pointer/
 http://www.geeksforgeeks.org/clone-linked-list-next-arbit-pointer-set-2/
 
-You are given a Double Link List with one pointer of each node pointing to the next node just like in a single link
-list. The second pointer however CAN point to any node in the list and not just the previous node
+You are given a Double Link List with one pointer of each node pointing to the next node
+just like in a single link list. The second pointer however CAN point to any node in the
+list and not just the previous node
 
 """
 from G4G.Problems.linked_list.linked_list import create_linked_list, print_ll

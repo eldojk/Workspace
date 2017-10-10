@@ -10,36 +10,60 @@ todo
 
 http://www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/
 """
-from  G4G.Problems.linked_list.linked_list import create_linked_list, print_ll
+from G4G.Problems.linked_list.linked_list import create_linked_list, print_ll
+from G4G.Problems.stack.stack import Stack
 
 
 def is_palindrome(node):
-    if node.nxt is None or node.nxt.nxt is None:
-        return node.data == node.nxt.data if node.nxt else True
+    if node is None or node.nxt is None:
+        return True
 
-    stack = []
-    fast_pt = node
-    slow_pt = node
-    while fast_pt is not None and fast_pt.nxt is not None:
-        stack.append(slow_pt.data)
-        slow_pt = slow_pt.nxt
-        fast_pt = fast_pt.nxt.nxt
+    s = Stack()
+    a = b = node
+    s.push(b)
+    l = 1
 
-    print stack
-    while slow_pt is not None:
-        if fast_pt:
-            # Odd number of nodes
-            slow_pt = slow_pt.nxt
-            fast_pt = None
+    while a is not None and a.nxt is not None:
+        a = a.nxt
+        l += 1
 
-        pop = stack.pop()
-        print pop, slow_pt
-        if slow_pt.data == pop:
-            slow_pt = slow_pt.nxt
-        else:
+        b = b.nxt
+        s.push(b)
+
+        a = a.nxt
+
+        if a:
+            l += 1
+
+    s.pop()
+
+    if l % 2 != 0:
+        b = b.nxt
+
+    while b is not None:
+        if b.data != s.pop().data:
             return False
 
+        b = b.nxt
+
     return True
+
+
+if __name__ == '__main__':
+    l = create_linked_list([1, 2, 2, 4, 4, 2, 2, 1])
+    print is_palindrome(l)
+
+    l = create_linked_list([1, 2, 2, 3, 4, 4, 2, 2, 1])
+    print is_palindrome(l)
+
+    l = create_linked_list([1, 2, 2, 4, 2, 2, 1])
+    print is_palindrome(l)
+
+    l = create_linked_list([1, 2, 1])
+    print is_palindrome(l)
+
+    l = create_linked_list([1, 1])
+    print is_palindrome(l)
 
 
 """
@@ -61,6 +85,8 @@ def is_palindrome_2(node, complementary_node):
 
 
 if __name__ == '__main__':
+    print ''
+    print 'is pal recursive'
     l = create_linked_list([1, 2, 2, 3, 4, 4, 2, 2, 1])
     print is_palindrome_2(l, l)
 
@@ -126,6 +152,8 @@ def is_pal_sans_extra_space(head):
 
 
 if __name__ == '__main__':
+    print ''
+    print 'wo extra space'
     h = create_linked_list([1, 2, 3, 3, 2, 1])
     print is_pal_sans_extra_space(h)
 

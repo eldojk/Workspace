@@ -10,24 +10,29 @@ from G4G.Problems.linked_list.linked_list import create_linked_list
 
 
 def flatten(head):
-    h = head
     q = Queue()
-
-    while h.nxt is not None:
-        if h.down:
-            q.put(h.down)
-
-        h = h.nxt
+    t = None
+    q.put(head)
 
     while not q.empty():
-        node = q.get()
-        while node is not None:
-            if node.down:
-                q.put(node.down)
+        if t:
+            t.nxt = q.get()
+            t = t.nxt
 
-            h.nxt = node
-            node = node.nxt
-            h = h.nxt
+        else:
+            t = q.get()
+
+        # for each head in q,
+        # scan horizontally
+        while True:
+            if t.down:
+                q.put(t.down)
+
+            if t.nxt:
+                t = t.nxt
+
+            else:
+                break
 
     return head
 

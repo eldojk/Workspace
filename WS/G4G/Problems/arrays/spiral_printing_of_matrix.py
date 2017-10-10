@@ -24,16 +24,16 @@ def _print_sprl(matrix, i, j, m, n):
 
 def print_spiral_matrix_repr(matrix):
     i = 0
-    j = len(matrix) - 1
-    m = 0
+    m = len(matrix) - 1
+    j = 0
     n = len(matrix[0]) - 1
 
-    while i <= j and m <= n:
+    while i <= m and j <= n:
         _print_sprl(matrix, i, j, m, n)
 
         i += 1
-        m += 1
-        j -= 1
+        m -= 1
+        j += 1
         n -= 1
 
 

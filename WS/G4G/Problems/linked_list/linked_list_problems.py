@@ -1,5 +1,4 @@
-from G4G.Problems.linked_list.linked_list import create_linked_list, print_ll, create_circular_linked_list, \
-    print_circular_ll, Node
+from G4G.Problems.linked_list.linked_list import *
 
 
 def print_middle(node):
@@ -95,7 +94,7 @@ def sorted_insert(start, node):
         return node
 
     while start.nxt is not None:
-        if start.data <= node.data and start.nxt.data >= node.data:
+        if start.data <= node.data <= start.nxt.data:
             break
 
         start = start.nxt
@@ -157,6 +156,7 @@ def remove_duplicates(node):
 
 start = create_linked_list([11, 11, 11, 21, 43, 43, 60])
 new_ll = remove_duplicates(start)
+print 'rem dupes'
 print_ll(new_ll)
 
 print '-----------------------'
@@ -309,9 +309,11 @@ print ''
 
 
 """
-amzn, msft
+amzn
 
-http://www.geeksforgeeks.org/reverse-alternate-k-nodes-in-a-singly-linked-list/
+alternate reverse
+
+http://www.geeksforgeeks.org/pairwise-swap-elements-of-a-given-linked-list/
 """
 
 
@@ -333,6 +335,7 @@ def alternate_reverse(head):
     return head
 
 
+print 'alternate rev'
 h1 = create_linked_list([1, 2, 3, 4, 5, 6])
 print_ll(alternate_reverse(h1))
 

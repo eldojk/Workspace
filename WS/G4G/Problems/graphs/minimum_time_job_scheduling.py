@@ -1,4 +1,6 @@
 """
+amzn
+
 https://www8.cs.umu.se/kurser/TDBAfl/VT06/algorithms/BOOK/BOOK4/NODE156.HTM
 
 Minimum completion time - assuming that we have an unlimited number of workers,
