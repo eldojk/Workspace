@@ -16,7 +16,7 @@ def dp(n, a, b, c):
         res += dp(n - 1, a, b - 1, c)
 
     if c != 0:
-        res += dp(n - 1, a, b - 1, c)
+        res += dp(n - 1, a, b, c - 1)
 
     return res
 

@@ -1,5 +1,7 @@
 """
+amzn
 
+http://www.geeksforgeeks.org/given-a-string-print-all-possible-palindromic-partition/
 """
 from G4G.Problems.dp.min_matrix_cost_path_to_mn import print_matrix
 
@@ -41,7 +43,7 @@ def max_pal(string):
                     dp[i][j] += 1
 
     print_matrix(dp)
-    return dp[n - 1][n - 1]
+    return dp[0][n - 1]
 
 
 if __name__ == '__main__':

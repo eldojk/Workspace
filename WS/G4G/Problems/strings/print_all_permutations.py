@@ -48,6 +48,7 @@ def print_k_length_combinations(letters, length, current):
         new_prefix = current + letters[i]
         print_k_length_combinations(letters, length - 1, new_prefix)
 
+
 if __name__ == '__main__':
     print ''
     print_k_length_combinations('abc', 2, '')
@@ -128,10 +129,10 @@ except last one
 """
 
 
-def get_palindromic_number(n, is_odd):
+def get_palindromic_number(n, is_even):
     p = n
 
-    if is_odd:
+    if is_even:
         n /= 10
 
     while n > 0:

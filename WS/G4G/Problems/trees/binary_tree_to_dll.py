@@ -8,56 +8,37 @@ http://www.geeksforgeeks.org/in-place-convert-a-given-binary-tree-to-doubly-link
 from G4G.Problems.bst.vertical_sum import Node
 
 
-def get_ll_head(node):
-    while node.left:
-        node = node.left
-
-    return node
-
-
-def get_ll_tail(node):
-    while node.right:
-        node = node.right
-
-    return node
-
-
-def binary_tree_to_dll(root, head):
-    """
-    converts to dll
-
-    :param root:
-    :param head: pointer to return? head or tail (boolean)
-    :return:
-    """
+def bt_to_dll(root):
     if root is None:
-        return None
+        return None, None
 
-    if root.left:
-        left_tail = binary_tree_to_dll(root.left, False)
+    left_head, left_tail = bt_to_dll(root.left)
+    right_head, right_tail = bt_to_dll(root.right)
+
+    head = tail = root
+
+    if left_tail:
         left_tail.right = root
         root.left = left_tail
+        head = left_head
 
-    if root.right:
-        right_head = binary_tree_to_dll(root.right, True)
-        right_head.left = root
+    if right_head:
         root.right = right_head
+        right_head.left = root
+        tail = right_tail
 
-    if head:
-        return get_ll_head(root)
-
-    return get_ll_tail(root)
+    return head, tail
 
 
 if __name__ == '__main__':
-    root = Node(10)
-    root.left = Node(12)
-    root.right = Node(15)
-    root.left.left = Node(25)
-    root.left.right = Node(30)
-    root.right.left = Node(36)
+    r = Node(10)
+    r.left = Node(12)
+    r.right = Node(15)
+    r.left.left = Node(25)
+    r.left.right = Node(30)
+    r.right.left = Node(36)
 
-    ll_head = binary_tree_to_dll(root, True)
+    ll_head, ll_tail = bt_to_dll(r)
 
     iterator = ll_head
     while iterator:
@@ -66,72 +47,7 @@ if __name__ == '__main__':
 
 
 """
-amzn
-
-http://www.geeksforgeeks.org/convert-given-binary-tree-doubly-linked-list-set-3/
-"""
-
-PREV = None
-HEAD = None
-
-
-def tree_to_dll2(root):
-    global PREV, HEAD
-    if root is None:
-        return
-
-    tree_to_dll2(root.left)
-
-    if PREV is None:
-        HEAD = root
-    else:
-        PREV.right = root
-        root.left = PREV
-        PREV = root
-
-    PREV = root
-
-    tree_to_dll2(root.right)
-
-
-if __name__ == '__main__':
-    print ''
-    root = Node(10)
-    root.left = Node(12)
-    root.right = Node(15)
-    root.left.left = Node(25)
-    root.left.right = Node(30)
-    root.right.left = Node(36)
-
-    tree_to_dll2(root)
-
-    iterator = HEAD
-    while iterator:
-        print iterator,
-        iterator = iterator.right
-
-
-"""
 http://www.geeksforgeeks.org/convert-a-binary-tree-to-a-circular-doubly-link-list/
+
+To do this, just connect head and tail from the above
 """
-
-
-if __name__ == '__main__':
-    print ''
-    root = Node(10)
-    root.left = Node(12)
-    root.right = Node(15)
-    root.left.left = Node(25)
-    root.left.right = Node(30)
-    root.right.left = Node(36)
-
-    tree_to_dll2(root)
-    HEAD.left = PREV
-    PREV.right = HEAD
-
-    iterator = HEAD
-    i = 7
-    while i > 0:
-        print iterator,
-        iterator = iterator.right
-        i -= 1

@@ -1,12 +1,11 @@
 """
 amzn, msft
 
+(more done down)
 http://www.geeksforgeeks.org/construct-tree-from-given-inorder-and-preorder-traversal/
 
 Inorder sequence: D B E A F C
 Preorder sequence: A B D E C F
-
-more questions underneath
 """
 from G4G.Problems.bst.vertical_sum import Node
 
@@ -51,8 +50,8 @@ if __name__ == '__main__':
 """
 amzn
 
-Given preorder and inorder traversal of a binary tree, print preoder and inorder of the tree
-after modifying it such
+Given preorder and inorder traversal of a binary tree, print preoder and inorder
+of the tree after modifying it such
 that each node stores the sum of its left and right subtree. (without building tree)
 """
 

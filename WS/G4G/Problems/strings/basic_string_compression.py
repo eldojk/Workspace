@@ -14,11 +14,11 @@ def compress(string):
             curr_count += 1
         else:
             # When something becomes unequal append the current string
-            new_s = new_s + prev_s + str(curr_count)
+            new_s += prev_s + str(curr_count)
             curr_count = 1
             prev_s = string[i]
 
     # Append again to handle the last case
-    new_s = new_s + prev_s + str(curr_count)
+    new_s += prev_s + str(curr_count)
 
     return new_s
