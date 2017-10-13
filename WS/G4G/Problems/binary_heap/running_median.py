@@ -19,14 +19,13 @@ class RunningMedian(object):
     def balance(self):
         if abs(self.max_pq_len - self.min_pq_len) > 1:
             if self.max_pq_len > self.min_pq_len:
-                higher_pq = self.max_pq
-                lower_pq = self.min_pq
+                self.min_pq.insert(self.max_pq.delete_top())
+                self.min_pq_len += 1
+                self.max_pq_len -= 1
             else:
-                higher_pq = self.min_pq
-                lower_pq = self.max_pq
-
-            item = higher_pq.delete_top()
-            lower_pq.insert(item)
+                self.max_pq.insert(self.min_pq.delete_top())
+                self.max_pq_len += 1
+                self.min_pq_len -= 1
 
     def compute_median(self):
         if self.max_pq_len > self.min_pq_len:

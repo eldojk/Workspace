@@ -45,11 +45,11 @@ def min_sum_square_char_counts(string, k):
 
     while k > 0:
         el = pq.delete_top()
-        if el.count == 0:
-            break
-
         el.count -= 1
-        pq.insert(el)
+
+        if el.count != 0:
+            pq.insert(el)
+
         k -= 1
 
     result = 0

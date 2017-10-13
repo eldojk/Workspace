@@ -76,4 +76,6 @@ def compute_range(array, N):
 
 
 if __name__ == '__main__':
-    print compute_range([[4, 7, 9, 12, 15], [0, 8, 10, 14, 20], [6, 12, 16, 30, 50]], 5)
+    print compute_range([[4, 7, 9, 12, 15],
+                         [0, 8, 10, 14, 20],
+                         [6, 12, 16, 30, 50]], 5)

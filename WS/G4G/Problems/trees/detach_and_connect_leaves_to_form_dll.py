@@ -45,6 +45,8 @@ def convert_to_leaf_dll(root):
 
         return False
 
+    return False
+
 
 if __name__ == '__main__':
     root = Node(1)

@@ -4,7 +4,7 @@ amzn
 http://www.geeksforgeeks.org/sort-numbers-stored-on-different-machines/
 """
 from DS.algos.binary_heap.priority_queue import MIN_PQ, PriorityQueue
-from G4G.Problems.binary_heap.smallest_range_in_3_lists import Element
+from G4G.Problems.binary_heap.smallest_range_in_k_lists import Element
 
 
 def print_sorted(array):
@@ -19,9 +19,6 @@ def print_sorted(array):
             break
 
         element = min_pq.delete_top()
-
-        if element is None:
-            print min_pq.N
 
         print element,
 

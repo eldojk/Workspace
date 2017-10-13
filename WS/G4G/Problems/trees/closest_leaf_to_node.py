@@ -11,45 +11,66 @@ def is_leaf(node):
     return node.left is None and node.right is None
 
 
-CLOSEST_LEAF = None
-CLOSEST_LEAF_DIST = maxint
+def find_closest_leaf_dist(root):
+    if is_leaf(root):
+        return 0
+
+    l_dist = maxint
+    if root.left:
+        l_dist = find_closest_leaf_dist(root.left)
+
+    r_dist = maxint
+    if root.right:
+        r_dist = find_closest_leaf_dist(root.right)
+
+    return 1 + min(l_dist, r_dist)
 
 
-def update_closest_leaf(node, dist):
-    global CLOSEST_LEAF, CLOSEST_LEAF_DIST
-    if node is None:
-        return
-
-    if is_leaf(node):
-        if dist < CLOSEST_LEAF_DIST:
-            CLOSEST_LEAF = node
-            CLOSEST_LEAF_DIST = dist
-
-    update_closest_leaf(node.left, dist + 1)
-    update_closest_leaf(node.left, dist + 1)
-
-
-def closest_leaf(root, node):
+def find_closest(root, node):
     if root is None:
-        return False, -1
+        return False, 0, 0
 
-    if root == node:
-        update_closest_leaf(node, 0)
-        return True, 1
+    if node == root.data:
+        min_dist = find_closest_leaf_dist(root)
+        return True, 1, min_dist
 
-    is_found_left, l_dist = closest_leaf(root.left, node)
-    is_found_right, r_dist = closest_leaf(root.right, node)
+    left_found, left_node_dist, left_min_dist = find_closest(root.left, node)
+    right_found, right_node_dist, right_min_dist = find_closest(root.right, node)
 
-    dist = -1
-    if is_found_left:
-        dist = l_dist + 1
-        update_closest_leaf(root.right, dist)
+    if left_found:
+        if root.right:
+            min_dist = find_closest_leaf_dist(root.right)
+            min_dist = min(
+                min_dist + 1 + left_node_dist,
+                left_min_dist
+            )
 
-    if is_found_right:
-        dist = r_dist + 1
-        update_closest_leaf(root.left, dist)
+            return True, left_node_dist + 1, min_dist
 
-    return is_found_left or is_found_right, dist
+        return True, left_node_dist + 1, left_min_dist
+
+    if right_found:
+        if root.left:
+            min_dist = find_closest_leaf_dist(root.left)
+            min_dist = min(
+                min_dist + 1 + right_node_dist,
+                right_min_dist
+            )
+
+            return True, right_node_dist + 1, min_dist
+
+        return True, right_node_dist + 1, right_min_dist
+
+    return False, 0, 0
+
+
+def get_dist_of_closest_leaf(root, node):
+    is_found, ld, min_dist = find_closest(root, node)
+
+    if is_found:
+        return min_dist
+
+    return None
 
 
 if __name__ == '__main__':
@@ -64,23 +85,7 @@ if __name__ == '__main__':
     r.right.left.left.right = Node('J')
     r.right.right.right.left = Node('K')
 
-    closest_leaf(r, r.right.right.right)
-    print CLOSEST_LEAF
-
-    CLOSEST_LEAF = None
-    CLOSEST_LEAF_DIST = maxint
-
-    closest_leaf(r, r.right)
-    print CLOSEST_LEAF
-
-    CLOSEST_LEAF = None
-    CLOSEST_LEAF_DIST = maxint
-
-    closest_leaf(r, r.right.left)
-    print CLOSEST_LEAF
-
-    CLOSEST_LEAF = None
-    CLOSEST_LEAF_DIST = maxint
-
-    closest_leaf(r, r.left)
-    print CLOSEST_LEAF
+    print get_dist_of_closest_leaf(r, 'H')
+    print get_dist_of_closest_leaf(r, 'C')
+    print get_dist_of_closest_leaf(r, 'E')
+    print get_dist_of_closest_leaf(r, 'B')
