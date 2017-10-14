@@ -1,6 +1,6 @@
 """
-Replace every element with the least greater element on its right
-Given an array of integers, replace every element with the least greater element on its right side in the array.
+Given an array of integers, replace every element with the least greater element
+on its right side in the array.
 If there are no greater element on right side, replace it with -1.
 
 Examples:
@@ -16,7 +16,7 @@ def _replace_none(element):
     return element.key if element else -1
 
 
-def replace_inorder_successor(array):
+def replace_in_order_successor(array):
     bst = BST()
     for num in array:
         bst.add(num)

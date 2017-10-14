@@ -26,7 +26,8 @@ def is_same_bst_check(array1, array2, n, i, j, _min, _max):
     if i == n and j == n:
         return True
 
-    # one of i and j reached n or the first element to the right satisfying range is not equal
+    # one of i and j reached n or the first element to the right
+    # satisfying range is not equal
     if (i == n or j == n) or (array1[i] != array2[j]):
         return False
 

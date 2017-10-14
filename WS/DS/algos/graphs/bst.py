@@ -47,6 +47,9 @@ class Node(object):
         """
         return self.key == other.key
 
+    def __repr__(self):
+        return str(self.key)
+
     def has_right_subtree(self):
         return self.right is not None
 

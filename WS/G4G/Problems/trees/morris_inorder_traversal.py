@@ -2,7 +2,8 @@
 amzn
 
 Using Morris Traversal, we can traverse the tree without using stack and recursion.
-Although the tree is modified through the traversal, it is reverted back to its original shape after the completion.
+Although the tree is modified through the traversal, it is reverted back to its
+original shape after the completion.
 Unlike Stack based traversal, no extra space is required for this traversal.
 
 Constructed binary tree is

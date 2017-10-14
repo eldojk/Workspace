@@ -41,18 +41,18 @@ def max_consecutive_sequence(root, parent, curr_len, seq):
         return
 
     if parent is None:
-        max_consecutive_sequence(root.left, root, 1, [root])
-        max_consecutive_sequence(root.right, root, 1, [root])
+        max_consecutive_sequence(root.left, root, 1, [root.data])
+        max_consecutive_sequence(root.right, root, 1, [root.data])
 
     else:
 
         if root.data != parent.data + 1:
-            max_consecutive_sequence(root.left, root, 1, [root])
-            max_consecutive_sequence(root.right, root, 1, [root])
+            max_consecutive_sequence(root.left, root, 1, [root.data])
+            max_consecutive_sequence(root.right, root, 1, [root.data])
 
         else:
             curr_len += 1
-            seq.append(root)
+            seq.append(root.data)
 
             if MAX_LEN < curr_len:
                 MAX_LEN = curr_len

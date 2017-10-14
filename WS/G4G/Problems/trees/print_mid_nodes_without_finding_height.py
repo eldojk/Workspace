@@ -1,6 +1,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/print-middle-level-perfect-binary-tree-without-finding-height/
 """
 
@@ -14,7 +15,7 @@ def print_mid(a, b):
         return
 
     print_mid(a.left, b.left.left)
-    print_mid(a.right, b.left.left)
+    print_mid(a.right, b.right.right)
 
 
 def print_mid_nodes(root):

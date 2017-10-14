@@ -36,17 +36,17 @@ def remove_nodes(root, k):
 
 
 if __name__ == '__main__':
-    root = Node(1)
+    r = Node(1)
 
-    root.left = Node(2)
-    root.right = Node(3)
+    r.left = Node(2)
+    r.right = Node(3)
 
-    root.left.right = Node(4)
-    root.left.right = Node(5)
+    r.left.right = Node(4)
+    r.left.right = Node(5)
 
-    root.right.left = Node(6)
-    root.right.right = Node(7)
+    r.right.left = Node(6)
+    r.right.right = Node(7)
 
-    remove_nodes(root, 11)
+    remove_nodes(r, 11)
 
-    print_level_order(root)
+    print_level_order(r)

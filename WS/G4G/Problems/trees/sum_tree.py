@@ -3,9 +3,10 @@ amzn
 
 more done down
 
-Given a Binary Tree where each node has positive and negative values. Convert this to a tree
-where each node contains the sum of the left and right sub trees in the original tree.
-The values of leaf nodes are changed to 0.
+Given a Binary Tree where each node has positive and negative values.
+Convert this to a tree where each node contains the sum of the left
+and right sub trees in the original tree. The values of leaf nodes are
+changed to 0.
 
 For example, the following tree
 
@@ -41,11 +42,6 @@ def calculate_sum(root):
 
     sum_of_children = sum_left + sum_right
 
-    if sum_of_children == 0:
-        sum_node = root.data
-        root.data = 0
-        return sum_node
-
     value = root.data
     root.data = sum_of_children
     return sum_of_children + value
@@ -56,16 +52,16 @@ def is_leaf(node):
 
 
 if __name__ == '__main__':
-    root = Node(10)
-    root.left = Node(-2)
-    root.right = Node(6)
-    root.left.left = Node(8)
-    root.left.right = Node(-4)
-    root.right.left = Node(7)
-    root.right.right = Node(5)
+    _r = Node(10)
+    _r.left = Node(-2)
+    _r.right = Node(6)
+    _r.left.left = Node(8)
+    _r.left.right = Node(-4)
+    _r.right.left = Node(7)
+    _r.right.right = Node(5)
 
-    r = get_sum_tree(root)
-    print r
+    r = get_sum_tree(_r)
+    print r, r.left, r.left.left
 
 
 def is_sum_tree(root):
@@ -83,13 +79,13 @@ def is_sum_tree(root):
 
 
 if __name__ == '__main__':
-    root = Node(26)
-    root.left = Node(10)
-    root.right = Node(3)
-    root.left.left = Node(4)
-    root.left.right = Node(6)
-    root.right.right = Node(3)
+    _r = Node(26)
+    _r.left = Node(10)
+    _r.right = Node(3)
+    _r.left.left = Node(4)
+    _r.left.right = Node(6)
+    _r.right.right = Node(3)
 
-    print is_sum_tree(root)
+    print is_sum_tree(_r)
 
 

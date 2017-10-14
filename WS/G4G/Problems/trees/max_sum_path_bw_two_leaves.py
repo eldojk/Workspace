@@ -6,7 +6,6 @@ http://www.geeksforgeeks.org/find-maximum-path-sum-two-leaves-binary-tree/
 bottom up summing ensures efficiency
 """
 from sys import maxint
-
 from G4G.Problems.bst.vertical_sum import Node
 
 

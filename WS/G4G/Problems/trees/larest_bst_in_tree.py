@@ -10,8 +10,9 @@ SIZE = 0
 
 
 def largest_bst_size(root):
+    global SIZE
     if root is None:
-        # send is bst, maximum node, minimum node and size of the largest bst
+        # send is_bst, maximum node, minimum node and size of the largest bst
         return True, -maxint, maxint, 0
 
     is_left_bst, l_max, l_min, l_size = largest_bst_size(root.left)
@@ -24,14 +25,21 @@ def largest_bst_size(root):
         r_max = root.data
 
     if is_left_bst and is_right_bst and l_max < root.data < r_min:
-        return True, r_max, l_min, l_size + r_size + 1
+        curr_size = l_size + r_size + 1
 
-    return False, r_max, l_min, max(l_size, r_size)
+        if curr_size > SIZE:
+            SIZE = curr_size
+
+        return True, r_max, l_min, curr_size
+
+    return False, r_max, l_min, l_size + r_size + 1
 
 
 def get_largest_bst_size(root):
-    is_bst, _max, _min, size = largest_bst_size(root)
-    return size
+    global SIZE
+    SIZE = 0
+    largest_bst_size(root)
+    return SIZE
 
 
 if __name__ == '__main__':

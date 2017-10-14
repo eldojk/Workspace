@@ -49,7 +49,7 @@ def is_leaf(node):
 MAX_FOUND = 0
 
 
-def min_iters_to_percolate(root, time):
+def min_iterations_to_percolate(root, time):
     global MAX_FOUND
     if root:
         offset = 1
@@ -57,12 +57,13 @@ def min_iters_to_percolate(root, time):
         if time > MAX_FOUND:
             MAX_FOUND = time
 
+        # sort based on heights of children in descending order
         root.children.sort(reverse=True)
 
         # max depths nodes to be considered first so as to optimise percolation
         # to reach farthest nodes in shortest time
         for child in root.children:
-            min_iters_to_percolate(child, time + offset)
+            min_iterations_to_percolate(child, time + offset)
             offset += 1
 
 
@@ -94,5 +95,5 @@ if __name__ == '__main__':
     q.children[0].children[0].children = [Node('Z')]
 
     init_heights(r)
-    min_iters_to_percolate(r, 0)
+    min_iterations_to_percolate(r, 0)
     print MAX_FOUND

@@ -87,8 +87,8 @@ def print_specific_level_order(root):
 
 
 if __name__ == '__main__':
-    root = get_tree()
-    print_specific_level_order(root)
+    r = get_tree()
+    print_specific_level_order(r)
 
 
 def print_bottom_up_of_this(root):
@@ -130,9 +130,8 @@ def print_bottom_up_of_this(root):
 
 if __name__ == '__main__':
     print ''
-    root = get_tree()
-    print_bottom_up_of_this(root)
-
+    r = get_tree()
+    print_bottom_up_of_this(r)
 
 
 """

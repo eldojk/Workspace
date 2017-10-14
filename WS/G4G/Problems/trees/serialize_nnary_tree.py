@@ -26,7 +26,7 @@ def serialize_n_nary_tree(root):
 SERIAL_STRING_INDEX = 0
 
 
-def deserialize_nnary_tree(string, n):
+def deserialize_n_nary_tree(string, n):
     global SERIAL_STRING_INDEX
 
     # finished end or no more children
@@ -34,19 +34,19 @@ def deserialize_nnary_tree(string, n):
         return None
 
     val = string[SERIAL_STRING_INDEX]
-    node = NNode(val)
+    root = NNode(val)
     SERIAL_STRING_INDEX += 1
 
     children = []
-    child = deserialize_nnary_tree(string, n)
+    child = deserialize_n_nary_tree(string, n)
 
     while child is not None:
         children.append(child)
         SERIAL_STRING_INDEX += 1
-        child = deserialize_nnary_tree(string, n)
+        child = deserialize_n_nary_tree(string, n)
 
-    node.children = children
-    return node
+    root.children = children
+    return root
 
 
 if __name__ == '__main__':
@@ -59,6 +59,6 @@ if __name__ == '__main__':
     s = serialize_n_nary_tree(r)
     print s
 
-    node = deserialize_nnary_tree(s, len(s))
+    node = deserialize_n_nary_tree(s, len(s))
     print node
     print serialize_n_nary_tree(node)

@@ -3,10 +3,13 @@
 amzn
 
 Construct a special tree from given preorder traversal
-Given an array ‘pre[]’ that represents Preorder traversal of a spacial binary tree where every node has either 0 or
-2 children. One more array ‘preLN[]’ is given which has only two possible values ‘L’ and ‘N’. The value ‘L’ in ‘preLN[]’
-indicates that the corresponding node in Binary Tree is a leaf node and value ‘N’ indicates that the corresponding node
-is non-leaf node. Write a function to construct the tree from the given two arrays.
+Given an array ‘pre[]’ that represents Preorder traversal of a spacial
+binary tree where every node has either 0 or 2 children. One more array
+‘preLN[]’ is given which has only two possible values ‘L’ and ‘N’. The
+value ‘L’ in ‘preLN[]’ indicates that the corresponding node in Binary
+Tree is a leaf node and value ‘N’ indicates that the corresponding node
+is non-leaf node. Write a function to construct the tree from the given
+two arrays.
 
 Example:
 
@@ -40,10 +43,11 @@ def create_tree(pre, preln):
         return root
 
 
-# rt = create_tree([10, 30, 20, 5, 15], ['N', 'N', 'L', 'L', 'L'])
-#
-# print rt
-# print rt.left
-# print rt.right
-# print rt.left.left
-# print rt.left.right
+if __name__ == '__main__':
+    rt = create_tree([10, 30, 20, 5, 15], ['N', 'N', 'L', 'L', 'L'])
+
+    print rt
+    print rt.left
+    print rt.right
+    print rt.left.left
+    print rt.left.right

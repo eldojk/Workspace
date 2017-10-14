@@ -13,6 +13,7 @@ def find_pair(root, hm, r_data):
         hm[root.data] = True
         find_pair(root.left, hm, r_data)
         find_pair(root.right, hm, r_data)
+        hm[root.data] = False
 
 
 if __name__ == '__main__':

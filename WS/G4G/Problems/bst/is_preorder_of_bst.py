@@ -4,7 +4,7 @@ amzn, msft
 http://www.geeksforgeeks.org/check-if-a-given-array-can-represent-preorder-traversal-of-binary-search-tree/
 
 This problem is similar to Next (or closest) Greater Element problem.
-Here we find next greater element and after finding next greater,
+Here we find next greater element, and after finding next greater,
 if we find a smaller element, then return false.
 """
 from sys import maxint

@@ -49,10 +49,10 @@ if __name__ == '__main__':
 
     print serialize(r)
 
-    root = deserialize('ABD$$E$$CF$$G$$', 14)
-    print root
-    print root.left, root.right
-    print root.left.left, root.left.right, root.right.left, root.right.right
+    _r = deserialize('ABD$$E$$CF$$G$$', 14)
+    print _r
+    print _r.left, _r.right
+    print _r.left.left, _r.left.right, _r.right.left, _r.right.right
 
     r = Node('A')
     r.left = Node('B')
@@ -66,7 +66,7 @@ if __name__ == '__main__':
     s = serialize(r)
     print s
 
-    root = deserialize(s, 10)
-    print root
-    print root.left, root.right
-    print root.left.left, root.left.right, root.right.left, root.right.right
+    _r = deserialize(s, 10)
+    print _r
+    print _r.left, _r.right
+    print _r.left.left, _r.left.right, _r.right.left, _r.right.right
