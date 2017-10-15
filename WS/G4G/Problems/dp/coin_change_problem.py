@@ -2,6 +2,8 @@
 """
 amzn
 
+(more done down)
+
 https://www.youtube.com/watch?&v=NJuKJ8sasGk TUSHAR ROY explains
 
     0   1   2   3   4   5   6   7   8   9   10  11  12  13
@@ -65,10 +67,10 @@ last coin	0	1	2	3	4
 
 def number_of_ways_to_make_change(n, coins):
     coins = [0] + coins
-    num_ways = [[0 for i in range(n + 1)] for c in coins]
+    _num_ways = [[0 for i in range(n + 1)] for c in coins]
 
     for i in range(len(coins)):
-        num_ways[i][0] = 1
+        _num_ways[i][0] = 1
 
     for i in range(1, len(coins)):
 
@@ -79,15 +81,15 @@ def number_of_ways_to_make_change(n, coins):
 
             # this case we can't use ith coin
             if last_coin > val:
-                num_ways[i][val] = num_ways[i - 1][val]
+                _num_ways[i][val] = _num_ways[i - 1][val]
                 continue
 
             # not using ith coin to make val or
             # using ith coin and making remaining value using coins till i
-            num_ways[i][val] = \
-                num_ways[i - 1][val] + num_ways[i][val - last_coin]
+            _num_ways[i][val] = \
+                _num_ways[i - 1][val] + _num_ways[i][val - last_coin]
 
-    return num_ways[len(coins) - 1][n]
+    return _num_ways[len(coins) - 1][n]
 
 
 if __name__ == '__main__':
@@ -111,7 +113,8 @@ def num_ways(n, coins, i, dp):
     coin_val = coins[i]
 
     if coin_val <= n:
-        dp[n][i] = num_ways(n - coin_val, coins, i, dp) + num_ways(n, coins, i - 1, dp)
+        dp[n][i] = num_ways(n - coin_val, coins, i, dp) + \
+                   num_ways(n, coins, i - 1, dp)
 
     else:
         dp[n][i] = num_ways(n, coins, i - 1, dp)

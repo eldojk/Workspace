@@ -28,19 +28,23 @@ from G4G.Problems.bst.vertical_sum import Node
 index = 0
 
 
-def create_tree(pre, preln):
+def create_tree(pre, pre_ln):
     global index
-    if index < len(pre):
-        val = pre[index]
-        is_not_leaf = preln[index] == 'N'
-        root = Node(val)
+
+    if index >= len(pre):
+        return None
+
+    root = Node(pre[index])
+
+    if pre_ln[index] == 'L':
         index += 1
-
-        if is_not_leaf:
-            root.left = create_tree(pre, preln)
-            root.right = create_tree(pre, preln)
-
         return root
+
+    index += 1
+    root.left = create_tree(pre, pre_ln)
+    root.right = create_tree(pre, pre_ln)
+
+    return root
 
 
 if __name__ == '__main__':

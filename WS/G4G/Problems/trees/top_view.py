@@ -11,7 +11,7 @@ def top_view(root):
     if root is None:
         return
 
-    s = set()
+    s = {}
     q = Queue()
 
     q.put((root, 0))
@@ -22,14 +22,16 @@ def top_view(root):
         hd = item[1]
 
         if hd not in s:
-            s.add(hd)
-            print node,
+            s[hd] = node
 
         if node.left:
             q.put((node.left, hd - 1))
 
         if node.right:
             q.put((node.right, hd + 1))
+
+    for k in sorted(s.keys()):
+        print s[k],
 
 
 if __name__ == '__main__':
@@ -41,3 +43,4 @@ if __name__ == '__main__':
     r.left.right.right.right = Node(6)
 
     top_view(r)
+

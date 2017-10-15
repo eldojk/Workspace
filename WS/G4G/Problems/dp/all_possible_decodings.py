@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
 def print_all_decodings(string, i, suffix):
     """
-    memoization version
+    recursive version
 
     :param string:
     :param i:

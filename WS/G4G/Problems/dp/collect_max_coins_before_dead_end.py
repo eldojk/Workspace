@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/collect-maximum-coins-before-hitting-a-dead-end/
 
 maxCoins(i, j, d):  Maximum number of coins that can be
@@ -22,8 +24,8 @@ maxCoins(i, j, d):  Maximum number of coins that can be
                             maxCoins(i, j-1, 0)); // Ahead in left
 
    If (d == 1) // Right direction
-       return result +  max(maxCoins(i+1, j, 1),  // Down
-                            maxCoins(i, j+1, 0)); // Ahead in right
+       return result +  max(maxCoins(i+1, j, 0),  // Down
+                            maxCoins(i, j+1, 1)); // Ahead in right
 """
 
 

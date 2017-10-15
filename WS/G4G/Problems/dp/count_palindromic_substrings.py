@@ -1,7 +1,8 @@
 """
 amzn
 
-http://www.geeksforgeeks.org/count-palindrome-sub-strings-string/ of length >= 2
+http://www.geeksforgeeks.org/count-palindrome-sub-strings-string/
+of length >= 2
 
 Input : str = "abaab"
 Output: 3
@@ -40,7 +41,7 @@ CountPS(i, j)
 from G4G.Problems.dp.min_matrix_cost_path_to_mn import print_matrix
 
 """
-Example of maintaining two matrces when we require
+Example of maintaining two matrices when we require
 """
 
 

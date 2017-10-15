@@ -22,7 +22,7 @@ since z not equal to c:
     we look at 3 possiblities:
 
     1. (1, 3) -> abc to a can be done in 2 ops, so we can add 'z' after this. Hence 3 ops
-    2. (1, 2) -> ab to a can be done in 1 ops, hence changinf the last c to z in 1 op -> 1 + 1 = 2
+    2. (1, 2) -> ab to a can be done in 1 ops, hence changing the last c to z in 1 op -> 1 + 1 = 2
     3. (2, 2) -> ab to az can be done in 1  ops, hence abc to az should take only 1 more
     as we have to delete only one (the c) char
 

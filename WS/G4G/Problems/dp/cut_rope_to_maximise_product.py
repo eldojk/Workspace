@@ -29,7 +29,8 @@ def cut_rope(num):
         values[i] = 0
 
         for k in range(1, i):
-            values[i] = max(values[i], values[k] * (i - k))  # 1 * (4 - 1) and 2 * (4 - 2) and ....
+            values[i] = max(values[i], values[k] * (i - k))
+            # 1 * (4 - 1) and 2 * (4 - 2) and ....
 
     print values
     return values[num]
