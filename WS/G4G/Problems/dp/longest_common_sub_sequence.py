@@ -49,3 +49,28 @@ def lcs_length(array1, array2):
 
 if __name__ == '__main__':
     print lcs_length('ABCDGH', 'AEDFHR')
+
+
+def lcs_memo(a, b, i, j, dp):
+    if i == 0 or j == 0:
+        return 0
+
+    if dp[i][j] != -1:
+        return dp[i][j]
+
+    if a[i - 1] == b[j - 1]:
+        dp[i][j] = 1 + lcs_memo(a, b, i - 1, j - 1, dp)
+
+    else:
+        dp[i][j] = max(
+            lcs_memo(a, b, i - 1, j, dp),
+            lcs_memo(a, b, i, j - 1, dp)
+        )
+
+    return dp[i][j]
+
+
+if __name__ == '__main__':
+    _dp = [[-1 for i in range(7)] for j in range(7)]
+
+    print lcs_memo('ABCDGH', 'AEDFHR', 6, 6, _dp)

@@ -53,3 +53,40 @@ def max_length_substr_with_even_length_and_desired_sums(string):
 if __name__ == '__main__':
     print max_length_substr_with_even_length_and_desired_sums('123123')
     print max_length_substr_with_even_length_and_desired_sums('1538023')
+
+
+"""
+better approach
+consider every midpoint and check
+"""
+
+
+def max_len_substr_ev_len(string):
+    mx_len = 0
+    start = 0
+
+    for i in range(len(string) - 1):
+        l = i
+        r = i + 1
+        l_sum = r_sum = 0
+        curr_len = 0
+
+        while l >= 0 and r < len(string):
+
+            l_sum += int(string[l])
+            r_sum += int(string[r])
+            curr_len += 2
+
+            if l_sum == r_sum:
+                mx_len = curr_len
+                start = l
+
+            l -= 1
+            r += 1
+
+    return string[start: start + mx_len]
+
+
+if __name__== '__main__':
+    print max_len_substr_ev_len('123123')
+    print max_len_substr_ev_len('1538023')
