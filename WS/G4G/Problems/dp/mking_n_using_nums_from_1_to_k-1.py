@@ -33,3 +33,4 @@ def get_num_ways_to_make_k_using_1_to_k(n, k):
 
 if __name__ == '__main__':
     print get_num_ways_to_make_k_using_1_to_k(6, 5)
+

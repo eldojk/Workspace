@@ -2,6 +2,9 @@
 """
 amzn
 
+#tricky
+http://www.geeksforgeeks.org/minimum-positive-points-to-reach-destination/
+
 We can solve this problem through bottom-up table filling dynamic programing technique.
 
 To begin with, we should maintain a 2D array dp of the same size as the grid, where dp[i][j]
@@ -43,7 +46,7 @@ Somethings maybe written clearly though:
 Only by using the information from (i+1,j) and (i,j+1) can we decide that. Hence reverse procedure.
 We assign the min value possible for (m-1,n-1) cell.
 2. dp[i][j] represents the min points needed to continue the journey from (i,j). Firstly it must
-be atleast 1. Also we may go to (i+1,j) from here or (i,j+1) and we already know the min points
+be at least 1. Also we may go to (i+1,j) from here or (i,j+1) and we already know the min points
 needed to reach the end from both of them. So take minimum and we may gain or lose point on (i,j)
 compensate for that too. Remember minimum points needed to enter may be less but we have a
 restriction to have at least 1 point.
@@ -74,7 +77,7 @@ def min_points(points):
     while i >= 0:
         j = c - 2
 
-        while j >=0:
+        while j >= 0:
             min_pts_on_exit = min(
                 dp[i + 1][j],
                 dp[i][j + 1]

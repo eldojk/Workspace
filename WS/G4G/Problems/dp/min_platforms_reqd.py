@@ -30,7 +30,7 @@ def get_min_trains(arrivals, departures):
     while i < n and j < n:
         if arrivals[i] < departures[j]:
             currently_required += 1
-            max_required = currently_required if currently_required > max_required else max_required
+            max_required = max(currently_required, max_required)
             i += 1
         elif departures[j] < arrivals[i]:
             currently_required -= 1

@@ -10,6 +10,7 @@ from copy import copy
 
 def max_size_sub_matrix(matrix, m, n):
     size_matrix = copy(matrix)
+    max_size = 0
 
     for i in range(1, m):
         for j in range(1, n):
@@ -25,11 +26,12 @@ def max_size_sub_matrix(matrix, m, n):
                     size_matrix[i - 1][j - 1]
                 ) + 1
 
+                max_size = max(size_matrix[i][j], max_size)
             # can't include the cell if its 0
             else:
                 size_matrix[i][j] = 0
 
-    return max([max(row) for row in size_matrix])
+    return max_size
 
 
 if __name__ == '__main__':

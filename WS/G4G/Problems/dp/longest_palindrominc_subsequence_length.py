@@ -46,10 +46,14 @@ def longest_palindromic_sub_sequence_length(string):
     # for strings of length 1
     for i in range(len(string)):
         len_mtrx[i][i] = 1
+        j = i + 1
+
+        if j < len(string):
+            len_mtrx[i][j] = 2 if string[i] == string[j] else 1
 
     max_index = len(string) - 1
 
-    for l in range(1, len(string)):
+    for l in range(2, len(string)):
         for i in range(len(string)):
 
             j = i + l
@@ -60,7 +64,7 @@ def longest_palindromic_sub_sequence_length(string):
                 else:
                     len_mtrx[i][j] = max(len_mtrx[i][j - 1], len_mtrx[i + 1][j])
 
-    print_matrix(len_mtrx)
+    # print_matrix(len_mtrx)
     return len_mtrx[0][len(string) - 1]
 
 

@@ -1,4 +1,6 @@
 """
+amzn
+
 http://www.geeksforgeeks.org/dynamic-programming-set-31-optimal-strategy-for-a-game/
 
 https://people.cs.clemson.edu/~bcdean/dp_practice/dp_10.swf
@@ -64,7 +66,3 @@ def maximum_value_we_can_guarantee(array):
 if __name__ == '__main__':
     print maximum_value_we_can_guarantee([5, 3, 7, 10])
     print maximum_value_we_can_guarantee([8, 15, 3, 7])
-
-
-
-

@@ -53,6 +53,9 @@ def get_max_sum_sub_rectangle(rectangle):
     max_up = 0
     max_down = 0
 
+    # taking max contiguous sum for each rectangle
+    # starting with the first row
+    # i.e. sum where top row = 0, 1, 2... n - 1
     for up in range(len(rectangle)):
 
         sum_arr = [0 for i in range(len(rectangle[0]))]

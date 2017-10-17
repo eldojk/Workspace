@@ -1,5 +1,7 @@
 # coding=utf-8
 """
+amzn
+
 http://www.geeksforgeeks.org/mobile-numeric-keypad-problem/
 
 Given the mobile numeric keypad. You can only press buttons that are up,
@@ -89,3 +91,4 @@ def get_count(n):
 
 if __name__ == '__main__':
     print get_count(5)
+
