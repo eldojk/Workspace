@@ -14,6 +14,17 @@ f(i, m) = 1 if ((x + m)%3 == 0 and x%2 == 0) else 0+
 
 
 def number_of_strings_starting_at_i(i, m, s, dp):
+    """
+    Return the number of substring divisible by 6
+    and starting at index i in s and previous sum
+    of digits modulo 3 is m
+
+    :param i:
+    :param m:
+    :param s:
+    :param dp:
+    :return:
+    """
     if i == len(s):
         return 0
 

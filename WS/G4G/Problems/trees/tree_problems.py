@@ -149,10 +149,10 @@ def iterative_pre_order(root):
         node = s.pop()
         print node,
 
-        if node.left:
+        if node.right:
             s.push(node.right)
 
-        if node.right:
+        if node.left:
             s.push(node.left)
 
 
@@ -243,6 +243,8 @@ def is_subtree(root1, root2):
 
         return is_found_left or is_found_right
 
+    return False
+
 
 if __name__ == '__main__':
     print ''
@@ -259,6 +261,7 @@ if __name__ == '__main__':
     root2.right = Node(6)
     root2.left.right = Node(30)
 
+    print 'is subtree'
     print is_subtree(root1, root2)
 
 
@@ -513,6 +516,8 @@ if __name__ == '__main__':
     root.right = Node(3)
 
     root.left.left = Node(4)
+
+    print 'check all leaves at same level?'
 
     print check_all_leaves_at_same_level(root, 0)
 

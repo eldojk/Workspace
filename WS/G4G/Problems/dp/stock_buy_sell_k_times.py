@@ -35,7 +35,7 @@ def max_price(prices, n, k):
     # hence first row and column is 0s
 
     for i in range(1, k + 1):  # max i transactions
-        for j in range(1, n):  # j days
+        for j in range(1, n):  # I am selling on jth day
 
             max_so_far = -maxint
             for m in range(j):

@@ -30,6 +30,6 @@ def probablity(x, y, moves, memo):
     for coordinates in get_next_moves(x, y):
         ans += probablity(coordinates[0], coordinates[1], moves - 1, memo)
 
-    memo[x][y][moves] = ans
+    memo[x][y][moves] = ans/8  # coz its probability of being in board after 8 possible moves
     return ans
 

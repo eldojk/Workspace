@@ -1,6 +1,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/dynamic-programming-set-31-optimal-strategy-for-a-game/
 
 https://people.cs.clemson.edu/~bcdean/dp_practice/dp_10.swf

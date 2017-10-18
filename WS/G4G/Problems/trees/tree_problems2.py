@@ -303,7 +303,8 @@ if __name__ == '__main__':
     r = Node(0)
     r.left = Node(1)
     r.right = Node(2)
-
+    print ''
+    print 'ancestor matrix'
     print ''
     ancestor_matrix(r, 3)
 
@@ -425,6 +426,9 @@ def max_diff_bw_node_and_ancestor(root):
     global MAX_DIFF_BW_NODE_AND_ANCESTOR
     if root is None:
         return maxint
+
+    if is_leaf(root):
+        return root.data
 
     l_min = max_diff_bw_node_and_ancestor(root.left)
     r_min = max_diff_bw_node_and_ancestor(root.right)

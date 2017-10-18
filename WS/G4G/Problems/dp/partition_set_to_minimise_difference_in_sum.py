@@ -1,6 +1,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/partition-a-set-into-two-subsets-such-that-the-difference-of-subset-sums-is-minimum/
 
 Input:  arr[] = {1, 6, 11, 5}
@@ -70,6 +71,8 @@ def partition_minimum_sum(array):
     j = int(sm/2)
     while j >= 0:
         if dp[n][j]:
+            # sum1 = j, other sum = sm - j
+            # diff of sum1 and sum2 = (sm - j) - j = sm - 2j
             curr_diff = sm - 2*j
 
             if curr_diff < min_sum:

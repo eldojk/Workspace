@@ -9,19 +9,24 @@ http://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-gi
 """
 
 
+def swap(string, i, j):
+    string[i], string[j] = string[j], string[i]
+
+
 def _permute(str_list, left, right):
     if left == right:
         print "".join(str_list),
     else:
         for i in range(left, right + 1):
-            str_list[left], str_list[i] = str_list[i], str_list[left]
+            swap(str_list, i, left)
             _permute(str_list, left + 1, right)
-            str_list[left], str_list[i] = str_list[i], str_list[left]
+            swap(str_list, i, left)
 
 
 def permute(string):
     st_list = list(string)
     _permute(st_list, 0, len(st_list) - 1)
+
 
 if __name__ == '__main__':
     permute('abc')
@@ -130,6 +135,13 @@ except last one
 
 
 def get_palindromic_number(n, is_even):
+    """
+    read description above
+
+    :param n:
+    :param is_even:
+    :return:
+    """
     p = n
 
     if is_even:
@@ -198,4 +210,4 @@ if __name__ == '__main__':
     print ''
     print ''
     print 'permute wo dupes'
-    print_permutations_without_duplicates('asdaa')
+    print_permutations_without_duplicates('aiiix')

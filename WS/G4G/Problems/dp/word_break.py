@@ -1,6 +1,7 @@
 """
 amzn, goog
 
+(better approach down)
 http://www.geeksforgeeks.org/dynamic-programming-set-32-word-break-problem/
 
 Consider the following dictionary
@@ -65,3 +66,33 @@ def can_word_break(string):
 if __name__ == '__main__':
     print can_word_break("ilike")
     print can_word_break("ilikesamsung")
+
+
+def can_break(word):
+    """
+    Different approach. Starting at end and adding chars till an actual
+    word comes. If this happens, we move on to the next.. Finally, the last
+    one should add char
+
+    :param word:
+    :return:
+    """
+    n = len(word)
+    i = n - 1
+    j = n
+    dp = [False for w in word]
+
+    while i >= 0:
+        if is_present(word[i: j]):
+            dp[i] = True
+            j = i
+
+        i -= 1
+
+    print dp
+    return dp[0]
+
+
+if __name__ == '__main__':
+    print can_break("ilike")
+    print can_break("ilikesamsung")

@@ -8,7 +8,7 @@ given that; we can use ‘a’ as many times as we want, ‘b’ maximum once, a
 
 
 def dp(n, a, b, c):
-    if (b == 0 and c == 0) or n == 0:
+    if n == 0:
         return 1
 
     res = dp(n - 1, a, b, c)
@@ -30,3 +30,33 @@ def num_strings(n):
 
 if __name__ == '__main__':
     print num_strings(2)
+    print ''
+
+
+"""
+PRINT 'EM
+"""
+
+
+def print_strings(n, a, b, c, curr):
+    if n == 0:
+        print ''.join(curr),
+        return
+
+    curr.append('a')
+    print_strings(n - 1, a, b, c, curr)
+    curr.pop()
+
+    if b != 0:
+        curr.append('b')
+        print_strings(n - 1, a, b - 1, c, curr)
+        curr.pop()
+
+    if c != 0:
+        curr.append('c')
+        print_strings(n - 1, a, b, c - 1, curr)
+        curr.pop()
+
+
+if __name__ == '__main__':
+    print_strings(3, 2, 2, 1, [])

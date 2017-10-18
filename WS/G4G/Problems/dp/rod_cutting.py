@@ -26,7 +26,7 @@ def maximum_profit(rods, profits, length):
     # starting at max len is 1
     for i in range(1, len(max_values)):
 
-        # for every possible rod cuttings
+        # make a cut of 1, then 2,... etc
         for j in range(len(rods)):
 
             rod_length = rods[j]
@@ -45,3 +45,4 @@ def maximum_profit(rods, profits, length):
 
 if __name__ == '__main__':
     print maximum_profit([1, 2, 3, 4, 5, 6, 7, 8], [1, 5, 8, 9, 10, 17, 17, 20], 8)
+
