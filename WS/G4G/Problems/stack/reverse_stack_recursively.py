@@ -1,6 +1,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/reverse-a-stack-using-recursion/
 """
 from G4G.Problems.stack.stack import Stack

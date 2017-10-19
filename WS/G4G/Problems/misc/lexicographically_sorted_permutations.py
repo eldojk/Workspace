@@ -24,8 +24,8 @@ def print_permutations(li, i, n):
 
     for j in range(i, n):
 
-        while (j < n - 1) and li[j] == li[j + 1]:
-            j += 1
+        if (j < n - 1) and li[j] == li[j + 1]:
+            continue
 
         swap(li, i, j)
 

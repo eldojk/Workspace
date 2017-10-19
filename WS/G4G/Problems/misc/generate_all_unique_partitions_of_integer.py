@@ -1,6 +1,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/generate-unique-partitions-of-an-integer/
 """
 from sys import maxint

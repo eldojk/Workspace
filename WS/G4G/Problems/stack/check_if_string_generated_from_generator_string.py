@@ -1,5 +1,7 @@
 # coding=utf-8
 """
+amzn
+
 http://www.geeksforgeeks.org/amazon-interview-experience-set-333-internship/
 
 You have been given a generator string ab from which any number of strings can be generated

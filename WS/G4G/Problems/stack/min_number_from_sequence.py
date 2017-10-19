@@ -1,6 +1,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/form-minimum-number-from-given-sequence/
 """
 from G4G.Problems.stack.stack import Stack

@@ -1,6 +1,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/largest-rectangle-under-histogram/
 """
 from G4G.Problems.stack.stack import Stack
