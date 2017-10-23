@@ -62,7 +62,7 @@ class KMostFrequentWords:
                 obj = WordFreq(w, 1)
                 self.trie.put(obj)
 
-            if obj.freq <= self.min_heap.get_top().freq:
+            if obj.freq <= self.min_heap.peek().freq:
                 continue
 
             else:

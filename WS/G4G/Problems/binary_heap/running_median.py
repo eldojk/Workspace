@@ -1,6 +1,7 @@
 """
 amzn, msft
 
+#tricky
 http://www.geeksforgeeks.org/median-of-stream-of-integers-running-integers/
 """
 from DS.algos.binary_heap.priority_queue import MAX_PQ, MIN_PQ, PriorityQueue

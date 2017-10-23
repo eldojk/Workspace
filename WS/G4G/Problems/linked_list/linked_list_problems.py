@@ -447,6 +447,7 @@ def zig_zag_ll(head):
 
 if __name__ == '__main__':
     print ''
+    print 'zig zag'
     h = create_linked_list([4, 3, 7, 8, 6, 2, 1])
     res = zig_zag_ll(h)
     print_ll(res)

@@ -3,8 +3,8 @@ amzn, msft
 
 http://www.geeksforgeeks.org/segregate-even-and-odd-elements-in-a-linked-list/
 
-
-another way: just append odd to one list and even to another and merge them
+better way: just append odd to one list and even to another and merge them
+^ coded down
 """
 from G4G.Problems.linked_list.linked_list import create_linked_list, print_ll
 
@@ -71,3 +71,43 @@ def segregate_odd_and_even(head):
 if __name__ == '__main__':
     _h = create_linked_list([17, 15, 8, 12, 10, 5, 4, 1, 7, 6])
     print_ll(segregate_odd_and_even(_h))
+
+
+"""
+better approach
+"""
+
+
+def add_to_ll(head, tail, node):
+    if head:
+        tail.nxt = node
+        return head, node
+
+    return node, node
+
+
+def segregate_odd_and_even_another_app(head):
+    odd_h = odd_t = even_h = even_t = None
+
+    while head is not None:
+        nxt = head.nxt
+        head.nxt = None
+
+        if head.data % 2 == 0:
+            even_h, even_t = add_to_ll(even_h, even_t, head)
+
+        else:
+            odd_h, odd_t = add_to_ll(odd_h, odd_t, head)
+
+        head = nxt
+
+    if even_t:
+        even_t.nxt = odd_h
+        return even_h
+
+    return odd_h
+
+
+if __name__ == '__main__':
+    _h = create_linked_list([17, 15, 8, 12, 10, 5, 4, 1, 7, 6])
+    print_ll(segregate_odd_and_even_another_app(_h))

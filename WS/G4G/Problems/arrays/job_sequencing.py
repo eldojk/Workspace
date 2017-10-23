@@ -1,6 +1,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/job-sequencing-problem-set-1-greedy-algorithm/
 
 Given an array of jobs where every job has a deadline and associated profit if the job is finished before

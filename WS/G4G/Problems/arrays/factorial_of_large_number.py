@@ -6,6 +6,15 @@ http://www.geeksforgeeks.org/factorial-large-number/
 
 
 def multiply(array, x, n):
+    """
+    Storing reversed number for easy
+    multiplication
+
+    :param array:
+    :param x:
+    :param n:
+    :return:
+    """
     carry = 0
 
     for i in range(n):

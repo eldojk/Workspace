@@ -34,6 +34,7 @@ def get_count_from_1(num):
     if num < 10:
         return num
 
+    # considering each 10 digit spans
     spans = num // 10
 
     result = spans + 9

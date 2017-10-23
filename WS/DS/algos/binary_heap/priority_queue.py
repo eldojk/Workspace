@@ -46,7 +46,7 @@ class PriorityQueue(object):
     def get_size(self):
         return self.N
 
-    def get_top(self):
+    def peek(self):
         return self.array[1]
 
     def insert(self, item):

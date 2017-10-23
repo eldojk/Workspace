@@ -36,8 +36,8 @@ def intersection_of_sorted_ll(h1, h2):
 
 
 if __name__ == '__main__':
-    a = create_linked_list([1, 2, 3, 4, 6])
-    b = create_linked_list([2, 4, 6, 8])
+    a = create_linked_list([1, 2, 2, 3, 4, 6])
+    b = create_linked_list([2, 2, 4, 6, 8])
     res = intersection_of_sorted_ll(a, b)
 
     print_ll(res)

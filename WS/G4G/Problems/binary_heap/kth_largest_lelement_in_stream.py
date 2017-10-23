@@ -14,14 +14,14 @@ class KthLargest(object):
             self.min_pq.insert(element)
             return
 
-        if element <= self.min_pq.get_top():
+        if element <= self.min_pq.peek():
             return
 
         self.min_pq.delete_top()
         self.min_pq.insert(element)
 
     def get_kth_largest(self):
-        return self.min_pq.get_top()
+        return self.min_pq.peek()
 
 
 # k = KthLargest(3)

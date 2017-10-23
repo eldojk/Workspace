@@ -1,27 +1,39 @@
-from G4G.Problems.bst.vertical_sum import Node
-from G4G.Problems.bst.merge_two_balanced_bst import get_inorder_array
+from G4G.Problems.dp.min_matrix_cost_path_to_mn import print_matrix
 
 
-def rm(root, k):
-    if root is None:
-        return None
+def is_valid(x, y, n):
+    if (0 <= x < n) and (0 <= y < n):
+        return n > y >= (n - 1 - x)
 
-    if root.data <= k:
-        root.right = rm(root.right, k)
-        return root
+    return False
 
-    else:
-        return rm(root.left, k)
+
+def get_paths(i, j, dp, n):
+    if i == 0 and j == n - 1:
+        return 1
+
+    if dp[i][j] != -1:
+        return dp[i][j]
+
+    dp[i][j] = 0
+    neighbours = [(i - 1, j), (i, j + 1)]
+
+    for neighbour in neighbours:
+        x = neighbour[0]
+        y = neighbour[1]
+        if is_valid(x, y, n):
+            print x, y
+            dp[i][j] += get_paths(x, y, dp, n)
+
+    return dp[i][j]
+
+
+def num_of_paths_to_dest(n):
+    dp = [[-1 for i in range(n)] for j in range(n)]
+    v = get_paths(n - 1, 0, dp, n)
+    print_matrix(dp)
+    return v
 
 
 if __name__ == '__main__':
-    r = Node(5)
-    r.left = Node(3)
-    r.right = Node(7)
-    r.left.left = Node(1)
-    r.left.right = Node(4)
-    r.right.left = Node(6)
-    r.right.right = Node(8)
-
-    r = rm(r, 5)
-    print get_inorder_array(r, [])
+    print num_of_paths_to_dest(4)

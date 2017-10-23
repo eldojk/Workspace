@@ -55,13 +55,17 @@ def swap_kth_beg_and_end(head, k):
 
     elif nxt1 == n2:
         # n2 is next to n1
-        pre1.nxt = n2
+        if pre1:
+            pre1.nxt = n2
+
         n2.nxt = n1
         n1.nxt = nxt2
 
     elif nxt2 == n1:
         # n1 is next 2 n2
-        pre2.nxt = n1
+        if pre2:
+            pre2.nxt = n1
+
         n1.nxt = n2
         n2.nxt = nxt1
 

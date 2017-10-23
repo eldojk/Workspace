@@ -1,6 +1,11 @@
 """
 amzn
 
+#tricky
+(because, notice the use of index. If we use index info we can make better
+decisions about position of nodes. #tricky tagged because of this. Just
+wanted to notice the use of indexes in linked lists)
+
 http://www.geeksforgeeks.org/swap-nodes-in-a-linked-list-without-swapping-data/
 """
 from G4G.Problems.linked_list.linked_list import create_linked_list, print_ll

@@ -16,16 +16,11 @@ def partition(array, low, high, pivot):
     i = low
     j = low
 
-    while j < high:
+    while j <= high:
         if array[j] < pivot:
             array[i], array[j] = array[j], array[i]
             j += 1
             i += 1
-
-        elif array[j] == pivot:
-            # moving pivot to end, so if i ever reach pivot index, it won't swap anything
-            array[high], array[j] = array[j], array[high]
-            j += 1
 
         else:
             j += 1
@@ -48,7 +43,7 @@ def match_pairs(nuts, bolts, low, high):
 
 if __name__ == '__main__':
     _nuts = ['@', '#', '$', '%', '^', '&']
-    _bolts = ['@', '#', '$', '%', '^', '&']
+    _bolts = ['#', '$', '@', '%', '&', '^']
     match_pairs(_nuts, _bolts, 0, 5)
     print _nuts
     print _bolts

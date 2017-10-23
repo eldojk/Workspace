@@ -53,6 +53,7 @@ def min_sum_square_char_counts(string, k):
         k -= 1
 
     result = 0
+
     while not pq.is_empty():
         el = pq.delete_top()
 

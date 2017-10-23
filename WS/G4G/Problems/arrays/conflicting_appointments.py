@@ -34,9 +34,6 @@ def search_floor_start_time(array, i, j, time):
     if i > j:
         return -1
 
-    if array[j].start <= time:
-        return j
-
     if i == j:
         return i
 

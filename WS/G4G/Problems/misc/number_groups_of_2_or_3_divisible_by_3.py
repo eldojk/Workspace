@@ -6,7 +6,7 @@ http://www.geeksforgeeks.org/number-groups-sizes-two-three-divisible-3/
 You are given N distinct numbers. You are tasked with finding the number of groups of
 2 or 3 that can be formed whose sum is divisible by three.
 
-f we carefully look at every number, we realize that 3 options exist:
+If we carefully look at every number, we realize that 3 options exist:
 
 The number is divisible by 3
 The number leaves a remainder of 1, when divided by 3

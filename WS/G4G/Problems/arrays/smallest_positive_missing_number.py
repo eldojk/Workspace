@@ -36,3 +36,45 @@ def find_smallest_positive_missing_number(array):
 if __name__ == '__main__':
     print find_smallest_positive_missing_number([2, 3, 7, 6, 8])
     print find_smallest_positive_missing_number([2, 3, 7, 6, 8, 1, 15])
+
+
+"""
+with zeroes
+"""
+
+
+def smallest_number_with_0(array):
+    """
+    [2, 1, 0, 4]
+    :param array:
+    :return:
+    """
+
+    zero_index = -1
+    is_zero_idx_el_found = False
+
+    for i in xrange(len(array)):
+        if array[i] == 0:
+            zero_index = i
+            break
+
+    for i in range(len(array)):
+        idx = abs(array[i])
+
+        if idx < len(array):
+            array[idx] = -array[idx]
+
+            if idx == zero_index:
+                is_zero_idx_el_found = True
+
+    for i in range(len(array)):
+        if array[i] > 0 or (array[i] == 0 and not is_zero_idx_el_found):
+            return i
+
+    return len(array)
+
+
+if __name__ == '__main__':
+    print ''
+    print smallest_number_with_0([1, 2, 0, 4]) # 1 -2 0 4
+    print smallest_number_with_0([1, 3, 0, 4])  # -1 -3 0 -4
