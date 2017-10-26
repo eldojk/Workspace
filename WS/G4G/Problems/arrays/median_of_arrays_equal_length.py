@@ -28,7 +28,7 @@ def get_median(array1, array2, l1, h1, l2, h2):
     """
     Since arrays are of same length, the merged array has
     always even elements, Hence median will always be
-    average of some elements
+    average of the middle elements
     """
     if h1 == l1 and h2 == l2:
         return (array1[l1] + array2[l2]) / 2.0

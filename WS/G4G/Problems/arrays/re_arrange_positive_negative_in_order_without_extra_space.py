@@ -4,8 +4,8 @@ amzn, msft
 http://www.geeksforgeeks.org/rearrange-positive-and-negative-numbers/
 
 using merge sort without extra space
-we are using this approach, because quick sort changes the relative order
-of elements
+we are using this approach, because quick sort partition approach
+changes the relative order of elements
 
 more down
 """

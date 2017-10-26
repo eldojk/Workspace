@@ -4,7 +4,18 @@ amzn
 http://www.geeksforgeeks.org/find-if-there-is-a-subarray-with-0-sum/
 http://www.geeksforgeeks.org/find-the-largest-subarray-with-0-sum/
 """
-from G4G.Problems.arrays.subarray_with_same_number_of_0and1 import store_first_occurring_sums_in_hash
+
+
+def store_first_occurring_sums_in_hash(left_sum_array):
+    hm = {}
+
+    for i in range(len(left_sum_array)):
+        if left_sum_array[i] in hm:
+            continue
+
+        hm[left_sum_array[i]] = i
+
+    return hm
 
 
 def compute_left_sum_array(array):

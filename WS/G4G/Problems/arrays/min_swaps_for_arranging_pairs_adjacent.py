@@ -1,6 +1,7 @@
 """
 amzn, google
 
+#tricky
 http://www.geeksforgeeks.org/minimum-number-of-swaps-required-for-arranging-pairs-adjacent-to-each-other/
 
 n = 3

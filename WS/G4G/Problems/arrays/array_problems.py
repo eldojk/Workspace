@@ -690,7 +690,7 @@ def push_zeroes_to_end_using_swapping(array):
 if __name__ == '__main__':
     print ''
     print 'Push zeroes to end using swapping'
-    print push_zeroes_to_end([1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9])
+    print push_zeroes_to_end_using_swapping([1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9])
 
 
 """
@@ -926,6 +926,7 @@ if __name__ == '__main__':
 """
 amzn
 
+#tricky
 http://www.ideserve.co.in/learn/find-common-elements-in-n-sorted-arrays
 """
 
@@ -1214,49 +1215,12 @@ http://www.geeksforgeeks.org/find-a-pair-with-the-given-difference/
 def find_pair_with_diff(array, diff):
     array.sort()
     n = len(array)
-    _max = array[n - 1]
-
-    for i in range(n - 1):
-        val = array[i]
-        key = val + diff
-
-        if key > _max:
-            print 'not found'
-            break
-
-        pair = binary_search(array, i + 1, n - 1, key)
-
-        if pair != -1:
-            print val, array[pair]
-            break
-
-
-if __name__ == '__main__':
-    print ''
-    print 'pair with the given difference'
-    find_pair_with_diff([5, 20, 3, 2, 50, 80], 78)
-
-
-"""
-amzn
-
-#tricky
-(another approach)
-http://www.geeksforgeeks.org/find-a-pair-with-the-given-difference/
-"""
-
-
-def find_pair_with_given_diff(array, diff):
-    array.sort()
-    n = len(array)
-
     i = 0
     j = 1
 
     while i < n and j < n:
-        if array[j] - array[i] == diff and i != j:
-            print array[i], array[j]
-            break
+        if i != j and array[j] - array[i] == diff:
+            return array[i], array[j]
 
         elif array[j] - array[i] < diff:
             j += 1
@@ -1264,11 +1228,13 @@ def find_pair_with_given_diff(array, diff):
         else:
             i += 1
 
+    return 'not found'
+
 
 if __name__ == '__main__':
     print ''
     print 'pair with the given difference'
-    find_pair_with_given_diff([5, 20, 3, 2, 50, 80], 78)
+    print find_pair_with_diff([5, 20, 3, 2, 50, 80], 78)
 
 
 """
@@ -1309,35 +1275,6 @@ amzn
 #tricky
 http://www.geeksforgeeks.org/count-pairs-with-given-sum/
 """
-
-
-def count_pairs_with_sum(array, s):
-    hm = {}
-
-    for num in array:
-        if hm.get(num) is None:
-            hm[num] = 0
-
-        hm[num] += 1
-
-    twice_count = 0
-
-    for num in array:
-        exptd_sum = s - num
-
-        if hm.get(exptd_sum) is not None:
-            twice_count += hm[exptd_sum]
-
-        if exptd_sum == num:
-            twice_count -= 1
-
-    return twice_count / 2
-
-
-if __name__ == '__main__':
-    print ''
-    print 'count pairs with given sum'
-    print count_pairs_with_sum([1, 5, 7, -1, 5], 6)
 
 
 def count_pairs_with_sum_another_approach(array, sm):
@@ -1381,6 +1318,7 @@ multiply by 2.
 """
 msft
 
+#tricky
 http://www.geeksforgeeks.org/build-lowest-number-by-removing-n-digits-from-a-given-number/
 """
 

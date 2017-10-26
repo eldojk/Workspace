@@ -1,6 +1,7 @@
 """
 amzn
 
+#tricky
 sliding window
 http://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/
 http://www.geeksforgeeks.org/find-the-maximum-of-minimums-for-every-window-size-in-a-given-array/
