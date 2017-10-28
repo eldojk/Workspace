@@ -70,7 +70,7 @@ def min_points(points):
 
     j = c - 2
     while j >= 0:
-        dp[c - 1][j] = max(dp[c - 1][j + 1] - points[c - 1][j], 1)
+        dp[r - 1][j] = max(dp[r - 1][j + 1] - points[r - 1][j], 1)
         j -= 1
 
     i = r - 2

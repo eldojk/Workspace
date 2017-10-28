@@ -45,4 +45,3 @@ def maximum_profit(rods, profits, length):
 
 if __name__ == '__main__':
     print maximum_profit([1, 2, 3, 4, 5, 6, 7, 8], [1, 5, 8, 9, 10, 17, 17, 20], 8)
-

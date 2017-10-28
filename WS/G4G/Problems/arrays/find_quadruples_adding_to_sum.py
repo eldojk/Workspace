@@ -111,6 +111,7 @@ def find_numbers(array, k):
                     l += 1
                     r -= 1
 
+
 if __name__ == '__main__':
     print ''
     print 'method 2'

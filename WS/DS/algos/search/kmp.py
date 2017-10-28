@@ -21,7 +21,7 @@ looking for babac). When c and a mismatches, we have covered only one less state
 than when we started and reached ababaa earlier. And we have this information already
 in the table. use it
 Instead of re-running at every mismatch, if we keep track of the state we will be at,
-if we start at string[1] we can reuse this info (memoize!!!). Lets call this state X
+if we start at string[1] we can reuse this info. Lets call this state X
 
 	0	1	2	3	4	5
 	A	B	A	B	A	C

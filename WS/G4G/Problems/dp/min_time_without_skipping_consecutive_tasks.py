@@ -49,5 +49,3 @@ def min_time(tasks):
 
 if __name__ == '__main__':
     print min_time([10, 5, 2, 7, 10])
-
-
