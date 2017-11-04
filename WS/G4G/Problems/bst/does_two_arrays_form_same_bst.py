@@ -1,9 +1,9 @@
 """
 amzn, msft
 
+#tricky
 http://www.geeksforgeeks.org/check-for-identical-bsts-without-building-the-trees/
 """
-# todo check code
 from sys import maxint
 
 MAX_INT = maxint
@@ -33,7 +33,7 @@ def is_same_bst_check(array1, array2, n, i, j, _min, _max):
 
     # recurse for left and right subtrees adjusting range
     return is_same_bst_check(array1, array2, n, i + 1, j + 1, _min, array1[i]) \
-           and is_same_bst_check(array1, array2, n, i + 1, j + 1, array2[j], _max)
+           and is_same_bst_check(array1, array2, n, i + 1, j + 1, array1[i], _max)
 
 
 def is_same_bst(array1, array2, n):

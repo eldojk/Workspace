@@ -165,24 +165,3 @@ def floor(root, _input):
         return flr
 
     return root.data
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -558,6 +558,7 @@ def find_num_substrings_with_same_first_and_last_char(string):
 
 if __name__ == '__main__':
     print ''
+    print 'num substrings with same first and last char'
     print find_num_substrings_with_same_first_and_last_char('abcab')
     print find_num_substrings_with_same_first_and_last_char('aba')
 
