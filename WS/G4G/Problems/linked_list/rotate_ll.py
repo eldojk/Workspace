@@ -19,6 +19,7 @@ def rotate_ll(head, k):
     return head
 
 
-h = create_linked_list([1, 2, 3, 4, 5, 6])
-n = rotate_ll(h, 9)
-print_ll(n)
+if __name__ == '__main__':
+    h = create_linked_list([1, 2, 3, 4, 5, 6])
+    n = rotate_ll(h, 9)
+    print_ll(n)

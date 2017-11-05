@@ -12,9 +12,9 @@ def num_triangles(array):
 
     for i in range(n - 2):
 
-        k = i + 2
-
         for j in range(i + 1, n):
+
+            k = j + 1
 
             while k < n and array[i] + array[j] > array[k]:
                 k += 1

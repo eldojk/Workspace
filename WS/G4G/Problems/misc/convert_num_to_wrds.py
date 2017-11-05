@@ -23,7 +23,7 @@ def num_to_words(num, suffix):
     if num > 19:
         res += TEN[num // 10] + ONE[num % 10]
     else:
-        res += TEN[num]
+        res += ONE[num]
 
     if num != 0:
         res += suffix

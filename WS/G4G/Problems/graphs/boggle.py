@@ -42,6 +42,7 @@ def boggle_using_bt(matrix, i, j, m, n, word, w_idx, used):
 
 def boggle_using_back_tracking(matrix, m, n, word):
     used = {}
+    # ^ todo just use a boolean matrix
 
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):

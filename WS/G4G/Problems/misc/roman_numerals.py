@@ -16,6 +16,7 @@ if __name__ == '__main__':
 """
 amzn msft
 
+#tricky
 http://www.geeksforgeeks.org/converting-roman-numerals-decimal-lying-1-3999/ -- seems wrong
 https://stackoverflow.com/questions/9073150/converting-roman-numerals-to-decimal
 """
@@ -23,6 +24,7 @@ https://stackoverflow.com/questions/9073150/converting-roman-numerals-to-decimal
 
 def process_decimal(curr_decimal, last_decimal, last_number):
     if last_decimal > curr_decimal:
+
         return last_number - curr_decimal
 
     return last_number + curr_decimal

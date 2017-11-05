@@ -12,7 +12,7 @@ def generate_partitions(number, curr_max, current_iteration):
         return
 
     # the 2nd check will eliminate duplicates
-    if len(current_iteration) == 0 or number >= curr_max:
+    if number >= curr_max:
         print number,
 
         for num in current_iteration:

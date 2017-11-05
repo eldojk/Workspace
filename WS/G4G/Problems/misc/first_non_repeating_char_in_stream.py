@@ -5,7 +5,7 @@ http://www.geeksforgeeks.org/find-first-non-repeating-character-stream-character
 
 1) Create an empty DLL. Also create two arrays inDLL[] and repeated[] of size 256.
    inDLL is an array of pointers to DLL nodes. repeated[] is a boolean array,
-   repeated[x] is true if x is repeated two or more times, otherwise false.
+   repeated[x] is true if x has occurred two or more times, otherwise false.
    inDLL[x] contains pointer to a DLL node if character x is present in DLL,
    otherwise NULL.
 

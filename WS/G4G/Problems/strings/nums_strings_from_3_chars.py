@@ -2,6 +2,8 @@
 """
 amzn
 
+(more done down)
+
 Given 3 characters a, b, c, find the number of strings of length n that can be formed from these 3 characters
 given that; we can use ‘a’ as many times as we want, ‘b’ maximum once, and ‘c’ maximum twice.
 """

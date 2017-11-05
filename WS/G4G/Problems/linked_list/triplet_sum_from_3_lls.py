@@ -12,7 +12,7 @@ def triplet_sum(sm, la, lb, lc):
     # for now assume they are sorted
 
     a = la
-    while la is not None:
+    while a is not None:
         b = lb
         c = lc
 

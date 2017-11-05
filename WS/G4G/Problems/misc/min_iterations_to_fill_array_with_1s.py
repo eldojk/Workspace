@@ -19,17 +19,17 @@ def find_min_iterations(array):
 
     while not q.empty():
         el = q.get()
-        j = el[0]
+        i = el[0]
         dist = el[1]
         res = max(res, dist)
 
-        if j + 1 < n and array[j + 1] == 0:
-            q.put((j + 1, dist + 1))
-            array[j + 1] = 1
+        if i + 1 < n and array[i + 1] == 0:
+            q.put((i + 1, dist + 1))
+            array[i + 1] = 1
 
-        if j - 1 >= 0 and array[j - 1] == 0:
-            q.put((j - 1, dist + 1))
-            array[j - 1] = 1
+        if i - 1 >= 0 and array[i - 1] == 0:
+            q.put((i - 1, dist + 1))
+            array[i - 1] = 1
 
     return dist
 

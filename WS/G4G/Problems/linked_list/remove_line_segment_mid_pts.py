@@ -23,9 +23,9 @@ class Node(object):
 
 def remove_mid_points(head):
     hd = head
-    while head is not None and \
-                    head.nxt is not None and \
-                    head.nxt.nxt is not None:
+    while head is not None \
+            and head.nxt is not None \
+            and head.nxt.nxt is not None:
 
         a = head
         b = head.nxt

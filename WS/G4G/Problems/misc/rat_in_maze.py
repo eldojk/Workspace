@@ -11,7 +11,7 @@ def is_safe(x, y, n, visited, matrix):
     return 0 <= x < n and 0 <= y < n and (visited[x][y] != 1) and matrix[x][y] == 1
 
 
-def is_rat_reached_dest(matrix, x, y, n, visited):
+def is_rat_reached_destination(matrix, x, y, n, visited):
     if x == y == n - 1:
         return True
 
@@ -26,7 +26,7 @@ def is_rat_reached_dest(matrix, x, y, n, visited):
 
             visited[next_x][next_y] = 1
 
-            if is_rat_reached_dest(matrix, next_x, next_y, n, visited):
+            if is_rat_reached_destination(matrix, next_x, next_y, n, visited):
                 return True
 
             else:
@@ -39,7 +39,7 @@ def solve(matrix):
     visited = [[0 for i in matrix] for j in matrix]
     visited[0][0] = 1
 
-    ans = is_rat_reached_dest(matrix, 0, 0, len(matrix), visited)
+    ans = is_rat_reached_destination(matrix, 0, 0, len(matrix), visited)
     if ans:
         print_matrix(visited)
 
