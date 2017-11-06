@@ -34,35 +34,39 @@ def save(sequence):
     MAX_SEQUENCE = [c for c in sequence]
 
 
-def max_consecutive_sequence(root, parent, curr_len, seq):
-    global MAX_LEN
+"""
+another approach
+"""
+
+
+def max_seq(root, curr):
+    global MAX_LEN, MAX_SEQUENCE
 
     if root is None:
         return
 
-    if parent is None:
-        max_consecutive_sequence(root.left, root, 1, [root.data])
-        max_consecutive_sequence(root.right, root, 1, [root.data])
-
+    # dealing with curr array
+    if len(curr) == 0:
+        # initial case when visiting the tree root
+        curr.append(root)
     else:
-
-        if root.data != parent.data + 1:
-            max_consecutive_sequence(root.left, root, 1, [root.data])
-            max_consecutive_sequence(root.right, root, 1, [root.data])
-
+        if curr[-1].data == root.data - 1:
+            curr.append(root)
         else:
-            curr_len += 1
-            seq.append(root.data)
+            curr = [root]
 
-            if MAX_LEN < curr_len:
-                MAX_LEN = curr_len
-                save(seq)
+    if MAX_LEN < len(curr):
+        MAX_LEN = len(curr)
+        save(curr)
 
-            max_consecutive_sequence(root.left, root, curr_len, seq)
-            max_consecutive_sequence(root.right, root, curr_len, seq)
+    max_seq(root.left, curr)
+    max_seq(root.right, curr)
 
 
 if __name__ == '__main__':
+    MAX_LEN = 1
+    MAX_SEQUENCE = None
+
     r = Node(90)
     r.left = Node(1)
     r.right = Node(66)
@@ -74,5 +78,5 @@ if __name__ == '__main__':
     r.right.right.left = Node(68)
     r.right.right.left.right = Node(100)
 
-    max_consecutive_sequence(r, None, 0, [])
+    max_seq(r, [])
     print MAX_SEQUENCE

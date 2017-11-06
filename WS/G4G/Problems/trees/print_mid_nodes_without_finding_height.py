@@ -10,7 +10,7 @@ def print_mid(a, b):
     if a is None or b is None:
         return
 
-    if b.left is None and b.left.left is None:
+    if b.left is None and b.right is None:
         print a
         return
 

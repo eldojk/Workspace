@@ -11,8 +11,8 @@ def custom_traversal(root, level, sums):
         return
 
     sums[level] = root.data if sums.get(level) is None else sums[level] + root.data
-    custom_traversal(root.left, level+1, sums)
-    custom_traversal(root.right, level+1, sums)
+    custom_traversal(root.left, level + 1, sums)
+    custom_traversal(root.right, level + 1, sums)
 
 
 def compute_max_level_sum(root):

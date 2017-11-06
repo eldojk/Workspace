@@ -87,5 +87,3 @@ if __name__ == '__main__':
     _r.right.right = Node(3)
 
     print is_sum_tree(_r)
-
-

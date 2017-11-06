@@ -29,6 +29,7 @@ def get_test_tree():
 
     return root
 
+
 def reverse_alternate_nodes_single_traversal(root1, root2, level):
     if root1 is None or root2 is None:
         return

@@ -1,6 +1,8 @@
 """
 amzn
 
+#tricky
+
 Using Morris Traversal, we can traverse the tree without using stack and recursion.
 Although the tree is modified through the traversal, it is reverted back to its
 original shape after the completion.

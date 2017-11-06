@@ -1,4 +1,8 @@
 """
+#tricky questions
+"""
+
+"""
 amzn
 
 Print all permutations of a string
@@ -110,8 +114,7 @@ def _print_unique_combinations(array, result, k, index):
 
 
 def print_unique_combinations(array, k):
-    for i in range(len(array)):
-        _print_unique_combinations(array, [array[i]], k - array[i], i)
+    _print_unique_combinations(array, [], k, 0)
 
 
 if __name__ == '__main__':
@@ -134,17 +137,17 @@ except last one
 """
 
 
-def get_palindromic_number(n, is_even):
+def get_palindromic_number(n, is_odd):
     """
     read description above
 
     :param n:
-    :param is_even:
+    :param is_odd:
     :return:
     """
     p = n
 
-    if is_even:
+    if is_odd:
         n /= 10
 
     while n > 0:
@@ -156,11 +159,12 @@ def get_palindromic_number(n, is_even):
 
 def print_pals_less_than_n(n):
     k = 2
+    is_odd = False
     while k > 0:
 
         i = 1
         while True:
-            pal = get_palindromic_number(i, k % 2 == 0)
+            pal = get_palindromic_number(i, is_odd)
 
             if pal >= n:
                 break
@@ -168,6 +172,7 @@ def print_pals_less_than_n(n):
             print pal,
             i += 1
 
+        is_odd = not is_odd
         k -= 1
 
 

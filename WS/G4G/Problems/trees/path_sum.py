@@ -1,6 +1,7 @@
 """
 amzn
 
+#tricky
 (more down)
 print paths summing up to a given value
 

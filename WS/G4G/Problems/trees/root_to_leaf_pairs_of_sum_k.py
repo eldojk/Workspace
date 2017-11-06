@@ -16,14 +16,14 @@ def root_to_leaf_pair_with_sum_k(root, st, k):
 
 
 if __name__ == '__main__':
-    root = Node(8)
-    root.left = Node(5)
-    root.right = Node(4)
-    root.left.left = Node(9)
-    root.left.right = Node(7)
-    root.right.right = Node(11)
-    root.right.right.left = Node(3)
-    root.left.right.left = Node(1)
-    root.left.right.right = Node(12)
+    r = Node(8)
+    r.left = Node(5)
+    r.right = Node(4)
+    r.left.left = Node(9)
+    r.left.right = Node(7)
+    r.right.right = Node(11)
+    r.right.right.left = Node(3)
+    r.left.right.left = Node(1)
+    r.left.right.right = Node(12)
 
-    root_to_leaf_pair_with_sum_k(root, set([]), 8)
+    root_to_leaf_pair_with_sum_k(r, set([]), 8)

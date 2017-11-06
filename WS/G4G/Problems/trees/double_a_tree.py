@@ -1,6 +1,8 @@
 """
-Write a program that converts a given tree to its Double tree. To create Double tree of the given tree, create a new
-duplicate for each node, and insert the duplicate as the left child of the original node.
+Write a program that converts a given tree to its Double tree.
+To create Double tree of the given tree, create a new
+duplicate for each node, and insert the duplicate as the left child
+of the original node.
 
 http://www.geeksforgeeks.org/double-tree/
 """

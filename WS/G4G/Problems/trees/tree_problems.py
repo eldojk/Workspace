@@ -44,7 +44,8 @@ def are_trees_identical(root1, root2):
         return False
 
     if root1.data == root2.data:
-        return are_trees_identical(root1.left, root2.left) and are_trees_identical(root1.right, root2.right)
+        return are_trees_identical(root1.left, root2.left) \
+               and are_trees_identical(root1.right, root2.right)
 
     return False
 
@@ -70,7 +71,7 @@ def is_child_sum_property_true(root):
     if root is None:
         return True
 
-    if root.left is None and root.right is None:
+    if is_leaf(root):
         return True
 
     if root.left is None:
@@ -80,7 +81,9 @@ def is_child_sum_property_true(root):
         return root.data == root.left.data
 
     is_satisfied = (root.data == root.left.data + root.right.data)
-    is_children_satisfied = is_child_sum_property_true(root.left) and is_child_sum_property_true(root.right)
+    is_children_satisfied = \
+        is_child_sum_property_true(root.left) and is_child_sum_property_true(root.right)
+
     return is_satisfied and is_children_satisfied
 
 
@@ -111,6 +114,8 @@ def count_leaves(root):
 
 
 """
+#tricky
+
 amzn, msft
 """
 
@@ -229,8 +234,8 @@ def are_trees_identical(root1, root2):
     if root1.data != root2.data:
         return False
 
-    return are_trees_identical(root1.left, root2.left) and \
-           are_trees_identical(root1.right, root2.right)
+    return (are_trees_identical(root1.left, root2.left) and
+            are_trees_identical(root1.right, root2.right))
 
 
 def is_subtree(root1, root2):

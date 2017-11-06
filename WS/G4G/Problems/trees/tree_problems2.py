@@ -257,7 +257,8 @@ def is_symmetric(root1, root2):
     if root1.data != root2.data:
         return False
 
-    return is_symmetric(root1.left, root2.right) and is_symmetric(root1.right, root2.left)
+    return (is_symmetric(root1.left, root2.right) and
+            is_symmetric(root1.right, root2.left))
 
 
 if __name__ == '__main__':
@@ -473,6 +474,7 @@ def print_tree_in_2d(root, level):
 if __name__ == '__main__':
     r = get_std_tree()
     print ''
+    print 'print_tree_in_2d'
     print_tree_in_2d(r, 0)
 
 
@@ -905,6 +907,7 @@ msft
 
 https://www.careercup.com/question?id=5769792860454912
 """
+#todo: check maybe this won't work
 
 
 def left_most_node_at_level(root, level):
@@ -930,7 +933,8 @@ if __name__ == '__main__':
 
 
 """
-Find the maximum difference between any combination of child and parent node in a given binary tree
+Find the maximum difference between any combination of child and parent node
+in a given binary tree
 """
 
 
