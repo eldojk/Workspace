@@ -14,11 +14,12 @@ There are 6 sequences of length 2*n, the
 sequences are 0101, 0110, 1010, 1001, 0000
 and 1111
 
-1) First and last bits are same, remaining n-1 bits on both sides should also have the same sum.
-2) First bit is 1 and last bit is 0, sum of remaining n-1 bits on left side should be 1 less than the sum n-1 bits on
-right side.
-2) First bit is 0 and last bit is 1, sum of remaining n-1 bits on left side should be 1 more than the sum n-1 bits on
-right side.
+1) First and last bits are same,
+remaining n-1 bits on both sides should also have the same sum.
+2) First bit is 1 and last bit is 0, sum of remaining n-1 bits
+on left side should be 1 less than the sum n-1 bits on right side.
+2) First bit is 0 and last bit is 1, sum of remaining n-1 bits on
+left side should be 1 more than the sum n-1 bits on right side.
 """
 
 MEMO = None

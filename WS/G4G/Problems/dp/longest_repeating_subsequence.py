@@ -8,7 +8,7 @@ There is no repeating subsequence
 
 Input: str = "aab"
 Output: 1
-The two subssequence are 'a'(first) and 'a'(second).
+The two sub sequences are 'a'(first) and 'a'(second).
 Note that 'b' cannot be considered as part of subsequence
 as it would be at same index in both.
 

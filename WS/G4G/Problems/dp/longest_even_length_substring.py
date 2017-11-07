@@ -87,6 +87,6 @@ def max_len_substr_ev_len(string):
     return string[start: start + mx_len]
 
 
-if __name__== '__main__':
+if __name__ == '__main__':
     print max_len_substr_ev_len('123123')
     print max_len_substr_ev_len('1538023')

@@ -12,8 +12,8 @@ Examples:
 
 Input:  n = 100
 Output: 1
-100 can be written as 102. Note that 100 can also be
-written as 52 + 52 + 52 + 52, but this
+100 can be written as 10^2. Note that 100 can also be
+written as 5^2 + 5^2 + 5^2 + 5^2, but this
 representation requires 4 squares.
 
 Input:  n = 6

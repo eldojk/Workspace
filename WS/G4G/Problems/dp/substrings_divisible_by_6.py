@@ -1,6 +1,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/number-substrings-divisible-6-string-integers/
 
 Let f(i, m) be the number of strings starting at index i and sum of their digits modulo 3 (so far) is m and

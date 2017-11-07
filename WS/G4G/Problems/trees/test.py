@@ -1,39 +1,50 @@
+from sys import maxint
+
 from G4G.Problems.dp.min_matrix_cost_path_to_mn import print_matrix
 
 
-def is_valid(x, y, n):
-    if (0 <= x < n) and (0 <= y < n):
-        return n > y >= (n - 1 - x)
-
-    return False
+def is_valid(i, j, r, c):
+    return 0 <= i < r and 0 <= j < c
 
 
-def get_paths(i, j, dp, n):
-    if i == 0 and j == n - 1:
-        return 1
+def __find(m, dp, i, j, r, c, dir):
+    if not is_valid(i, j, r, c) or m[i][j] == '#':
+        return 0
 
-    if dp[i][j] != -1:
-        return dp[i][j]
+    if dp[i][j][dir] != -1:
+        return dp[i][j][dir]
 
-    dp[i][j] = 0
-    neighbours = [(i - 1, j), (i, j + 1)]
+    res = 1 if m[i][j] == 'C' else 0
 
-    for neighbour in neighbours:
-        x = neighbour[0]
-        y = neighbour[1]
-        if is_valid(x, y, n):
-            print x, y
-            dp[i][j] += get_paths(x, y, dp, n)
+    if dir == 0:
+        res += max(
+            __find(m, dp, i + 1, j, r, c, 1),
+            __find(m, dp, i, j - 1, r, c, 0)
+        )
+    elif dir == 1:
+        res += max(
+            __find(m, dp, i + 1, j, r, c, 0),
+            __find(m, dp, i, j + 1, r, c, 1)
+        )
 
-    return dp[i][j]
+    dp[i][j][dir] = res
+    return dp[i][j][dir]
 
 
-def num_of_paths_to_dest(n):
-    dp = [[-1 for i in range(n)] for j in range(n)]
-    v = get_paths(n - 1, 0, dp, n)
-    print_matrix(dp)
-    return v
+def find_max_coins(m):
+    r = len(m)
+    c = len(m[0])
+    dp = [[[-1 for i in ['l', 'r']] for j in range(c)] for k in range(r)]
+
+    return __find(m, dp, 0, 0, r, c, 1)
 
 
 if __name__ == '__main__':
-    print num_of_paths_to_dest(4)
+    m = [
+        ['E', 'C', 'C', 'C', 'C'],
+        ['C', '#', 'C', '#', 'E'],
+        ['#', 'C', 'C', '#', 'C'],
+        ['C', 'E', 'E', 'C', 'E'],
+        ['C', 'E', '#', 'C', 'E']
+    ]
+    print find_max_coins(m)

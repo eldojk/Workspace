@@ -67,7 +67,7 @@ def get_permutations(box):
     return [box, tuple(rot1), tuple(rot2)]
 
 
-def comparator(box1, box2):
+def base_area_comparator(box1, box2):
     ba1 = box1[0] * box1[1]
     ba2 = box2[0] * box2[1]
 
@@ -89,7 +89,7 @@ def stack_boxes(boxes):
         box_combinations.extend(get_permutations(box))
 
     # sorting based on base area decreasing order
-    box_combinations.sort(cmp=comparator, reverse=True)
+    box_combinations.sort(cmp=base_area_comparator, reverse=True)
 
     max_heights = [box[2] for box in box_combinations]
     result = [i for i in range(len(box_combinations))]

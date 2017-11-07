@@ -14,7 +14,7 @@ from G4G.Problems.dp.min_matrix_cost_path_to_mn import print_matrix
 
 
 def get_num_ways_to_make_k_using_1_to_k(n, k):
-    dp = [[0 for i in range(k + 1)] for j in range(n+1)]
+    dp = [[0 for i in range(k + 1)] for j in range(n + 1)]
 
     for i in range(k + 1):
         dp[0][i] = 1
@@ -33,4 +33,3 @@ def get_num_ways_to_make_k_using_1_to_k(n, k):
 
 if __name__ == '__main__':
     print get_num_ways_to_make_k_using_1_to_k(6, 5)
-

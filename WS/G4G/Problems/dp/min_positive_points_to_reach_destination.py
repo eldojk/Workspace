@@ -93,6 +93,7 @@ def min_points(points):
 
 if __name__ == '__main__':
     m = [
+
         [-2, -3, 3],
         [-5, -10, 1],
         [10, 30, -5]

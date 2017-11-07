@@ -32,4 +32,3 @@ def probablity(x, y, moves, memo):
 
     memo[x][y][moves] = ans/8  # coz its probability of being in board after 8 possible moves
     return ans
-

@@ -86,5 +86,3 @@ def partition_minimum_sum(array):
 if __name__ == '__main__':
     print partition_minimum_sum([1, 6, 11, 5])
     print partition_minimum_sum([3, 1, 4, 2, 2, 1])
-
-

@@ -33,7 +33,7 @@ def min_steps_to_n(array):
     for i in range(1, N):
 
         for j in range(i):
-            max_index_reachable_from_j = array[j] + j
+            max_index_reachable_from_j = j + array[j]
 
             if max_index_reachable_from_j >= i:
                 # array[i] is reachable from j
@@ -51,6 +51,8 @@ if __name__ == '__main__':
 
 """
 amzn
+
+#tricky
 
 in O(n)
 http://ide.geeksforgeeks.org/JuWqMj
