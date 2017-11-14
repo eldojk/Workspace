@@ -1,6 +1,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/dynamic-programming-set-37-boolean-parenthesization-problem/
 
 	t	t	f	t

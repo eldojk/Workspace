@@ -2,6 +2,7 @@
 """
 amzn, msft
 
+#tricky
 http://www.geeksforgeeks.org/maximum-profit-by-buying-and-selling-a-share-at-most-k-times/
 
 Let profit[t][i] represent maximum profit using at most t transactions up to day i (including day i).

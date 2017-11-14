@@ -2,6 +2,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/given-a-number-find-next-smallest-palindrome-larger-than-this-number/
 
 ^ very detailed explanation (refer to see the cases)

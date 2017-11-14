@@ -25,36 +25,33 @@ def boggle_using_bt(matrix, i, j, m, n, word, w_idx, used):
         x = neighbour[0]
         y = neighbour[1]
 
-        if matrix[x][y] != word[w_idx] or used.get(x) == y:
+        if matrix[x][y] != word[w_idx] or used[x][y]:
             continue
 
-        used[x] = y
+        used[i][j] = True
         result = boggle_using_bt(matrix, x, y, m, n, word, w_idx + 1, used)
 
         if result:
             return True
 
-        if used.get(x) == y:
-            used.pop(x)
+        used[i][j] = False
 
     return False
 
 
 def boggle_using_back_tracking(matrix, m, n, word):
-    used = {}
-    # ^ todo just use a boolean matrix
+    used = [[False for i in range(n)] for j in range(m)]
 
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
             if matrix[i][j] == word[0]:
-                used[i] = j
+                used[i][j] = True
                 result = boggle_using_bt(matrix, i, j, m, n, word, 1, used)
 
                 if result:
                     return True
 
-                if used.get(i) == j:
-                    used.pop(i)
+                used[i][j] = False
 
     return False
 

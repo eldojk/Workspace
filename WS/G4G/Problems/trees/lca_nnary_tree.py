@@ -61,7 +61,7 @@ def lca(root, n1, n2):
     # smallest depth value node between i1 and i2 will be the lca
     min_idx = i1 + 1
     for i in range(i1 + 1, i2):
-        if euler[i] < euler[min_idx]:
+        if depths[i] < depths[min_idx]:
             min_idx = i
 
     print euler[min_idx]

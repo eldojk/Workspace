@@ -58,3 +58,4 @@ if __name__ == '__main__':
         [3, 2, 1]
     ]
     print find_paths_num(mt, 12)
+

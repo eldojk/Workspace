@@ -4,8 +4,8 @@ amzn
 #tricky
 http://www.geeksforgeeks.org/number-substrings-divisible-6-string-integers/
 
-Let f(i, m) be the number of strings starting at index i and sum of their digits modulo 3 (so far) is m and
-number it represents is even. So, our answer would be
+Let f(i, m) be the number of strings starting at index i and sum of their digits
+modulo 3 (so far) is m and number it represents is even. So, our answer would be
 sum f(i, 0) for i in [0, n - 1]
 
 // We initially pass m (sum modulo 3 so far) as 0

@@ -2,6 +2,7 @@
 """
 amzn, msft
 
+#tricky
 http://www.geeksforgeeks.org/wildcard-pattern-matching/
 
 Given a text and a wildcard pattern, implement wildcard pattern matching algorithm that finds if

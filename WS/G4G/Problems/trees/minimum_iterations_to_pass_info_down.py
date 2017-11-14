@@ -36,6 +36,7 @@ def init_heights(root):
         return 0
 
     if is_leaf(root):
+        root.height = 1
         return 1
 
     root.height = 1 + max([init_heights(child) for child in root.children])

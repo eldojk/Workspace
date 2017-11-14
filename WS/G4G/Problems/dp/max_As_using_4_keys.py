@@ -2,6 +2,7 @@
 """
 amzn
 
+#tricky
 http://www.geeksforgeeks.org/how-to-print-maximum-number-of-a-using-given-four-keys/
 
 Imagine you have a special keyboard with the following keys:
